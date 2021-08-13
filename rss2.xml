@@ -9,7 +9,7 @@
     <atom:link href="http://example.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description> </description>
-    <pubDate>Fri, 13 Aug 2021 01:32:18 GMT</pubDate>
+    <pubDate>Fri, 13 Aug 2021 02:16:41 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
@@ -20,13 +20,13 @@
       
         
         
-      <description>&lt;p&gt;  从零开始搭建个人博客&lt;br&gt;测试文章创建&lt;/p&gt;
+      <description>&lt;p&gt;  从零开始搭建个人博客&lt;br&gt;##注册github&lt;/p&gt;
 </description>
         
       
       
       
-      <content:encoded><![CDATA[<p>  从零开始搭建个人博客<br>测试文章创建</p>]]></content:encoded>
+      <content:encoded><![CDATA[<p>  从零开始搭建个人博客<br>##注册github</p>]]></content:encoded>
       
       
       
