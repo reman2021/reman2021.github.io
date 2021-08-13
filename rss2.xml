@@ -9,8 +9,33 @@
     <atom:link href="http://example.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description> </description>
-    <pubDate>Wed, 11 Aug 2021 07:20:47 GMT</pubDate>
+    <pubDate>Fri, 13 Aug 2021 01:32:18 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>搭建个人博客</title>
+      <link>http://example.com/2021/08/13/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</link>
+      <guid>http://example.com/2021/08/13/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</guid>
+      <pubDate>Fri, 13 Aug 2021 01:28:02 GMT</pubDate>
+      
+        
+        
+      <description>&lt;p&gt;  从零开始搭建个人博客&lt;br&gt;测试文章创建&lt;/p&gt;
+</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<p>  从零开始搭建个人博客<br>测试文章创建</p>]]></content:encoded>
+      
+      
+      
+      <category domain="http://example.com/tags/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/">搭建博客</category>
+      
+      
+      <comments>http://example.com/2021/08/13/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>Hello World</title>
