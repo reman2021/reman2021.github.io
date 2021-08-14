@@ -8,7 +8,7 @@
       <link href="/2021/08/13/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"/>
       <url>/2021/08/13/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</url>
       
-        <content type="html"><![CDATA[<p>  从零开始搭建个人博客</p><h2 id="注册github"><a href="#注册github" class="headerlink" title="注册github"></a>注册github</h2>]]></content>
+        <content type="html"><![CDATA[<p>  从零开始搭建个人博客</p><h2 id="注册github"><a href="#注册github" class="headerlink" title="注册github"></a>注册github</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">body &#123;</span><br><span class="line">  --body-bg-color: <span class="variable">$body</span>-bg-color;</span><br><span class="line">  --content-bg-color: <span class="variable">$content</span>-bg-color;</span><br></pre></td></tr></table></figure><p>代码块</p>]]></content>
       
       
       
