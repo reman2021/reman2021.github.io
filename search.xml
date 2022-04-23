@@ -8,7 +8,7 @@
       <link href="/2021/10/01/%E5%B0%8F%E7%AC%94%E8%AE%B0-%E7%A7%AF%E5%8C%96%E5%92%8C%E5%B7%AE%E3%80%81%E5%92%8C%E5%B7%AE%E5%8C%96%E7%A7%AF%E5%85%AC%E5%BC%8F/"/>
       <url>/2021/10/01/%E5%B0%8F%E7%AC%94%E8%AE%B0-%E7%A7%AF%E5%8C%96%E5%92%8C%E5%B7%AE%E3%80%81%E5%92%8C%E5%B7%AE%E5%8C%96%E7%A7%AF%E5%85%AC%E5%BC%8F/</url>
       
-        <content type="html"><![CDATA[<p><span id="more"></span></p><h2 id="和差化积">和差化积：</h2><p><imgsrc="https://cdn.jsdelivr.net/gh/reman2021/ImageHosting@main/zcw-blog-picture/2021-10-01%2016-30-06-95.png" /></p><h2 id="积化和差">积化和差：</h2><p><imgsrc="https://cdn.jsdelivr.net/gh/reman2021/ImageHosting@main/zcw-blog-picture/2021-10-01%2016-30-45-82.png" /></p><p>辅助记忆口诀：</p><p>正加正，正在前，余加余，余并肩</p><p>正减正，余在前，余减余，负正弦</p>]]></content>
+        <content type="html"><![CDATA[<p>本文主要用于测试mathjax渲染功能</p><p><span id="more"></span></p><h2 id="和差化积">和差化积：</h2><p><span class="math display">\[\sin x+\sin y=2 \sin \frac{x+y}{2} \cos \frac{x-y}{2}\]</span> <span class="math display">\[\sin x-\sin y=2 \cos \frac{x+y}{2} \sin \frac{x-y}{2}\]</span> <span class="math display">\[\cos x+\cos y=2 \cos \frac{x+y}{2} \cos \frac{x-y}{2}\]</span> <span class="math display">\[\cos x-\cos y=-2 \sin \frac{x+y}{2} \sin \frac{x-y}{2}\]</span></p><h2 id="积化和差">积化和差：</h2><p><span class="math display">\[\sin x \sin y=-\frac{1}{2}[\cos (x+y)-\cos (x-y)]\]</span> <span class="math display">\[\cos x \cos y=\frac{1}{2}[\cos (x+y)+\cos (x-y)]\]</span> <span class="math display">\[\sin x \cos y=\frac{1}{2}[\sin (x+y)+\sin (x-y)]\]</span></p><p>辅助记忆口诀：</p><p>正加正，正在前，余加余，余并肩</p><p>正减正，余在前，余减余，负正弦</p>]]></content>
       
       
       <categories>

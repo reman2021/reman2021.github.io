@@ -6,7 +6,7 @@
   <link href="https://reman2021.github.io/atom.xml" rel="self"/>
   
   <link href="https://reman2021.github.io/"/>
-  <updated>2022-04-23T03:30:30.736Z</updated>
+  <updated>2022-04-23T04:31:56.376Z</updated>
   <id>https://reman2021.github.io/</id>
   
   <author>
@@ -21,10 +21,11 @@
     <link href="https://reman2021.github.io/2021/10/01/%E5%B0%8F%E7%AC%94%E8%AE%B0-%E7%A7%AF%E5%8C%96%E5%92%8C%E5%B7%AE%E3%80%81%E5%92%8C%E5%B7%AE%E5%8C%96%E7%A7%AF%E5%85%AC%E5%BC%8F/"/>
     <id>https://reman2021.github.io/2021/10/01/%E5%B0%8F%E7%AC%94%E8%AE%B0-%E7%A7%AF%E5%8C%96%E5%92%8C%E5%B7%AE%E3%80%81%E5%92%8C%E5%B7%AE%E5%8C%96%E7%A7%AF%E5%85%AC%E5%BC%8F/</id>
     <published>2021-10-01T08:24:10.000Z</published>
-    <updated>2022-04-23T03:30:30.736Z</updated>
+    <updated>2022-04-23T04:31:56.376Z</updated>
     
     
-    <summary type="html">&lt;p&gt;</summary>
+    <summary type="html">&lt;p&gt;本文主要用于测试mathjax渲染功能&lt;/p&gt;
+&lt;p&gt;</summary>
     
     
     
