@@ -49,7 +49,119 @@
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
-<link rel="alternate" href="/atom.xml" title="ZCW_Blog" type="application/atom+xml">
+<style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style><link rel="alternate" href="/atom.xml" title="ZCW_Blog" type="application/atom+xml">
 <style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}</style></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
@@ -592,14 +704,15 @@ if(canvas.getContext){
     
     
     <div class="post-body" itemprop="articleBody">
-           <span id="more"></span>
-
-<h2 id="和差化积："><a href="#和差化积：" class="headerlink" title="和差化积："></a>和差化积：</h2><p><img src="https://cdn.jsdelivr.net/gh/reman2021/ImageHosting@main/zcw-blog-picture/2021-10-01%2016-30-06-95.png"></p>
-<h2 id="积化和差："><a href="#积化和差：" class="headerlink" title="积化和差："></a>积化和差：</h2><p><img src="https://cdn.jsdelivr.net/gh/reman2021/ImageHosting@main/zcw-blog-picture/2021-10-01%2016-30-45-82.png"></p>
-<p>辅助记忆口诀：</p>
-<p>正加正，正在前，余加余，余并肩</p>
-<p>正减正，余在前，余减余，负正弦</p>
-
+          <p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/10/01/%E5%B0%8F%E7%AC%94%E8%AE%B0-%E7%A7%AF%E5%8C%96%E5%92%8C%E5%B7%AE%E3%80%81%E5%92%8C%E5%B7%AE%E5%8C%96%E7%A7%AF%E5%85%AC%E5%BC%8F/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -715,6 +828,7 @@ if(canvas.getContext){
     
     <div class="post-body" itemprop="articleBody">
           <p>本文作者：南京航空航天大学 科技中心 陈思祺</p>
+<p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2021/09/07/%E4%BD%BF%E7%94%A8jetson%20nano%E5%90%91px4%E6%8F%90%E4%BE%9Bt265%E4%BD%8D%E7%BD%AE%E4%BF%A1%E6%81%AF%EF%BC%8C%E5%AE%9E%E7%8E%B0%E5%AE%A4%E5%86%85%E5%AE%9A%E7%82%B9%E9%A3%9E%E8%A1%8C/#more" rel="contents">
@@ -837,14 +951,17 @@ if(canvas.getContext){
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="浅识数据结构与算法"><a href="#浅识数据结构与算法" class="headerlink" title="浅识数据结构与算法"></a>浅识数据结构与算法</h2><p>数据结构是讨论在非数值计算领域，如何将现实世界的问题转换为计算机语言的描述。</p>
-<h3 id="讨论范畴"><a href="#讨论范畴" class="headerlink" title="讨论范畴"></a>讨论范畴</h3><p>Data Structures（数据结构）+ Algorithm（算法）= Programs（程序）</p>
+          <h2 id="浅识数据结构与算法">浅识数据结构与算法</h2>
+<p>数据结构是讨论在非数值计算领域，如何将现实世界的问题转换为计算机语言的描述。</p>
+<h3 id="讨论范畴">讨论范畴</h3>
+<p>Data Structures（数据结构）+ Algorithm（算法）= Programs（程序）</p>
 <ul>
 <li>程序：计算机可以执行的一组指令集</li>
 <li>数据结构：问题的数学模型</li>
 <li>算法：解决问题的策略</li>
 </ul>
 <p>计算机的算法与数据结构密切相关，算法无不依赖于数据结构，而数据结构也关系到算法的效率，直接决定了一个程序的好坏。</p>
+<p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2021/09/07/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/#more" rel="contents">
@@ -947,7 +1064,7 @@ if(canvas.getContext){
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>10 分钟</span>
+      <span>11 分钟</span>
     </span>
 </div>
 
@@ -958,7 +1075,9 @@ if(canvas.getContext){
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>Markdown 是一种轻量级的标记语言，可用于在纯文本文档中添加格式化元素。Markdown 由 John Gruber 于 2004 年创建，如今已成为世界上最受欢迎的标记语言之一。</p>
+          <p>Markdown
+是一种轻量级的标记语言，可用于在纯文本文档中添加格式化元素。Markdown 由
+John Gruber 于 2004 年创建，如今已成为世界上最受欢迎的标记语言之一。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2021/08/19/Markdown%E8%AF%AD%E6%B3%95%E8%AF%A6%E8%A7%A3/#more" rel="contents">
@@ -1063,7 +1182,7 @@ if(canvas.getContext){
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>2.9k</span>
+      <span>2.8k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -1318,7 +1437,14 @@ if(canvas.getContext){
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+          <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very
+first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for
+more info. If you get any problems when using Hexo, you can find the
+answer in <a
+target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or
+you can ask me on <a
+target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2021/08/11/hello-world/#more" rel="contents">
@@ -1413,6 +1539,12 @@ if(canvas.getContext){
   
 
 
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
 
 
 
