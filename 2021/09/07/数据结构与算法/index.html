@@ -34,7 +34,7 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/reman2021/ImageHosting@main/zcw-blog-picture/1560862292645286.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/reman2021/ImageHosting@main/zcw-blog-picture/1560862411132172.png">
 <meta property="article:published_time" content="2021-09-07T05:53:34.000Z">
-<meta property="article:modified_time" content="2021-09-13T13:59:59.991Z">
+<meta property="article:modified_time" content="2022-04-24T09:52:22.836Z">
 <meta property="article:author" content="reman">
 <meta property="article:tag" content="数据结构">
 <meta name="twitter:card" content="summary">
@@ -282,7 +282,7 @@ Data Type, ADT ）</span></a></li></ol></li><li class="nav-item nav-level-3"><a 
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-count">8</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -292,7 +292,7 @@ Data Type, ADT ）</span></a></li></ol></li><li class="nav-item nav-level-3"><a 
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">标签</span>
       </div>
   </nav>
@@ -665,7 +665,7 @@ if(canvas.getContext){
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2021-09-13 21:59:59" itemprop="dateModified" datetime="2021-09-13T21:59:59+08:00">2021-09-13</time>
+      <time title="修改时间：2022-04-24 17:52:22" itemprop="dateModified" datetime="2022-04-24T17:52:22+08:00">2022-04-24</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -745,7 +745,7 @@ if(canvas.getContext){
 <p>注：不同数据类型，其取值的范围不同，所能进行的操作也不同。因此数据类型是一个值的集合和定义在此集合上的一组操作的总称。</p>
 <h4 id="抽象数据类型-abstract-data-type-adt">抽象数据类型（ Abstract
 Data Type, ADT ）</h4>
-<p>抽象数据类型：
+<p>抽象数据类型：<br>
 由用户定义，用以表示应用问题的<strong>数据模型</strong>以及定义在该模型上的<strong>一组操作</strong>，又称<strong>数据抽象</strong>。即一个抽象数据类型，其构成的两要素为<strong>数据的结构</strong>和<strong>相应的操作集合</strong>。</p>
 <p>抽象数据类型可用（D，S，P）三元组表示，其中D 是数据对象； S 是 D
 上的关系集； P 是对 D 的基本操作集。<br>
@@ -758,26 +758,34 @@ Data Type, ADT ）</h4>
 <h4 id="算法特性">算法特性</h4>
 <p>算法是为了解决某类问题而规定的一个有限长的操作序列。一个算法必须满足以下五个重要特性：</p>
 <ul>
-<li>有穷性：一个算法必须总是在执行<strong>有穷步之后结束</strong>，且每一步都可在<strong>有穷时间内完成</strong>。</li>
-<li>确定性：算法中每条指令必须有<strong>确切的</strong>含义。<strong>在任何条件下，算法只有唯一的一条执行路径</strong>，也即对相同的输入只能得出相同的输出。</li>
-<li>可行性：算法中描述的操作都是可以通过已经实现的基本运算执行有限次来实现的。</li>
+<li>有穷性：一个算法必须总是在执行<strong>有穷步之后结束</strong>，且每一步都可在<strong>有穷时间内完成</strong>。<br>
+</li>
+<li>确定性：算法中每条指令必须有<strong>确切的</strong>含义。<strong>在任何条件下，算法只有唯一的一条执行路径</strong>，也即对相同的输入只能得出相同的输出。<br>
+</li>
+<li>可行性：算法中描述的操作都是可以通过已经实现的基本运算执行有限次来实现的。<br>
+</li>
 <li>有输入：：一个算法有零个或多个的输入，这些输入取自于某个特定的对象的集合。
-实际问题中，有些输入是通过人机交互得到的。</li>
+实际问题中，有些输入是通过人机交互得到的。<br>
+</li>
 <li>有输出：一个算法有一个或多个输出，这些输出是同输入有着某些特定关系的量。</li>
 </ul>
 <h4 id="算法设计的原则">算法设计的原则</h4>
-<p>正确性： 算法应当满足具体问题的明确需求。</p>
+<p>正确性：<br>
+算法应当满足具体问题的明确需求。</p>
 <ul>
-<li>程序不含语法错误，能正常运行。</li>
-<li>程序对于常规的输入数据能够得到满足规格说明要求的结果。</li>
-<li>程序对精心选择的，苛刻的数据输入能够得到满足要求的结果，特别是边界条件约束下的正确反馈。</li>
+<li>程序不含语法错误，能正常运行。<br>
+</li>
+<li>程序对于常规的输入数据能够得到满足规格说明要求的结果。<br>
+</li>
+<li>程序对精心选择的，苛刻的数据输入能够得到满足要求的结果，特别是边界条件约束下的正确反馈。<br>
+</li>
 <li>程序对于一切合法的输入数据都能得到满足规格说明要求的结果。</li>
 </ul>
-<p>可读性：
+<p>可读性：<br>
 算法主要是为了人的阅读与交流，其次才是为计算机执行，因此算法应该易于人的理解；另一方面，晦涩难读的程序容易隐藏较多错误而难以调试。</p>
-<p>健壮性：
+<p>健壮性：<br>
 当输入的数据非法时，算法应当恰当地作出反映或进行相应处理，而不是产生莫名奇妙的输出结果。并且，处理出错的方法不应是中断程序的执行，而应是返回一个表示错误或错误性质的值，以便在更高的抽象层次上进行处理。</p>
-<p>高效率与低存储量需求：
+<p>高效率与低存储量需求：<br>
 通常，效率指的是算法执行时间；存储量指的是算法执行过程中所需的最大存储空间，两者都与问题的规模有关。</p>
 <h4 id="算法分析与度量">算法分析与度量</h4>
 <p>衡量算法优劣的指标主要有两个：</p>
@@ -790,14 +798,18 @@ Data Type, ADT ）</h4>
 <ul>
 <li>事后统计法：存在两个问题
 <ul>
-<li>必须执行程序</li>
-<li>其它因素如编程所用语言、编译程序产生的机器代码的质量、程序运行的硬件环境等掩盖算法本质</li>
+<li>必须执行程序<br>
+</li>
+<li>其它因素如编程所用语言、编译程序产生的机器代码的质量、程序运行的硬件环境等掩盖算法本质<br>
+</li>
 </ul></li>
 <li>事前分析估算法
 <ul>
 <li>一个特定算法的“运行工作量”的大小，只依赖于问题的规模，通常用整数量 n
-表示，或者说，它是问题规模的函数；</li>
-<li>一般算法的执行时间与其包含的基本操作执行次数总和成正比；</li>
+表示，或者说，它是问题规模的函数；<br>
+</li>
+<li>一般算法的执行时间与其包含的基本操作执行次数总和成正比；<br>
+</li>
 <li>算法中所包含的基本操作被执行的总次数可以作为算法运行时间的衡量标准。</li>
 </ul></li>
 </ul>
@@ -805,10 +817,12 @@ Data Type, ADT ）</h4>
 <p>时间复杂度的表示：大 O 记法</p>
 <ul>
 <li>算法中所包含的基本操作被执行的总次数是问题规模 n 的函数，可以记做
-f(n)。</li>
+f(n)。<br>
+</li>
 <li>随着问题规模 n 的增长，算法执行时间的增长率和 f(n)
 的增长率相同，则可记作: <strong>T(n) = O(f(n))</strong>,称** T(n)
-为算法的(渐近)时间复杂度**。</li>
+为算法的(渐近)时间复杂度**。<br>
+</li>
 <li>T(n) 是一个粗略的<strong>估计值</strong>，f(n)
 中的<strong>低次项</strong>以及<strong>常数项</strong>对算法执行时间的增长率<strong>贡献较小</strong>，因此可以忽略不计。</li>
 </ul>
@@ -817,10 +831,14 @@ f(n)。</li>
 <p><br></p>
 <p>常见的时间复杂度:</p>
 <ul>
-<li>O(1) 或 O(c)：常量复杂度</li>
-<li>O(logn)：对数复杂度</li>
-<li>O(n)：线性复杂度</li>
-<li>O(<span class="math inline"><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.025ex" xmlns="http://www.w3.org/2000/svg" width="2.345ex" height="1.912ex" role="img" focusable="false" viewBox="0 -833.9 1036.6 844.9"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msup"><g data-mml-node="mi"><path data-c="1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mn" transform="translate(633,363) scale(0.707)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g></g></g></g></svg></mjx-container></span>)：平方复杂度</li>
+<li>O(1) 或 O(c)：常量复杂度<br>
+</li>
+<li>O(logn)：对数复杂度<br>
+</li>
+<li>O(n)：线性复杂度<br>
+</li>
+<li>O(<span class="math inline"><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.025ex" xmlns="http://www.w3.org/2000/svg" width="2.345ex" height="1.912ex" role="img" focusable="false" viewBox="0 -833.9 1036.6 844.9"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msup"><g data-mml-node="mi"><path data-c="1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mn" transform="translate(633,363) scale(0.707)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g></g></g></g></svg></mjx-container></span>)：平方复杂度<br>
+</li>
 <li>O(<span class="math inline"><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="2.279ex" height="1.528ex" role="img" focusable="false" viewBox="0 -675.5 1007.3 675.5"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msup"><g data-mml-node="mn"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g><g data-mml-node="mi" transform="translate(533,363) scale(0.707)"><path data-c="1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path></g></g></g></g></svg></mjx-container></span>)：指数复杂度</li>
 </ul>
 <figure>
@@ -830,19 +848,22 @@ f(n)。</li>
 <p><br></p>
 <p>时间复杂度:</p>
 <ul>
-<li>平均时间复杂度（θ）</li>
-<li>最好情况下的时间复杂度（Ω）</li>
+<li>平均时间复杂度（θ）<br>
+</li>
+<li>最好情况下的时间复杂度（Ω）<br>
+</li>
 <li>最坏情况下的时间复杂度（O）</li>
 </ul>
 <p>注：我们对算法时间复杂度的估算一般是<strong>最坏情况下的时间复杂度（O）</strong>。</p>
 <p><br></p>
-<p>时间复杂度分析 例1，两个矩阵相乘：</p>
+<p>时间复杂度分析<br>
+例1，两个矩阵相乘：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">mult</span><span class="params">(<span class="keyword">int</span> a[],<span class="keyword">int</span> b[],<span class="keyword">int</span>&amp; c[])</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line"><span class="comment">// 以二维数组存储矩阵元素，c 为 a 和 b 的乘积</span></span><br><span class="line">	<span class="keyword">for</span> (i=<span class="number">1</span>;i&lt;=n;++i)</span><br><span class="line">		<span class="keyword">for</span> (j=<span class="number">1</span>;j&lt;=n;++j) </span><br><span class="line">		{</span><br><span class="line">			c[i,j] = <span class="number">0</span>;</span><br><span class="line">			<span class="keyword">for</span> (k=<span class="number">1</span>;k&lt;=n;++k)</span><br><span class="line">				c[i,j] += a[i,k]*b[k,j];</span><br><span class="line">		} <span class="comment">//for</span></span><br><span class="line">} <span class="comment">//mult</span></span><br></pre></td></tr></table></figure>
-<p>在忽略贡献较小<strong>低次项</strong>以及<strong>常数项</strong>后，可得出：
+<p>在忽略贡献较小<strong>低次项</strong>以及<strong>常数项</strong>后，可得出：<br>
 基本操作为乘法操作<code>a[i,k]*b[k,j]</code>，时间复杂度为 O(<span class="math inline"><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.025ex" xmlns="http://www.w3.org/2000/svg" width="2.345ex" height="1.91ex" role="img" focusable="false" viewBox="0 -833.2 1036.6 844.2"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msup"><g data-mml-node="mi"><path data-c="1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mn" transform="translate(633,363) scale(0.707)"><path data-c="33" d="M127 463Q100 463 85 480T69 524Q69 579 117 622T233 665Q268 665 277 664Q351 652 390 611T430 522Q430 470 396 421T302 350L299 348Q299 347 308 345T337 336T375 315Q457 262 457 175Q457 96 395 37T238 -22Q158 -22 100 21T42 130Q42 158 60 175T105 193Q133 193 151 175T169 130Q169 119 166 110T159 94T148 82T136 74T126 70T118 67L114 66Q165 21 238 21Q293 21 321 74Q338 107 338 175V195Q338 290 274 322Q259 328 213 329L171 330L168 332Q166 335 166 348Q166 366 174 366Q202 366 232 371Q266 376 294 413T322 525V533Q322 590 287 612Q265 626 240 626Q208 626 181 615T143 592T132 580H135Q138 579 143 578T153 573T165 566T175 555T183 540T186 520Q186 498 172 481T127 463Z"></path></g></g></g></g></svg></mjx-container></span>)</p>
 <p>例2，选择排序：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">select_sort</span><span class="params">(<span class="keyword">int</span>&amp; a[],<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n<span class="number">-1</span>;i++)</span><br><span class="line">	{</span><br><span class="line">		p=i;</span><br><span class="line">		<span class="keyword">for</span>(j=i+<span class="number">1</span>;j&lt;n;j++)</span><br><span class="line">			<span class="keyword">if</span>(a[j]&lt;a[p])</span><br><span class="line">				p=j;</span><br><span class="line">		<span class="keyword">if</span>(p!=i)</span><br><span class="line">			a[i]&lt;---&gt;a[p];</span><br><span class="line">	}</span><br><span class="line">} <span class="comment">// select_sort</span></span><br></pre></td></tr></table></figure>
-<p>同样的，在忽略贡献较小<strong>低次项</strong>以及<strong>常数项</strong>后，可得出：
+<p>同样的，在忽略贡献较小<strong>低次项</strong>以及<strong>常数项</strong>后，可得出：<br>
 基本操作为比较操作<code>if(a[j]&lt;a[p])</code>，时间复杂度为 O(<span class="math inline"><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.025ex" xmlns="http://www.w3.org/2000/svg" width="2.345ex" height="1.912ex" role="img" focusable="false" viewBox="0 -833.9 1036.6 844.9"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msup"><g data-mml-node="mi"><path data-c="1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mn" transform="translate(633,363) scale(0.707)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g></g></g></g></svg></mjx-container></span>)</p>
 <h5 id="空间复杂度">空间复杂度</h5>
 <p>算法的存储量包括：</p>
@@ -853,8 +874,10 @@ f(n)。</li>
 </ul>
 <p>注：</p>
 <ol type="1">
-<li>若输入数据所占空间只取决于问题本身，和算法无关，则只需要分析<strong>除输入和程序之外的辅助变量所占额外空间</strong>。</li>
-<li>若所需额外空间相对于输入数据量来说是常数，则称此算法为<strong>原地工作</strong>。如上述的选择排序算法便是原地工作。</li>
+<li>若输入数据所占空间只取决于问题本身，和算法无关，则只需要分析<strong>除输入和程序之外的辅助变量所占额外空间</strong>。<br>
+</li>
+<li>若所需额外空间相对于输入数据量来说是常数，则称此算法为<strong>原地工作</strong>。如上述的选择排序算法便是原地工作。<br>
+</li>
 <li>若所需存储量依赖于特定的输入，则通常<strong>按最坏情况考虑</strong>。</li>
 </ol>
 <p><br></p>
@@ -867,30 +890,39 @@ f(n)。</li>
 <h3 id="线性表的顺序存储数组">线性表的顺序存储——数组</h3>
 <p>顺序表：</p>
 <ul>
-<li>顺序表的定义：顺序表是用一组地址连续的存储空间依次存储线性表的数据元素</li>
+<li>顺序表的定义：顺序表是用一组地址连续的存储空间依次存储线性表的数据元素<br>
+</li>
 <li>顺序表的特点：
 <ul>
-<li>各个数据元素的逻辑顺序与其存放的物理顺序一致</li>
-<li>对顺序表中所有元素，既可以进行顺序依次访问，也可以进行随机直接访问</li>
-<li>顺序表用一维数组实现时，存储空间可以是静态分配的，也可以是动态分配的</li>
-<li>顺序表所能存放的数据元素个数受数组的空间大小约束</li>
+<li>各个数据元素的逻辑顺序与其存放的物理顺序一致<br>
+</li>
+<li>对顺序表中所有元素，既可以进行顺序依次访问，也可以进行随机直接访问<br>
+</li>
+<li>顺序表用一维数组实现时，存储空间可以是静态分配的，也可以是动态分配的<br>
+</li>
+<li>顺序表所能存放的数据元素个数受数组的空间大小约束<br>
+</li>
 </ul></li>
 <li>顺序表的三要素：
 <ul>
-<li>起始地址（常量）</li>
-<li>顺序表长度（常量）</li>
+<li>起始地址（常量）<br>
+</li>
+<li>顺序表长度（常量）<br>
+</li>
 <li>顺序表包含的有效元素个数（变量）</li>
 </ul></li>
 </ul>
 <h4 id="顺序表的操作">顺序表的操作</h4>
 <p>访问类操作：</p>
 <ul>
-<li><p>获取顺序表第i个数据元素（时间复杂度为 O(1)）</p></li>
-<li><p>查找元素e所在的位置（时间复杂度为 O(n)）</p></li>
+<li>获取顺序表第i个数据元素（时间复杂度为 O(1)）<br>
+</li>
+<li>查找元素e所在的位置（时间复杂度为 O(n)）</li>
 </ul>
 <p>加工类操作：</p>
 <ul>
-<li>在顺序表第i个位置插入元素e（时间复杂度为 O(n)）</li>
+<li>在顺序表第i个位置插入元素e（时间复杂度为 O(n)）<br>
+</li>
 <li>将顺序表第i个位置上的元素删除（时间复杂度为 O(n)）</li>
 </ul>
 <p>注：由于顺序表的顺序存储的特点，插入和删除都要通过移动来实现，这样做的弊端有二：</p>
@@ -1002,13 +1034,13 @@ list）是一种最简单的链表表示，也叫做线性链表。单链表每�
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">30k</span>
+    <span title="站点总字数">31k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">27 分钟</span>
+    <span title="站点阅读时长">28 分钟</span>
   </span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
