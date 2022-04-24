@@ -5,8 +5,8 @@
     
     <entry>
       <title>Hexo+NexT配置优化指南</title>
-      <link href="/2022/04/24/Hexo+Next%E9%85%8D%E7%BD%AE%E4%BC%98%E5%8C%96%E6%8C%87%E5%8D%97/"/>
-      <url>/2022/04/24/Hexo+Next%E9%85%8D%E7%BD%AE%E4%BC%98%E5%8C%96%E6%8C%87%E5%8D%97/</url>
+      <link href="/2022/04/24/Hexo+NexT%E9%85%8D%E7%BD%AE%E4%BC%98%E5%8C%96%E6%8C%87%E5%8D%97/"/>
+      <url>/2022/04/24/Hexo+NexT%E9%85%8D%E7%BD%AE%E4%BC%98%E5%8C%96%E6%8C%87%E5%8D%97/</url>
       
         <content type="html"><![CDATA[<p>记录Hexo+NexT的配置优化过程，以便后续更改和维护。</p><span id="more"></span><h2 id="前言">前言</h2><p>Hexo version：5.4.0，NexTversion：8.11.0，查看命令为<code>hexo -v</code>。<br /><strong>站点配置文件</strong>都是指博客根目录下的 _config.yml文件，路径为root/_config.yml。<br /><strong>主题配置文件</strong>都是指主题文件里的 _config.yml文件，路径为root/theme/next/_config.yml。</p><h2 id="基础配置">基础配置</h2><h3 id="section"></h3>]]></content>
       
@@ -141,9 +141,9 @@
       
         <tags>
             
-            <tag> Markdown </tag>
-            
             <tag> 搭建博客 </tag>
+            
+            <tag> Markdown </tag>
             
             <tag> hexo </tag>
             
