@@ -6,7 +6,7 @@
   <link href="https://reman2021.github.io/atom.xml" rel="self"/>
   
   <link href="https://reman2021.github.io/"/>
-  <updated>2022-04-24T09:59:47.622Z</updated>
+  <updated>2022-04-25T15:25:50.242Z</updated>
   <id>https://reman2021.github.io/</id>
   
   <author>
@@ -17,14 +17,14 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Hexo+NexT配置优化指南</title>
+    <title>Hexo + NexT 配置优化指南</title>
     <link href="https://reman2021.github.io/2022/04/24/Hexo+NexT%E9%85%8D%E7%BD%AE%E4%BC%98%E5%8C%96%E6%8C%87%E5%8D%97/"/>
     <id>https://reman2021.github.io/2022/04/24/Hexo+NexT%E9%85%8D%E7%BD%AE%E4%BC%98%E5%8C%96%E6%8C%87%E5%8D%97/</id>
     <published>2022-04-24T08:17:13.000Z</published>
-    <updated>2022-04-24T09:59:47.622Z</updated>
+    <updated>2022-04-25T15:25:50.242Z</updated>
     
     
-    <summary type="html">&lt;p&gt;记录Hexo+NexT的配置优化过程，以便后续更改和维护。&lt;/p&gt;</summary>
+    <summary type="html">&lt;p&gt;记录 Hexo + NexT 的配置优化过程，以便后续更改和维护。&lt;/p&gt;</summary>
     
     
     
@@ -111,7 +111,7 @@
     <link href="https://reman2021.github.io/2021/08/19/Markdown%E8%AF%AD%E6%B3%95%E8%AF%A6%E8%A7%A3/"/>
     <id>https://reman2021.github.io/2021/08/19/Markdown%E8%AF%AD%E6%B3%95%E8%AF%A6%E8%A7%A3/</id>
     <published>2021-08-18T16:36:36.000Z</published>
-    <updated>2022-04-24T09:34:53.403Z</updated>
+    <updated>2022-04-24T15:14:41.459Z</updated>
     
     
     <summary type="html">&lt;p&gt;Markdown

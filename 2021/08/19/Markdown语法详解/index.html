@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"reman2021.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.11.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"reman2021.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.11.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="Markdown 是一种轻量级的标记语言，可用于在纯文本文档中添加格式化元素。Markdown 由 John Gruber 于 2004 年创建，如今已成为世界上最受欢迎的标记语言之一。">
 <meta property="og:type" content="article">
@@ -31,7 +31,7 @@
 <meta property="og:description" content="Markdown 是一种轻量级的标记语言，可用于在纯文本文档中添加格式化元素。Markdown 由 John Gruber 于 2004 年创建，如今已成为世界上最受欢迎的标记语言之一。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-08-18T16:36:36.000Z">
-<meta property="article:modified_time" content="2022-04-24T09:34:53.403Z">
+<meta property="article:modified_time" content="2022-04-24T15:14:41.459Z">
 <meta property="article:author" content="reman">
 <meta property="article:tag" content="Markdown">
 <meta name="twitter:card" content="summary">
@@ -548,7 +548,7 @@ if(canvas.getContext){
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-04-24 17:34:53" itemprop="dateModified" datetime="2022-04-24T17:34:53+08:00">2022-04-24</time>
+      <time title="修改时间：2022-04-24 23:14:41" itemprop="dateModified" datetime="2022-04-24T23:14:41+08:00">2022-04-24</time>
     </span>
 
   
@@ -698,9 +698,11 @@ style="text-align: center;"><code>&lt;h3&gt;Heading level 3&lt;/h3&gt;</code></t
 </table>
 <p>注：最多只能添加六个 # ，即只能到六级标题，无七级标题。</p>
 <p>也可以在文本下方添加任意数量的 == 号来标识一级标题，或者 --
-号来标识二级标题。 一级标题： <code>Heading level 1</code>
-<code>===============</code> 二级标题： <code>Heading level 2</code>
-<code>---------------</code></p>
+号来标识二级标题。<br />
+一级标题：<br />
+<code>Heading level 1</code> <code>===============</code>
+二级标题：<br />
+<code>Heading level 2</code> <code>---------------</code></p>
 <h3 id="段落paragraph">段落（Paragraph）</h3>
 <p>创建段落：使用空白行将一行或多行文本进行分隔。<strong>注意不要用空格（spaces）或制表符（
 tabs）缩进段落。</strong><br />
@@ -866,7 +868,8 @@ very<strong><em>very</em></strong>important.</td>
 </blockquote>
 <h4 id="多段落">多段落</h4>
 <p>创建多个段落的块引用：除了在段落前添加一个 &gt;
-符号，还要在段落之间的空白行添加一个 &gt; 符号 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; &quot;Il n&#x27;ya qu&#x27;un héroïsme au monde : c&#x27;est de voir le monde tel qu&#x27;il est et de l&#x27;aimer.&quot;</span><br><span class="line">&gt; </span><br><span class="line">&gt;  Romain Rolland</span><br></pre></td></tr></table></figure></p>
+符号，还要在段落之间的空白行添加一个 &gt; 符号<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; &quot;Il n&#x27;ya qu&#x27;un héroïsme au monde : c&#x27;est de voir le monde tel qu&#x27;il est et de l&#x27;aimer.&quot;</span><br><span class="line">&gt; </span><br><span class="line">&gt;  Romain Rolland</span><br></pre></td></tr></table></figure></p>
 <p>渲染效果如下：</p>
 <blockquote>
 <p>"Il n'ya qu'un héroïsme au monde : c'est de voir le monde tel qu'il
@@ -1363,18 +1366,57 @@ target="_blank" rel="noopener" href="https://github.com/sparanoid/chinese-copywr
   </span>
   <span class="author" itemprop="copyrightHolder">reman</span>
 </div>
+
+<span id="sitetime"></span>
+<script language=javascript>
+	function siteTime(){
+		window.setTimeout("siteTime()", 1000);
+		var seconds = 1000;
+		var minutes = seconds * 60;
+		var hours = minutes * 60;
+		var days = hours * 24;
+		var years = days * 365;
+		var today = new Date();
+		var todayYear = today.getFullYear();
+		var todayMonth = today.getMonth()+1;
+		var todayDate = today.getDate();
+		var todayHour = today.getHours();
+		var todayMinute = today.getMinutes();
+		var todaySecond = today.getSeconds();
+		/* 
+		Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+		year - 作为date对象的年份，为4位年份值
+		month - 0-11之间的整数，做为date对象的月份
+		day - 1-31之间的整数，做为date对象的天数
+		hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+		minutes - 0-59之间的整数，做为date对象的分钟数
+		seconds - 0-59之间的整数，做为date对象的秒数
+		microseconds - 0-999之间的整数，做为date对象的毫秒数
+        */
+		var t1 = Date.UTC(2021,08,11,00,00,00); //北京时间2021-8-11 00:00:00
+		var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+		var diff = t2-t1;
+		var diffYears = Math.floor(diff/years);
+		var diffDays = Math.floor((diff/days)-diffYears*365);
+		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+		document.getElementById("sitetime").innerHTML=" 本站已悄悄运行"+/*diffYears+" 年 "+*/diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
+	}
+	siteTime();
+</script>
 <div class="wordcount">
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">31k</span>
+    <span title="站点总字数">56k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">28 分钟</span>
+    <span title="站点阅读时长">51 分钟</span>
   </span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
@@ -1387,14 +1429,13 @@ target="_blank" rel="noopener" href="https://github.com/sparanoid/chinese-copywr
   <script type="text/javascript" src="//libs.baidu.com/jquery/1.8.3/jquery.min.js"></script>
   <!-- 雪花特效1 -->
   
-      <script type="text/javascript" src="/js/snow1.js"></script>
-  
   <!-- 雪花特效2 -->
   
 
 
 
   
+  <script size="300" alpha="0.6" zIndex="-1" src="https://cdn.jsdelivr.net/npm/ribbon.js@1.0.2/dist/ribbon.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
