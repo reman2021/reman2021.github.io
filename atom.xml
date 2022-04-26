@@ -6,7 +6,7 @@
   <link href="https://reman2021.github.io/atom.xml" rel="self"/>
   
   <link href="https://reman2021.github.io/"/>
-  <updated>2022-04-26T09:00:04.401Z</updated>
+  <updated>2022-04-26T09:08:33.793Z</updated>
   <id>https://reman2021.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>在Hexo博客上进行创作</title>
+    <link href="https://reman2021.github.io/posts/20220426a1/"/>
+    <id>https://reman2021.github.io/posts/20220426a1/</id>
+    <published>2022-04-26T09:02:48.000Z</published>
+    <updated>2022-04-26T09:08:33.793Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;本文主要介绍如何在Hexo博客上进行创作，包括新建、编辑和预览文章&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="维护日志" scheme="https://reman2021.github.io/categories/%E7%BB%B4%E6%8A%A4%E6%97%A5%E5%BF%97/"/>
+    
+    
+    <category term="搭建博客" scheme="https://reman2021.github.io/tags/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"/>
+    
+    <category term="Markdown" scheme="https://reman2021.github.io/tags/Markdown/"/>
+    
+    <category term="hexo" scheme="https://reman2021.github.io/tags/hexo/"/>
+    
+  </entry>
   
   <entry>
     <title>Hexo + NexT 配置优化指南</title>
@@ -122,29 +145,6 @@ John Gruber 于 2004 年创建，如今已成为世界上最受欢迎的标记�
     
     
     <category term="Markdown" scheme="https://reman2021.github.io/tags/Markdown/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>在Hexo博客上进行创作</title>
-    <link href="https://reman2021.github.io/posts/20210817a1/"/>
-    <id>https://reman2021.github.io/posts/20210817a1/</id>
-    <published>2021-08-17T15:54:10.000Z</published>
-    <updated>2022-04-26T09:03:52.147Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;本文主要介绍如何在Hexo博客上进行创作，包括新建、编辑和预览文章&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="维护日志" scheme="https://reman2021.github.io/categories/%E7%BB%B4%E6%8A%A4%E6%97%A5%E5%BF%97/"/>
-    
-    
-    <category term="搭建博客" scheme="https://reman2021.github.io/tags/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"/>
-    
-    <category term="Markdown" scheme="https://reman2021.github.io/tags/Markdown/"/>
-    
-    <category term="hexo" scheme="https://reman2021.github.io/tags/hexo/"/>
     
   </entry>
   
