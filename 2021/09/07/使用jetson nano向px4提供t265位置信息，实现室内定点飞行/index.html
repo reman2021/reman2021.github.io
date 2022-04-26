@@ -25,13 +25,13 @@
 
     <meta name="description" content="本文作者：南京航空航天大学 科技中心 陈思祺">
 <meta property="og:type" content="article">
-<meta property="og:title" content="使用Jetson Nano向PX4提供t265位置信息，实现室内定点飞行">
+<meta property="og:title" content="使用 Jetson Nano 向 PX4 提供 t265 位置信息，实现室内定点飞行">
 <meta property="og:url" content="https://reman2021.github.io/2021/09/07/%E4%BD%BF%E7%94%A8jetson%20nano%E5%90%91px4%E6%8F%90%E4%BE%9Bt265%E4%BD%8D%E7%BD%AE%E4%BF%A1%E6%81%AF%EF%BC%8C%E5%AE%9E%E7%8E%B0%E5%AE%A4%E5%86%85%E5%AE%9A%E7%82%B9%E9%A3%9E%E8%A1%8C/index.html">
 <meta property="og:site_name" content="ZCW_Blog">
 <meta property="og:description" content="本文作者：南京航空航天大学 科技中心 陈思祺">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-09-07T05:53:34.000Z">
-<meta property="article:modified_time" content="2021-09-10T15:33:24.201Z">
+<meta property="article:modified_time" content="2022-04-26T00:37:33.155Z">
 <meta property="article:author" content="reman">
 <meta property="article:tag" content="PX4飞控">
 <meta name="twitter:card" content="summary">
@@ -41,10 +41,10 @@
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://reman2021.github.io/2021/09/07/%E4%BD%BF%E7%94%A8jetson%20nano%E5%90%91px4%E6%8F%90%E4%BE%9Bt265%E4%BD%8D%E7%BD%AE%E4%BF%A1%E6%81%AF%EF%BC%8C%E5%AE%9E%E7%8E%B0%E5%AE%A4%E5%86%85%E5%AE%9A%E7%82%B9%E9%A3%9E%E8%A1%8C/","path":"2021/09/07/使用jetson nano向px4提供t265位置信息，实现室内定点飞行/","title":"使用Jetson Nano向PX4提供t265位置信息，实现室内定点飞行"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://reman2021.github.io/2021/09/07/%E4%BD%BF%E7%94%A8jetson%20nano%E5%90%91px4%E6%8F%90%E4%BE%9Bt265%E4%BD%8D%E7%BD%AE%E4%BF%A1%E6%81%AF%EF%BC%8C%E5%AE%9E%E7%8E%B0%E5%AE%A4%E5%86%85%E5%AE%9A%E7%82%B9%E9%A3%9E%E8%A1%8C/","path":"2021/09/07/使用jetson nano向px4提供t265位置信息，实现室内定点飞行/","title":"使用 Jetson Nano 向 PX4 提供 t265 位置信息，实现室内定点飞行"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>使用Jetson Nano向PX4提供t265位置信息，实现室内定点飞行 | ZCW_Blog</title>
+<title>使用 Jetson Nano 向 PX4 提供 t265 位置信息，实现室内定点飞行 | ZCW_Blog</title>
   
 
 
@@ -54,8 +54,8 @@
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
-<link rel="alternate" href="/atom.xml" title="ZCW_Blog" type="application/atom+xml">
-<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}</style></head>
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}</style><link rel="alternate" href="/atom.xml" title="ZCW_Blog" type="application/atom+xml">
+</head>
 
 <body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
   <div class="headband"></div>
@@ -150,7 +150,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9B%B4%E6%96%B0%E8%BD%AF%E4%BB%B6%E5%88%97%E8%A1%A8%E6%9B%B4%E6%96%B0%E8%BD%AF%E4%BB%B6"><span class="nav-number">1.</span> <span class="nav-text">1.更新软件列表，更新软件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-ros-melodic"><span class="nav-number">2.</span> <span class="nav-text">2.安装 ROS Melodic</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85realsense"><span class="nav-number">3.</span> <span class="nav-text">3.安装realsense</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%89%E8%A3%85realsense-sdk"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 安装Realsense SDK</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%89%E8%A3%85realsense-ros"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 安装realsense-ros</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#px4%E9%85%8D%E7%BD%AE"><span class="nav-number">4.</span> <span class="nav-text">4.PX4配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B5%B7%E9%A3%9E%E5%89%8D%E6%A3%80%E6%9F%A5"><span class="nav-number">5.</span> <span class="nav-text">6.起飞前检查</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%AB%A0"><span class="nav-number">6.</span> <span class="nav-text">7.参考文章</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9B%B4%E6%96%B0%E8%BD%AF%E4%BB%B6%E5%88%97%E8%A1%A8%E6%9B%B4%E6%96%B0%E8%BD%AF%E4%BB%B6"><span class="nav-number">1.</span> <span class="nav-text">更新软件列表，更新软件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-ros-melodic"><span class="nav-number">2.</span> <span class="nav-text">安装 ROS Melodic</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85realsense"><span class="nav-number">3.</span> <span class="nav-text">安装realsense</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85realsense-sdk"><span class="nav-number">3.1.</span> <span class="nav-text">安装Realsense SDK</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85realsense-ros"><span class="nav-number">3.2.</span> <span class="nav-text">安装realsense-ros</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#px4%E9%85%8D%E7%BD%AE"><span class="nav-number">4.</span> <span class="nav-text">PX4配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mavros-%E5%92%8Cvio"><span class="nav-number">5.</span> <span class="nav-text">MAVROS 和VIO</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B5%B7%E9%A3%9E%E5%89%8D%E6%A3%80%E6%9F%A5"><span class="nav-number">6.</span> <span class="nav-text">起飞前检查</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%AB%A0"><span class="nav-number">7.</span> <span class="nav-text">参考文章</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -525,12 +525,12 @@ if(canvas.getContext){
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="使用Jetson Nano向PX4提供t265位置信息，实现室内定点飞行 | ZCW_Blog">
+      <meta itemprop="name" content="使用 Jetson Nano 向 PX4 提供 t265 位置信息，实现室内定点飞行 | ZCW_Blog">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          使用Jetson Nano向PX4提供t265位置信息，实现室内定点飞行
+          使用 Jetson Nano 向 PX4 提供 t265 位置信息，实现室内定点飞行
         </h1>
 
         <div class="post-meta-container">
@@ -548,7 +548,7 @@ if(canvas.getContext){
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2021-09-10 23:33:24" itemprop="dateModified" datetime="2021-09-10T23:33:24+08:00">2021-09-10</time>
+      <time title="修改时间：2022-04-26 08:37:33" itemprop="dateModified" datetime="2022-04-26T08:37:33+08:00">2022-04-26</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -605,27 +605,27 @@ if(canvas.getContext){
 <p><a
 target="_blank" rel="noopener" href="https://developer.nvidia.com/zh-cn/embedded/downloads">NVIDIA官方镜像下载链接</a></p>
 <p><img
-src="https://cdn.jsdelivr.net/gh/reman2021/ImageHosting@main/zcw-blog-picture/img1.jpg" /></p>
-<p>下载好镜像，烧录进TF卡，初次开机简单配置后进入系统，建议系统语言选择英语，正式开始本次教程</p>
-<h4 id="更新软件列表更新软件">1.更新软件列表，更新软件</h4>
+src="https://cdn.jsdelivr.net/gh/reman2021/ImageHosting/zcw-blog-pictured5e6cd0edeaa430c943e7068d5c14c3c.jpg" /></p>
+<p>下载好镜像，烧录进TF卡，初次开机简单配置后进入系统，建议系统语言选择英语，正式开始本次教程。</p>
+<h2 id="更新软件列表更新软件">更新软件列表，更新软件</h2>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update </span><br><span class="line">sudo apt-get upgrade </span><br></pre></td></tr></table></figure>
-<h4 id="安装-ros-melodic">2.安装 ROS Melodic</h4>
+<h2 id="安装-ros-melodic">安装 ROS Melodic</h2>
 <p>参考<a
 target="_blank" rel="noopener" href="http://wiki.ros.org/melodic/Installation/Ubuntu">官网安装教程</a></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 设置sources.list</span></span><br><span class="line">sudo sh -c &#x27;echo &quot;deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main&quot; &gt; /etc/apt/sources.list.d/ros-latest.list&#x27;</span><br><span class="line"><span class="meta">#</span><span class="bash"> 设置密钥</span></span><br><span class="line">sudo apt install curl</span><br><span class="line">curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add -</span><br><span class="line"><span class="meta">#</span><span class="bash"> 确保 Debian 包索引是最新的</span></span><br><span class="line">sudo apt update</span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装桌面完整版（推荐）</span></span><br><span class="line">sudo apt install ros-melodic-desktop-full</span><br><span class="line"><span class="meta">#</span><span class="bash"> 设置环境</span></span><br><span class="line">echo &quot;source /opt/ros/melodic/setup.bash&quot; &gt;&gt; ~/.bashrc</span><br><span class="line">source ~/.bashrc</span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装 rosdep</span></span><br><span class="line">sudo apt install python-rosdep</span><br><span class="line"><span class="meta">#</span><span class="bash"> 初始化 rosdep</span></span><br><span class="line">sudo rosdep init</span><br><span class="line">rosdep update</span><br><span class="line"><span class="meta">#</span><span class="bash"> 试一下效果</span></span><br><span class="line">roscore</span><br></pre></td></tr></table></figure>
-<h4 id="安装realsense">3.安装realsense</h4>
+<h2 id="安装realsense">安装realsense</h2>
 <p>参考<a
 target="_blank" rel="noopener" href="https://github.com/IntelRealSense/librealsense/blob/master/doc/installation.md">官网安装教程</a></p>
 <p>安装过程中请拔下摄像头</p>
-<h5 id="安装realsense-sdk">3.1 安装Realsense SDK</h5>
+<h3 id="安装realsense-sdk">安装Realsense SDK</h3>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 下载<span class="built_in">source</span></span> </span><br><span class="line"><span class="meta">#</span><span class="bash"> 可使用Proxy代理加速下载。详见：https://ghproxy.com/</span></span><br><span class="line">git clone https://github.com/IntelRealSense/librealsense</span><br><span class="line">cd librealsense</span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装依赖项</span> </span><br><span class="line">sudo apt-get install libudev-dev pkg-config libgtk-3-dev</span><br><span class="line">sudo apt-get install libusb-1.0-0-dev pkg-config</span><br><span class="line">sudo apt-get install libglfw3-dev</span><br><span class="line">sudo apt-get install libssl-dev</span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装位于 librealsense 源目录中的 Intel Realsense 权限脚本</span></span><br><span class="line">sudo cp config/99-realsense-libusb.rules /etc/udev/rules.d/</span><br><span class="line">sudo udevadm control --reload-rules &amp;&amp; udevadm trigger </span><br><span class="line"><span class="meta">#</span><span class="bash"> 编译</span></span><br><span class="line">mkdir build</span><br><span class="line">cd build</span><br><span class="line">cmake ../ -DBUILD_EXAMPLES=true</span><br><span class="line">make</span><br><span class="line">sudo make install</span><br><span class="line"><span class="meta">#</span><span class="bash"> 试一下效果</span></span><br><span class="line">realsense-viewer</span><br></pre></td></tr></table></figure>
-<h5 id="安装realsense-ros">3.2 安装realsense-ros</h5>
+<h3 id="安装realsense-ros">安装realsense-ros</h3>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 下载<span class="built_in">source</span></span></span><br><span class="line">mkdir -p ~/catkin_ws/src</span><br><span class="line">cd ~/catkin_ws/src/</span><br><span class="line">git clone https://github.com/IntelRealSense/realsense-ros.git</span><br><span class="line">git clone https://github.com/pal-robotics/ddynamic_reconfigure</span><br><span class="line">cd realsense-ros/</span><br><span class="line">git checkout `git tag | sort -V | grep -P &quot;^\d+\.\d+\.\d+&quot; | tail -1`</span><br><span class="line"><span class="meta">#</span><span class="bash"> 更改cv_bridgeConfig.cmake中opencv4路径</span></span><br><span class="line">sudo gedit /opt/ros/melodic/share/cv_bridge/cmake/cv_bridgeConfig.cmake</span><br></pre></td></tr></table></figure>
 <p>如图</p>
 <p><img
-src="https://cdn.jsdelivr.net/gh/reman2021/ImageHosting@main/zcw-blog-picture/img2.png" /></p>
+src="https://cdn.jsdelivr.net/gh/reman2021/ImageHosting/zcw-blog-picture5f0287aa0e6948d1a5a417f98635ebc0.png" /></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 编译</span></span><br><span class="line">cd ~/catkin_ws</span><br><span class="line">catkin_make</span><br><span class="line"><span class="meta">#</span><span class="bash"> 设置环境</span></span><br><span class="line">echo &quot;source ~/catkin_ws/devel/setup.bash&quot;&gt;&gt;~/.bashrc </span><br><span class="line">source ~/.bashrc</span><br><span class="line"><span class="meta">#</span><span class="bash">试一下效果</span></span><br><span class="line">roslaunch realsense2_camera rs_t265.launch</span><br></pre></td></tr></table></figure>
-<h4 id="px4配置">4.PX4配置</h4>
+<h2 id="px4配置">PX4配置</h2>
 <p>下载<em>QGroundControl</em></p>
 <p><a
 target="_blank" rel="noopener" href="https://github.com/mavlink/qgroundcontrol/releases/">GitHub链接</a></p>
@@ -639,7 +639,7 @@ target="_blank" rel="noopener" href="https://github.com/mavlink/qgroundcontrol/r
 <li><p><code>EKF2_HGT_MODE</code> 设置为 <code>Vision</code></p></li>
 <li><p><code>MAV_ODOM_LP</code>设置为<code>1</code></p></li>
 </ul>
-<p>#### 5.MAVROS 和VIO</p>
+<h2 id="mavros-和vio">MAVROS 和VIO</h2>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> MAVROS</span></span><br><span class="line">sudo apt install python-catkin-tools</span><br><span class="line">sudo apt install ros-melodic-mavros ros-melodic-mavros-extras</span><br><span class="line">sudo apt-get install ros-indigo-mavros ros-indigo-mavros-extras ros‐indigo‐control‐toolbox</span><br><span class="line"><span class="meta">#</span><span class="bash"> VIO</span></span><br><span class="line">cd ~/catkin_ws/src</span><br><span class="line">git clone https://github.com/Auterion/VIO.git</span><br><span class="line">cd ..</span><br><span class="line">catkin_make</span><br></pre></td></tr></table></figure>
 <p>更改以下配置</p>
 <ol type="1">
@@ -675,7 +675,7 @@ target="_blank" rel="noopener" href="https://github.com/mavlink/qgroundcontrol/r
 <li>放开串口权限</li>
 </ol>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 用你自己的用户名替代下面的&lt;username&gt;</span></span><br><span class="line">sudo usermod -a -G dialout &lt;username&gt;</span><br><span class="line"><span class="meta">#</span><span class="bash"> 修改后需重启生效</span></span><br><span class="line">reboot now</span><br></pre></td></tr></table></figure>
-<h4 id="起飞前检查">6.起飞前检查</h4>
+<h2 id="起飞前检查">起飞前检查</h2>
 <p>详情请看<a
 target="_blank" rel="noopener" href="https://docs.px4.io/master/en/computer_vision/visual_inertial_odometry.html#verify_estimate">官网说明</a></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 开启VIO</span></span><br><span class="line">roslaunch px4_realsense_bridge bridge_mavros.launch</span><br></pre></td></tr></table></figure>
@@ -690,7 +690,7 @@ Inspector</p></li>
 <li><p>遥控器切换到Position Flight Mode，若切换成功，应闪绿灯</p></li>
 </ul>
 <p>然后可以接上电池，尝试定点飞行</p>
-<h4 id="参考文章">7.参考文章</h4>
+<h2 id="参考文章">参考文章</h2>
 <p><a target="_blank" rel="noopener" href="https://docs.px4.io/master/en/">PX4 User Guide</a></p>
 <p><a target="_blank" rel="noopener" href="http://wiki.ros.org/">ROS Wiki</a></p>
 <p><a target="_blank" rel="noopener" href="https://github.com/IntelRealSense/">Intel RealSense</a></p>
@@ -729,7 +729,7 @@ Nano使用T265向PX4提供位置信息</a></p>
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://reman2021.github.io/2021/09/07/%E4%BD%BF%E7%94%A8jetson%20nano%E5%90%91px4%E6%8F%90%E4%BE%9Bt265%E4%BD%8D%E7%BD%AE%E4%BF%A1%E6%81%AF%EF%BC%8C%E5%AE%9E%E7%8E%B0%E5%AE%A4%E5%86%85%E5%AE%9A%E7%82%B9%E9%A3%9E%E8%A1%8C/" title="使用Jetson Nano向PX4提供t265位置信息，实现室内定点飞行">https://reman2021.github.io/2021/09/07/使用jetson nano向px4提供t265位置信息，实现室内定点飞行/</a>
+      <a href="https://reman2021.github.io/2021/09/07/%E4%BD%BF%E7%94%A8jetson%20nano%E5%90%91px4%E6%8F%90%E4%BE%9Bt265%E4%BD%8D%E7%BD%AE%E4%BF%A1%E6%81%AF%EF%BC%8C%E5%AE%9E%E7%8E%B0%E5%AE%A4%E5%86%85%E5%AE%9A%E7%82%B9%E9%A3%9E%E8%A1%8C/" title="使用 Jetson Nano 向 PX4 提供 t265 位置信息，实现室内定点飞行">https://reman2021.github.io/2021/09/07/使用jetson nano向px4提供t265位置信息，实现室内定点飞行/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！

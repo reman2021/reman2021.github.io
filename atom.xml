@@ -58,11 +58,11 @@
   </entry>
   
   <entry>
-    <title>使用Jetson Nano向PX4提供t265位置信息，实现室内定点飞行</title>
+    <title>使用 Jetson Nano 向 PX4 提供 t265 位置信息，实现室内定点飞行</title>
     <link href="https://reman2021.github.io/2021/09/07/%E4%BD%BF%E7%94%A8jetson%20nano%E5%90%91px4%E6%8F%90%E4%BE%9Bt265%E4%BD%8D%E7%BD%AE%E4%BF%A1%E6%81%AF%EF%BC%8C%E5%AE%9E%E7%8E%B0%E5%AE%A4%E5%86%85%E5%AE%9A%E7%82%B9%E9%A3%9E%E8%A1%8C/"/>
     <id>https://reman2021.github.io/2021/09/07/%E4%BD%BF%E7%94%A8jetson%20nano%E5%90%91px4%E6%8F%90%E4%BE%9Bt265%E4%BD%8D%E7%BD%AE%E4%BF%A1%E6%81%AF%EF%BC%8C%E5%AE%9E%E7%8E%B0%E5%AE%A4%E5%86%85%E5%AE%9A%E7%82%B9%E9%A3%9E%E8%A1%8C/</id>
     <published>2021-09-07T05:53:34.000Z</published>
-    <updated>2021-09-10T15:33:24.201Z</updated>
+    <updated>2022-04-26T00:37:33.155Z</updated>
     
     
     <summary type="html">&lt;p&gt;本文作者：南京航空航天大学 科技中心 陈思祺&lt;/p&gt;
