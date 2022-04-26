@@ -31,7 +31,7 @@
 <meta property="og:description" content="本文作者：南京航空航天大学 科技中心 陈思祺">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-09-07T05:53:34.000Z">
-<meta property="article:modified_time" content="2022-04-26T00:37:33.155Z">
+<meta property="article:modified_time" content="2022-04-26T06:15:18.524Z">
 <meta property="article:author" content="reman">
 <meta property="article:tag" content="PX4飞控">
 <meta name="twitter:card" content="summary">
@@ -548,7 +548,7 @@ if(canvas.getContext){
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-04-26 08:37:33" itemprop="dateModified" datetime="2022-04-26T08:37:33+08:00">2022-04-26</time>
+      <time title="修改时间：2022-04-26 14:15:18" itemprop="dateModified" datetime="2022-04-26T14:15:18+08:00">2022-04-26</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -601,12 +601,13 @@ if(canvas.getContext){
     <div class="post-body" itemprop="articleBody">
         <p>本文作者：南京航空航天大学 科技中心 陈思祺</p>
 <p><span id="more"></span></p>
-<p>使用的Jetson Nano镜像版本：4.6（2021-08-04发布）</p>
+<p>使用的 Jetson Nano 镜像版本：4.6（2021-08-04 发布）</p>
 <p><a
 target="_blank" rel="noopener" href="https://developer.nvidia.com/zh-cn/embedded/downloads">NVIDIA官方镜像下载链接</a></p>
 <p><img
 src="https://cdn.jsdelivr.net/gh/reman2021/ImageHosting/zcw-blog-pictured5e6cd0edeaa430c943e7068d5c14c3c.jpg" /></p>
-<p>下载好镜像，烧录进TF卡，初次开机简单配置后进入系统，建议系统语言选择英语，正式开始本次教程。</p>
+<p>下载好镜像，烧录进 TF
+卡，初次开机简单配置后进入系统，建议系统语言选择英语，正式开始本次教程。</p>
 <h2 id="更新软件列表更新软件">更新软件列表，更新软件</h2>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update </span><br><span class="line">sudo apt-get upgrade </span><br></pre></td></tr></table></figure>
 <h2 id="安装-ros-melodic">安装 ROS Melodic</h2>
@@ -626,7 +627,7 @@ target="_blank" rel="noopener" href="https://github.com/IntelRealSense/librealse
 src="https://cdn.jsdelivr.net/gh/reman2021/ImageHosting/zcw-blog-picture5f0287aa0e6948d1a5a417f98635ebc0.png" /></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 编译</span></span><br><span class="line">cd ~/catkin_ws</span><br><span class="line">catkin_make</span><br><span class="line"><span class="meta">#</span><span class="bash"> 设置环境</span></span><br><span class="line">echo &quot;source ~/catkin_ws/devel/setup.bash&quot;&gt;&gt;~/.bashrc </span><br><span class="line">source ~/.bashrc</span><br><span class="line"><span class="meta">#</span><span class="bash">试一下效果</span></span><br><span class="line">roslaunch realsense2_camera rs_t265.launch</span><br></pre></td></tr></table></figure>
 <h2 id="px4配置">PX4配置</h2>
-<p>下载<em>QGroundControl</em></p>
+<p>下载 <em>QGroundControl</em></p>
 <p><a
 target="_blank" rel="noopener" href="https://github.com/mavlink/qgroundcontrol/releases/">GitHub链接</a></p>
 <p><a target="_blank" rel="noopener" href="https://docs.qgroundcontrol.com/master/en/">使用说明</a></p>
@@ -643,33 +644,33 @@ target="_blank" rel="noopener" href="https://github.com/mavlink/qgroundcontrol/r
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> MAVROS</span></span><br><span class="line">sudo apt install python-catkin-tools</span><br><span class="line">sudo apt install ros-melodic-mavros ros-melodic-mavros-extras</span><br><span class="line">sudo apt-get install ros-indigo-mavros ros-indigo-mavros-extras ros‐indigo‐control‐toolbox</span><br><span class="line"><span class="meta">#</span><span class="bash"> VIO</span></span><br><span class="line">cd ~/catkin_ws/src</span><br><span class="line">git clone https://github.com/Auterion/VIO.git</span><br><span class="line">cd ..</span><br><span class="line">catkin_make</span><br></pre></td></tr></table></figure>
 <p>更改以下配置</p>
 <ol type="1">
-<li>T265相对位置及朝向</li>
+<li>T265 相对位置及朝向</li>
 </ol>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gedit ~/catkin_ws/src/VIO/launch/bridge.launch</span><br></pre></td></tr></table></figure>
 <p>修改</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;node pkg=&quot;tf&quot; type=&quot;static_transform_publisher&quot; name=&quot;tf_baseLink_cameraPose&quot;args=&quot;0 0 0 0 1.5708 0 base_link camera_pose_frame 1000&quot;/&gt;</span><br></pre></td></tr></table></figure>
 <p><code>args</code>中</p>
 <ul>
-<li><p>开头三个参数为飞控中心指向T265中心的向量。例如T265在飞控前方10cm，上方4cm,
-则前三个参数为：<code>[0.1, 0, -0.04]</code></p></li>
-<li><p>中间三个参数为旋转角(偏航, 俯仰,
-横滚)。默认T265朝地，则参数为<code>[0, 1.5708, 0]</code>；T265照射飞机机头方向，则参数为
-<code>[0 0 0]</code></p></li>
+<li><p>开头三个参数为飞控中心指向 T265 中心的向量。例如 T265 在飞控前方
+10 cm，上方 4 cm, 则前三个参数为：<code>[0.1, 0, -0.04]</code></p></li>
+<li><p>中间三个参数为旋转角(偏航, 俯仰, 横滚)。默认 T265
+朝地，则参数为<code>[0, 1.5708, 0]</code>；T265
+照射飞机机头方向，则参数为 <code>[0 0 0]</code></p></li>
 </ul>
 <ol start="2" type="1">
-<li>如果TTL的速度异常</li>
+<li>如果 TTL 的速度异常</li>
 </ol>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo gedit /opt/ros/melodic/share/mavros/launch/px4_config.yaml</span><br></pre></td></tr></table></figure>
-<p>第12行改为</p>
+<p>第 12 行改为</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">timesync_rate: 0.0</span><br></pre></td></tr></table></figure>
 <ol start="3" type="1">
-<li>如果使用USB连接</li>
+<li>如果使用 USB 连接</li>
 </ol>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo gedit /opt/ros/melodic/share/mavros/launch/px4.launch</span><br></pre></td></tr></table></figure>
-<p>修改第5行为</p>
+<p>修改第 5 行为</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;arg name=&quot;fcu_url&quot; default=&quot;/dev/ttyUSB0:57600&quot; /&gt;</span><br></pre></td></tr></table></figure>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gedit ~/catkin_ws/src/VIO/launch/bridge_mavros.launch</span><br></pre></td></tr></table></figure>
-<p>修改第3行为</p>
+<p>修改第 3 行为</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;arg name=&quot;fcu_url&quot; default=&quot;/dev/ttyUSB0:57600&quot; /&gt;</span><br></pre></td></tr></table></figure>
 <ol start="4" type="1">
 <li>放开串口权限</li>
@@ -680,14 +681,14 @@ target="_blank" rel="noopener" href="https://github.com/mavlink/qgroundcontrol/r
 target="_blank" rel="noopener" href="https://docs.px4.io/master/en/computer_vision/visual_inertial_odometry.html#verify_estimate">官网说明</a></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 开启VIO</span></span><br><span class="line">roslaunch px4_realsense_bridge bridge_mavros.launch</span><br></pre></td></tr></table></figure>
 <ul>
-<li><p>连接好摄像头、USB、PX4，可暂不接电池，查看MAVLink
+<li><p>连接好摄像头、USB、PX4，可暂不接电池，查看 MAVLink
 Inspector</p></li>
 <li><p>偏航机身，直到<code>ODOMETRY</code>消息的四元数非常接近单位四元数（w
 = 1，x = y = z = 0）</p></li>
 <li><p>向前移动无人机，x 坐标应增大</p></li>
 <li><p>向右移动无人机，y 坐标应增大</p></li>
 <li><p>向上移动无人机，z 坐标应减小</p></li>
-<li><p>遥控器切换到Position Flight Mode，若切换成功，应闪绿灯</p></li>
+<li><p>遥控器切换到 Position Flight Mode，若切换成功，应闪绿灯</p></li>
 </ul>
 <p>然后可以接上电池，尝试定点飞行</p>
 <h2 id="参考文章">参考文章</h2>
