@@ -1569,7 +1569,7 @@ pre code {
   white-space: nowrap;
 }
 .post-toc .nav .nav-child {
-  display: none;
+  display: block;
 }
 .post-toc .nav .active > .nav-child {
   display: block;
@@ -2906,12 +2906,13 @@ body {
   background-attachment: fixed;
   background-position: 50% 50%;
 }
-.main-inner > .sub-menu,
-.main-inner > .post-block,
-.main-inner > .tabs-comment,
-.main-inner > .comments,
-.main-inner > .pagination {
-  opacity: 0.9;
+.container {
+  margin-top: 10px;
+}
+code {
+  color: #b22222;
+  background: #fbf7f8;
+  margin: 20px;
 }
 /*body{				//修改主体字体颜色
   color: #000;		//纯黑
@@ -2922,17 +2923,18 @@ body {
 .posts-expand .post-meta-container {
   color: #346c9c;
 }
-.sidebar {
-  opacity: 0.9;
+/*/
+文章背板透明度,
+.post-block {
+  opacity: 0.5;
 }
 .header-inner {
   opacity: 0.9;
 }
-code {
-  color: #b22222;
-  background: #fbf7f8;
-  margin: 5px;
+.popup {
+  opacity: 0.9;
 }
+*
 /*/
 大代码块的自定义样式,
 .highlight,
