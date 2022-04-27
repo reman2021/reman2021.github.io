@@ -6,7 +6,7 @@
   <link href="https://reman2021.github.io/atom.xml" rel="self"/>
   
   <link href="https://reman2021.github.io/"/>
-  <updated>2022-04-27T03:48:51.218Z</updated>
+  <updated>2022-04-27T05:15:26.435Z</updated>
   <id>https://reman2021.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://reman2021.github.io/posts/20220424a1/"/>
     <id>https://reman2021.github.io/posts/20220424a1/</id>
     <published>2022-04-24T08:17:13.000Z</published>
-    <updated>2022-04-27T03:48:51.218Z</updated>
+    <updated>2022-04-27T05:15:26.435Z</updated>
     
     
     <summary type="html">&lt;p&gt;记录 Hexo + NexT 的配置优化过程，以便后续更改和维护。&lt;/p&gt;</summary>
