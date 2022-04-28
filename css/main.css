@@ -2923,18 +2923,23 @@ code {
 .posts-expand .post-meta-container {
   color: #346c9c;
 }
-/*/
-文章背板透明度,
-.post-block {
-  opacity: 0.5;
+/*.sidebar{
+  opacity: 0.9;
 }
+//文章背板透明度
+.post-block{
+  opacity: 0.9;
+}
+
+//菜单栏的透明度设置
 .header-inner {
   opacity: 0.9;
 }
+
+//搜索框透明度
 .popup {
-  opacity: 0.9;
-}
-*
+  opacity: 0.5;
+}*/
 /*/
 大代码块的自定义样式,
 .highlight,
