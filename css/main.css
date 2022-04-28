@@ -2940,23 +2940,9 @@ code {
 .popup {
   opacity: 0.5;
 }*/
-/*/
-大代码块的自定义样式,
-.highlight,
-pre {
-  margin: 5px 0;
-  padding: 5px;
-  border-radius: 3px;
-}
-.highlight,
-code,
-pre {
-  border: 1px solid #d6d6d6;
-}
-*
 #CloudCalendar {
 /*全句背景色*/
-  background-color: #eee;
+  background-color: var(--content-bg-color);
 }
 #CloudCalendar a {
   text-decoration: none;
@@ -3104,14 +3090,14 @@ pre {
   margin-bottom: 50px;
 }
 .gallery-item p {
-  margin: 35px auto 10px;
+  margin: 15px auto 10px;
   max-width: 40%;
   text-align: center;
   font-size: 15px;
-  color: #4682b4;
+  color: #29b7cb;
   background: rgba(255,255,255,0.3);
   border-radius: 7px;
-  border: 1px solid #4682b4;
+  border: 2px solid #4682b4;
   box-shadow: 0 8px 20px -8px rgba(0,0,0,0.3);
 }
 .posts-expand .post-body .img-column a img {
@@ -3119,19 +3105,31 @@ pre {
   height: auto;
   margin: 20px;
   border-radius: 15px;
-  border: 2px solid #4682b4;
+  border: 3px solid #4682b4;
   box-shadow: 0 8px 20px -5px rgba(0,0,0,0.3);
   padding: 2px;
+  opacity: 0.8;
+}
+.posts-expand .post-body .img-column a img:hover {
+  border-radius: 0px;
+  opacity: 1;
+  transition-duration: 600ms;
 }
 .posts-expand .post-body .gallery-column a img {
   height: 300px;
   width: 225px;
   object-fit: cover;
   margin: 20px;
-  border-radius: 15px;
-  border: 2px solid #4682b4;
+  border-radius: 25px;
+  border: 3px solid #4682b4;
   box-shadow: 0 8px 20px -5px rgba(0,0,0,0.3);
   padding: 2px;
+  opacity: 0.8;
+}
+.posts-expand .post-body .gallery-column a img:hover {
+  border-radius: 0px;
+  opacity: 1;
+  transition-duration: 600ms;
 }
 @media (max-width: 767px) {
   .gallery-item p {
