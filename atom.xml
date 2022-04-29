@@ -6,7 +6,7 @@
   <link href="https://reman2021.github.io/atom.xml" rel="self"/>
   
   <link href="https://reman2021.github.io/"/>
-  <updated>2022-04-28T05:22:03.513Z</updated>
+  <updated>2022-04-29T09:34:08.672Z</updated>
   <id>https://reman2021.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://reman2021.github.io/posts/20220424a1/"/>
     <id>https://reman2021.github.io/posts/20220424a1/</id>
     <published>2022-04-24T08:17:13.000Z</published>
-    <updated>2022-04-28T05:22:03.513Z</updated>
+    <updated>2022-04-29T09:34:08.672Z</updated>
     
     
     <summary type="html">&lt;p&gt;记录 Hexo + NexT 的配置优化过程，以便后续更改和维护。&lt;/p&gt;</summary>
@@ -107,11 +107,11 @@
   </entry>
   
   <entry>
-    <title>Markdown语法详解及使用技巧（基于MarkdownPad2）</title>
+    <title>Markdown语法详解及使用技巧</title>
     <link href="https://reman2021.github.io/posts/20210819a1/"/>
     <id>https://reman2021.github.io/posts/20210819a1/</id>
     <published>2021-08-18T16:36:36.000Z</published>
-    <updated>2022-04-28T07:47:21.930Z</updated>
+    <updated>2022-04-29T09:31:32.175Z</updated>
     
     
     <summary type="html">&lt;p&gt;Markdown
@@ -169,8 +169,8 @@ John Gruber 于 2004 年创建，如今已成为世界上最受欢迎的标记�
   
   <entry>
     <title>Hello World</title>
-    <link href="https://reman2021.github.io/posts/20210811cl2k48ocu000g7gf934a79rbk/"/>
-    <id>https://reman2021.github.io/posts/20210811cl2k48ocu000g7gf934a79rbk/</id>
+    <link href="https://reman2021.github.io/posts/20210811cl2k8o2lv0009e8f9dihn3s80/"/>
+    <id>https://reman2021.github.io/posts/20210811cl2k8o2lv0009e8f9dihn3s80/</id>
     <published>2021-08-11T07:20:47.512Z</published>
     <updated>2021-08-13T05:25:59.383Z</updated>
     
