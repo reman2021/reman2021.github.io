@@ -1115,7 +1115,7 @@ class="footnote-back" role="doc-backlink">↩︎</a></p></li>
   </entry>
   <entry>
     <title>Hello World</title>
-    <url>/posts/20210811cl2ox5vt3000c0sf978jeetw3/</url>
+    <url>/posts/20210811cl2pdyr6k0007v4f953b538nu/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very
 first post. Check <a href="https://hexo.io/docs/">documentation</a> for
 more info. If you get any problems when using Hexo, you can find the
@@ -1255,40 +1255,6 @@ Nano使用T265向PX4提供位置信息</a></p>
       </categories>
       <tags>
         <tag>PX4飞控</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>小笔记-积化和差、和差化积公式</title>
-    <url>/posts/20211001a1/</url>
-    <content><![CDATA[<p>本文主要用于测试 mathjax 渲染功能</p>
-<p><span id="more"></span></p>
-<h2 id="和差化积">和差化积：</h2>
-<p><span class="math display">\[
-\sin x+\sin y=2 \sin \frac{x+y}{2} \cos \frac{x-y}{2}
-\]</span> <span class="math display">\[
-\sin x-\sin y=2 \cos \frac{x+y}{2} \sin \frac{x-y}{2}
-\]</span> <span class="math display">\[
-\cos x+\cos y=2 \cos \frac{x+y}{2} \cos \frac{x-y}{2}
-\]</span> <span class="math display">\[
-\cos x-\cos y=-2 \sin \frac{x+y}{2} \sin \frac{x-y}{2}
-\]</span></p>
-<h2 id="积化和差">积化和差：</h2>
-<p><span class="math display">\[
-\sin x \sin y=-\frac{1}{2}[\cos (x+y)-\cos (x-y)]
-\]</span> <span class="math display">\[
-\cos x \cos y=\frac{1}{2}[\cos (x+y)+\cos (x-y)]
-\]</span> <span class="math display">\[
-\sin x \cos y=\frac{1}{2}[\sin (x+y)+\sin (x-y)]
-\]</span></p>
-<p>辅助记忆口诀：</p>
-<p>正加正，正在前，余加余，余并肩</p>
-<p>正减正，余在前，余减余，负正弦</p>
-]]></content>
-      <categories>
-        <category>小笔记</category>
-      </categories>
-      <tags>
-        <tag>公式</tag>
       </tags>
   </entry>
   <entry>
@@ -1494,6 +1460,40 @@ href="http://zcw-blog.top/2021/08/19/Markdown%E8%AF%AD%E6%B3%95%E8%AF%A6%E8%A7%A
         <tag>搭建博客</tag>
         <tag>Markdown</tag>
         <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>小笔记-积化和差、和差化积公式</title>
+    <url>/posts/20211001a1/</url>
+    <content><![CDATA[<p>本文主要用于测试 mathjax 渲染功能</p>
+<p><span id="more"></span></p>
+<h2 id="和差化积">和差化积：</h2>
+<p><span class="math display">\[
+\sin x+\sin y=2 \sin \frac{x+y}{2} \cos \frac{x-y}{2}
+\]</span> <span class="math display">\[
+\sin x-\sin y=2 \cos \frac{x+y}{2} \sin \frac{x-y}{2}
+\]</span> <span class="math display">\[
+\cos x+\cos y=2 \cos \frac{x+y}{2} \cos \frac{x-y}{2}
+\]</span> <span class="math display">\[
+\cos x-\cos y=-2 \sin \frac{x+y}{2} \sin \frac{x-y}{2}
+\]</span></p>
+<h2 id="积化和差">积化和差：</h2>
+<p><span class="math display">\[
+\sin x \sin y=-\frac{1}{2}[\cos (x+y)-\cos (x-y)]
+\]</span> <span class="math display">\[
+\cos x \cos y=\frac{1}{2}[\cos (x+y)+\cos (x-y)]
+\]</span> <span class="math display">\[
+\sin x \cos y=\frac{1}{2}[\sin (x+y)+\sin (x-y)]
+\]</span></p>
+<p>辅助记忆口诀：</p>
+<p>正加正，正在前，余加余，余并肩</p>
+<p>正减正，余在前，余减余，负正弦</p>
+]]></content>
+      <categories>
+        <category>小笔记</category>
+      </categories>
+      <tags>
+        <tag>公式</tag>
       </tags>
   </entry>
   <entry>
