@@ -2,7 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://reman2021.github.io/bb/index.html</loc>
+    <loc>https://reman2021.github.io/lib/jquery_lazyload/README.html</loc>
+    
+    <lastmod>2022-05-05</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://reman2021.github.io/lib/jquery_lazyload/bower.json</loc>
     
     <lastmod>2022-05-05</lastmod>
     
@@ -100,7 +107,7 @@
   </url>
   
   <url>
-    <loc>https://reman2021.github.io/posts/20210811cl2sjsj6j0009dcf91dd54s4j/</loc>
+    <loc>https://reman2021.github.io/posts/20210811cl2sr0uha0009s8f940vodi3m/</loc>
     
     <lastmod>2021-08-13</lastmod>
     
