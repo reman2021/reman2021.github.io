@@ -1,6 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Hello World</title>
+    <url>/posts/20210811cl3r1knf000034wf92q0835cv/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very
+first post. Check <a href="https://hexo.io/docs/">documentation</a> for
+more info. If you get any problems when using Hexo, you can find the
+answer in <a
+href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or
+you can ask me on <a
+href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<p><span id="more"></span></p>
+<h2 id="quick-start">Quick Start</h2>
+<h3 id="create-a-new-post">Create a new post</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a
+href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="run-server">Run server</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="generate-static-files">Generate static files</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a
+href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a
+href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
     <title>Markdown语法详解及使用技巧</title>
     <url>/posts/20210819a1/</url>
     <content><![CDATA[<p>Markdown
@@ -1114,35 +1143,6 @@ class="footnote-back" role="doc-backlink">↩︎</a></p></li>
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/posts/20210811cl3r17kew00095of99tpyclu8/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very
-first post. Check <a href="https://hexo.io/docs/">documentation</a> for
-more info. If you get any problems when using Hexo, you can find the
-answer in <a
-href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or
-you can ask me on <a
-href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<p><span id="more"></span></p>
-<h2 id="quick-start">Quick Start</h2>
-<h3 id="create-a-new-post">Create a new post</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a
-href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="run-server">Run server</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="generate-static-files">Generate static files</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a
-href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a
-href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
     <title>使用 Jetson Nano 向 PX4 提供 t265 位置信息，实现室内定点飞行</title>
     <url>/posts/20210907a2/</url>
     <content><![CDATA[<p>本文作者：南京航空航天大学 科技中心 陈思祺</p>
@@ -1255,6 +1255,40 @@ Nano使用T265向PX4提供位置信息</a></p>
       </categories>
       <tags>
         <tag>PX4飞控</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>小笔记-积化和差、和差化积公式</title>
+    <url>/posts/20211001a1/</url>
+    <content><![CDATA[<p>本文主要用于测试 mathjax 渲染功能</p>
+<p><span id="more"></span></p>
+<h2 id="和差化积">和差化积：</h2>
+<p><span class="math display">\[
+\sin x+\sin y=2 \sin \frac{x+y}{2} \cos \frac{x-y}{2}
+\]</span> <span class="math display">\[
+\sin x-\sin y=2 \cos \frac{x+y}{2} \sin \frac{x-y}{2}
+\]</span> <span class="math display">\[
+\cos x+\cos y=2 \cos \frac{x+y}{2} \cos \frac{x-y}{2}
+\]</span> <span class="math display">\[
+\cos x-\cos y=-2 \sin \frac{x+y}{2} \sin \frac{x-y}{2}
+\]</span></p>
+<h2 id="积化和差">积化和差：</h2>
+<p><span class="math display">\[
+\sin x \sin y=-\frac{1}{2}[\cos (x+y)-\cos (x-y)]
+\]</span> <span class="math display">\[
+\cos x \cos y=\frac{1}{2}[\cos (x+y)+\cos (x-y)]
+\]</span> <span class="math display">\[
+\sin x \cos y=\frac{1}{2}[\sin (x+y)+\sin (x-y)]
+\]</span></p>
+<p>辅助记忆口诀：</p>
+<p>正加正，正在前，余加余，余并肩</p>
+<p>正减正，余在前，余减余，负正弦</p>
+]]></content>
+      <categories>
+        <category>小笔记</category>
+      </categories>
+      <tags>
+        <tag>公式</tag>
       </tags>
   </entry>
   <entry>
@@ -1463,37 +1497,249 @@ href="http://zcw-blog.top/2021/08/19/Markdown%E8%AF%AD%E6%B3%95%E8%AF%A6%E8%A7%A
       </tags>
   </entry>
   <entry>
-    <title>小笔记-积化和差、和差化积公式</title>
-    <url>/posts/20211001a1/</url>
-    <content><![CDATA[<p>本文主要用于测试 mathjax 渲染功能</p>
+    <title>数据结构与算法</title>
+    <url>/posts/20210907a1/</url>
+    <content><![CDATA[<h2 id="浅识数据结构与算法">浅识数据结构与算法</h2>
+<p>数据结构是讨论在非数值计算领域，如何将现实世界的问题转换为计算机语言的描述。</p>
+<h3 id="讨论范畴">讨论范畴</h3>
+<p>Data Structures（数据结构）+ Algorithm（算法）= Programs（程序）</p>
+<ul>
+<li>程序：计算机可以执行的一组指令集</li>
+<li>数据结构：问题的数学模型</li>
+<li>算法：解决问题的策略</li>
+</ul>
+<p>计算机的算法与数据结构密切相关，算法无不依赖于数据结构，而数据结构也关系到算法的效率，直接决定了一个程序的好坏。</p>
 <p><span id="more"></span></p>
-<h2 id="和差化积">和差化积：</h2>
-<p><span class="math display">\[
-\sin x+\sin y=2 \sin \frac{x+y}{2} \cos \frac{x-y}{2}
-\]</span> <span class="math display">\[
-\sin x-\sin y=2 \cos \frac{x+y}{2} \sin \frac{x-y}{2}
-\]</span> <span class="math display">\[
-\cos x+\cos y=2 \cos \frac{x+y}{2} \cos \frac{x-y}{2}
-\]</span> <span class="math display">\[
-\cos x-\cos y=-2 \sin \frac{x+y}{2} \sin \frac{x-y}{2}
-\]</span></p>
-<h2 id="积化和差">积化和差：</h2>
-<p><span class="math display">\[
-\sin x \sin y=-\frac{1}{2}[\cos (x+y)-\cos (x-y)]
-\]</span> <span class="math display">\[
-\cos x \cos y=\frac{1}{2}[\cos (x+y)+\cos (x-y)]
-\]</span> <span class="math display">\[
-\sin x \cos y=\frac{1}{2}[\sin (x+y)+\sin (x-y)]
-\]</span></p>
-<p>辅助记忆口诀：</p>
-<p>正加正，正在前，余加余，余并肩</p>
-<p>正减正，余在前，余减余，负正弦</p>
+<h3 id="数据与数据结构">数据与数据结构</h3>
+<p>数据：指描述物理世界的数值、字符、图形图像、语音等所有能输入到计算机中并被计算机处理的符号集合。</p>
+<p>数据结构：带结构的数据。即与特定问题相关的某一数据元素的集合和该集合中数据元素之间的关系。用来描述现实世界中的对象。</p>
+<p>数据结构的逻辑表示：实现对物理世界的抽象和建模。分为线性结构、非线性结构（树形结构、图状结构、集合结构）。</p>
+<p>数据结构的物理存储表示：在计算机中的具体实现方式。数据元素的物理存储表示为二进制，数据元素之间关系的物理存储表示包括顺序存储和链式存储。</p>
+<h3 id="数据类型">数据类型</h3>
+<h4 id="基本数据类型">基本数据类型</h4>
+<p>例如C语言提供的基本数据类型有：</p>
+<ul>
+<li>整型：int</li>
+<li>浮点型：float</li>
+<li>双精度型：double</li>
+<li>字符型：char</li>
+<li>逻辑型：bool</li>
+</ul>
+<p>注：不同数据类型，其取值的范围不同，所能进行的操作也不同。因此数据类型是一个值的集合和定义在此集合上的一组操作的总称。</p>
+<h4 id="抽象数据类型-abstract-data-type-adt">抽象数据类型（ Abstract
+Data Type, ADT ）</h4>
+<p>抽象数据类型：<br>
+由用户定义，用以表示应用问题的<strong>数据模型</strong>以及定义在该模型上的<strong>一组操作</strong>，又称<strong>数据抽象</strong>。即一个抽象数据类型，其构成的两要素为<strong>数据的结构</strong>和<strong>相应的操作集合</strong>。</p>
+<p>抽象数据类型可用（D，S，P）三元组表示，其中 D 是数据对象；S 是 D
+上的关系集；P 是对 D 的基本操作集。<br>
+抽象数据类型最重要的是其<strong>抽象性质</strong>，把使用和实现分离，实行<strong>封装</strong>和<strong>信息隐藏</strong>。它的实现就是面向对象程序设计中的<strong>“类”</strong>。<br>
+例，抽象数据类型复数 z=x+iy 的定义：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> {</span></span><br><span class="line">	<span class="keyword">float</span> realpart；</span><br><span class="line">	<span class="keyword">float</span> imagpart；</span><br><span class="line">}<span class="built_in">complex</span>；</span><br></pre></td></tr></table></figure>
+<p>再定义基本操作函数：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Assign</span><span class="params">( <span class="built_in">complex</span> &amp;Z, <span class="keyword">float</span> realval, <span class="keyword">float</span> imagval )</span>	<span class="comment">//构造实数z，其实部和虚部分别赋以参数realval和imagval</span></span></span><br><span class="line"><span class="function"><span class="keyword">float</span> <span class="title">GetReal</span><span class="params">( cpmplex Z )</span>								<span class="comment">//返回复数z的实部</span></span></span><br><span class="line"><span class="function"><span class="keyword">float</span> <span class="title">Getimag</span><span class="params">( cpmplex Z )</span>								<span class="comment">//返回复数z的虚部</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">( <span class="built_in">complex</span> z1, <span class="built_in">complex</span> z2, <span class="built_in">complex</span> &amp;sum )</span>		<span class="comment">//以sum返回两个复数z1和z2的和</span></span></span><br></pre></td></tr></table></figure>
+<h3 id="算法与算法分析">算法与算法分析</h3>
+<h4 id="算法特性">算法特性</h4>
+<p>算法是为了解决某类问题而规定的一个有限长的操作序列。一个算法必须满足以下五个重要特性：</p>
+<ul>
+<li>有穷性：一个算法必须总是在执行<strong>有穷步之后结束</strong>，且每一步都可在<strong>有穷时间内完成</strong>。<br>
+</li>
+<li>确定性：算法中每条指令必须有<strong>确切的</strong>含义。<strong>在任何条件下，算法只有唯一的一条执行路径</strong>，也即对相同的输入只能得出相同的输出。<br>
+</li>
+<li>可行性：算法中描述的操作都是可以通过已经实现的基本运算执行有限次来实现的。<br>
+</li>
+<li>有输入：：一个算法有零个或多个的输入，这些输入取自于某个特定的对象的集合。
+实际问题中，有些输入是通过人机交互得到的。<br>
+</li>
+<li>有输出：一个算法有一个或多个输出，这些输出是同输入有着某些特定关系的量。</li>
+</ul>
+<h4 id="算法设计的原则">算法设计的原则</h4>
+<p>正确性：<br>
+算法应当满足具体问题的明确需求。</p>
+<ul>
+<li>程序不含语法错误，能正常运行。<br>
+</li>
+<li>程序对于常规的输入数据能够得到满足规格说明要求的结果。<br>
+</li>
+<li>程序对精心选择的，苛刻的数据输入能够得到满足要求的结果，特别是边界条件约束下的正确反馈。<br>
+</li>
+<li>程序对于一切合法的输入数据都能得到满足规格说明要求的结果。</li>
+</ul>
+<p>可读性：<br>
+算法主要是为了人的阅读与交流，其次才是为计算机执行，因此算法应该易于人的理解；另一方面，晦涩难读的程序容易隐藏较多错误而难以调试。</p>
+<p>健壮性：<br>
+当输入的数据非法时，算法应当恰当地作出反映或进行相应处理，而不是产生莫名奇妙的输出结果。并且，处理出错的方法不应是中断程序的执行，而应是返回一个表示错误或错误性质的值，以便在更高的抽象层次上进行处理。</p>
+<p>高效率与低存储量需求：<br>
+通常，效率指的是算法执行时间；存储量指的是算法执行过程中所需的最大存储空间，两者都与问题的规模有关。</p>
+<h4 id="算法分析与度量">算法分析与度量</h4>
+<p>衡量算法优劣的指标主要有两个：</p>
+<ul>
+<li>时间复杂度：根据算法写成的程序在执行时耗费时间的长度。</li>
+<li>空间复杂度：根据算法写成的程序在执行时占用存储单位的大小。</li>
+</ul>
+<h5 id="时间复杂度">时间复杂度</h5>
+<p>时间复杂度统计方法：</p>
+<ul>
+<li>事后统计法：存在两个问题
+<ul>
+<li>必须执行程序<br>
+</li>
+<li>其它因素如编程所用语言、编译程序产生的机器代码的质量、程序运行的硬件环境等掩盖算法本质<br>
+</li>
+</ul></li>
+<li>事前分析估算法
+<ul>
+<li>一个特定算法的“运行工作量”的大小，只依赖于问题的规模，通常用整数量 n
+表示，或者说，它是问题规模的函数；<br>
+</li>
+<li>一般算法的执行时间与其包含的基本操作执行次数总和成正比；<br>
+</li>
+<li>算法中所包含的基本操作被执行的总次数可以作为算法运行时间的衡量标准。</li>
+</ul></li>
+</ul>
+<p><br></p>
+<p>时间复杂度的表示：大 O 记法</p>
+<ul>
+<li>算法中所包含的基本操作被执行的总次数是问题规模 n 的函数，可以记做
+f(n)。<br>
+</li>
+<li>随着问题规模 n 的增长，算法执行时间的增长率和 f(n)
+的增长率相同，则可记作: <strong>T(n) = O(f(n))</strong>,称** T(n)
+为算法的(渐近)时间复杂度**。<br>
+</li>
+<li>T(n) 是一个粗略的<strong>估计值</strong>，f(n)
+中的<strong>低次项</strong>以及<strong>常数项</strong>对算法执行时间的增长率<strong>贡献较小</strong>，因此可以忽略不计。</li>
+</ul>
+<p>注：函数 T(n)=O(f(n)) 说明在趋向无穷的极限意义下，函数 T
+的增长速度受到函数f的约束。</p>
+<p><br></p>
+<p>常见的时间复杂度:</p>
+<ul>
+<li>O(1) 或 O(c)：常量复杂度<br>
+</li>
+<li>O(logn)：对数复杂度<br>
+</li>
+<li>O(n)：线性复杂度<br>
+</li>
+<li>O(<span class="math inline"><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.025ex" xmlns="http://www.w3.org/2000/svg" width="2.345ex" height="1.912ex" role="img" focusable="false" viewBox="0 -833.9 1036.6 844.9"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msup"><g data-mml-node="mi"><path data-c="1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mn" transform="translate(633,363) scale(0.707)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g></g></g></g></svg></mjx-container></span>)：平方复杂度<br>
+</li>
+<li>O(<span class="math inline"><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="2.279ex" height="1.528ex" role="img" focusable="false" viewBox="0 -675.5 1007.3 675.5"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msup"><g data-mml-node="mn"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g><g data-mml-node="mi" transform="translate(533,363) scale(0.707)"><path data-c="1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path></g></g></g></g></svg></mjx-container></span>)：指数复杂度</li>
+</ul>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/reman2021/ImageHosting@main/zcw-blog-picture/001%20%E7%BB%AA%E8%AE%BA.jpg" alt="时间复杂度随问题规模的变化趋势图">
+<figcaption aria-hidden="true">时间复杂度随问题规模的变化趋势图</figcaption>
+</figure>
+<p><br></p>
+<p>时间复杂度:</p>
+<ul>
+<li>平均时间复杂度（θ）<br>
+</li>
+<li>最好情况下的时间复杂度（Ω）<br>
+</li>
+<li>最坏情况下的时间复杂度（O）</li>
+</ul>
+<p>注：我们对算法时间复杂度的估算一般是<strong>最坏情况下的时间复杂度（O）</strong>。</p>
+<p><br></p>
+<p>时间复杂度分析<br>
+例 1，两个矩阵相乘：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">mult</span><span class="params">(<span class="keyword">int</span> a[],<span class="keyword">int</span> b[],<span class="keyword">int</span>&amp; c[])</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line"><span class="comment">// 以二维数组存储矩阵元素，c 为 a 和 b 的乘积</span></span><br><span class="line">	<span class="keyword">for</span> (i=<span class="number">1</span>;i&lt;=n;++i)</span><br><span class="line">		<span class="keyword">for</span> (j=<span class="number">1</span>;j&lt;=n;++j) </span><br><span class="line">		{</span><br><span class="line">			c[i,j] = <span class="number">0</span>;</span><br><span class="line">			<span class="keyword">for</span> (k=<span class="number">1</span>;k&lt;=n;++k)</span><br><span class="line">				c[i,j] += a[i,k]*b[k,j];</span><br><span class="line">		} <span class="comment">//for</span></span><br><span class="line">} <span class="comment">//mult</span></span><br></pre></td></tr></table></figure>
+<p>在忽略贡献较小<strong>低次项</strong>以及<strong>常数项</strong>后，可得出：<br>
+基本操作为乘法操作<code>a[i,k]*b[k,j]</code>，时间复杂度为 O(<span class="math inline"><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.025ex" xmlns="http://www.w3.org/2000/svg" width="2.345ex" height="1.91ex" role="img" focusable="false" viewBox="0 -833.2 1036.6 844.2"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msup"><g data-mml-node="mi"><path data-c="1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mn" transform="translate(633,363) scale(0.707)"><path data-c="33" d="M127 463Q100 463 85 480T69 524Q69 579 117 622T233 665Q268 665 277 664Q351 652 390 611T430 522Q430 470 396 421T302 350L299 348Q299 347 308 345T337 336T375 315Q457 262 457 175Q457 96 395 37T238 -22Q158 -22 100 21T42 130Q42 158 60 175T105 193Q133 193 151 175T169 130Q169 119 166 110T159 94T148 82T136 74T126 70T118 67L114 66Q165 21 238 21Q293 21 321 74Q338 107 338 175V195Q338 290 274 322Q259 328 213 329L171 330L168 332Q166 335 166 348Q166 366 174 366Q202 366 232 371Q266 376 294 413T322 525V533Q322 590 287 612Q265 626 240 626Q208 626 181 615T143 592T132 580H135Q138 579 143 578T153 573T165 566T175 555T183 540T186 520Q186 498 172 481T127 463Z"></path></g></g></g></g></svg></mjx-container></span>)</p>
+<p>例 2，选择排序：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">select_sort</span><span class="params">(<span class="keyword">int</span>&amp; a[],<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n<span class="number">-1</span>;i++)</span><br><span class="line">	{</span><br><span class="line">		p=i;</span><br><span class="line">		<span class="keyword">for</span>(j=i+<span class="number">1</span>;j&lt;n;j++)</span><br><span class="line">			<span class="keyword">if</span>(a[j]&lt;a[p])</span><br><span class="line">				p=j;</span><br><span class="line">		<span class="keyword">if</span>(p!=i)</span><br><span class="line">			a[i]&lt;---&gt;a[p];</span><br><span class="line">	}</span><br><span class="line">} <span class="comment">// select_sort</span></span><br></pre></td></tr></table></figure>
+<p>同样的，在忽略贡献较小<strong>低次项</strong>以及<strong>常数项</strong>后，可得出：<br>
+基本操作为比较操作<code>if(a[j]&lt;a[p])</code>，时间复杂度为 O(<span class="math inline"><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.025ex" xmlns="http://www.w3.org/2000/svg" width="2.345ex" height="1.912ex" role="img" focusable="false" viewBox="0 -833.9 1036.6 844.9"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msup"><g data-mml-node="mi"><path data-c="1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mn" transform="translate(633,363) scale(0.707)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g></g></g></g></svg></mjx-container></span>)</p>
+<h5 id="空间复杂度">空间复杂度</h5>
+<p>算法的存储量包括：</p>
+<ul>
+<li>输入数据所占空间</li>
+<li>程序本身所占空间</li>
+<li>辅助变量所占空间</li>
+</ul>
+<p>注：</p>
+<ol type="1">
+<li>若输入数据所占空间只取决于问题本身，和算法无关，则只需要分析<strong>除输入和程序之外的辅助变量所占额外空间</strong>。<br>
+</li>
+<li>若所需额外空间相对于输入数据量来说是常数，则称此算法为<strong>原地工作</strong>。如上述的选择排序算法便是原地工作。<br>
+</li>
+<li>若所需存储量依赖于特定的输入，则通常<strong>按最坏情况考虑</strong>。</li>
+</ol>
+<p><br></p>
+<p>空间复杂度：如果用 g(n)
+表示算法所需的除了输入数据以外的额外的存储量，算法的空间复杂度定义为
+<strong>S(n)=O(g(n))</strong>
+，表示随着问题规模的增长，算法运行所需存储量的增长率与 g(n)
+的增长率相同。</p>
+<h2 id="线性表">线性表</h2>
+<h3 id="线性表的顺序存储数组">线性表的顺序存储——数组</h3>
+<p>顺序表：</p>
+<ul>
+<li>顺序表的定义：顺序表是用一组地址连续的存储空间依次存储线性表的数据元素<br>
+</li>
+<li>顺序表的特点：
+<ul>
+<li>各个数据元素的逻辑顺序与其存放的物理顺序一致<br>
+</li>
+<li>对顺序表中所有元素，既可以进行顺序依次访问，也可以进行随机直接访问<br>
+</li>
+<li>顺序表用一维数组实现时，存储空间可以是静态分配的，也可以是动态分配的<br>
+</li>
+<li>顺序表所能存放的数据元素个数受数组的空间大小约束<br>
+</li>
+</ul></li>
+<li>顺序表的三要素：
+<ul>
+<li>起始地址（常量）<br>
+</li>
+<li>顺序表长度（常量）<br>
+</li>
+<li>顺序表包含的有效元素个数（变量）</li>
+</ul></li>
+</ul>
+<h4 id="顺序表的操作">顺序表的操作</h4>
+<p>访问类操作：</p>
+<ul>
+<li>获取顺序表第 i 个数据元素（时间复杂度为 O(1)）<br>
+</li>
+<li>查找元素 e 所在的位置（时间复杂度为 O(n)）</li>
+</ul>
+<p>加工类操作：</p>
+<ul>
+<li>在顺序表第 i 个位置插入元素e（时间复杂度为 O(n)）<br>
+</li>
+<li>将顺序表第 i 个位置上的元素删除（时间复杂度为 O(n)）</li>
+</ul>
+<p>注：由于顺序表的顺序存储的特点，插入和删除都要通过移动来实现，这样做的弊端有二：</p>
+<ul>
+<li>所需要移动的元素很多，浪费算力。</li>
+<li>必须为数组开足够多的空间，否则有溢出风险。</li>
+</ul>
+<h3 id="线性表的链式存储链表">线性表的链式存储——链表</h3>
+<h4 id="单链表">单链表</h4>
+<p>单链表（single linked
+list）是一种最简单的链表表示，也叫做线性链表。单链表每个结点有两个域组成：数据域（data）存放数据元素；指针域（next）存放指向该链表中下一个结点的指针（后继结点的存储地址）。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/reman2021/ImageHosting@main/zcw-blog-picture/1560862292645286.png">
+<img src="https://cdn.jsdelivr.net/gh/reman2021/ImageHosting@main/zcw-blog-picture/1560862411132172.png" alt="单链表"></p>
+<h5 id="特点">特点</h5>
+<p>单链表的特点：</p>
+<ul>
+<li>单链表中数据元素的逻辑顺序与其物理存储顺序可能不一致，一般通过单链表的<strong>指针</strong>将各个数据元素按照线性表的逻辑顺序链接起来；</li>
+<li>单链表的<strong>长度扩充较方便</strong>；</li>
+<li>对单链表的访问操作只能<strong>从头结点的指针开始</strong>，逐个结点进行访问，不能像顺序表一样直接访问某个指定结点；</li>
+<li>当进行插入和删除操作时，只需修改相关结点的指针域即可，<strong>不需要移动</strong>其他元素的存储位置；</li>
+<li>由于单链表的每个结点带有指针域，因此存储空间消耗要比顺序表大。</li>
+</ul>
+<h5 id="存储结构">存储结构</h5>
+<p>单链表的存储结构：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">Typedef <span class="class"><span class="keyword">struct</span> <span class="title">Node</span></span></span><br><span class="line"><span class="class">{</span></span><br><span class="line">	ElemType data; 		<span class="comment">// 数据域，ElemType为你想定义的任意数据类型，包括结构体struct等复合类型</span></span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">Lnode</span> *<span class="title">next</span>;</span> <span class="comment">// 指针域</span></span><br><span class="line">}Node, *LinkList;</span><br></pre></td></tr></table></figure>
+<h5 id="基本操作">基本操作</h5>
+<p>单链表的基本操作：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">GetElem(L, i, e) 		<span class="comment">//取第i个数据元素</span></span><br><span class="line">ListInsert(&amp;L, i, e) 	<span class="comment">//插入数据元素</span></span><br><span class="line">ListDelete(&amp;L, i, e) 	<span class="comment">//删除数据元素</span></span><br><span class="line">DestroyList(&amp;L) 		<span class="comment">//销毁单链表</span></span><br><span class="line">CreateList(&amp;L, n) 		<span class="comment">//创建单链表</span></span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>小笔记</category>
+        <category>程序设计</category>
       </categories>
       <tags>
-        <tag>公式</tag>
+        <tag>数据结构</tag>
       </tags>
   </entry>
   <entry>
@@ -1890,252 +2136,6 @@ href="http://zcw-blog.top/2022/04/24/Hexo+Next%E9%85%8D%E7%BD%AE%E4%BC%98%E5%8C%
       </categories>
       <tags>
         <tag>搭建博客</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>数据结构与算法</title>
-    <url>/posts/20210907a1/</url>
-    <content><![CDATA[<h2 id="浅识数据结构与算法">浅识数据结构与算法</h2>
-<p>数据结构是讨论在非数值计算领域，如何将现实世界的问题转换为计算机语言的描述。</p>
-<h3 id="讨论范畴">讨论范畴</h3>
-<p>Data Structures（数据结构）+ Algorithm（算法）= Programs（程序）</p>
-<ul>
-<li>程序：计算机可以执行的一组指令集</li>
-<li>数据结构：问题的数学模型</li>
-<li>算法：解决问题的策略</li>
-</ul>
-<p>计算机的算法与数据结构密切相关，算法无不依赖于数据结构，而数据结构也关系到算法的效率，直接决定了一个程序的好坏。</p>
-<p><span id="more"></span></p>
-<h3 id="数据与数据结构">数据与数据结构</h3>
-<p>数据：指描述物理世界的数值、字符、图形图像、语音等所有能输入到计算机中并被计算机处理的符号集合。</p>
-<p>数据结构：带结构的数据。即与特定问题相关的某一数据元素的集合和该集合中数据元素之间的关系。用来描述现实世界中的对象。</p>
-<p>数据结构的逻辑表示：实现对物理世界的抽象和建模。分为线性结构、非线性结构（树形结构、图状结构、集合结构）。</p>
-<p>数据结构的物理存储表示：在计算机中的具体实现方式。数据元素的物理存储表示为二进制，数据元素之间关系的物理存储表示包括顺序存储和链式存储。</p>
-<h3 id="数据类型">数据类型</h3>
-<h4 id="基本数据类型">基本数据类型</h4>
-<p>例如C语言提供的基本数据类型有：</p>
-<ul>
-<li>整型：int</li>
-<li>浮点型：float</li>
-<li>双精度型：double</li>
-<li>字符型：char</li>
-<li>逻辑型：bool</li>
-</ul>
-<p>注：不同数据类型，其取值的范围不同，所能进行的操作也不同。因此数据类型是一个值的集合和定义在此集合上的一组操作的总称。</p>
-<h4 id="抽象数据类型-abstract-data-type-adt">抽象数据类型（ Abstract
-Data Type, ADT ）</h4>
-<p>抽象数据类型：<br>
-由用户定义，用以表示应用问题的<strong>数据模型</strong>以及定义在该模型上的<strong>一组操作</strong>，又称<strong>数据抽象</strong>。即一个抽象数据类型，其构成的两要素为<strong>数据的结构</strong>和<strong>相应的操作集合</strong>。</p>
-<p>抽象数据类型可用（D，S，P）三元组表示，其中 D 是数据对象；S 是 D
-上的关系集；P 是对 D 的基本操作集。<br>
-抽象数据类型最重要的是其<strong>抽象性质</strong>，把使用和实现分离，实行<strong>封装</strong>和<strong>信息隐藏</strong>。它的实现就是面向对象程序设计中的<strong>“类”</strong>。<br>
-例，抽象数据类型复数 z=x+iy 的定义：</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> {</span></span><br><span class="line">	<span class="keyword">float</span> realpart；</span><br><span class="line">	<span class="keyword">float</span> imagpart；</span><br><span class="line">}<span class="built_in">complex</span>；</span><br></pre></td></tr></table></figure>
-<p>再定义基本操作函数：</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Assign</span><span class="params">( <span class="built_in">complex</span> &amp;Z, <span class="keyword">float</span> realval, <span class="keyword">float</span> imagval )</span>	<span class="comment">//构造实数z，其实部和虚部分别赋以参数realval和imagval</span></span></span><br><span class="line"><span class="function"><span class="keyword">float</span> <span class="title">GetReal</span><span class="params">( cpmplex Z )</span>								<span class="comment">//返回复数z的实部</span></span></span><br><span class="line"><span class="function"><span class="keyword">float</span> <span class="title">Getimag</span><span class="params">( cpmplex Z )</span>								<span class="comment">//返回复数z的虚部</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">( <span class="built_in">complex</span> z1, <span class="built_in">complex</span> z2, <span class="built_in">complex</span> &amp;sum )</span>		<span class="comment">//以sum返回两个复数z1和z2的和</span></span></span><br></pre></td></tr></table></figure>
-<h3 id="算法与算法分析">算法与算法分析</h3>
-<h4 id="算法特性">算法特性</h4>
-<p>算法是为了解决某类问题而规定的一个有限长的操作序列。一个算法必须满足以下五个重要特性：</p>
-<ul>
-<li>有穷性：一个算法必须总是在执行<strong>有穷步之后结束</strong>，且每一步都可在<strong>有穷时间内完成</strong>。<br>
-</li>
-<li>确定性：算法中每条指令必须有<strong>确切的</strong>含义。<strong>在任何条件下，算法只有唯一的一条执行路径</strong>，也即对相同的输入只能得出相同的输出。<br>
-</li>
-<li>可行性：算法中描述的操作都是可以通过已经实现的基本运算执行有限次来实现的。<br>
-</li>
-<li>有输入：：一个算法有零个或多个的输入，这些输入取自于某个特定的对象的集合。
-实际问题中，有些输入是通过人机交互得到的。<br>
-</li>
-<li>有输出：一个算法有一个或多个输出，这些输出是同输入有着某些特定关系的量。</li>
-</ul>
-<h4 id="算法设计的原则">算法设计的原则</h4>
-<p>正确性：<br>
-算法应当满足具体问题的明确需求。</p>
-<ul>
-<li>程序不含语法错误，能正常运行。<br>
-</li>
-<li>程序对于常规的输入数据能够得到满足规格说明要求的结果。<br>
-</li>
-<li>程序对精心选择的，苛刻的数据输入能够得到满足要求的结果，特别是边界条件约束下的正确反馈。<br>
-</li>
-<li>程序对于一切合法的输入数据都能得到满足规格说明要求的结果。</li>
-</ul>
-<p>可读性：<br>
-算法主要是为了人的阅读与交流，其次才是为计算机执行，因此算法应该易于人的理解；另一方面，晦涩难读的程序容易隐藏较多错误而难以调试。</p>
-<p>健壮性：<br>
-当输入的数据非法时，算法应当恰当地作出反映或进行相应处理，而不是产生莫名奇妙的输出结果。并且，处理出错的方法不应是中断程序的执行，而应是返回一个表示错误或错误性质的值，以便在更高的抽象层次上进行处理。</p>
-<p>高效率与低存储量需求：<br>
-通常，效率指的是算法执行时间；存储量指的是算法执行过程中所需的最大存储空间，两者都与问题的规模有关。</p>
-<h4 id="算法分析与度量">算法分析与度量</h4>
-<p>衡量算法优劣的指标主要有两个：</p>
-<ul>
-<li>时间复杂度：根据算法写成的程序在执行时耗费时间的长度。</li>
-<li>空间复杂度：根据算法写成的程序在执行时占用存储单位的大小。</li>
-</ul>
-<h5 id="时间复杂度">时间复杂度</h5>
-<p>时间复杂度统计方法：</p>
-<ul>
-<li>事后统计法：存在两个问题
-<ul>
-<li>必须执行程序<br>
-</li>
-<li>其它因素如编程所用语言、编译程序产生的机器代码的质量、程序运行的硬件环境等掩盖算法本质<br>
-</li>
-</ul></li>
-<li>事前分析估算法
-<ul>
-<li>一个特定算法的“运行工作量”的大小，只依赖于问题的规模，通常用整数量 n
-表示，或者说，它是问题规模的函数；<br>
-</li>
-<li>一般算法的执行时间与其包含的基本操作执行次数总和成正比；<br>
-</li>
-<li>算法中所包含的基本操作被执行的总次数可以作为算法运行时间的衡量标准。</li>
-</ul></li>
-</ul>
-<p><br></p>
-<p>时间复杂度的表示：大 O 记法</p>
-<ul>
-<li>算法中所包含的基本操作被执行的总次数是问题规模 n 的函数，可以记做
-f(n)。<br>
-</li>
-<li>随着问题规模 n 的增长，算法执行时间的增长率和 f(n)
-的增长率相同，则可记作: <strong>T(n) = O(f(n))</strong>,称** T(n)
-为算法的(渐近)时间复杂度**。<br>
-</li>
-<li>T(n) 是一个粗略的<strong>估计值</strong>，f(n)
-中的<strong>低次项</strong>以及<strong>常数项</strong>对算法执行时间的增长率<strong>贡献较小</strong>，因此可以忽略不计。</li>
-</ul>
-<p>注：函数 T(n)=O(f(n)) 说明在趋向无穷的极限意义下，函数 T
-的增长速度受到函数f的约束。</p>
-<p><br></p>
-<p>常见的时间复杂度:</p>
-<ul>
-<li>O(1) 或 O(c)：常量复杂度<br>
-</li>
-<li>O(logn)：对数复杂度<br>
-</li>
-<li>O(n)：线性复杂度<br>
-</li>
-<li>O(<span class="math inline"><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.025ex" xmlns="http://www.w3.org/2000/svg" width="2.345ex" height="1.912ex" role="img" focusable="false" viewBox="0 -833.9 1036.6 844.9"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msup"><g data-mml-node="mi"><path data-c="1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mn" transform="translate(633,363) scale(0.707)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g></g></g></g></svg></mjx-container></span>)：平方复杂度<br>
-</li>
-<li>O(<span class="math inline"><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="2.279ex" height="1.528ex" role="img" focusable="false" viewBox="0 -675.5 1007.3 675.5"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msup"><g data-mml-node="mn"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g><g data-mml-node="mi" transform="translate(533,363) scale(0.707)"><path data-c="1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path></g></g></g></g></svg></mjx-container></span>)：指数复杂度</li>
-</ul>
-<figure>
-<img src="https://cdn.jsdelivr.net/gh/reman2021/ImageHosting@main/zcw-blog-picture/001%20%E7%BB%AA%E8%AE%BA.jpg" alt="时间复杂度随问题规模的变化趋势图">
-<figcaption aria-hidden="true">时间复杂度随问题规模的变化趋势图</figcaption>
-</figure>
-<p><br></p>
-<p>时间复杂度:</p>
-<ul>
-<li>平均时间复杂度（θ）<br>
-</li>
-<li>最好情况下的时间复杂度（Ω）<br>
-</li>
-<li>最坏情况下的时间复杂度（O）</li>
-</ul>
-<p>注：我们对算法时间复杂度的估算一般是<strong>最坏情况下的时间复杂度（O）</strong>。</p>
-<p><br></p>
-<p>时间复杂度分析<br>
-例 1，两个矩阵相乘：</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">mult</span><span class="params">(<span class="keyword">int</span> a[],<span class="keyword">int</span> b[],<span class="keyword">int</span>&amp; c[])</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line"><span class="comment">// 以二维数组存储矩阵元素，c 为 a 和 b 的乘积</span></span><br><span class="line">	<span class="keyword">for</span> (i=<span class="number">1</span>;i&lt;=n;++i)</span><br><span class="line">		<span class="keyword">for</span> (j=<span class="number">1</span>;j&lt;=n;++j) </span><br><span class="line">		{</span><br><span class="line">			c[i,j] = <span class="number">0</span>;</span><br><span class="line">			<span class="keyword">for</span> (k=<span class="number">1</span>;k&lt;=n;++k)</span><br><span class="line">				c[i,j] += a[i,k]*b[k,j];</span><br><span class="line">		} <span class="comment">//for</span></span><br><span class="line">} <span class="comment">//mult</span></span><br></pre></td></tr></table></figure>
-<p>在忽略贡献较小<strong>低次项</strong>以及<strong>常数项</strong>后，可得出：<br>
-基本操作为乘法操作<code>a[i,k]*b[k,j]</code>，时间复杂度为 O(<span class="math inline"><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.025ex" xmlns="http://www.w3.org/2000/svg" width="2.345ex" height="1.91ex" role="img" focusable="false" viewBox="0 -833.2 1036.6 844.2"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msup"><g data-mml-node="mi"><path data-c="1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mn" transform="translate(633,363) scale(0.707)"><path data-c="33" d="M127 463Q100 463 85 480T69 524Q69 579 117 622T233 665Q268 665 277 664Q351 652 390 611T430 522Q430 470 396 421T302 350L299 348Q299 347 308 345T337 336T375 315Q457 262 457 175Q457 96 395 37T238 -22Q158 -22 100 21T42 130Q42 158 60 175T105 193Q133 193 151 175T169 130Q169 119 166 110T159 94T148 82T136 74T126 70T118 67L114 66Q165 21 238 21Q293 21 321 74Q338 107 338 175V195Q338 290 274 322Q259 328 213 329L171 330L168 332Q166 335 166 348Q166 366 174 366Q202 366 232 371Q266 376 294 413T322 525V533Q322 590 287 612Q265 626 240 626Q208 626 181 615T143 592T132 580H135Q138 579 143 578T153 573T165 566T175 555T183 540T186 520Q186 498 172 481T127 463Z"></path></g></g></g></g></svg></mjx-container></span>)</p>
-<p>例 2，选择排序：</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">select_sort</span><span class="params">(<span class="keyword">int</span>&amp; a[],<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n<span class="number">-1</span>;i++)</span><br><span class="line">	{</span><br><span class="line">		p=i;</span><br><span class="line">		<span class="keyword">for</span>(j=i+<span class="number">1</span>;j&lt;n;j++)</span><br><span class="line">			<span class="keyword">if</span>(a[j]&lt;a[p])</span><br><span class="line">				p=j;</span><br><span class="line">		<span class="keyword">if</span>(p!=i)</span><br><span class="line">			a[i]&lt;---&gt;a[p];</span><br><span class="line">	}</span><br><span class="line">} <span class="comment">// select_sort</span></span><br></pre></td></tr></table></figure>
-<p>同样的，在忽略贡献较小<strong>低次项</strong>以及<strong>常数项</strong>后，可得出：<br>
-基本操作为比较操作<code>if(a[j]&lt;a[p])</code>，时间复杂度为 O(<span class="math inline"><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.025ex" xmlns="http://www.w3.org/2000/svg" width="2.345ex" height="1.912ex" role="img" focusable="false" viewBox="0 -833.9 1036.6 844.9"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msup"><g data-mml-node="mi"><path data-c="1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mn" transform="translate(633,363) scale(0.707)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g></g></g></g></svg></mjx-container></span>)</p>
-<h5 id="空间复杂度">空间复杂度</h5>
-<p>算法的存储量包括：</p>
-<ul>
-<li>输入数据所占空间</li>
-<li>程序本身所占空间</li>
-<li>辅助变量所占空间</li>
-</ul>
-<p>注：</p>
-<ol type="1">
-<li>若输入数据所占空间只取决于问题本身，和算法无关，则只需要分析<strong>除输入和程序之外的辅助变量所占额外空间</strong>。<br>
-</li>
-<li>若所需额外空间相对于输入数据量来说是常数，则称此算法为<strong>原地工作</strong>。如上述的选择排序算法便是原地工作。<br>
-</li>
-<li>若所需存储量依赖于特定的输入，则通常<strong>按最坏情况考虑</strong>。</li>
-</ol>
-<p><br></p>
-<p>空间复杂度：如果用 g(n)
-表示算法所需的除了输入数据以外的额外的存储量，算法的空间复杂度定义为
-<strong>S(n)=O(g(n))</strong>
-，表示随着问题规模的增长，算法运行所需存储量的增长率与 g(n)
-的增长率相同。</p>
-<h2 id="线性表">线性表</h2>
-<h3 id="线性表的顺序存储数组">线性表的顺序存储——数组</h3>
-<p>顺序表：</p>
-<ul>
-<li>顺序表的定义：顺序表是用一组地址连续的存储空间依次存储线性表的数据元素<br>
-</li>
-<li>顺序表的特点：
-<ul>
-<li>各个数据元素的逻辑顺序与其存放的物理顺序一致<br>
-</li>
-<li>对顺序表中所有元素，既可以进行顺序依次访问，也可以进行随机直接访问<br>
-</li>
-<li>顺序表用一维数组实现时，存储空间可以是静态分配的，也可以是动态分配的<br>
-</li>
-<li>顺序表所能存放的数据元素个数受数组的空间大小约束<br>
-</li>
-</ul></li>
-<li>顺序表的三要素：
-<ul>
-<li>起始地址（常量）<br>
-</li>
-<li>顺序表长度（常量）<br>
-</li>
-<li>顺序表包含的有效元素个数（变量）</li>
-</ul></li>
-</ul>
-<h4 id="顺序表的操作">顺序表的操作</h4>
-<p>访问类操作：</p>
-<ul>
-<li>获取顺序表第 i 个数据元素（时间复杂度为 O(1)）<br>
-</li>
-<li>查找元素 e 所在的位置（时间复杂度为 O(n)）</li>
-</ul>
-<p>加工类操作：</p>
-<ul>
-<li>在顺序表第 i 个位置插入元素e（时间复杂度为 O(n)）<br>
-</li>
-<li>将顺序表第 i 个位置上的元素删除（时间复杂度为 O(n)）</li>
-</ul>
-<p>注：由于顺序表的顺序存储的特点，插入和删除都要通过移动来实现，这样做的弊端有二：</p>
-<ul>
-<li>所需要移动的元素很多，浪费算力。</li>
-<li>必须为数组开足够多的空间，否则有溢出风险。</li>
-</ul>
-<h3 id="线性表的链式存储链表">线性表的链式存储——链表</h3>
-<h4 id="单链表">单链表</h4>
-<p>单链表（single linked
-list）是一种最简单的链表表示，也叫做线性链表。单链表每个结点有两个域组成：数据域（data）存放数据元素；指针域（next）存放指向该链表中下一个结点的指针（后继结点的存储地址）。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/reman2021/ImageHosting@main/zcw-blog-picture/1560862292645286.png">
-<img src="https://cdn.jsdelivr.net/gh/reman2021/ImageHosting@main/zcw-blog-picture/1560862411132172.png" alt="单链表"></p>
-<h5 id="特点">特点</h5>
-<p>单链表的特点：</p>
-<ul>
-<li>单链表中数据元素的逻辑顺序与其物理存储顺序可能不一致，一般通过单链表的<strong>指针</strong>将各个数据元素按照线性表的逻辑顺序链接起来；</li>
-<li>单链表的<strong>长度扩充较方便</strong>；</li>
-<li>对单链表的访问操作只能<strong>从头结点的指针开始</strong>，逐个结点进行访问，不能像顺序表一样直接访问某个指定结点；</li>
-<li>当进行插入和删除操作时，只需修改相关结点的指针域即可，<strong>不需要移动</strong>其他元素的存储位置；</li>
-<li>由于单链表的每个结点带有指针域，因此存储空间消耗要比顺序表大。</li>
-</ul>
-<h5 id="存储结构">存储结构</h5>
-<p>单链表的存储结构：</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">Typedef <span class="class"><span class="keyword">struct</span> <span class="title">Node</span></span></span><br><span class="line"><span class="class">{</span></span><br><span class="line">	ElemType data; 		<span class="comment">// 数据域，ElemType为你想定义的任意数据类型，包括结构体struct等复合类型</span></span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">Lnode</span> *<span class="title">next</span>;</span> <span class="comment">// 指针域</span></span><br><span class="line">}Node, *LinkList;</span><br></pre></td></tr></table></figure>
-<h5 id="基本操作">基本操作</h5>
-<p>单链表的基本操作：</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">GetElem(L, i, e) 		<span class="comment">//取第i个数据元素</span></span><br><span class="line">ListInsert(&amp;L, i, e) 	<span class="comment">//插入数据元素</span></span><br><span class="line">ListDelete(&amp;L, i, e) 	<span class="comment">//删除数据元素</span></span><br><span class="line">DestroyList(&amp;L) 		<span class="comment">//销毁单链表</span></span><br><span class="line">CreateList(&amp;L, n) 		<span class="comment">//创建单链表</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>程序设计</category>
-      </categories>
-      <tags>
-        <tag>数据结构</tag>
       </tags>
   </entry>
 </search>
