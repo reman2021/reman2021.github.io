@@ -1,6 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Hello World</title>
+    <url>/posts/20210811cl5qgny7q0003cof9czordn8g/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very
+first post. Check <a href="https://hexo.io/docs/">documentation</a> for
+more info. If you get any problems when using Hexo, you can find the
+answer in <a
+href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or
+you can ask me on <a
+href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<p><span id="more"></span></p>
+<h2 id="quick-start">Quick Start</h2>
+<h3 id="create-a-new-post">Create a new post</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a
+href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="run-server">Run server</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="generate-static-files">Generate static files</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a
+href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a
+href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
     <title>Hexo + NexT 配置优化指南</title>
     <url>/posts/20220424a1/</url>
     <content><![CDATA[<p>记录 Hexo + NexT 的配置优化过程，以便后续更改和维护。</p>
@@ -1114,35 +1143,6 @@ class="footnote-back" role="doc-backlink">↩︎</a></p></li>
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/posts/20210811cl5ozwrzv0009fgf9bkwefkf9/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very
-first post. Check <a href="https://hexo.io/docs/">documentation</a> for
-more info. If you get any problems when using Hexo, you can find the
-answer in <a
-href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or
-you can ask me on <a
-href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<p><span id="more"></span></p>
-<h2 id="quick-start">Quick Start</h2>
-<h3 id="create-a-new-post">Create a new post</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a
-href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="run-server">Run server</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="generate-static-files">Generate static files</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a
-href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a
-href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
     <title>使用 Jetson Nano 向 PX4 提供 t265 位置信息，实现室内定点飞行</title>
     <url>/posts/20210907a2/</url>
     <content><![CDATA[<p>本文作者：南京航空航天大学 科技中心 陈思祺</p>
@@ -1460,6 +1460,40 @@ href="http://zcw-blog.top/2021/08/19/Markdown%E8%AF%AD%E6%B3%95%E8%AF%A6%E8%A7%A
         <tag>搭建博客</tag>
         <tag>Markdown</tag>
         <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>小笔记-积化和差、和差化积公式</title>
+    <url>/posts/20211001a1/</url>
+    <content><![CDATA[<p>本文主要用于测试 mathjax 渲染功能</p>
+<p><span id="more"></span></p>
+<h2 id="和差化积">和差化积</h2>
+<p><span class="math display">\[
+\sin x+\sin y=2 \sin \frac{x+y}{2} \cos \frac{x-y}{2}
+\]</span> <span class="math display">\[
+\sin x-\sin y=2 \cos \frac{x+y}{2} \sin \frac{x-y}{2}
+\]</span> <span class="math display">\[
+\cos x+\cos y=2 \cos \frac{x+y}{2} \cos \frac{x-y}{2}
+\]</span> <span class="math display">\[
+\cos x-\cos y=-2 \sin \frac{x+y}{2} \sin \frac{x-y}{2}
+\]</span></p>
+<h2 id="积化和差">积化和差</h2>
+<p><span class="math display">\[
+\sin x \sin y=-\frac{1}{2}[\cos (x+y)-\cos (x-y)]
+\]</span> <span class="math display">\[
+\cos x \cos y=\frac{1}{2}[\cos (x+y)+\cos (x-y)]
+\]</span> <span class="math display">\[
+\sin x \cos y=\frac{1}{2}[\sin (x+y)+\sin (x-y)]
+\]</span></p>
+<p>辅助记忆口诀：</p>
+<p>正加正，正在前，余加余，余并肩</p>
+<p>正减正，余在前，余减余，负正弦</p>
+]]></content>
+      <categories>
+        <category>小笔记</category>
+      </categories>
+      <tags>
+        <tag>公式</tag>
       </tags>
   </entry>
   <entry>
@@ -1821,40 +1855,6 @@ href="https://zcw-blog.top/posts/20220424a1/">Hexo+NexT配置优化指南</a></p
       </categories>
       <tags>
         <tag>搭建博客</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>小笔记-积化和差、和差化积公式</title>
-    <url>/posts/20211001a1/</url>
-    <content><![CDATA[<p>本文主要用于测试 mathjax 渲染功能</p>
-<p><span id="more"></span></p>
-<h2 id="和差化积">和差化积：</h2>
-<p><span class="math display">\[
-\sin x+\sin y=2 \sin \frac{x+y}{2} \cos \frac{x-y}{2}
-\]</span> <span class="math display">\[
-\sin x-\sin y=2 \cos \frac{x+y}{2} \sin \frac{x-y}{2}
-\]</span> <span class="math display">\[
-\cos x+\cos y=2 \cos \frac{x+y}{2} \cos \frac{x-y}{2}
-\]</span> <span class="math display">\[
-\cos x-\cos y=-2 \sin \frac{x+y}{2} \sin \frac{x-y}{2}
-\]</span></p>
-<h2 id="积化和差">积化和差：</h2>
-<p><span class="math display">\[
-\sin x \sin y=-\frac{1}{2}[\cos (x+y)-\cos (x-y)]
-\]</span> <span class="math display">\[
-\cos x \cos y=\frac{1}{2}[\cos (x+y)+\cos (x-y)]
-\]</span> <span class="math display">\[
-\sin x \cos y=\frac{1}{2}[\sin (x+y)+\sin (x-y)]
-\]</span></p>
-<p>辅助记忆口诀：</p>
-<p>正加正，正在前，余加余，余并肩</p>
-<p>正减正，余在前，余减余，负正弦</p>
-]]></content>
-      <categories>
-        <category>小笔记</category>
-      </categories>
-      <tags>
-        <tag>公式</tag>
       </tags>
   </entry>
   <entry>
