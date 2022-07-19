@@ -6,7 +6,7 @@
   <link href="https://reman2021.github.io/atom.xml" rel="self"/>
   
   <link href="https://reman2021.github.io/"/>
-  <updated>2022-04-29T09:34:08.672Z</updated>
+  <updated>2022-07-19T13:12:57.118Z</updated>
   <id>https://reman2021.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://reman2021.github.io/posts/20220424a1/"/>
     <id>https://reman2021.github.io/posts/20220424a1/</id>
     <published>2022-04-24T08:17:13.000Z</published>
-    <updated>2022-04-29T09:34:08.672Z</updated>
+    <updated>2022-07-19T13:12:57.118Z</updated>
     
     
     <summary type="html">&lt;p&gt;记录 Hexo + NexT 的配置优化过程，以便后续更改和维护。&lt;/p&gt;</summary>
@@ -62,7 +62,7 @@
     <link href="https://reman2021.github.io/posts/20210907a2/"/>
     <id>https://reman2021.github.io/posts/20210907a2/</id>
     <published>2021-09-07T05:53:34.000Z</published>
-    <updated>2022-04-26T09:14:25.885Z</updated>
+    <updated>2022-07-19T13:06:25.895Z</updated>
     
     
     <summary type="html">&lt;p&gt;本文作者：南京航空航天大学 科技中心 陈思祺&lt;/p&gt;
@@ -78,40 +78,11 @@
   </entry>
   
   <entry>
-    <title>数据结构与算法</title>
-    <link href="https://reman2021.github.io/posts/20210907a1/"/>
-    <id>https://reman2021.github.io/posts/20210907a1/</id>
-    <published>2021-09-07T05:53:34.000Z</published>
-    <updated>2022-04-26T09:14:06.894Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;浅识数据结构与算法&quot;&gt;浅识数据结构与算法&lt;/h2&gt;
-&lt;p&gt;数据结构是讨论在非数值计算领域，如何将现实世界的问题转换为计算机语言的描述。&lt;/p&gt;
-&lt;h3 id=&quot;讨论范畴&quot;&gt;讨论范畴&lt;/h3&gt;
-&lt;p&gt;Data Structures（数据结构）+ Algorithm（算法）= Programs（程序）&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;程序：计算机可以执行的一组指令集&lt;/li&gt;
-&lt;li&gt;数据结构：问题的数学模型&lt;/li&gt;
-&lt;li&gt;算法：解决问题的策略&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;计算机的算法与数据结构密切相关，算法无不依赖于数据结构，而数据结构也关系到算法的效率，直接决定了一个程序的好坏。&lt;/p&gt;
-&lt;p&gt;</summary>
-    
-    
-    
-    <category term="程序设计" scheme="https://reman2021.github.io/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
-    
-    
-    <category term="数据结构" scheme="https://reman2021.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Markdown语法详解及使用技巧</title>
     <link href="https://reman2021.github.io/posts/20210819a1/"/>
     <id>https://reman2021.github.io/posts/20210819a1/</id>
     <published>2021-08-18T16:36:36.000Z</published>
-    <updated>2022-04-29T09:31:32.175Z</updated>
+    <updated>2022-07-19T13:17:26.842Z</updated>
     
     
     <summary type="html">&lt;p&gt;Markdown
@@ -130,7 +101,7 @@ John Gruber 于 2004 年创建，如今已成为世界上最受欢迎的标记�
     <link href="https://reman2021.github.io/posts/20210817a1/"/>
     <id>https://reman2021.github.io/posts/20210817a1/</id>
     <published>2021-08-17T15:54:10.000Z</published>
-    <updated>2022-04-27T03:49:38.901Z</updated>
+    <updated>2022-07-19T12:40:59.627Z</updated>
     
     
     <summary type="html">&lt;p&gt;本文主要介绍如何在Hexo博客上进行创作，包括新建、编辑和预览文章&lt;/p&gt;</summary>
@@ -169,8 +140,8 @@ John Gruber 于 2004 年创建，如今已成为世界上最受欢迎的标记�
   
   <entry>
     <title>Hello World</title>
-    <link href="https://reman2021.github.io/posts/20210811cl5qgny7q0003cof9czordn8g/"/>
-    <id>https://reman2021.github.io/posts/20210811cl5qgny7q0003cof9czordn8g/</id>
+    <link href="https://reman2021.github.io/posts/20210811cl5s7c12w000b9cf9du62899h/"/>
+    <id>https://reman2021.github.io/posts/20210811cl5s7c12w000b9cf9du62899h/</id>
     <published>2021-08-11T07:20:47.512Z</published>
     <updated>2021-08-13T05:25:59.383Z</updated>
     
