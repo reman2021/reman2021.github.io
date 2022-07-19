@@ -6,7 +6,7 @@
   <link href="https://reman2021.github.io/atom.xml" rel="self"/>
   
   <link href="https://reman2021.github.io/"/>
-  <updated>2022-07-19T13:12:57.118Z</updated>
+  <updated>2022-07-19T16:04:11.082Z</updated>
   <id>https://reman2021.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Windows软件使用分享</title>
+    <link href="https://reman2021.github.io/posts/20220719a1/"/>
+    <id>https://reman2021.github.io/posts/20220719a1/</id>
+    <published>2022-07-19T14:35:02.000Z</published>
+    <updated>2022-07-19T16:04:11.082Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;span id=&quot;more&quot;&gt;&lt;/span&gt;
+&lt;h2 id=&quot;福昕高级pdf编辑器&quot;&gt;福昕高级PDF编辑器&lt;/h2&gt;
+&lt;p&gt;PDF 是 Portable Document Format 的简称，意为“可携带文档格式”，是由
+Adobe</summary>
+        
+      
+    
+    
+    
+    
+    <category term="Windows" scheme="https://reman2021.github.io/tags/Windows/"/>
+    
+  </entry>
   
   <entry>
     <title>Hexo + NexT 配置优化指南</title>
@@ -140,8 +166,8 @@ John Gruber 于 2004 年创建，如今已成为世界上最受欢迎的标记�
   
   <entry>
     <title>Hello World</title>
-    <link href="https://reman2021.github.io/posts/20210811cl5s7c12w000b9cf9du62899h/"/>
-    <id>https://reman2021.github.io/posts/20210811cl5s7c12w000b9cf9du62899h/</id>
+    <link href="https://reman2021.github.io/posts/20210811cl5sdbx2s000b74f96y38dfru/"/>
+    <id>https://reman2021.github.io/posts/20210811cl5sdbx2s000b74f96y38dfru/</id>
     <published>2021-08-11T07:20:47.512Z</published>
     <updated>2021-08-13T05:25:59.383Z</updated>
     

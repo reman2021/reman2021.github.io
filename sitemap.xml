@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://reman2021.github.io/posts/20220719a1/</loc>
+    
+    <lastmod>2022-07-19</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://reman2021.github.io/posts/20210819a1/</loc>
     
     <lastmod>2022-07-19</lastmod>
@@ -86,7 +93,7 @@
   </url>
   
   <url>
-    <loc>https://reman2021.github.io/posts/20210811cl5s7c12w000b9cf9du62899h/</loc>
+    <loc>https://reman2021.github.io/posts/20210811cl5sdbx2s000b74f96y38dfru/</loc>
     
     <lastmod>2021-08-13</lastmod>
     
@@ -107,6 +114,13 @@
     <priority>1.0</priority>
   </url>
 
+  
+  <url>
+    <loc>https://reman2021.github.io/tags/Windows/</loc>
+    <lastmod>2022-07-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
   
   <url>
     <loc>https://reman2021.github.io/tags/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</loc>
@@ -130,14 +144,14 @@
   </url>
   
   <url>
-    <loc>https://reman2021.github.io/tags/Hexo/</loc>
+    <loc>https://reman2021.github.io/tags/PX4%E9%A3%9E%E6%8E%A7/</loc>
     <lastmod>2022-07-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://reman2021.github.io/tags/PX4%E9%A3%9E%E6%8E%A7/</loc>
+    <loc>https://reman2021.github.io/tags/Hexo/</loc>
     <lastmod>2022-07-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
