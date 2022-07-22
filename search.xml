@@ -1201,7 +1201,7 @@ src="https://s2.loli.net/2022/07/19/rdIiUW7hN1b5RXL.png" /></p>
   </entry>
   <entry>
     <title>Hello World</title>
-    <url>/posts/20210811cl5vwod17000g90f97z2n95m2/</url>
+    <url>/posts/20210811cl5vwru5y0009bcf94c2r8cgu/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very
 first post. Check <a href="https://hexo.io/docs/">documentation</a> for
 more info. If you get any problems when using Hexo, you can find the
@@ -1227,6 +1227,119 @@ href="https://hexo.io/docs/generating.html">Generating</a></p>
 <p>More info: <a
 href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>使用 Jetson Nano 向 PX4 提供 t265 位置信息，实现室内定点飞行</title>
+    <url>/posts/20210907a2/</url>
+    <content><![CDATA[<p>本文作者：南京航空航天大学 科技中心 陈思祺</p>
+<p><span id="more"></span></p>
+<p>使用的 Jetson Nano 镜像版本：4.6（2021-08-04 发布）</p>
+<p><a
+href="https://developer.nvidia.com/zh-cn/embedded/downloads">NVIDIA官方镜像下载链接</a></p>
+<p><img src="https://s2.loli.net/2022/07/19/d6PRHu7trEnLG2l.jpg" /></p>
+<p>下载好镜像，烧录进 TF
+卡，初次开机简单配置后进入系统，建议系统语言选择英语，正式开始本次教程。</p>
+<h2 id="更新软件列表更新软件">更新软件列表，更新软件</h2>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt-get update </span><br><span class="line">sudo apt-get upgrade </span><br></pre></td></tr></table></figure>
+<h2 id="安装-ros-melodic">安装 ROS Melodic</h2>
+<p>参考<a
+href="http://wiki.ros.org/melodic/Installation/Ubuntu">官网安装教程</a></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 设置sources.list</span></span><br><span class="line">sudo sh -c &#x27;echo &quot;deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main&quot; &gt; /etc/apt/sources.list.d/ros-latest.list&#x27;</span><br><span class="line"><span class="meta">#</span><span class="bash"> 设置密钥</span></span><br><span class="line">sudo apt install curl</span><br><span class="line">curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add -</span><br><span class="line"><span class="meta">#</span><span class="bash"> 确保 Debian 包索引是最新的</span></span><br><span class="line">sudo apt update</span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装桌面完整版（推荐）</span></span><br><span class="line">sudo apt install ros-melodic-desktop-full</span><br><span class="line"><span class="meta">#</span><span class="bash"> 设置环境</span></span><br><span class="line">echo &quot;source /opt/ros/melodic/setup.bash&quot; &gt;&gt; ~/.bashrc</span><br><span class="line">source ~/.bashrc</span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装 rosdep</span></span><br><span class="line">sudo apt install python-rosdep</span><br><span class="line"><span class="meta">#</span><span class="bash"> 初始化 rosdep</span></span><br><span class="line">sudo rosdep init</span><br><span class="line">rosdep update</span><br><span class="line"><span class="meta">#</span><span class="bash"> 试一下效果</span></span><br><span class="line">roscore</span><br></pre></td></tr></table></figure>
+<h2 id="安装realsense">安装realsense</h2>
+<p>参考<a
+href="https://github.com/IntelRealSense/librealsense/blob/master/doc/installation.md">官网安装教程</a></p>
+<p>安装过程中请拔下摄像头</p>
+<h3 id="安装realsense-sdk">安装Realsense SDK</h3>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 下载<span class="built_in">source</span></span> </span><br><span class="line"><span class="meta">#</span><span class="bash"> 可使用Proxy代理加速下载。详见：https://ghproxy.com/</span></span><br><span class="line">git clone https://github.com/IntelRealSense/librealsense</span><br><span class="line">cd librealsense</span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装依赖项</span> </span><br><span class="line">sudo apt-get install libudev-dev pkg-config libgtk-3-dev</span><br><span class="line">sudo apt-get install libusb-1.0-0-dev pkg-config</span><br><span class="line">sudo apt-get install libglfw3-dev</span><br><span class="line">sudo apt-get install libssl-dev</span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装位于 librealsense 源目录中的 Intel Realsense 权限脚本</span></span><br><span class="line">sudo cp config/99-realsense-libusb.rules /etc/udev/rules.d/</span><br><span class="line">sudo udevadm control --reload-rules &amp;&amp; udevadm trigger </span><br><span class="line"><span class="meta">#</span><span class="bash"> 编译</span></span><br><span class="line">mkdir build</span><br><span class="line">cd build</span><br><span class="line">cmake ../ -DBUILD_EXAMPLES=true</span><br><span class="line">make</span><br><span class="line">sudo make install</span><br><span class="line"><span class="meta">#</span><span class="bash"> 试一下效果</span></span><br><span class="line">realsense-viewer</span><br></pre></td></tr></table></figure>
+<h3 id="安装realsense-ros">安装realsense-ros</h3>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 下载<span class="built_in">source</span></span></span><br><span class="line">mkdir -p ~/catkin_ws/src</span><br><span class="line">cd ~/catkin_ws/src/</span><br><span class="line">git clone https://github.com/IntelRealSense/realsense-ros.git</span><br><span class="line">git clone https://github.com/pal-robotics/ddynamic_reconfigure</span><br><span class="line">cd realsense-ros/</span><br><span class="line">git checkout `git tag | sort -V | grep -P &quot;^\d+\.\d+\.\d+&quot; | tail -1`</span><br><span class="line"><span class="meta">#</span><span class="bash"> 更改cv_bridgeConfig.cmake中opencv4路径</span></span><br><span class="line">sudo gedit /opt/ros/melodic/share/cv_bridge/cmake/cv_bridgeConfig.cmake</span><br></pre></td></tr></table></figure>
+<p>如图</p>
+<p><img src="https://s2.loli.net/2022/07/19/QFk1VvcSTZz8xWU.png" /></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 编译</span></span><br><span class="line">cd ~/catkin_ws</span><br><span class="line">catkin_make</span><br><span class="line"><span class="meta">#</span><span class="bash"> 设置环境</span></span><br><span class="line">echo &quot;source ~/catkin_ws/devel/setup.bash&quot;&gt;&gt;~/.bashrc </span><br><span class="line">source ~/.bashrc</span><br><span class="line"><span class="meta">#</span><span class="bash">试一下效果</span></span><br><span class="line">roslaunch realsense2_camera rs_t265.launch</span><br></pre></td></tr></table></figure>
+<h2 id="px4配置">PX4配置</h2>
+<p>下载 <em>QGroundControl</em></p>
+<p><a
+href="https://github.com/mavlink/qgroundcontrol/releases/">GitHub链接</a></p>
+<p><a href="https://docs.qgroundcontrol.com/master/en/">使用说明</a></p>
+<ul>
+<li><p><code>MAV_1_CONFIG</code>= <code>TELEM 2</code></p></li>
+<li><p><code>MAV_1_MODE</code> = <code>Onboard</code></p></li>
+<li><p><code>SER_TEL2_BAUD</code> = <code>57600 8N1</code></p></li>
+<li><p><code>EKF2_AID_MASK</code> 勾选
+<code>vision position fusion</code>和<code>vision yaw fusion</code></p></li>
+<li><p><code>EKF2_HGT_MODE</code> 设置为 <code>Vision</code></p></li>
+<li><p><code>MAV_ODOM_LP</code>设置为<code>1</code></p></li>
+</ul>
+<h2 id="mavros-和vio">MAVROS 和VIO</h2>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> MAVROS</span></span><br><span class="line">sudo apt install python-catkin-tools</span><br><span class="line">sudo apt install ros-melodic-mavros ros-melodic-mavros-extras</span><br><span class="line">sudo apt-get install ros-indigo-mavros ros-indigo-mavros-extras ros‐indigo‐control‐toolbox</span><br><span class="line"><span class="meta">#</span><span class="bash"> VIO</span></span><br><span class="line">cd ~/catkin_ws/src</span><br><span class="line">git clone https://github.com/Auterion/VIO.git</span><br><span class="line">cd ..</span><br><span class="line">catkin_make</span><br></pre></td></tr></table></figure>
+<p>更改以下配置</p>
+<ol type="1">
+<li>T265 相对位置及朝向</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">gedit ~/catkin_ws/src/VIO/launch/bridge.launch</span><br></pre></td></tr></table></figure>
+<p>修改</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">&lt;node pkg=&quot;tf&quot; type=&quot;static_transform_publisher&quot; name=&quot;tf_baseLink_cameraPose&quot;args=&quot;0 0 0 0 1.5708 0 base_link camera_pose_frame 1000&quot;/&gt;</span><br></pre></td></tr></table></figure>
+<p><code>args</code>中</p>
+<ul>
+<li><p>开头三个参数为飞控中心指向 T265 中心的向量。例如 T265 在飞控前方
+10 cm，上方 4 cm, 则前三个参数为：<code>[0.1, 0, -0.04]</code></p></li>
+<li><p>中间三个参数为旋转角(偏航, 俯仰, 横滚)。默认 T265
+朝地，则参数为<code>[0, 1.5708, 0]</code>；T265
+照射飞机机头方向，则参数为 <code>[0 0 0]</code></p></li>
+</ul>
+<ol start="2" type="1">
+<li>如果 TTL 的速度异常</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo gedit /opt/ros/melodic/share/mavros/launch/px4_config.yaml</span><br></pre></td></tr></table></figure>
+<p>第 12 行改为</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">timesync_rate: 0.0</span><br></pre></td></tr></table></figure>
+<ol start="3" type="1">
+<li>如果使用 USB 连接</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo gedit /opt/ros/melodic/share/mavros/launch/px4.launch</span><br></pre></td></tr></table></figure>
+<p>修改第 5 行为</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">&lt;arg name=&quot;fcu_url&quot; default=&quot;/dev/ttyUSB0:57600&quot; /&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">gedit ~/catkin_ws/src/VIO/launch/bridge_mavros.launch</span><br></pre></td></tr></table></figure>
+<p>修改第 3 行为</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">&lt;arg name=&quot;fcu_url&quot; default=&quot;/dev/ttyUSB0:57600&quot; /&gt;</span><br></pre></td></tr></table></figure>
+<ol start="4" type="1">
+<li>放开串口权限</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 用你自己的用户名替代下面的&lt;username&gt;</span></span><br><span class="line">sudo usermod -a -G dialout &lt;username&gt;</span><br><span class="line"><span class="meta">#</span><span class="bash"> 修改后需重启生效</span></span><br><span class="line">reboot now</span><br></pre></td></tr></table></figure>
+<h2 id="起飞前检查">起飞前检查</h2>
+<p>详情请看<a
+href="https://docs.px4.io/master/en/computer_vision/visual_inertial_odometry.html#verify_estimate">官网说明</a></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 开启VIO</span></span><br><span class="line">roslaunch px4_realsense_bridge bridge_mavros.launch</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>连接好摄像头、USB、PX4，可暂不接电池，查看 MAVLink
+Inspector</p></li>
+<li><p>偏航机身，直到<code>ODOMETRY</code>消息的四元数非常接近单位四元数（w
+= 1，x = y = z = 0）</p></li>
+<li><p>向前移动无人机，x 坐标应增大</p></li>
+<li><p>向右移动无人机，y 坐标应增大</p></li>
+<li><p>向上移动无人机，z 坐标应减小</p></li>
+<li><p>遥控器切换到 Position Flight Mode，若切换成功，应闪绿灯</p></li>
+</ul>
+<p>然后可以接上电池，尝试定点飞行</p>
+<h2 id="参考文章">参考文章</h2>
+<p><a href="https://docs.px4.io/master/en/">PX4 User Guide</a></p>
+<p><a href="http://wiki.ros.org/">ROS Wiki</a></p>
+<p><a href="https://github.com/IntelRealSense/">Intel RealSense</a></p>
+<p><a
+href="https://lifuguan.github.io/d435i/ros/2019/05/28/realsense-melodic-installation/">ROS
+melodic kernel 4.18 安装 realsense D435i</a></p>
+<p><a
+href="https://zhuanlan.zhihu.com/p/364390798">通过MAVROS连接机载电脑（NANO/TX2/NX）与Pixhawk</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/367357019">Jetson
+Nano使用T265向PX4提供位置信息</a></p>
+<p><a href="https://ghproxy.com/">GitHub Proxy</a></p>
+]]></content>
+      <categories>
+        <category>PX4</category>
+      </categories>
+      <tags>
+        <tag>PX4飞控</tag>
+      </tags>
   </entry>
   <entry>
     <title>在Hexo博客上进行创作</title>
@@ -1825,119 +1938,6 @@ href="https://zcw-blog.top/posts/20220424a1/">Hexo+NexT配置优化指南</a></p
       </categories>
       <tags>
         <tag>搭建博客</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>使用 Jetson Nano 向 PX4 提供 t265 位置信息，实现室内定点飞行</title>
-    <url>/posts/20210907a2/</url>
-    <content><![CDATA[<p>本文作者：南京航空航天大学 科技中心 陈思祺</p>
-<p><span id="more"></span></p>
-<p>使用的 Jetson Nano 镜像版本：4.6（2021-08-04 发布）</p>
-<p><a
-href="https://developer.nvidia.com/zh-cn/embedded/downloads">NVIDIA官方镜像下载链接</a></p>
-<p><img src="https://s2.loli.net/2022/07/19/d6PRHu7trEnLG2l.jpg" /></p>
-<p>下载好镜像，烧录进 TF
-卡，初次开机简单配置后进入系统，建议系统语言选择英语，正式开始本次教程。</p>
-<h2 id="更新软件列表更新软件">更新软件列表，更新软件</h2>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt-get update </span><br><span class="line">sudo apt-get upgrade </span><br></pre></td></tr></table></figure>
-<h2 id="安装-ros-melodic">安装 ROS Melodic</h2>
-<p>参考<a
-href="http://wiki.ros.org/melodic/Installation/Ubuntu">官网安装教程</a></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 设置sources.list</span></span><br><span class="line">sudo sh -c &#x27;echo &quot;deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main&quot; &gt; /etc/apt/sources.list.d/ros-latest.list&#x27;</span><br><span class="line"><span class="meta">#</span><span class="bash"> 设置密钥</span></span><br><span class="line">sudo apt install curl</span><br><span class="line">curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add -</span><br><span class="line"><span class="meta">#</span><span class="bash"> 确保 Debian 包索引是最新的</span></span><br><span class="line">sudo apt update</span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装桌面完整版（推荐）</span></span><br><span class="line">sudo apt install ros-melodic-desktop-full</span><br><span class="line"><span class="meta">#</span><span class="bash"> 设置环境</span></span><br><span class="line">echo &quot;source /opt/ros/melodic/setup.bash&quot; &gt;&gt; ~/.bashrc</span><br><span class="line">source ~/.bashrc</span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装 rosdep</span></span><br><span class="line">sudo apt install python-rosdep</span><br><span class="line"><span class="meta">#</span><span class="bash"> 初始化 rosdep</span></span><br><span class="line">sudo rosdep init</span><br><span class="line">rosdep update</span><br><span class="line"><span class="meta">#</span><span class="bash"> 试一下效果</span></span><br><span class="line">roscore</span><br></pre></td></tr></table></figure>
-<h2 id="安装realsense">安装realsense</h2>
-<p>参考<a
-href="https://github.com/IntelRealSense/librealsense/blob/master/doc/installation.md">官网安装教程</a></p>
-<p>安装过程中请拔下摄像头</p>
-<h3 id="安装realsense-sdk">安装Realsense SDK</h3>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 下载<span class="built_in">source</span></span> </span><br><span class="line"><span class="meta">#</span><span class="bash"> 可使用Proxy代理加速下载。详见：https://ghproxy.com/</span></span><br><span class="line">git clone https://github.com/IntelRealSense/librealsense</span><br><span class="line">cd librealsense</span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装依赖项</span> </span><br><span class="line">sudo apt-get install libudev-dev pkg-config libgtk-3-dev</span><br><span class="line">sudo apt-get install libusb-1.0-0-dev pkg-config</span><br><span class="line">sudo apt-get install libglfw3-dev</span><br><span class="line">sudo apt-get install libssl-dev</span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装位于 librealsense 源目录中的 Intel Realsense 权限脚本</span></span><br><span class="line">sudo cp config/99-realsense-libusb.rules /etc/udev/rules.d/</span><br><span class="line">sudo udevadm control --reload-rules &amp;&amp; udevadm trigger </span><br><span class="line"><span class="meta">#</span><span class="bash"> 编译</span></span><br><span class="line">mkdir build</span><br><span class="line">cd build</span><br><span class="line">cmake ../ -DBUILD_EXAMPLES=true</span><br><span class="line">make</span><br><span class="line">sudo make install</span><br><span class="line"><span class="meta">#</span><span class="bash"> 试一下效果</span></span><br><span class="line">realsense-viewer</span><br></pre></td></tr></table></figure>
-<h3 id="安装realsense-ros">安装realsense-ros</h3>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 下载<span class="built_in">source</span></span></span><br><span class="line">mkdir -p ~/catkin_ws/src</span><br><span class="line">cd ~/catkin_ws/src/</span><br><span class="line">git clone https://github.com/IntelRealSense/realsense-ros.git</span><br><span class="line">git clone https://github.com/pal-robotics/ddynamic_reconfigure</span><br><span class="line">cd realsense-ros/</span><br><span class="line">git checkout `git tag | sort -V | grep -P &quot;^\d+\.\d+\.\d+&quot; | tail -1`</span><br><span class="line"><span class="meta">#</span><span class="bash"> 更改cv_bridgeConfig.cmake中opencv4路径</span></span><br><span class="line">sudo gedit /opt/ros/melodic/share/cv_bridge/cmake/cv_bridgeConfig.cmake</span><br></pre></td></tr></table></figure>
-<p>如图</p>
-<p><img src="https://s2.loli.net/2022/07/19/QFk1VvcSTZz8xWU.png" /></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 编译</span></span><br><span class="line">cd ~/catkin_ws</span><br><span class="line">catkin_make</span><br><span class="line"><span class="meta">#</span><span class="bash"> 设置环境</span></span><br><span class="line">echo &quot;source ~/catkin_ws/devel/setup.bash&quot;&gt;&gt;~/.bashrc </span><br><span class="line">source ~/.bashrc</span><br><span class="line"><span class="meta">#</span><span class="bash">试一下效果</span></span><br><span class="line">roslaunch realsense2_camera rs_t265.launch</span><br></pre></td></tr></table></figure>
-<h2 id="px4配置">PX4配置</h2>
-<p>下载 <em>QGroundControl</em></p>
-<p><a
-href="https://github.com/mavlink/qgroundcontrol/releases/">GitHub链接</a></p>
-<p><a href="https://docs.qgroundcontrol.com/master/en/">使用说明</a></p>
-<ul>
-<li><p><code>MAV_1_CONFIG</code>= <code>TELEM 2</code></p></li>
-<li><p><code>MAV_1_MODE</code> = <code>Onboard</code></p></li>
-<li><p><code>SER_TEL2_BAUD</code> = <code>57600 8N1</code></p></li>
-<li><p><code>EKF2_AID_MASK</code> 勾选
-<code>vision position fusion</code>和<code>vision yaw fusion</code></p></li>
-<li><p><code>EKF2_HGT_MODE</code> 设置为 <code>Vision</code></p></li>
-<li><p><code>MAV_ODOM_LP</code>设置为<code>1</code></p></li>
-</ul>
-<h2 id="mavros-和vio">MAVROS 和VIO</h2>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> MAVROS</span></span><br><span class="line">sudo apt install python-catkin-tools</span><br><span class="line">sudo apt install ros-melodic-mavros ros-melodic-mavros-extras</span><br><span class="line">sudo apt-get install ros-indigo-mavros ros-indigo-mavros-extras ros‐indigo‐control‐toolbox</span><br><span class="line"><span class="meta">#</span><span class="bash"> VIO</span></span><br><span class="line">cd ~/catkin_ws/src</span><br><span class="line">git clone https://github.com/Auterion/VIO.git</span><br><span class="line">cd ..</span><br><span class="line">catkin_make</span><br></pre></td></tr></table></figure>
-<p>更改以下配置</p>
-<ol type="1">
-<li>T265 相对位置及朝向</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">gedit ~/catkin_ws/src/VIO/launch/bridge.launch</span><br></pre></td></tr></table></figure>
-<p>修改</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">&lt;node pkg=&quot;tf&quot; type=&quot;static_transform_publisher&quot; name=&quot;tf_baseLink_cameraPose&quot;args=&quot;0 0 0 0 1.5708 0 base_link camera_pose_frame 1000&quot;/&gt;</span><br></pre></td></tr></table></figure>
-<p><code>args</code>中</p>
-<ul>
-<li><p>开头三个参数为飞控中心指向 T265 中心的向量。例如 T265 在飞控前方
-10 cm，上方 4 cm, 则前三个参数为：<code>[0.1, 0, -0.04]</code></p></li>
-<li><p>中间三个参数为旋转角(偏航, 俯仰, 横滚)。默认 T265
-朝地，则参数为<code>[0, 1.5708, 0]</code>；T265
-照射飞机机头方向，则参数为 <code>[0 0 0]</code></p></li>
-</ul>
-<ol start="2" type="1">
-<li>如果 TTL 的速度异常</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo gedit /opt/ros/melodic/share/mavros/launch/px4_config.yaml</span><br></pre></td></tr></table></figure>
-<p>第 12 行改为</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">timesync_rate: 0.0</span><br></pre></td></tr></table></figure>
-<ol start="3" type="1">
-<li>如果使用 USB 连接</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo gedit /opt/ros/melodic/share/mavros/launch/px4.launch</span><br></pre></td></tr></table></figure>
-<p>修改第 5 行为</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">&lt;arg name=&quot;fcu_url&quot; default=&quot;/dev/ttyUSB0:57600&quot; /&gt;</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">gedit ~/catkin_ws/src/VIO/launch/bridge_mavros.launch</span><br></pre></td></tr></table></figure>
-<p>修改第 3 行为</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">&lt;arg name=&quot;fcu_url&quot; default=&quot;/dev/ttyUSB0:57600&quot; /&gt;</span><br></pre></td></tr></table></figure>
-<ol start="4" type="1">
-<li>放开串口权限</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 用你自己的用户名替代下面的&lt;username&gt;</span></span><br><span class="line">sudo usermod -a -G dialout &lt;username&gt;</span><br><span class="line"><span class="meta">#</span><span class="bash"> 修改后需重启生效</span></span><br><span class="line">reboot now</span><br></pre></td></tr></table></figure>
-<h2 id="起飞前检查">起飞前检查</h2>
-<p>详情请看<a
-href="https://docs.px4.io/master/en/computer_vision/visual_inertial_odometry.html#verify_estimate">官网说明</a></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 开启VIO</span></span><br><span class="line">roslaunch px4_realsense_bridge bridge_mavros.launch</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>连接好摄像头、USB、PX4，可暂不接电池，查看 MAVLink
-Inspector</p></li>
-<li><p>偏航机身，直到<code>ODOMETRY</code>消息的四元数非常接近单位四元数（w
-= 1，x = y = z = 0）</p></li>
-<li><p>向前移动无人机，x 坐标应增大</p></li>
-<li><p>向右移动无人机，y 坐标应增大</p></li>
-<li><p>向上移动无人机，z 坐标应减小</p></li>
-<li><p>遥控器切换到 Position Flight Mode，若切换成功，应闪绿灯</p></li>
-</ul>
-<p>然后可以接上电池，尝试定点飞行</p>
-<h2 id="参考文章">参考文章</h2>
-<p><a href="https://docs.px4.io/master/en/">PX4 User Guide</a></p>
-<p><a href="http://wiki.ros.org/">ROS Wiki</a></p>
-<p><a href="https://github.com/IntelRealSense/">Intel RealSense</a></p>
-<p><a
-href="https://lifuguan.github.io/d435i/ros/2019/05/28/realsense-melodic-installation/">ROS
-melodic kernel 4.18 安装 realsense D435i</a></p>
-<p><a
-href="https://zhuanlan.zhihu.com/p/364390798">通过MAVROS连接机载电脑（NANO/TX2/NX）与Pixhawk</a></p>
-<p><a href="https://zhuanlan.zhihu.com/p/367357019">Jetson
-Nano使用T265向PX4提供位置信息</a></p>
-<p><a href="https://ghproxy.com/">GitHub Proxy</a></p>
-]]></content>
-      <categories>
-        <category>PX4</category>
-      </categories>
-      <tags>
-        <tag>PX4飞控</tag>
       </tags>
   </entry>
 </search>
