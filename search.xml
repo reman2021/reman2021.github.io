@@ -1,63 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Windows软件使用分享</title>
-    <url>/posts/20220719a1/</url>
-    <content><![CDATA[<p>分享个人使用的 Windows 软件。</p>
-<span id="more"></span>
-<h2 id="福昕高级pdf编辑器">福昕高级PDF编辑器</h2>
-<p>PDF 是 Portable Document Format 的简称，意为“可携带文档格式”，是由
-Adobe 公司开发的一种通用的文档格式，具有通用性好、保真性强等优点。<br />
-但是由于 PDF
-本身的特点，选择一款稳定、快速的软件用以阅读编辑显得尤为重要。<br />
-目前较为推荐的有国内福昕和 Adobe 公司的软件，分别是福昕高级PDF编辑器和
-Adobe Acrobat Reader DC。如果只有阅读需求，Microsoft Edge 的 PDF
-阅读体验也是可以的。
-在尝试过两个之后，个人还是更喜欢福昕高级PDF编辑器。<br />
-<img src="https://s2.loli.net/2022/07/19/5vtSUKqVi3ENRxd.png" /><br />
-<img src="https://s2.loli.net/2022/07/19/9abxiS2NT17k5rw.png" /><br />
-这里附上9.7.1版本的安装文件和来自胡萝卜周的补丁：<br />
-链接：https://pan.baidu.com/s/12zbUdP_Bsz65t1omdXKdLA<br />
-提取码：w899</p>
-<h2 id="知云文献翻译">知云文献翻译</h2>
-<p><img src="https://s2.loli.net/2022/07/19/tF3whGmuzoIsZWk.png" /></p>
-<h2 id="ev录屏">EV录屏</h2>
-<p><img
-src="https://s2.loli.net/2022/07/19/JDzuTnXlq2oMS36.png" /><br />
-<img src="https://s2.loli.net/2022/07/19/oXYdGM9cJaKu4VI.png" /></p>
-<h2 id="mathpix-snipping-tool">Mathpix Snipping Tool</h2>
-<p>识别公式并生成相应代码，非常好用。（每个月只能免费使用10次）<br />
-<img src="https://s2.loli.net/2022/07/19/Z5IELwFAXuW1kiv.png" /><br />
-<img src="https://s2.loli.net/2022/07/19/CAnMGTyzx1DlBjX.png" /></p>
-<h2 id="snipaste">Snipaste</h2>
-<p>个人最常用的截图工具，小巧好用。<br />
-<img src="https://s2.loli.net/2022/07/19/CqKFAOUXkczMsV8.png" /><br />
-它还可以将截图贴在屏幕上，并支持放大缩小。<br />
-<img src="https://s2.loli.net/2022/07/19/tzD4pxUdQ2ZT837.png" /><br />
-<img src="https://s2.loli.net/2022/07/19/uKkegcS5hFosLwE.png" /><br />
-<img src="https://s2.loli.net/2022/07/19/ypBJm5TxzfriGwD.png" /></p>
-<h2 id="bandizip">Bandizip</h2>
-<p>压缩解压缩软件，没有 WinRAR 烦人的广告。<br />
-<img src="https://s2.loli.net/2022/07/19/P1mKs5MZorLd2AS.png" /><br />
-<img src="https://s2.loli.net/2022/07/19/oADFHTQzOPmbBIx.png" /></p>
-<h2 id="wox-everything">Wox + Everything</h2>
-<p>高效办公好助手。（用惯的话）<br />
-<img src="https://s2.loli.net/2022/07/19/xf4bI1aCoFkvGlK.png" /><img
-src="https://s2.loli.net/2022/07/19/rdIiUW7hN1b5RXL.png" /></p>
-<h2 id="向日葵远程控制">向日葵远程控制</h2>
-<p>可用手机平板远程控制电脑，进行文件传输。<br />
-<img src="https://s2.loli.net/2022/07/19/vXCISpwyTstoLMq.png" /><br />
-<img src="https://s2.loli.net/2022/07/19/EXLG9bSNlIOutdy.png" /></p>
-<h2 id="picpick">PicPick</h2>
-<p>小工具箱。<br />
-<img src="https://s2.loli.net/2022/07/20/TB3eCAybEJk2tqN.png" /><br />
-<img src="https://s2.loli.net/2022/07/20/Jx8YPnZA96VhQau.png" /></p>
-]]></content>
-      <tags>
-        <tag>Windows</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hexo + NexT 配置优化指南</title>
     <url>/posts/20220424a1/</url>
     <content><![CDATA[<p>记录 Hexo + NexT 的配置优化过程，以便后续更改和维护。</p>
@@ -431,6 +374,63 @@ class="footnote-back" role="doc-backlink">↩︎</a></p></li>
       <tags>
         <tag>搭建博客</tag>
         <tag>NexT</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Windows软件使用分享</title>
+    <url>/posts/20220719a1/</url>
+    <content><![CDATA[<p>分享个人使用的 Windows 软件。</p>
+<span id="more"></span>
+<h2 id="福昕高级pdf编辑器">福昕高级PDF编辑器</h2>
+<p>PDF 是 Portable Document Format 的简称，意为“可携带文档格式”，是由
+Adobe 公司开发的一种通用的文档格式，具有通用性好、保真性强等优点。<br />
+但是由于 PDF
+本身的特点，选择一款稳定、快速的软件用以阅读编辑显得尤为重要。<br />
+目前较为推荐的有国内福昕和 Adobe 公司的软件，分别是福昕高级PDF编辑器和
+Adobe Acrobat Reader DC。如果只有阅读需求，Microsoft Edge 的 PDF
+阅读体验也是可以的。
+在尝试过两个之后，个人还是更喜欢福昕高级PDF编辑器。<br />
+<img src="https://s2.loli.net/2022/07/19/5vtSUKqVi3ENRxd.png" /><br />
+<img src="https://s2.loli.net/2022/07/19/9abxiS2NT17k5rw.png" /><br />
+这里附上9.7.1版本的安装文件和来自胡萝卜周的补丁：<br />
+链接：https://pan.baidu.com/s/12zbUdP_Bsz65t1omdXKdLA<br />
+提取码：w899</p>
+<h2 id="知云文献翻译">知云文献翻译</h2>
+<p><img src="https://s2.loli.net/2022/07/19/tF3whGmuzoIsZWk.png" /></p>
+<h2 id="ev录屏">EV录屏</h2>
+<p><img
+src="https://s2.loli.net/2022/07/19/JDzuTnXlq2oMS36.png" /><br />
+<img src="https://s2.loli.net/2022/07/19/oXYdGM9cJaKu4VI.png" /></p>
+<h2 id="mathpix-snipping-tool">Mathpix Snipping Tool</h2>
+<p>识别公式并生成相应代码，非常好用。（每个月只能免费使用10次）<br />
+<img src="https://s2.loli.net/2022/07/19/Z5IELwFAXuW1kiv.png" /><br />
+<img src="https://s2.loli.net/2022/07/19/CAnMGTyzx1DlBjX.png" /></p>
+<h2 id="snipaste">Snipaste</h2>
+<p>个人最常用的截图工具，小巧好用。<br />
+<img src="https://s2.loli.net/2022/07/19/CqKFAOUXkczMsV8.png" /><br />
+它还可以将截图贴在屏幕上，并支持放大缩小。<br />
+<img src="https://s2.loli.net/2022/07/19/tzD4pxUdQ2ZT837.png" /><br />
+<img src="https://s2.loli.net/2022/07/19/uKkegcS5hFosLwE.png" /><br />
+<img src="https://s2.loli.net/2022/07/19/ypBJm5TxzfriGwD.png" /></p>
+<h2 id="bandizip">Bandizip</h2>
+<p>压缩解压缩软件，没有 WinRAR 烦人的广告。<br />
+<img src="https://s2.loli.net/2022/07/19/P1mKs5MZorLd2AS.png" /><br />
+<img src="https://s2.loli.net/2022/07/19/oADFHTQzOPmbBIx.png" /></p>
+<h2 id="wox-everything">Wox + Everything</h2>
+<p>高效办公好助手。（用惯的话）<br />
+<img src="https://s2.loli.net/2022/07/19/xf4bI1aCoFkvGlK.png" /><img
+src="https://s2.loli.net/2022/07/19/rdIiUW7hN1b5RXL.png" /></p>
+<h2 id="向日葵远程控制">向日葵远程控制</h2>
+<p>可用手机平板远程控制电脑，进行文件传输。<br />
+<img src="https://s2.loli.net/2022/07/19/vXCISpwyTstoLMq.png" /><br />
+<img src="https://s2.loli.net/2022/07/19/EXLG9bSNlIOutdy.png" /></p>
+<h2 id="picpick">PicPick</h2>
+<p>小工具箱。<br />
+<img src="https://s2.loli.net/2022/07/20/TB3eCAybEJk2tqN.png" /><br />
+<img src="https://s2.loli.net/2022/07/20/Jx8YPnZA96VhQau.png" /></p>
+]]></content>
+      <tags>
+        <tag>Windows</tag>
       </tags>
   </entry>
   <entry>
@@ -1313,8 +1313,42 @@ Nano使用T265向PX4提供位置信息</a></p>
       </tags>
   </entry>
   <entry>
+    <title>小笔记-积化和差、和差化积公式</title>
+    <url>/posts/20211001a1/</url>
+    <content><![CDATA[<p>本文主要用于测试 mathjax 渲染功能</p>
+<p><span id="more"></span></p>
+<h2 id="和差化积">和差化积</h2>
+<p><span class="math display">\[
+\sin x+\sin y=2 \sin \frac{x+y}{2} \cos \frac{x-y}{2}
+\]</span> <span class="math display">\[
+\sin x-\sin y=2 \cos \frac{x+y}{2} \sin \frac{x-y}{2}
+\]</span> <span class="math display">\[
+\cos x+\cos y=2 \cos \frac{x+y}{2} \cos \frac{x-y}{2}
+\]</span> <span class="math display">\[
+\cos x-\cos y=-2 \sin \frac{x+y}{2} \sin \frac{x-y}{2}
+\]</span></p>
+<h2 id="积化和差">积化和差</h2>
+<p><span class="math display">\[
+\sin x \sin y=-\frac{1}{2}[\cos (x+y)-\cos (x-y)]
+\]</span> <span class="math display">\[
+\cos x \cos y=\frac{1}{2}[\cos (x+y)+\cos (x-y)]
+\]</span> <span class="math display">\[
+\sin x \cos y=\frac{1}{2}[\sin (x+y)+\sin (x-y)]
+\]</span></p>
+<p>辅助记忆口诀：</p>
+<p>正加正，正在前，余加余，余并肩</p>
+<p>正减正，余在前，余减余，负正弦</p>
+]]></content>
+      <categories>
+        <category>小笔记</category>
+      </categories>
+      <tags>
+        <tag>公式</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hello World</title>
-    <url>/posts/20210811cl5yp3buc000btwf957mi1o0e/</url>
+    <url>/posts/20210811cl60lzu6j000nuof97zwt9n3o/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very
 first post. Check <a href="https://hexo.io/docs/">documentation</a> for
 more info. If you get any problems when using Hexo, you can find the
@@ -1543,40 +1577,6 @@ href="https://zcw-blog.top/posts/20210819a1/#more">Markdown语法详解</a></p>
         <tag>搭建博客</tag>
         <tag>Markdown</tag>
         <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>小笔记-积化和差、和差化积公式</title>
-    <url>/posts/20211001a1/</url>
-    <content><![CDATA[<p>本文主要用于测试 mathjax 渲染功能</p>
-<p><span id="more"></span></p>
-<h2 id="和差化积">和差化积</h2>
-<p><span class="math display">\[
-\sin x+\sin y=2 \sin \frac{x+y}{2} \cos \frac{x-y}{2}
-\]</span> <span class="math display">\[
-\sin x-\sin y=2 \cos \frac{x+y}{2} \sin \frac{x-y}{2}
-\]</span> <span class="math display">\[
-\cos x+\cos y=2 \cos \frac{x+y}{2} \cos \frac{x-y}{2}
-\]</span> <span class="math display">\[
-\cos x-\cos y=-2 \sin \frac{x+y}{2} \sin \frac{x-y}{2}
-\]</span></p>
-<h2 id="积化和差">积化和差</h2>
-<p><span class="math display">\[
-\sin x \sin y=-\frac{1}{2}[\cos (x+y)-\cos (x-y)]
-\]</span> <span class="math display">\[
-\cos x \cos y=\frac{1}{2}[\cos (x+y)+\cos (x-y)]
-\]</span> <span class="math display">\[
-\sin x \cos y=\frac{1}{2}[\sin (x+y)+\sin (x-y)]
-\]</span></p>
-<p>辅助记忆口诀：</p>
-<p>正加正，正在前，余加余，余并肩</p>
-<p>正减正，余在前，余减余，负正弦</p>
-]]></content>
-      <categories>
-        <category>小笔记</category>
-      </categories>
-      <tags>
-        <tag>公式</tag>
       </tags>
   </entry>
   <entry>
