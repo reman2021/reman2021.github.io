@@ -6,7 +6,7 @@
   <link href="https://reman2021.github.io/atom.xml" rel="self"/>
   
   <link href="https://reman2021.github.io/"/>
-  <updated>2022-07-20T10:07:17.962Z</updated>
+  <updated>2022-07-26T04:43:08.755Z</updated>
   <id>https://reman2021.github.io/</id>
   
   <author>
@@ -15,6 +15,24 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Clash for Linux</title>
+    <link href="https://reman2021.github.io/posts/20220726a1/"/>
+    <id>https://reman2021.github.io/posts/20220726a1/</id>
+    <published>2022-07-26T00:12:41.000Z</published>
+    <updated>2022-07-26T04:43:08.755Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;配置 Clash for Linux，并设置开机自启动。 Linux 系统版本：Ubuntu
+20.04.1&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="Linux" scheme="https://reman2021.github.io/tags/Linux/"/>
+    
+  </entry>
   
   <entry>
     <title>Windows软件使用分享</title>
@@ -157,8 +175,8 @@ John Gruber 于 2004 年创建，如今已成为世界上最受欢迎的标记�
   
   <entry>
     <title>Hello World</title>
-    <link href="https://reman2021.github.io/posts/20210811cl60lzu6j000nuof97zwt9n3o/"/>
-    <id>https://reman2021.github.io/posts/20210811cl60lzu6j000nuof97zwt9n3o/</id>
+    <link href="https://reman2021.github.io/posts/20210811cl61p0eo9000zygf99ik4hdgk/"/>
+    <id>https://reman2021.github.io/posts/20210811cl61p0eo9000zygf99ik4hdgk/</id>
     <published>2021-08-11T07:20:47.512Z</published>
     <updated>2021-08-13T05:25:59.383Z</updated>
     
