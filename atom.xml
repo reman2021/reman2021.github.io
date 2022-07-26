@@ -6,7 +6,7 @@
   <link href="https://reman2021.github.io/atom.xml" rel="self"/>
   
   <link href="https://reman2021.github.io/"/>
-  <updated>2022-07-26T05:13:36.439Z</updated>
+  <updated>2022-07-26T05:17:18.641Z</updated>
   <id>https://reman2021.github.io/</id>
   
   <author>
@@ -21,13 +21,15 @@
     <link href="https://reman2021.github.io/posts/20220726a1/"/>
     <id>https://reman2021.github.io/posts/20220726a1/</id>
     <published>2022-07-26T00:12:41.000Z</published>
-    <updated>2022-07-26T05:13:36.439Z</updated>
+    <updated>2022-07-26T05:17:18.641Z</updated>
     
     
     <summary type="html">&lt;p&gt;配置 Clash for Linux，并设置开机自启动。 Linux 系统版本：Ubuntu
 20.04.1&lt;/p&gt;</summary>
     
     
+    
+    <category term="Linux" scheme="https://reman2021.github.io/categories/Linux/"/>
     
     
     <category term="Linux" scheme="https://reman2021.github.io/tags/Linux/"/>
@@ -77,7 +79,7 @@
     <link href="https://reman2021.github.io/posts/20211001a1/"/>
     <id>https://reman2021.github.io/posts/20211001a1/</id>
     <published>2021-10-01T08:24:10.000Z</published>
-    <updated>2022-07-18T08:04:10.960Z</updated>
+    <updated>2022-07-26T05:15:56.334Z</updated>
     
     
     <summary type="html">&lt;p&gt;本文主要用于测试 mathjax 渲染功能&lt;/p&gt;
@@ -87,8 +89,6 @@
     
     <category term="小笔记" scheme="https://reman2021.github.io/categories/%E5%B0%8F%E7%AC%94%E8%AE%B0/"/>
     
-    
-    <category term="公式" scheme="https://reman2021.github.io/tags/%E5%85%AC%E5%BC%8F/"/>
     
   </entry>
   
@@ -175,8 +175,8 @@ John Gruber 于 2004 年创建，如今已成为世界上最受欢迎的标记�
   
   <entry>
     <title>Hello World</title>
-    <link href="https://reman2021.github.io/posts/20210811cl61q39qj000bgwf953qfe0e3/"/>
-    <id>https://reman2021.github.io/posts/20210811cl61q39qj000bgwf953qfe0e3/</id>
+    <link href="https://reman2021.github.io/posts/20210811cl61q90ii000ihcf9a0v82keh/"/>
+    <id>https://reman2021.github.io/posts/20210811cl61q90ii000ihcf9a0v82keh/</id>
     <published>2021-08-11T07:20:47.512Z</published>
     <updated>2021-08-13T05:25:59.383Z</updated>
     
