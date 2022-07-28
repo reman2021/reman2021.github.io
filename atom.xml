@@ -6,7 +6,7 @@
   <link href="https://reman2021.github.io/atom.xml" rel="self"/>
   
   <link href="https://reman2021.github.io/"/>
-  <updated>2022-07-26T05:17:18.641Z</updated>
+  <updated>2022-07-28T16:18:56.059Z</updated>
   <id>https://reman2021.github.io/</id>
   
   <author>
@@ -17,11 +17,30 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>ROS 学习记录1</title>
+    <link href="https://reman2021.github.io/posts/20220728a1/"/>
+    <id>https://reman2021.github.io/posts/20220728a1/</id>
+    <published>2022-07-28T01:11:58.000Z</published>
+    <updated>2022-07-28T16:18:56.059Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;记录 ROS 学习过程 Part1。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="ROS" scheme="https://reman2021.github.io/categories/ROS/"/>
+    
+    
+    <category term="ROS" scheme="https://reman2021.github.io/tags/ROS/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Clash for Linux</title>
     <link href="https://reman2021.github.io/posts/20220726a1/"/>
     <id>https://reman2021.github.io/posts/20220726a1/</id>
     <published>2022-07-26T00:12:41.000Z</published>
-    <updated>2022-07-26T05:17:18.641Z</updated>
+    <updated>2022-07-28T14:03:30.820Z</updated>
     
     
     <summary type="html">&lt;p&gt;配置 Clash for Linux，并设置开机自启动。 Linux 系统版本：Ubuntu
@@ -177,8 +196,8 @@ John Gruber 于 2004 年创建，如今已成为世界上最受欢迎的标记�
   
   <entry>
     <title>Hello World</title>
-    <link href="https://reman2021.github.io/posts/20210811cl61qc8vx000ihwf98qgjg0cv/"/>
-    <id>https://reman2021.github.io/posts/20210811cl61qc8vx000ihwf98qgjg0cv/</id>
+    <link href="https://reman2021.github.io/posts/20210811cl658ruid000ntsf91y0ifg5a/"/>
+    <id>https://reman2021.github.io/posts/20210811cl658ruid000ntsf91y0ifg5a/</id>
     <published>2021-08-11T07:20:47.512Z</published>
     <updated>2021-08-13T05:25:59.383Z</updated>
     
