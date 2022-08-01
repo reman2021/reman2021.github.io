@@ -814,107 +814,6 @@ class="footnote-back" role="doc-backlink">↩︎</a></p></li>
       </tags>
   </entry>
   <entry>
-    <title>ROS 学习记录1</title>
-    <url>/posts/20220728a1/</url>
-    <content><![CDATA[<p>记录 ROS 学习过程 Part1。<br />
-主要内容：ROS 安装。</p>
-<span id="more"></span>
-<h2 id="学习参考课程">学习参考课程</h2>
-<p><a
-href="https://www.bilibili.com/video/BV1zt411G7Vn?spm_id_from=333.788.top_right_bar_window_custom_collection.content.click&amp;vd_source=2986b70c538b1a31836b82311d90b18a">【古月居】古月·ROS入门21讲
-| 一学就会的ROS机器人入门教程</a><br />
-<a
-href="https://www.bilibili.com/video/BV1Ci4y1L7ZZ?spm_id_from=333.1007.top_right_bar_window_custom_collection.content.click&amp;vd_source=2986b70c538b1a31836b82311d90b18a">【Autolabor初级教程】ROS机器人入门</a></p>
-<h2 id="ros-安装">ROS 安装</h2>
-<p>Linux 系统版本：Ubuntu 20.04.1，ROS 版本为 ROS1 的终极版本:
-noetic，支持 Python3。<br />
-<img src="https://s2.loli.net/2022/07/28/3H8dPUoR26BNWmi.png" /></p>
-<h3 id="配置ubuntu的软件和更新">配置ubuntu的软件和更新</h3>
-<p>打开“软件和更新”对话框，确保勾选了"restricted"， "universe"， 和
-"multiverse"。</p>
-<h3 id="设置安装源">设置安装源</h3>
-<p>官方安装源：<br />
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo sh -c &#x27;echo &quot;deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main&quot; &gt; /etc/apt/sources.list.d/ros-latest.list&#x27;</span><br></pre></td></tr></table></figure> 国内清华镜像：<br />
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo sh -c &#x27;. /etc/lsb-release &amp;&amp; echo &quot;deb http://mirrors.tuna.tsinghua.edu.cn/ros/ubuntu/ `lsb_release -cs` main&quot; &gt; /etc/apt/sources.list.d/ros-latest.list&#x27;</span><br></pre></td></tr></table></figure> 国内中科大镜像： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo sh -c &#x27;. /etc/lsb-release &amp;&amp; echo &quot;deb http://mirrors.ustc.edu.cn/ros/ubuntu/ `lsb_release -cs` main&quot; &gt; /etc/apt/sources.list.d/ros-latest.list&#x27;</span><br></pre></td></tr></table></figure></p>
-<h3 id="设置-key">设置 key</h3>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt-key adv --keyserver &#x27;hkp://keyserver.ubuntu.com:80&#x27; --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654</span><br></pre></td></tr></table></figure>
-<h3 id="安装">安装</h3>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt update		#更新 apt</span><br><span class="line">sudo apt install ros-noetic-desktop-full	#安装 Desktop-Full</span><br></pre></td></tr></table></figure>
-<h4
-id="出现n-忽略ros-latest.listsudo于目录etcaptsources.list.d鉴于它的文件扩展名无效">出现“N:
-忽略‘ros-latest.listsudo’(于目录‘/etc/apt/sources.list.d/’)，鉴于它的文件扩展名无效”</h4>
-<p>解决方法： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo rm -f /etc/apt/sources.list.d/ros-latest.listsudo</span><br></pre></td></tr></table></figure></p>
-<h4 id="终端配置代理">终端配置代理</h4>
-<p>我在系统中设置了代理，于是直接使用官方源，结果不管怎么 update
-和install 都因为连接超时卡在了
-96%。于是我直接访问对应网址，轻松连上，便考虑是否是终端未代理的问题。<br />
-搜了一下，确实如此：SS/Clash 等一般是 web
-代理，终端无法使用，需要单独配置代理。<br />
-方法如下： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo gedit ~/.bashrc		#编辑 .bashrc 文件</span><br></pre></td></tr></table></figure> 在最后加上： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">alias proxy-on=&#x27;export http_proxy=127.0.0.1:7890;export https_proxy=$http_proxy&#x27;</span><br><span class="line">alias proxy-off=&#x27;unset http_proxy;unset https_proxy&#x27; </span><br></pre></td></tr></table></figure> <img
-src="https://s2.loli.net/2022/07/28/ybUAM4NdRt9mSwr.png" />
-保存退出后执行下面命令使文件生效：<br />
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">source ~/.bashrc</span><br></pre></td></tr></table></figure>
-现在使用命令<code>proxy-on</code>和<code>proxy-off</code>便可开关代理。</p>
-<div class="note info"><p>该命令只在当前终端生效，重新打开终端需要重新执行 proxy-on。</p>
-</div>
-<p>使用<code>curl -L www.google.com</code>可以检查代理是否开启，从下图可看出，我们本次请求网站页面成功返回了谷歌起始页的
-HTML 代码。<br />
-也可以使用<code>curl cip.cc</code>查看 IP 来检查。<br />
-<img src="https://s2.loli.net/2022/07/29/67KpCwHzgj1aRXd.png" /></p>
-<div class="note info"><p>访问 google.com 时会自动将地址重定向到
-google.com.hk，故执行<code>curl www.google.com</code>会出现 302 Moved
-提示。</p>
-</div>
-<h4 id="apt-配置代理">apt 配置代理</h4>
-<p>终端配置代理后，还是卡在了 96%。<br />
-查找发现 export 中 http_proxy 和 https_proxy 方式只是修改终端中的 http
-与 https 的代理方式，而 apt install 有自己独立的配置文件，配置终端代理后
-apt 也是直接连接。 所以要进行 apt 代理配置：<br />
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo touch /etc/apt/apt.conf.d/proxy.conf	#创建新的配置文件 proxy.conf</span><br></pre></td></tr></table></figure> 在 proxy.conf 文件里添加：<br />
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Acquire &#123;</span><br><span class="line">  HTTP::proxy &quot;http://127.0.0.1:7890&quot;;</span><br><span class="line">  HTTPS::proxy &quot;http://127.0.0.1:7890&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure> 记得将 7890 改为自己的端口。<br />
-<img src="https://s2.loli.net/2022/07/29/uqUaGJQL5BgXK84.png" />
-保存关闭后重新 apt install，顺利下载安装完成。<br />
-<img src="https://s2.loli.net/2022/07/29/JqWxSpHofRUFuVZ.png" /></p>
-<h3 id="配置环境变量">配置环境变量</h3>
-<p>配置环境变量，方便在任意终端中使用 ROS。<br />
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">echo &quot;source /opt/ros/noetic/setup.bash&quot; &gt;&gt; ~/.bashrc</span><br><span class="line">source ~/.bashrc</span><br></pre></td></tr></table></figure> 至此便可运行<code>roscore</code>进行测试。</p>
-<h3 id="安装构建依赖">安装构建依赖</h3>
-<p>noetic
-最初发布时，和其他历史版本稍有差异的是:没有安装构建依赖这一步骤。随着
-noetic 不断完善，官方补齐了这一操作。<br />
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">安装构建依赖的相关工具</span></span><br><span class="line">sudo apt install python3-rosdep python3-rosinstall python3-rosinstall-generator python3-wstool build-essential</span><br><span class="line">sudo apt install python3-rosdep</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">初始化 rosdep</span></span><br><span class="line">sudo rosdep init</span><br><span class="line">rosdep update</span><br></pre></td></tr></table></figure></p>
-<h4 id="rosdep-init-时出现-website-may-be-down">rosdep init 时出现
-Website may be down</h4>
-<p><a
-href="https://ping.chinaz.com/raw.githubusercontent.com">点此</a>找到
-raw.githubusercontent.com 对应 IP。<br />
-接下来修改 hosts 文件：<br />
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo gedit /etc/hosts</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">添加如下内容</span></span><br><span class="line">185.199.108.133 raw.githubusercontent.com</span><br></pre></td></tr></table></figure> <img
-src="https://s2.loli.net/2022/07/29/Yfa87V1inDFlBtq.png" />
-重新执行<code>rosdep init</code>即可。<br />
-执行成功：<br />
-<img src="https://s2.loli.net/2022/07/29/GtfWnew8HdsuMXP.png" /> <img
-src="https://s2.loli.net/2022/07/29/jgaKLenRwI6oxPd.png" /></p>
-<h2 id="参考文章">参考文章</h2>
-<p><a href="http://wiki.ros.org/noetic/Installation/Ubuntu">Ubuntu
-install of ROS Noetic</a> <a
-href="http://www.autolabor.com.cn/book/ROSTutorials/">【Autolabor初级教程】ROS机器人入门课程文档</a><br />
-<a
-href="https://www.serverlab.ca/tutorials/linux/administration-linux/how-to-set-the-proxy-for-apt-for-ubuntu-18-04/">How
-to Set the Proxy for APT on Ubuntu 18.04</a><br />
-<a
-href="https://juejin.cn/post/7070003235934715940">Terminal（终端）使用代理进行连接</a><br />
-<a
-href="https://blog.csdn.net/tjy199610_10/article/details/120621676">最详细的ros安装（包含所有相关依赖文件）</a></p>
-]]></content>
-      <categories>
-        <category>ROS</category>
-      </categories>
-      <tags>
-        <tag>ROS</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hexo + NexT 配置优化指南</title>
     <url>/posts/20220424a1/</url>
     <content><![CDATA[<p>记录 Hexo + NexT 的配置优化过程，以便后续更改和维护。</p>
@@ -1291,6 +1190,107 @@ class="footnote-back" role="doc-backlink">↩︎</a></p></li>
       </tags>
   </entry>
   <entry>
+    <title>ROS 学习记录1</title>
+    <url>/posts/20220728a1/</url>
+    <content><![CDATA[<p>记录 ROS 学习过程 Part1。<br />
+主要内容：ROS 安装。</p>
+<span id="more"></span>
+<h2 id="学习参考课程">学习参考课程</h2>
+<p><a
+href="https://www.bilibili.com/video/BV1zt411G7Vn?spm_id_from=333.788.top_right_bar_window_custom_collection.content.click&amp;vd_source=2986b70c538b1a31836b82311d90b18a">【古月居】古月·ROS入门21讲
+| 一学就会的ROS机器人入门教程</a><br />
+<a
+href="https://www.bilibili.com/video/BV1Ci4y1L7ZZ?spm_id_from=333.1007.top_right_bar_window_custom_collection.content.click&amp;vd_source=2986b70c538b1a31836b82311d90b18a">【Autolabor初级教程】ROS机器人入门</a></p>
+<h2 id="ros-安装">ROS 安装</h2>
+<p>Linux 系统版本：Ubuntu 20.04.1，ROS 版本为 ROS1 的终极版本:
+noetic，支持 Python3。<br />
+<img src="https://s2.loli.net/2022/07/28/3H8dPUoR26BNWmi.png" /></p>
+<h3 id="配置ubuntu的软件和更新">配置ubuntu的软件和更新</h3>
+<p>打开“软件和更新”对话框，确保勾选了"restricted"， "universe"， 和
+"multiverse"。</p>
+<h3 id="设置安装源">设置安装源</h3>
+<p>官方安装源：<br />
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo sh -c &#x27;echo &quot;deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main&quot; &gt; /etc/apt/sources.list.d/ros-latest.list&#x27;</span><br></pre></td></tr></table></figure> 国内清华镜像：<br />
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo sh -c &#x27;. /etc/lsb-release &amp;&amp; echo &quot;deb http://mirrors.tuna.tsinghua.edu.cn/ros/ubuntu/ `lsb_release -cs` main&quot; &gt; /etc/apt/sources.list.d/ros-latest.list&#x27;</span><br></pre></td></tr></table></figure> 国内中科大镜像： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo sh -c &#x27;. /etc/lsb-release &amp;&amp; echo &quot;deb http://mirrors.ustc.edu.cn/ros/ubuntu/ `lsb_release -cs` main&quot; &gt; /etc/apt/sources.list.d/ros-latest.list&#x27;</span><br></pre></td></tr></table></figure></p>
+<h3 id="设置-key">设置 key</h3>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt-key adv --keyserver &#x27;hkp://keyserver.ubuntu.com:80&#x27; --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654</span><br></pre></td></tr></table></figure>
+<h3 id="安装">安装</h3>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt update		#更新 apt</span><br><span class="line">sudo apt install ros-noetic-desktop-full	#安装 Desktop-Full</span><br></pre></td></tr></table></figure>
+<h4
+id="出现n-忽略ros-latest.listsudo于目录etcaptsources.list.d鉴于它的文件扩展名无效">出现“N:
+忽略‘ros-latest.listsudo’(于目录‘/etc/apt/sources.list.d/’)，鉴于它的文件扩展名无效”</h4>
+<p>解决方法： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo rm -f /etc/apt/sources.list.d/ros-latest.listsudo</span><br></pre></td></tr></table></figure></p>
+<h4 id="终端配置代理">终端配置代理</h4>
+<p>我在系统中设置了代理，于是直接使用官方源，结果不管怎么 update
+和install 都因为连接超时卡在了
+96%。于是我直接访问对应网址，轻松连上，便考虑是否是终端未代理的问题。<br />
+搜了一下，确实如此：SS/Clash 等一般是 web
+代理，终端无法使用，需要单独配置代理。<br />
+方法如下： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo gedit ~/.bashrc		#编辑 .bashrc 文件</span><br></pre></td></tr></table></figure> 在最后加上： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">alias proxy-on=&#x27;export http_proxy=127.0.0.1:7890;export https_proxy=$http_proxy&#x27;</span><br><span class="line">alias proxy-off=&#x27;unset http_proxy;unset https_proxy&#x27; </span><br></pre></td></tr></table></figure> <img
+src="https://s2.loli.net/2022/07/28/ybUAM4NdRt9mSwr.png" />
+保存退出后执行下面命令使文件生效：<br />
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">source ~/.bashrc</span><br></pre></td></tr></table></figure>
+现在使用命令<code>proxy-on</code>和<code>proxy-off</code>便可开关代理。</p>
+<div class="note info"><p>该命令只在当前终端生效，重新打开终端需要重新执行 proxy-on。</p>
+</div>
+<p>使用<code>curl -L www.google.com</code>可以检查代理是否开启，从下图可看出，我们本次请求网站页面成功返回了谷歌起始页的
+HTML 代码。<br />
+也可以使用<code>curl cip.cc</code>查看 IP 来检查。<br />
+<img src="https://s2.loli.net/2022/07/29/67KpCwHzgj1aRXd.png" /></p>
+<div class="note info"><p>访问 google.com 时会自动将地址重定向到
+google.com.hk，故执行<code>curl www.google.com</code>会出现 302 Moved
+提示。</p>
+</div>
+<h4 id="apt-配置代理">apt 配置代理</h4>
+<p>终端配置代理后，还是卡在了 96%。<br />
+查找发现 export 中 http_proxy 和 https_proxy 方式只是修改终端中的 http
+与 https 的代理方式，而 apt install 有自己独立的配置文件，配置终端代理后
+apt 也是直接连接。 所以要进行 apt 代理配置：<br />
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo touch /etc/apt/apt.conf.d/proxy.conf	#创建新的配置文件 proxy.conf</span><br></pre></td></tr></table></figure> 在 proxy.conf 文件里添加：<br />
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Acquire &#123;</span><br><span class="line">  HTTP::proxy &quot;http://127.0.0.1:7890&quot;;</span><br><span class="line">  HTTPS::proxy &quot;http://127.0.0.1:7890&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure> 记得将 7890 改为自己的端口。<br />
+<img src="https://s2.loli.net/2022/07/29/uqUaGJQL5BgXK84.png" />
+保存关闭后重新 apt install，顺利下载安装完成。<br />
+<img src="https://s2.loli.net/2022/07/29/JqWxSpHofRUFuVZ.png" /></p>
+<h3 id="配置环境变量">配置环境变量</h3>
+<p>配置环境变量，方便在任意终端中使用 ROS。<br />
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">echo &quot;source /opt/ros/noetic/setup.bash&quot; &gt;&gt; ~/.bashrc</span><br><span class="line">source ~/.bashrc</span><br></pre></td></tr></table></figure> 至此便可运行<code>roscore</code>进行测试。</p>
+<h3 id="安装构建依赖">安装构建依赖</h3>
+<p>noetic
+最初发布时，和其他历史版本稍有差异的是:没有安装构建依赖这一步骤。随着
+noetic 不断完善，官方补齐了这一操作。<br />
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">安装构建依赖的相关工具</span></span><br><span class="line">sudo apt install python3-rosdep python3-rosinstall python3-rosinstall-generator python3-wstool build-essential</span><br><span class="line">sudo apt install python3-rosdep</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">初始化 rosdep</span></span><br><span class="line">sudo rosdep init</span><br><span class="line">rosdep update</span><br></pre></td></tr></table></figure></p>
+<h4 id="rosdep-init-时出现-website-may-be-down">rosdep init 时出现
+Website may be down</h4>
+<p><a
+href="https://ping.chinaz.com/raw.githubusercontent.com">点此</a>找到
+raw.githubusercontent.com 对应 IP。<br />
+接下来修改 hosts 文件：<br />
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo gedit /etc/hosts</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">添加如下内容</span></span><br><span class="line">185.199.108.133 raw.githubusercontent.com</span><br></pre></td></tr></table></figure> <img
+src="https://s2.loli.net/2022/07/29/Yfa87V1inDFlBtq.png" />
+重新执行<code>rosdep init</code>即可。<br />
+执行成功：<br />
+<img src="https://s2.loli.net/2022/07/29/GtfWnew8HdsuMXP.png" /> <img
+src="https://s2.loli.net/2022/07/29/jgaKLenRwI6oxPd.png" /></p>
+<h2 id="参考文章">参考文章</h2>
+<p><a href="http://wiki.ros.org/noetic/Installation/Ubuntu">Ubuntu
+install of ROS Noetic</a> <a
+href="http://www.autolabor.com.cn/book/ROSTutorials/">【Autolabor初级教程】ROS机器人入门课程文档</a><br />
+<a
+href="https://www.serverlab.ca/tutorials/linux/administration-linux/how-to-set-the-proxy-for-apt-for-ubuntu-18-04/">How
+to Set the Proxy for APT on Ubuntu 18.04</a><br />
+<a
+href="https://juejin.cn/post/7070003235934715940">Terminal（终端）使用代理进行连接</a><br />
+<a
+href="https://blog.csdn.net/tjy199610_10/article/details/120621676">最详细的ros安装（包含所有相关依赖文件）</a></p>
+]]></content>
+      <categories>
+        <category>ROS</category>
+      </categories>
+      <tags>
+        <tag>ROS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>ROS学习记录2</title>
     <url>/posts/20220731a1/</url>
     <content><![CDATA[<p>记录 ROS 学习过程 Part2。<br />
@@ -1312,7 +1312,7 @@ src="https://s2.loli.net/2022/07/31/vd9mzgxcJNfYUkr.png" /></p>
   </entry>
   <entry>
     <title>Ubuntu优化</title>
-    <url>/posts/20220801cl6ay946z000ge8f9dvjfepfv/</url>
+    <url>/posts/20220801cl6aynlvm000ngwf98x6rgdoe/</url>
     <content><![CDATA[<p>Ubuntu 使用优化（20.04.1）。</p>
 <h2 id="模板-template">模板| Template</h2>
 <p>Ubuntu 20.04 鼠标右击没有新建文本文档选项。进入/home
@@ -1372,7 +1372,7 @@ href="https://cloud.tencent.com/developer/article/1844735">Linux终端命令神�
   </entry>
   <entry>
     <title>Hello World</title>
-    <url>/posts/20210811cl6ay9471000ie8f9dh9b50jx/</url>
+    <url>/posts/20210811cl6aynlvn000qgwf95c8o1rgc/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very
 first post. Check <a href="https://hexo.io/docs/">documentation</a> for
 more info. If you get any problems when using Hexo, you can find the
@@ -1398,6 +1398,74 @@ href="https://hexo.io/docs/generating.html">Generating</a></p>
 <p>More info: <a
 href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>Windows软件使用分享</title>
+    <url>/posts/20220719a1/</url>
+    <content><![CDATA[<p>分享个人使用的 Windows 软件。</p>
+<span id="more"></span>
+<h2 id="福昕高级pdf编辑器">福昕高级PDF编辑器</h2>
+<p>PDF 是 Portable Document Format 的简称，意为“可携带文档格式”，是由
+Adobe 公司开发的一种通用的文档格式，具有通用性好、保真性强等优点。<br />
+但是由于 PDF
+本身的特点，选择一款稳定、快速的软件用以阅读编辑显得尤为重要。<br />
+目前较为推荐的有国内福昕和 Adobe 公司的软件，分别是福昕高级PDF编辑器和
+Adobe Acrobat Reader DC。如果只有阅读需求，Microsoft Edge 的 PDF
+阅读体验也是可以的。
+在尝试过两个之后，个人还是更喜欢福昕高级PDF编辑器。<br />
+<img src="https://s2.loli.net/2022/07/19/5vtSUKqVi3ENRxd.png" /><br />
+<img src="https://s2.loli.net/2022/07/19/9abxiS2NT17k5rw.png" /><br />
+这里附上9.7.1版本的安装文件和来自胡萝卜周的补丁：<br />
+链接：https://pan.baidu.com/s/12zbUdP_Bsz65t1omdXKdLA<br />
+提取码：w899</p>
+<h2 id="知云文献翻译">知云文献翻译</h2>
+<p><img src="https://s2.loli.net/2022/07/19/tF3whGmuzoIsZWk.png" /></p>
+<h2 id="ev录屏">EV录屏</h2>
+<p><img
+src="https://s2.loli.net/2022/07/19/JDzuTnXlq2oMS36.png" /><br />
+<img src="https://s2.loli.net/2022/07/19/oXYdGM9cJaKu4VI.png" /></p>
+<h2 id="mathpix-snipping-tool">Mathpix Snipping Tool</h2>
+<p>识别公式并生成相应代码，非常好用。（每个月只能免费使用10次）<br />
+<img src="https://s2.loli.net/2022/07/19/Z5IELwFAXuW1kiv.png" /><br />
+<img src="https://s2.loli.net/2022/07/19/CAnMGTyzx1DlBjX.png" /></p>
+<h2 id="snipaste">Snipaste</h2>
+<p>个人最常用的截图工具，小巧好用。<br />
+<img src="https://s2.loli.net/2022/07/19/CqKFAOUXkczMsV8.png" /><br />
+它还可以将截图贴在屏幕上，并支持放大缩小。<br />
+<img src="https://s2.loli.net/2022/07/19/tzD4pxUdQ2ZT837.png" /><br />
+<img src="https://s2.loli.net/2022/07/19/uKkegcS5hFosLwE.png" /><br />
+<img src="https://s2.loli.net/2022/07/19/ypBJm5TxzfriGwD.png" /></p>
+<h2 id="bandizip">Bandizip</h2>
+<p>压缩解压缩软件，没有 WinRAR 烦人的广告。<br />
+<img src="https://s2.loli.net/2022/07/19/P1mKs5MZorLd2AS.png" /><br />
+<img src="https://s2.loli.net/2022/07/19/oADFHTQzOPmbBIx.png" /></p>
+<h2 id="wox-everything">Wox + Everything</h2>
+<p>高效办公好助手。（用惯的话）<br />
+参考：<a
+href="https://blog.csdn.net/qq_29860591/article/details/107873980">Wox+Everything结合使用</a><br />
+<img src="https://s2.loli.net/2022/07/19/xf4bI1aCoFkvGlK.png" /><img
+src="https://s2.loli.net/2022/07/19/rdIiUW7hN1b5RXL.png" /><br />
+<img src="https://s2.loli.net/2022/07/31/EVkcWijDqBdgNRv.png" /></p>
+<h2 id="向日葵远程控制">向日葵远程控制</h2>
+<p>可用手机平板远程控制电脑，进行文件传输。<br />
+<img src="https://s2.loli.net/2022/07/19/vXCISpwyTstoLMq.png" /><br />
+<img src="https://s2.loli.net/2022/07/19/EXLG9bSNlIOutdy.png" /></p>
+<h2 id="picpick">PicPick</h2>
+<p>小工具箱。<br />
+<img src="https://s2.loli.net/2022/07/20/TB3eCAybEJk2tqN.png" /><br />
+<img src="https://s2.loli.net/2022/07/20/Jx8YPnZA96VhQau.png" /></p>
+<h2 id="linux-reader">Linux Reader</h2>
+<p>适用于双系统，可在 Windows 下访问 Linux 的文件。<br />
+<a href="https://www.diskinternals.com/download/">下载地址</a><br />
+<img src="https://s2.loli.net/2022/07/31/Bs79aMTrGgF4kYI.png" /><br />
+<img src="https://s2.loli.net/2022/07/31/XfsjBr39zb7JHNl.png" /></p>
+]]></content>
+      <categories>
+        <category>软件</category>
+      </categories>
+      <tags>
+        <tag>Windows</tag>
+      </tags>
   </entry>
   <entry>
     <title>使用 Jetson Nano 向 PX4 提供 t265 位置信息，实现室内定点飞行</title>
@@ -1510,74 +1578,6 @@ Nano使用T265向PX4提供位置信息</a></p>
       </categories>
       <tags>
         <tag>PX4飞控</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Windows软件使用分享</title>
-    <url>/posts/20220719a1/</url>
-    <content><![CDATA[<p>分享个人使用的 Windows 软件。</p>
-<span id="more"></span>
-<h2 id="福昕高级pdf编辑器">福昕高级PDF编辑器</h2>
-<p>PDF 是 Portable Document Format 的简称，意为“可携带文档格式”，是由
-Adobe 公司开发的一种通用的文档格式，具有通用性好、保真性强等优点。<br />
-但是由于 PDF
-本身的特点，选择一款稳定、快速的软件用以阅读编辑显得尤为重要。<br />
-目前较为推荐的有国内福昕和 Adobe 公司的软件，分别是福昕高级PDF编辑器和
-Adobe Acrobat Reader DC。如果只有阅读需求，Microsoft Edge 的 PDF
-阅读体验也是可以的。
-在尝试过两个之后，个人还是更喜欢福昕高级PDF编辑器。<br />
-<img src="https://s2.loli.net/2022/07/19/5vtSUKqVi3ENRxd.png" /><br />
-<img src="https://s2.loli.net/2022/07/19/9abxiS2NT17k5rw.png" /><br />
-这里附上9.7.1版本的安装文件和来自胡萝卜周的补丁：<br />
-链接：https://pan.baidu.com/s/12zbUdP_Bsz65t1omdXKdLA<br />
-提取码：w899</p>
-<h2 id="知云文献翻译">知云文献翻译</h2>
-<p><img src="https://s2.loli.net/2022/07/19/tF3whGmuzoIsZWk.png" /></p>
-<h2 id="ev录屏">EV录屏</h2>
-<p><img
-src="https://s2.loli.net/2022/07/19/JDzuTnXlq2oMS36.png" /><br />
-<img src="https://s2.loli.net/2022/07/19/oXYdGM9cJaKu4VI.png" /></p>
-<h2 id="mathpix-snipping-tool">Mathpix Snipping Tool</h2>
-<p>识别公式并生成相应代码，非常好用。（每个月只能免费使用10次）<br />
-<img src="https://s2.loli.net/2022/07/19/Z5IELwFAXuW1kiv.png" /><br />
-<img src="https://s2.loli.net/2022/07/19/CAnMGTyzx1DlBjX.png" /></p>
-<h2 id="snipaste">Snipaste</h2>
-<p>个人最常用的截图工具，小巧好用。<br />
-<img src="https://s2.loli.net/2022/07/19/CqKFAOUXkczMsV8.png" /><br />
-它还可以将截图贴在屏幕上，并支持放大缩小。<br />
-<img src="https://s2.loli.net/2022/07/19/tzD4pxUdQ2ZT837.png" /><br />
-<img src="https://s2.loli.net/2022/07/19/uKkegcS5hFosLwE.png" /><br />
-<img src="https://s2.loli.net/2022/07/19/ypBJm5TxzfriGwD.png" /></p>
-<h2 id="bandizip">Bandizip</h2>
-<p>压缩解压缩软件，没有 WinRAR 烦人的广告。<br />
-<img src="https://s2.loli.net/2022/07/19/P1mKs5MZorLd2AS.png" /><br />
-<img src="https://s2.loli.net/2022/07/19/oADFHTQzOPmbBIx.png" /></p>
-<h2 id="wox-everything">Wox + Everything</h2>
-<p>高效办公好助手。（用惯的话）<br />
-参考：<a
-href="https://blog.csdn.net/qq_29860591/article/details/107873980">Wox+Everything结合使用</a><br />
-<img src="https://s2.loli.net/2022/07/19/xf4bI1aCoFkvGlK.png" /><img
-src="https://s2.loli.net/2022/07/19/rdIiUW7hN1b5RXL.png" /><br />
-<img src="https://s2.loli.net/2022/07/31/EVkcWijDqBdgNRv.png" /></p>
-<h2 id="向日葵远程控制">向日葵远程控制</h2>
-<p>可用手机平板远程控制电脑，进行文件传输。<br />
-<img src="https://s2.loli.net/2022/07/19/vXCISpwyTstoLMq.png" /><br />
-<img src="https://s2.loli.net/2022/07/19/EXLG9bSNlIOutdy.png" /></p>
-<h2 id="picpick">PicPick</h2>
-<p>小工具箱。<br />
-<img src="https://s2.loli.net/2022/07/20/TB3eCAybEJk2tqN.png" /><br />
-<img src="https://s2.loli.net/2022/07/20/Jx8YPnZA96VhQau.png" /></p>
-<h2 id="linux-reader">Linux Reader</h2>
-<p>适用于双系统，可在 Windows 下访问 Linux 的文件。<br />
-<a href="https://www.diskinternals.com/download/">下载地址</a><br />
-<img src="https://s2.loli.net/2022/07/31/Bs79aMTrGgF4kYI.png" /><br />
-<img src="https://s2.loli.net/2022/07/31/XfsjBr39zb7JHNl.png" /></p>
-]]></content>
-      <categories>
-        <category>软件</category>
-      </categories>
-      <tags>
-        <tag>Windows</tag>
       </tags>
   </entry>
   <entry>
@@ -1783,6 +1783,37 @@ href="https://zcw-blog.top/posts/20210819a1/#more">Markdown语法详解</a></p>
         <tag>搭建博客</tag>
         <tag>Hexo</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>小笔记-积化和差、和差化积公式</title>
+    <url>/posts/20211001a1/</url>
+    <content><![CDATA[<p>本文主要用于测试 mathjax 渲染功能</p>
+<p><span id="more"></span></p>
+<h2 id="和差化积">和差化积</h2>
+<p><span class="math display">\[
+\sin x+\sin y=2 \sin \frac{x+y}{2} \cos \frac{x-y}{2}
+\]</span> <span class="math display">\[
+\sin x-\sin y=2 \cos \frac{x+y}{2} \sin \frac{x-y}{2}
+\]</span> <span class="math display">\[
+\cos x+\cos y=2 \cos \frac{x+y}{2} \cos \frac{x-y}{2}
+\]</span> <span class="math display">\[
+\cos x-\cos y=-2 \sin \frac{x+y}{2} \sin \frac{x-y}{2}
+\]</span></p>
+<h2 id="积化和差">积化和差</h2>
+<p><span class="math display">\[
+\sin x \sin y=-\frac{1}{2}[\cos (x+y)-\cos (x-y)]
+\]</span> <span class="math display">\[
+\cos x \cos y=\frac{1}{2}[\cos (x+y)+\cos (x-y)]
+\]</span> <span class="math display">\[
+\sin x \cos y=\frac{1}{2}[\sin (x+y)+\sin (x-y)]
+\]</span></p>
+<p>辅助记忆口诀：</p>
+<p>正加正，正在前，余加余，余并肩</p>
+<p>正减正，余在前，余减余，负正弦</p>
+]]></content>
+      <categories>
+        <category>小笔记</category>
+      </categories>
   </entry>
   <entry>
     <title>搭建个人博客</title>
@@ -2144,36 +2175,5 @@ href="https://zcw-blog.top/posts/20220424a1/">Hexo+NexT配置优化指南</a></p
       <tags>
         <tag>搭建博客</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>小笔记-积化和差、和差化积公式</title>
-    <url>/posts/20211001a1/</url>
-    <content><![CDATA[<p>本文主要用于测试 mathjax 渲染功能</p>
-<p><span id="more"></span></p>
-<h2 id="和差化积">和差化积</h2>
-<p><span class="math display">\[
-\sin x+\sin y=2 \sin \frac{x+y}{2} \cos \frac{x-y}{2}
-\]</span> <span class="math display">\[
-\sin x-\sin y=2 \cos \frac{x+y}{2} \sin \frac{x-y}{2}
-\]</span> <span class="math display">\[
-\cos x+\cos y=2 \cos \frac{x+y}{2} \cos \frac{x-y}{2}
-\]</span> <span class="math display">\[
-\cos x-\cos y=-2 \sin \frac{x+y}{2} \sin \frac{x-y}{2}
-\]</span></p>
-<h2 id="积化和差">积化和差</h2>
-<p><span class="math display">\[
-\sin x \sin y=-\frac{1}{2}[\cos (x+y)-\cos (x-y)]
-\]</span> <span class="math display">\[
-\cos x \cos y=\frac{1}{2}[\cos (x+y)+\cos (x-y)]
-\]</span> <span class="math display">\[
-\sin x \cos y=\frac{1}{2}[\sin (x+y)+\sin (x-y)]
-\]</span></p>
-<p>辅助记忆口诀：</p>
-<p>正加正，正在前，余加余，余并肩</p>
-<p>正减正，余在前，余减余，负正弦</p>
-]]></content>
-      <categories>
-        <category>小笔记</category>
-      </categories>
   </entry>
 </search>
