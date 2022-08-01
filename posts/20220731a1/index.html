@@ -23,27 +23,28 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"reman2021.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.11.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
+    <meta name="description" content="记录 ROS 学习过程 Part2。 主要内容：ROS 测试、快速体验、开发环境搭建、架构认识。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="https://reman2021.github.io/posts/20210811cl658ruid000ntsf91y0ifg5a/index.html">
+<meta property="og:title" content="ROS学习记录2">
+<meta property="og:url" content="https://reman2021.github.io/posts/20220731a1/index.html">
 <meta property="og:site_name" content="ZCW_Blog">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
+<meta property="og:description" content="记录 ROS 学习过程 Part2。 主要内容：ROS 测试、快速体验、开发环境搭建、架构认识。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-08-11T07:20:47.512Z">
-<meta property="article:modified_time" content="2021-08-13T05:25:59.383Z">
+<meta property="article:published_time" content="2022-07-31T02:26:58.000Z">
+<meta property="article:modified_time" content="2022-08-01T09:57:28.807Z">
 <meta property="article:author" content="reman">
+<meta property="article:tag" content="ROS">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://reman2021.github.io/posts/20210811cl658ruid000ntsf91y0ifg5a/">
+<link rel="canonical" href="https://reman2021.github.io/posts/20220731a1/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://reman2021.github.io/posts/20210811cl658ruid000ntsf91y0ifg5a/","path":"posts/20210811cl658ruid000ntsf91y0ifg5a/","title":"Hello World"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://reman2021.github.io/posts/20220731a1/","path":"posts/20220731a1/","title":"ROS学习记录2"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Hello World | ZCW_Blog</title>
+<title>ROS学习记录2 | ZCW_Blog</title>
   
 
 
@@ -149,7 +150,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#quick-start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95-ros"><span class="nav-number">1.</span> <span class="nav-text">测试 ROS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E5%B7%A5%E4%BD%9C%E7%A9%BA%E9%97%B4%E5%8F%8A%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-number">2.</span> <span class="nav-text">创建工作空间及初始化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#helloworld-%E7%9A%84-cpython-%E5%AE%9E%E7%8E%B0"><span class="nav-number">3.</span> <span class="nav-text">HelloWorld 的 C++&#x2F;Python 实现</span></a></li></ol></div>
 
           
           <script type="text/javascript" charset="utf-8" src="/js/tagcloud.js"></script>
@@ -158,7 +159,7 @@
               <h5 class="widget-title">Tag Cloud</h5>
               <div id="myCanvasContainer" class="widget tagcloud">
                   <canvas width="230" height="142" id="resCanvas" style="width=100%">
-                      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NexT/" rel="tag">NexT</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PX4%E9%A3%9E%E6%8E%A7/" rel="tag">PX4飞控</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ROS/" rel="tag">ROS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/" rel="tag">Windows</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/" rel="tag">搭建博客</a><span class="tag-list-count">3</span></li></ul>
+                      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NexT/" rel="tag">NexT</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PX4%E9%A3%9E%E6%8E%A7/" rel="tag">PX4飞控</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ROS/" rel="tag">ROS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/" rel="tag">Windows</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/" rel="tag">搭建博客</a><span class="tag-list-count">3</span></li></ul>
                   </canvas>
               </div>
           </div>
@@ -178,7 +179,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-count">12</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -525,7 +526,7 @@ if(canvas.getContext){
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://reman2021.github.io/posts/20210811cl658ruid000ntsf91y0ifg5a/">
+    <link itemprop="mainEntityOfPage" href="https://reman2021.github.io/posts/20220731a1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -538,12 +539,12 @@ if(canvas.getContext){
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="Hello World | ZCW_Blog">
+      <meta itemprop="name" content="ROS学习记录2 | ZCW_Blog">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Hello World
+          ROS学习记录2
         </h1>
 
         <div class="post-meta-container">
@@ -554,14 +555,23 @@ if(canvas.getContext){
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2021-08-11 15:20:47" itemprop="dateCreated datePublished" datetime="2021-08-11T15:20:47+08:00">2021-08-11</time>
+      <time title="创建时间：2022-07-31 10:26:58" itemprop="dateCreated datePublished" datetime="2022-07-31T10:26:58+08:00">2022-07-31</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2021-08-13 13:25:59" itemprop="dateModified" datetime="2021-08-13T13:25:59+08:00">2021-08-13</time>
+      <time title="修改时间：2022-08-01 17:57:28" itemprop="dateModified" datetime="2022-08-01T17:57:28+08:00">2022-08-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/ROS/" itemprop="url" rel="index"><span itemprop="name">ROS</span></a>
+        </span>
     </span>
 
   
@@ -573,8 +583,8 @@ if(canvas.getContext){
     </span>
     <span class="post-meta-item-text">Waline：</span>
   
-    <a title="waline" href="/posts/20210811cl658ruid000ntsf91y0ifg5a/#waline-comments" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" id="/posts/20210811cl658ruid000ntsf91y0ifg5a/" data-xid="/posts/20210811cl658ruid000ntsf91y0ifg5a/" itemprop="commentCount"></span>
+    <a title="waline" href="/posts/20220731a1/#waline-comments" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" id="/posts/20220731a1/" data-xid="/posts/20220731a1/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -585,7 +595,7 @@ if(canvas.getContext){
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>367</span>
+      <span>316</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -603,30 +613,15 @@ if(canvas.getContext){
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very
-first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for
-more info. If you get any problems when using Hexo, you can find the
-answer in <a
-target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or
-you can ask me on <a
-target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<p><span id="more"></span></p>
-<h2 id="quick-start">Quick Start</h2>
-<h3 id="create-a-new-post">Create a new post</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a
-target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="run-server">Run server</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="generate-static-files">Generate static files</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a
-target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a
-target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+        <p>记录 ROS 学习过程 Part2。<br />
+主要内容：ROS 测试、快速体验、开发环境搭建、架构认识。</p>
+<span id="more"></span>
+<h2 id="测试-ros">测试 ROS</h2>
+<p>开启三个终端，分别运行： <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">roscore</span><br><span class="line">rosrun turtlesim turtlesim_node		#运行后弹出图形化界面</span><br><span class="line">rosrun turtlesim turtle_teleop_key	#运行后可以通过方向键控制海龟的运动</span><br></pre></td></tr></table></figure> <img
+src="https://s2.loli.net/2022/07/31/vd9mzgxcJNfYUkr.png" /></p>
+<h2 id="创建工作空间及初始化">创建工作空间及初始化</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#创建工作空间并初始化</span><br><span class="line">mkdir -p 自定义空间名称/src</span><br><span class="line">cd 自定义空间名称</span><br><span class="line">catkin_make</span><br><span class="line"></span><br><span class="line">#进入 src 创建 ros 包并添加依赖</span><br><span class="line">cd src</span><br><span class="line">catkin_create_pkg 自定义ROS包名 roscpp rospy std_msgs</span><br></pre></td></tr></table></figure>
+<h2 id="helloworld-的-cpython-实现">HelloWorld 的 C++/Python 实现</h2>
 
     </div>
 
@@ -654,7 +649,7 @@ target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://reman2021.github.io/posts/20210811cl658ruid000ntsf91y0ifg5a/" title="Hello World">https://reman2021.github.io/posts/20210811cl658ruid000ntsf91y0ifg5a/</a>
+      <a href="https://reman2021.github.io/posts/20220731a1/" title="ROS学习记录2">https://reman2021.github.io/posts/20220731a1/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -662,15 +657,21 @@ target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment
 </ul>
 </div>
 
+          <div class="post-tags">
+              <a href="/tags/ROS/" rel="tag"><i class="fa fa-tag"></i> ROS</a>
+          </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
+                <a href="/posts/20220728a1/" rel="prev" title="ROS 学习记录1">
+                  <i class="fa fa-chevron-left"></i> ROS 学习记录1
+                </a>
             </div>
             <div class="post-nav-item">
-                <a href="/posts/20210813a1/" rel="next" title="搭建个人博客">
-                  搭建个人博客 <i class="fa fa-chevron-right"></i>
+                <a href="/posts/20220801cl6alvtr4000g1wf9hqaffhhy/" rel="next" title="Ubuntu优化">
+                  Ubuntu优化 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -743,13 +744,13 @@ target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">61k</span>
+    <span title="站点总字数">63k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">55 分钟</span>
+    <span title="站点阅读时长">57 分钟</span>
   </span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
@@ -801,7 +802,7 @@ target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment
 
   <script async src="/js/cursor/fireworks.js"></script>
 
-<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-cn","enable":true,"serverURL":"waline-server-green.vercel.app","placeholder":"请文明评论呀","avatar":"hide","pageSize":10,"visitor":false,"comment_count":true,"requiredFields":[],"dark":"body.darkmode--activated","meta":["nick","mail","link"],"libUrl":"https://cdn.jsdelivr.net/npm/@waline/client/dist/Waline.min.js","el":"#waline-comments","path":"/posts/20210811cl658ruid000ntsf91y0ifg5a/"}</script>
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-cn","enable":true,"serverURL":"waline-server-green.vercel.app","placeholder":"请文明评论呀","avatar":"hide","pageSize":10,"visitor":false,"comment_count":true,"requiredFields":[],"dark":"body.darkmode--activated","meta":["nick","mail","link"],"libUrl":"https://cdn.jsdelivr.net/npm/@waline/client/dist/Waline.min.js","el":"#waline-comments","path":"/posts/20220731a1/"}</script>
 <script>
 document.addEventListener('page:loaded', () => {
   NexT.utils.loadComments(CONFIG.waline.el).then(() => 
