@@ -1190,26 +1190,6 @@ class="footnote-back" role="doc-backlink">↩︎</a></p></li>
       </tags>
   </entry>
   <entry>
-    <title>ROS学习记录2</title>
-    <url>/posts/20220731a1/</url>
-    <content><![CDATA[<p>记录 ROS 学习过程 Part2。<br />
-主要内容：ROS 测试、快速体验、开发环境搭建、架构认识。</p>
-<span id="more"></span>
-<h2 id="测试-ros">测试 ROS</h2>
-<p>开启三个终端，分别运行： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">roscore</span><br><span class="line">rosrun turtlesim turtlesim_node		#运行后弹出图形化界面</span><br><span class="line">rosrun turtlesim turtle_teleop_key	#运行后可以通过方向键控制海龟的运动</span><br></pre></td></tr></table></figure> <img
-src="https://s2.loli.net/2022/07/31/vd9mzgxcJNfYUkr.png" /></p>
-<h2 id="创建工作空间及初始化">创建工作空间及初始化</h2>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#创建工作空间并初始化</span><br><span class="line">mkdir -p 自定义空间名称/src</span><br><span class="line">cd 自定义空间名称</span><br><span class="line">catkin_make</span><br><span class="line"></span><br><span class="line">#进入 src 创建 ros 包并添加依赖</span><br><span class="line">cd src</span><br><span class="line">catkin_create_pkg 自定义ROS包名 roscpp rospy std_msgs</span><br></pre></td></tr></table></figure>
-<h2 id="helloworld-的-cpython-实现">HelloWorld 的 C++/Python 实现</h2>
-]]></content>
-      <categories>
-        <category>ROS</category>
-      </categories>
-      <tags>
-        <tag>ROS</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>ROS 学习记录1</title>
     <url>/posts/20220728a1/</url>
     <content><![CDATA[<p>记录 ROS 学习过程 Part1。<br />
@@ -1311,66 +1291,6 @@ href="https://blog.csdn.net/tjy199610_10/article/details/120621676">最详细的
       </tags>
   </entry>
   <entry>
-    <title>Ubuntu优化</title>
-    <url>/posts/20220801cl6alvtr4000g1wf9hqaffhhy/</url>
-    <content><![CDATA[<p>Ubuntu 使用优化（20.04.1）。</p>
-<h2 id="模板-template">模板| Template</h2>
-<p>Ubuntu 20.04 鼠标右击没有新建文本文档选项。进入/home
-下的模板（Template）目录，使用<code>sudo gedit 新建文本文档.txt</code>创建一个空文本文档，保存退出后，鼠标右击即可添加新建文本文档，且创建的文档与自定义的文档名称一致。</p>
-<h2 id="终端工具">终端工具</h2>
-<h3 id="terminator-终端模拟器">Terminator 终端模拟器</h3>
-<p>下载：<code>sudo apt install terminator</code></p>
-<h4 id="快捷键">快捷键</h4>
-<p>同一窗口内操作： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Alt+Up                          //移动到上面的终端</span><br><span class="line">Alt+Down                        //移动到下面的终端</span><br><span class="line">Alt+Left                        //移动到左边的终端</span><br><span class="line">Alt+Right                       //移动到右边的终端</span><br><span class="line">Ctrl+Shift+O                    //水平分割终端</span><br><span class="line">Ctrl+Shift+E                    //垂直分割终端</span><br><span class="line">Ctrl+Shift+Right                //在垂直分割的终端中将分割条向右移动</span><br><span class="line">Ctrl+Shift+Left                 //在垂直分割的终端中将分割条向左移动</span><br><span class="line">Ctrl+Shift+Up                   //在水平分割的终端中将分割条向上移动</span><br><span class="line">Ctrl+Shift+Down                 //在水平分割的终端中将分割条向下移动</span><br><span class="line">Ctrl+Shift+S                    //隐藏/显示滚动条</span><br><span class="line">Ctrl+Shift+F                    //搜索</span><br><span class="line">Ctrl+Shift+C                    //复制选中的内容到剪贴板</span><br><span class="line">Ctrl+Shift+V                    //粘贴剪贴板的内容到此处</span><br><span class="line">Ctrl+Shift+W                    //关闭当前终端</span><br><span class="line">Ctrl+Shift+Q                    //退出当前窗口，当前窗口的所有终端都将被关闭</span><br><span class="line">Ctrl+Shift+X                    //最大化显示当前终端</span><br><span class="line">Ctrl+Shift+Z                    //最大化显示当前终端并使字体放大</span><br><span class="line">Ctrl+Shift+N or Ctrl+Tab        //移动到下一个终端</span><br><span class="line">Ctrl+Shift+P or Ctrl+Shift+Tab  //Crtl+Shift+Tab 移动到之前的一个终端</span><br></pre></td></tr></table></figure></p>
-<p>各个窗口间操作： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">F11                             //全屏开关</span><br><span class="line">Ctrl+Shift+T                    //打开一个新的标签</span><br><span class="line">Ctrl+PageDown                   //移动到下一个标签</span><br><span class="line">Ctrl+PageUp                     //移动到上一个标签</span><br><span class="line">Ctrl+Shift+PageDown             //将当前标签与其后一个标签交换位置</span><br><span class="line">Ctrl+Shift+PageUp               //将当前标签与其前一个标签交换位置</span><br><span class="line">Ctrl+Plus (+)                   //增大字体</span><br><span class="line">Ctrl+Minus (-)                  //减小字体</span><br><span class="line">Ctrl+Zero (0)                   //恢复字体到原始大小</span><br><span class="line">Ctrl+Shift+R                    //重置终端状态</span><br><span class="line">Ctrl+Shift+G                    //重置终端状态并clear屏幕</span><br><span class="line">Super+g                         //绑定所有的终端，以便向一个输入能够输入到所有的终端</span><br><span class="line">Super+Shift+G                   //解除绑定</span><br><span class="line">Super+t                         //绑定当前标签的所有终端，向一个终端输入的内容会自动输入到其他终端</span><br><span class="line">Super+Shift+T                   //解除绑定</span><br><span class="line">Ctrl+Shift+I                    //打开一个窗口，新窗口与原来的窗口使用同一个进程</span><br><span class="line">Super+i                         //打开一个新窗口，新窗口与原来的窗口使用不同的进程</span><br></pre></td></tr></table></figure></p>
-<h3 id="gnu-screen">GNU Screen</h3>
-<p>下载：<code>sudo apt install screen</code></p>
-<h4 id="gnu-screen-简介">GNU Screen 简介</h4>
-<p>screen 是一款由 GNU
-计划开发的用于命令行终端切换的自由软件。用户可以通过该软件同时连接多个本地或远程的命令行会话，并在其间自由切换。GNU
-Screen
-可以看作是窗口管理器的命令行界面版本。它提供了统一的管理多个会话的界面和相应的功能。<br />
-在 screen
-环境下，所有的会话都独立的运行，并拥有各自的编号、输入、输出和窗口缓存。用户可以通过快捷键在不同的窗口下切换，并可以自由的重定向各个窗口的输入和输出。</p>
-<h4 id="功能">功能</h4>
-<ul>
-<li>可以创建一个session（会话），实现不同终端之间的交互。<br />
-</li>
-<li>可以实现多人观看同一终端等功能。</li>
-<li>在工作中，如遇突发情况（例如断电，蓝屏等），终端断开，服务器端所有收到信号的前台任务将全部终止，各种工作环境将全部丢失。若在
-screen 里操作，终端意外关闭之后，下次登录到服务器上，进入 screen，之前在
-screen 上运行的任务还在继续运行。screen
-的功能可以大概理解为它将前台任务放入了后台进行，并且不受终端关闭或其它意外事故的影响。</li>
-</ul>
-<h3 id="tmuxterminal-multiplexer类似-gnu-screen">Tmux（terminal
-multiplexer,类似 GNU Screen）</h3>
-<p>下载：<code>sudo apt install tmux</code></p>
-<h4 id="功能-1">功能</h4>
-<ul>
-<li>允许在单个窗口中，同时访问多个会话。这对于同时运行多个命令行程序很有用。<br />
-</li>
-<li>可以让新窗口"接入"已经存在的会话。<br />
-</li>
-<li>允许每个会话有多个连接窗口，因此可以多人实时共享会话。<br />
-</li>
-<li>支持窗口任意的垂直和水平拆分。</li>
-</ul>
-<h2 id="参考文章">参考文章</h2>
-<p><a href="https://www.ruanyifeng.com/blog/2019/10/tmux.html">Tmux
-使用教程</a><br />
-<a
-href="https://www.homedt.net/40644.html">Linux中的screen命令的使用</a><br />
-<a
-href="https://cloud.tencent.com/developer/article/1844735">Linux终端命令神器--Screen命令详解。助力Linux使用和管理</a></p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Windows软件使用分享</title>
     <url>/posts/20220719a1/</url>
     <content><![CDATA[<p>分享个人使用的 Windows 软件。</p>
@@ -1439,8 +1359,88 @@ src="https://s2.loli.net/2022/07/19/rdIiUW7hN1b5RXL.png" /><br />
       </tags>
   </entry>
   <entry>
+    <title>ROS学习记录2</title>
+    <url>/posts/20220731a1/</url>
+    <content><![CDATA[<p>记录 ROS 学习过程 Part2。<br />
+主要内容：ROS 测试、快速体验、开发环境搭建、架构认识。</p>
+<span id="more"></span>
+<h2 id="测试-ros">测试 ROS</h2>
+<p>开启三个终端，分别运行： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">roscore</span><br><span class="line">rosrun turtlesim turtlesim_node		#运行后弹出图形化界面</span><br><span class="line">rosrun turtlesim turtle_teleop_key	#运行后可以通过方向键控制海龟的运动</span><br></pre></td></tr></table></figure> <img
+src="https://s2.loli.net/2022/07/31/vd9mzgxcJNfYUkr.png" /></p>
+<h2 id="创建工作空间及初始化">创建工作空间及初始化</h2>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#创建工作空间并初始化</span><br><span class="line">mkdir -p 自定义空间名称/src</span><br><span class="line">cd 自定义空间名称</span><br><span class="line">catkin_make</span><br><span class="line"></span><br><span class="line">#进入 src 创建 ros 包并添加依赖</span><br><span class="line">cd src</span><br><span class="line">catkin_create_pkg 自定义ROS包名 roscpp rospy std_msgs</span><br></pre></td></tr></table></figure>
+<h2 id="helloworld-的-cpython-实现">HelloWorld 的 C++/Python 实现</h2>
+]]></content>
+      <categories>
+        <category>ROS</category>
+      </categories>
+      <tags>
+        <tag>ROS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Ubuntu优化</title>
+    <url>/posts/20220801cl6av241v000qd8f9gtuievkg/</url>
+    <content><![CDATA[<p>Ubuntu 使用优化（20.04.1）。</p>
+<h2 id="模板-template">模板| Template</h2>
+<p>Ubuntu 20.04 鼠标右击没有新建文本文档选项。进入/home
+下的模板（Template）目录，使用<code>sudo gedit 新建文本文档.txt</code>创建一个空文本文档，保存退出后，鼠标右击即可添加新建文本文档，且创建的文档与自定义的文档名称一致。</p>
+<h2 id="终端工具">终端工具</h2>
+<h3 id="terminator-终端模拟器">Terminator 终端模拟器</h3>
+<p>下载：<code>sudo apt install terminator</code></p>
+<h4 id="快捷键">快捷键</h4>
+<p>同一窗口内操作： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Alt+Up                          //移动到上面的终端</span><br><span class="line">Alt+Down                        //移动到下面的终端</span><br><span class="line">Alt+Left                        //移动到左边的终端</span><br><span class="line">Alt+Right                       //移动到右边的终端</span><br><span class="line">Ctrl+Shift+O                    //水平分割终端</span><br><span class="line">Ctrl+Shift+E                    //垂直分割终端</span><br><span class="line">Ctrl+Shift+Right                //在垂直分割的终端中将分割条向右移动</span><br><span class="line">Ctrl+Shift+Left                 //在垂直分割的终端中将分割条向左移动</span><br><span class="line">Ctrl+Shift+Up                   //在水平分割的终端中将分割条向上移动</span><br><span class="line">Ctrl+Shift+Down                 //在水平分割的终端中将分割条向下移动</span><br><span class="line">Ctrl+Shift+S                    //隐藏/显示滚动条</span><br><span class="line">Ctrl+Shift+F                    //搜索</span><br><span class="line">Ctrl+Shift+C                    //复制选中的内容到剪贴板</span><br><span class="line">Ctrl+Shift+V                    //粘贴剪贴板的内容到此处</span><br><span class="line">Ctrl+Shift+W                    //关闭当前终端</span><br><span class="line">Ctrl+Shift+Q                    //退出当前窗口，当前窗口的所有终端都将被关闭</span><br><span class="line">Ctrl+Shift+X                    //最大化显示当前终端</span><br><span class="line">Ctrl+Shift+Z                    //最大化显示当前终端并使字体放大</span><br><span class="line">Ctrl+Shift+N or Ctrl+Tab        //移动到下一个终端</span><br><span class="line">Ctrl+Shift+P or Ctrl+Shift+Tab  //Crtl+Shift+Tab 移动到之前的一个终端</span><br></pre></td></tr></table></figure></p>
+<p>各个窗口间操作： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">F11                             //全屏开关</span><br><span class="line">Ctrl+Shift+T                    //打开一个新的标签</span><br><span class="line">Ctrl+PageDown                   //移动到下一个标签</span><br><span class="line">Ctrl+PageUp                     //移动到上一个标签</span><br><span class="line">Ctrl+Shift+PageDown             //将当前标签与其后一个标签交换位置</span><br><span class="line">Ctrl+Shift+PageUp               //将当前标签与其前一个标签交换位置</span><br><span class="line">Ctrl+Plus (+)                   //增大字体</span><br><span class="line">Ctrl+Minus (-)                  //减小字体</span><br><span class="line">Ctrl+Zero (0)                   //恢复字体到原始大小</span><br><span class="line">Ctrl+Shift+R                    //重置终端状态</span><br><span class="line">Ctrl+Shift+G                    //重置终端状态并clear屏幕</span><br><span class="line">Super+g                         //绑定所有的终端，以便向一个输入能够输入到所有的终端</span><br><span class="line">Super+Shift+G                   //解除绑定</span><br><span class="line">Super+t                         //绑定当前标签的所有终端，向一个终端输入的内容会自动输入到其他终端</span><br><span class="line">Super+Shift+T                   //解除绑定</span><br><span class="line">Ctrl+Shift+I                    //打开一个窗口，新窗口与原来的窗口使用同一个进程</span><br><span class="line">Super+i                         //打开一个新窗口，新窗口与原来的窗口使用不同的进程</span><br></pre></td></tr></table></figure></p>
+<h3 id="gnu-screen">GNU Screen</h3>
+<p>下载：<code>sudo apt install screen</code></p>
+<h4 id="gnu-screen-简介">GNU Screen 简介</h4>
+<p>screen 是一款由 GNU
+计划开发的用于命令行终端切换的自由软件。用户可以通过该软件同时连接多个本地或远程的命令行会话，并在其间自由切换。GNU
+Screen
+可以看作是窗口管理器的命令行界面版本。它提供了统一的管理多个会话的界面和相应的功能。<br />
+在 screen
+环境下，所有的会话都独立的运行，并拥有各自的编号、输入、输出和窗口缓存。用户可以通过快捷键在不同的窗口下切换，并可以自由的重定向各个窗口的输入和输出。</p>
+<h4 id="功能">功能</h4>
+<ul>
+<li>可以创建一个session（会话），实现不同终端之间的交互。<br />
+</li>
+<li>可以实现多人观看同一终端等功能。</li>
+<li>在工作中，如遇突发情况（例如断电，蓝屏等），终端断开，服务器端所有收到信号的前台任务将全部终止，各种工作环境将全部丢失。若在
+screen 里操作，终端意外关闭之后，下次登录到服务器上，进入 screen，之前在
+screen 上运行的任务还在继续运行。screen
+的功能可以大概理解为它将前台任务放入了后台进行，并且不受终端关闭或其它意外事故的影响。</li>
+</ul>
+<h3 id="tmuxterminal-multiplexer类似-gnu-screen">Tmux（terminal
+multiplexer,类似 GNU Screen）</h3>
+<p>下载：<code>sudo apt install tmux</code></p>
+<h4 id="功能-1">功能</h4>
+<ul>
+<li>允许在单个窗口中，同时访问多个会话。这对于同时运行多个命令行程序很有用。<br />
+</li>
+<li>可以让新窗口"接入"已经存在的会话。<br />
+</li>
+<li>允许每个会话有多个连接窗口，因此可以多人实时共享会话。<br />
+</li>
+<li>支持窗口任意的垂直和水平拆分。</li>
+</ul>
+<h2 id="参考文章">参考文章</h2>
+<p><a href="https://www.ruanyifeng.com/blog/2019/10/tmux.html">Tmux
+使用教程</a><br />
+<a
+href="https://www.homedt.net/40644.html">Linux中的screen命令的使用</a><br />
+<a
+href="https://cloud.tencent.com/developer/article/1844735">Linux终端命令神器--Screen命令详解。助力Linux使用和管理</a></p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hello World</title>
-    <url>/posts/20210811cl6alvtr7000o1wf9akyi7ii3/</url>
+    <url>/posts/20210811cl6av241w000ud8f96o4n19h9/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very
 first post. Check <a href="https://hexo.io/docs/">documentation</a> for
 more info. If you get any problems when using Hexo, you can find the
