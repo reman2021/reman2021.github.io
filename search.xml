@@ -1,6 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Clash for Linux</title>
+    <url>/posts/20220726a1/</url>
+    <content><![CDATA[<p>配置 Clash for Linux，并设置开机自启动。 Linux 系统版本：Ubuntu
+20.04.1</p>
+<span id="more"></span>
+<h2 id="下载解压-clash-linux-amd64">下载解压 clash-linux-amd64</h2>
+<p>从 <a href="https://github.com/Dreamacro/clash/releases">GitHub</a>
+上下载任意版本的 clash-linux-amd64-vx.x.x.gz。<br />
+在下载目录打开终端，输入如下命令：<br />
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">gunzip clash-linux-amd64-vx.x.x.gz	#文件解压</span><br><span class="line">mv clash-linux-amd64-vx.x.x clash	#文件改名</span><br></pre></td></tr></table></figure> 我在 /home/username 目录下创建了 clash
+文件夹，将解压后的文件移动到里面：<br />
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mkdir Clash			#创建名为 clash 的文件夹  </span><br><span class="line">mv clash /home/username/clash	#将解压改名后的 clash 文件移入 clash 文件夹  </span><br></pre></td></tr></table></figure></p>
+<h2 id="配置-clash">配置 clash</h2>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">chmod +x clash		#首先授权可执行权限  </span><br><span class="line">./clash -d .		#初始化执行 clash  </span><br></pre></td></tr></table></figure>
+<p>在初始化执行 clash 后会默认在当前目录下生成配置文件
+config.yaml和全球IP地址库 Country.mmdb。<br />
+<img src="https://www.hualigs.cn/image/62dfe7b13c9d4.jpg" />
+从代理商那获得配置文件 config.yaml，替换默认生成的配置文件。<br />
+再次初始化执行 clash：<code>./clash -d .</code>。<br />
+出现如下初始化显示：<br />
+<img src="https://www.hualigs.cn/image/62dfe0460215b.jpg" />
+接下来进行系统网络代理设置，打开系统设置-网络-网络代理，选择手动，填写
+HTTP 和 HTTPS 代理为 127.0.0.1:7890，填写 Socks 主机为
+127.0.0.1:7891，即可启用系统代理。<br />
+<img src="https://www.hualigs.cn/image/62dfe11216cb4.jpg" /> 浏览器访问
+<a href="https://google.cn/">Google</a> 验证网络。</p>
+<h2 id="设置开机自启动">设置开机自启动</h2>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo touch /etc/systemd/system/clash.service	#创建 service 文件  </span><br><span class="line">vi /etc/systemd/system/clash.service 	#编辑 service 文件  </span><br></pre></td></tr></table></figure>
+<p>输入如下文本（记得修改 ExecStart 为自己的路径）：<br />
+<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line">[Unit] </span><br><span class="line">Description=clash daemon  </span><br><span class="line">[Service] </span><br><span class="line">Type=simple </span><br><span class="line">User=root </span><br><span class="line">ExecStart=/home/username/clash/clash -d /home/username/clash/ </span><br><span class="line">Restart=<span class="keyword">on</span>-failure  </span><br><span class="line">[Install] </span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure> 使用的 vim 命令参考：<br />
+<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line">i    在当前光标的前面插入字符</span><br><span class="line">A    在一行的结尾处添加文本</span><br><span class="line"><span class="keyword">x</span>    删除当前光标所在处的字符</span><br><span class="line">dw   删除一个单词(从光标处到空格)</span><br><span class="line"><span class="keyword">u</span>    撤销上一步的操作。</span><br><span class="line">:q   若文件没有修改，直接退出</span><br><span class="line">:q!  文件已经被修改，放弃修改退出</span><br><span class="line">:<span class="keyword">wq</span>  文件已经被修改，保存修改并退出</span><br></pre></td></tr></table></figure> 编辑后查看文件内容如下图：<br />
+<img src="https://www.hualigs.cn/image/62dfe84b32703.jpg" />
+接着依次执行下面四个命令：<br />
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo systemctl daemon-reload </span><br><span class="line">sudo systemctl enable clash </span><br><span class="line">sudo systemctl start clash </span><br><span class="line">sudo systemctl status clash</span><br></pre></td></tr></table></figure> 成功后出现如下内容：<br />
+<img src="https://www.hualigs.cn/image/62dfe1481d42a.jpg" /></p>
+<h2 id="参考文章">参考文章</h2>
+<p><a href="https://zhuanlan.zhihu.com/p/430035973">配置 clash for linux
+，适用于ubuntu 20.04（更新于2021.11.6）</a></p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo + NexT 配置优化指南</title>
     <url>/posts/20220424a1/</url>
     <content><![CDATA[<p>记录 Hexo + NexT 的配置优化过程，以便后续更改和维护。</p>
@@ -374,53 +421,6 @@ class="footnote-back" role="doc-backlink">↩︎</a></p></li>
       <tags>
         <tag>搭建博客</tag>
         <tag>NexT</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Clash for Linux</title>
-    <url>/posts/20220726a1/</url>
-    <content><![CDATA[<p>配置 Clash for Linux，并设置开机自启动。 Linux 系统版本：Ubuntu
-20.04.1</p>
-<span id="more"></span>
-<h2 id="下载解压-clash-linux-amd64">下载解压 clash-linux-amd64</h2>
-<p>从 <a href="https://github.com/Dreamacro/clash/releases">GitHub</a>
-上下载任意版本的 clash-linux-amd64-vx.x.x.gz。<br />
-在下载目录打开终端，输入如下命令：<br />
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">gunzip clash-linux-amd64-vx.x.x.gz	#文件解压</span><br><span class="line">mv clash-linux-amd64-vx.x.x clash	#文件改名</span><br></pre></td></tr></table></figure> 我在 /home/username 目录下创建了 clash
-文件夹，将解压后的文件移动到里面：<br />
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mkdir Clash			#创建名为 clash 的文件夹  </span><br><span class="line">mv clash /home/username/clash	#将解压改名后的 clash 文件移入 clash 文件夹  </span><br></pre></td></tr></table></figure></p>
-<h2 id="配置-clash">配置 clash</h2>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">chmod +x clash		#首先授权可执行权限  </span><br><span class="line">./clash -d .		#初始化执行 clash  </span><br></pre></td></tr></table></figure>
-<p>在初始化执行 clash 后会默认在当前目录下生成配置文件
-config.yaml和全球IP地址库 Country.mmdb。<br />
-<img src="https://www.hualigs.cn/image/62dfe7b13c9d4.jpg" />
-从代理商那获得配置文件 config.yaml，替换默认生成的配置文件。<br />
-再次初始化执行 clash：<code>./clash -d .</code>。<br />
-出现如下初始化显示：<br />
-<img src="https://www.hualigs.cn/image/62dfe0460215b.jpg" />
-接下来进行系统网络代理设置，打开系统设置-网络-网络代理，选择手动，填写
-HTTP 和 HTTPS 代理为 127.0.0.1:7890，填写 Socks 主机为
-127.0.0.1:7891，即可启用系统代理。<br />
-<img src="https://www.hualigs.cn/image/62dfe11216cb4.jpg" /> 浏览器访问
-<a href="https://google.cn/">Google</a> 验证网络。</p>
-<h2 id="设置开机自启动">设置开机自启动</h2>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo touch /etc/systemd/system/clash.service	#创建 service 文件  </span><br><span class="line">vi /etc/systemd/system/clash.service 	#编辑 service 文件  </span><br></pre></td></tr></table></figure>
-<p>输入如下文本（记得修改 ExecStart 为自己的路径）：<br />
-<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line">[Unit] </span><br><span class="line">Description=clash daemon  </span><br><span class="line">[Service] </span><br><span class="line">Type=simple </span><br><span class="line">User=root </span><br><span class="line">ExecStart=/home/username/clash/clash -d /home/username/clash/ </span><br><span class="line">Restart=<span class="keyword">on</span>-failure  </span><br><span class="line">[Install] </span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure> 使用的 vim 命令参考：<br />
-<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line">i    在当前光标的前面插入字符</span><br><span class="line">A    在一行的结尾处添加文本</span><br><span class="line"><span class="keyword">x</span>    删除当前光标所在处的字符</span><br><span class="line">dw   删除一个单词(从光标处到空格)</span><br><span class="line"><span class="keyword">u</span>    撤销上一步的操作。</span><br><span class="line">:q   若文件没有修改，直接退出</span><br><span class="line">:q!  文件已经被修改，放弃修改退出</span><br><span class="line">:<span class="keyword">wq</span>  文件已经被修改，保存修改并退出</span><br></pre></td></tr></table></figure> 编辑后查看文件内容如下图：<br />
-<img src="https://www.hualigs.cn/image/62dfe84b32703.jpg" />
-接着依次执行下面四个命令：<br />
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo systemctl daemon-reload </span><br><span class="line">sudo systemctl enable clash </span><br><span class="line">sudo systemctl start clash </span><br><span class="line">sudo systemctl status clash</span><br></pre></td></tr></table></figure> 成功后出现如下内容：<br />
-<img src="https://www.hualigs.cn/image/62dfe1481d42a.jpg" /></p>
-<h2 id="参考文章">参考文章</h2>
-<p><a href="https://zhuanlan.zhihu.com/p/430035973">配置 clash for linux
-，适用于ubuntu 20.04（更新于2021.11.6）</a></p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
@@ -1190,26 +1190,6 @@ class="footnote-back" role="doc-backlink">↩︎</a></p></li>
       </tags>
   </entry>
   <entry>
-    <title>ROS学习记录2</title>
-    <url>/posts/20220731a1/</url>
-    <content><![CDATA[<p>记录 ROS 学习过程 Part2。<br />
-主要内容：ROS 测试、快速体验、开发环境搭建、架构认识。</p>
-<span id="more"></span>
-<h2 id="测试-ros">测试 ROS</h2>
-<p>开启三个终端，分别运行： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">roscore</span><br><span class="line">rosrun turtlesim turtlesim_node		#运行后弹出图形化界面</span><br><span class="line">rosrun turtlesim turtle_teleop_key	#运行后可以通过方向键控制海龟的运动</span><br></pre></td></tr></table></figure> <img
-src="https://s2.loli.net/2022/07/31/vd9mzgxcJNfYUkr.png" /></p>
-<h2 id="创建工作空间及初始化">创建工作空间及初始化</h2>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#创建工作空间并初始化</span><br><span class="line">mkdir -p 自定义空间名称/src</span><br><span class="line">cd 自定义空间名称</span><br><span class="line">catkin_make</span><br><span class="line"></span><br><span class="line">#进入 src 创建 ros 包并添加依赖</span><br><span class="line">cd src</span><br><span class="line">catkin_create_pkg 自定义ROS包名 roscpp rospy std_msgs</span><br></pre></td></tr></table></figure>
-<h2 id="helloworld-的-cpython-实现">HelloWorld 的 C++/Python 实现</h2>
-]]></content>
-      <categories>
-        <category>ROS</category>
-      </categories>
-      <tags>
-        <tag>ROS</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>ROS 学习记录1</title>
     <url>/posts/20220728a1/</url>
     <content><![CDATA[<p>记录 ROS 学习过程 Part1。<br />
@@ -1311,8 +1291,28 @@ href="https://blog.csdn.net/tjy199610_10/article/details/120621676">最详细的
       </tags>
   </entry>
   <entry>
+    <title>ROS学习记录2</title>
+    <url>/posts/20220731a1/</url>
+    <content><![CDATA[<p>记录 ROS 学习过程 Part2。<br />
+主要内容：ROS 测试、快速体验、开发环境搭建、架构认识。</p>
+<span id="more"></span>
+<h2 id="测试-ros">测试 ROS</h2>
+<p>开启三个终端，分别运行： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">roscore</span><br><span class="line">rosrun turtlesim turtlesim_node		#运行后弹出图形化界面</span><br><span class="line">rosrun turtlesim turtle_teleop_key	#运行后可以通过方向键控制海龟的运动</span><br></pre></td></tr></table></figure> <img
+src="https://s2.loli.net/2022/07/31/vd9mzgxcJNfYUkr.png" /></p>
+<h2 id="创建工作空间及初始化">创建工作空间及初始化</h2>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#创建工作空间并初始化</span><br><span class="line">mkdir -p 自定义空间名称/src</span><br><span class="line">cd 自定义空间名称</span><br><span class="line">catkin_make</span><br><span class="line"></span><br><span class="line">#进入 src 创建 ros 包并添加依赖</span><br><span class="line">cd src</span><br><span class="line">catkin_create_pkg 自定义ROS包名 roscpp rospy std_msgs</span><br></pre></td></tr></table></figure>
+<h2 id="helloworld-的-cpython-实现">HelloWorld 的 C++/Python 实现</h2>
+]]></content>
+      <categories>
+        <category>ROS</category>
+      </categories>
+      <tags>
+        <tag>ROS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Ubuntu优化</title>
-    <url>/posts/20220801cl6bozqv5000fnkf9eqr91tyg/</url>
+    <url>/posts/20220801cl6c99yyt000gvwf90ypw8ry5/</url>
     <content><![CDATA[<p>Ubuntu 使用优化（20.04.1）。</p>
 <span id="more"></span>
 <h2 id="模板-template">模板| Template</h2>
@@ -1441,7 +1441,7 @@ src="https://s2.loli.net/2022/07/19/rdIiUW7hN1b5RXL.png" /><br />
   </entry>
   <entry>
     <title>Hello World</title>
-    <url>/posts/20210811cl6bozqv9000mnkf9cej97wlx/</url>
+    <url>/posts/20210811cl6c99yyw000ovwf9aitd8io3/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very
 first post. Check <a href="https://hexo.io/docs/">documentation</a> for
 more info. If you get any problems when using Hexo, you can find the
@@ -1784,37 +1784,6 @@ href="https://zcw-blog.top/posts/20210819a1/#more">Markdown语法详解</a></p>
         <tag>Markdown</tag>
         <tag>Hexo</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>小笔记-积化和差、和差化积公式</title>
-    <url>/posts/20211001a1/</url>
-    <content><![CDATA[<p>本文主要用于测试 mathjax 渲染功能</p>
-<p><span id="more"></span></p>
-<h2 id="和差化积">和差化积</h2>
-<p><span class="math display">\[
-\sin x+\sin y=2 \sin \frac{x+y}{2} \cos \frac{x-y}{2}
-\]</span> <span class="math display">\[
-\sin x-\sin y=2 \cos \frac{x+y}{2} \sin \frac{x-y}{2}
-\]</span> <span class="math display">\[
-\cos x+\cos y=2 \cos \frac{x+y}{2} \cos \frac{x-y}{2}
-\]</span> <span class="math display">\[
-\cos x-\cos y=-2 \sin \frac{x+y}{2} \sin \frac{x-y}{2}
-\]</span></p>
-<h2 id="积化和差">积化和差</h2>
-<p><span class="math display">\[
-\sin x \sin y=-\frac{1}{2}[\cos (x+y)-\cos (x-y)]
-\]</span> <span class="math display">\[
-\cos x \cos y=\frac{1}{2}[\cos (x+y)+\cos (x-y)]
-\]</span> <span class="math display">\[
-\sin x \cos y=\frac{1}{2}[\sin (x+y)+\sin (x-y)]
-\]</span></p>
-<p>辅助记忆口诀：</p>
-<p>正加正，正在前，余加余，余并肩</p>
-<p>正减正，余在前，余减余，负正弦</p>
-]]></content>
-      <categories>
-        <category>小笔记</category>
-      </categories>
   </entry>
   <entry>
     <title>搭建个人博客</title>
@@ -2176,5 +2145,36 @@ href="https://zcw-blog.top/posts/20220424a1/">Hexo+NexT配置优化指南</a></p
       <tags>
         <tag>搭建博客</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>小笔记-积化和差、和差化积公式</title>
+    <url>/posts/20211001a1/</url>
+    <content><![CDATA[<p>本文主要用于测试 mathjax 渲染功能</p>
+<p><span id="more"></span></p>
+<h2 id="和差化积">和差化积</h2>
+<p><span class="math display">\[
+\sin x+\sin y=2 \sin \frac{x+y}{2} \cos \frac{x-y}{2}
+\]</span> <span class="math display">\[
+\sin x-\sin y=2 \cos \frac{x+y}{2} \sin \frac{x-y}{2}
+\]</span> <span class="math display">\[
+\cos x+\cos y=2 \cos \frac{x+y}{2} \cos \frac{x-y}{2}
+\]</span> <span class="math display">\[
+\cos x-\cos y=-2 \sin \frac{x+y}{2} \sin \frac{x-y}{2}
+\]</span></p>
+<h2 id="积化和差">积化和差</h2>
+<p><span class="math display">\[
+\sin x \sin y=-\frac{1}{2}[\cos (x+y)-\cos (x-y)]
+\]</span> <span class="math display">\[
+\cos x \cos y=\frac{1}{2}[\cos (x+y)+\cos (x-y)]
+\]</span> <span class="math display">\[
+\sin x \cos y=\frac{1}{2}[\sin (x+y)+\sin (x-y)]
+\]</span></p>
+<p>辅助记忆口诀：</p>
+<p>正加正，正在前，余加余，余并肩</p>
+<p>正减正，余在前，余减余，负正弦</p>
+]]></content>
+      <categories>
+        <category>小笔记</category>
+      </categories>
   </entry>
 </search>
