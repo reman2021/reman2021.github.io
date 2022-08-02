@@ -6,7 +6,7 @@
   <link href="https://reman2021.github.io/atom.xml" rel="self"/>
   
   <link href="https://reman2021.github.io/"/>
-  <updated>2022-08-01T09:55:47.675Z</updated>
+  <updated>2022-08-02T04:40:30.145Z</updated>
   <id>https://reman2021.github.io/</id>
   
   <author>
@@ -18,22 +18,13 @@
   
   <entry>
     <title>Ubuntu优化</title>
-    <link href="https://reman2021.github.io/posts/20220801cl6aynlvm000ngwf98x6rgdoe/"/>
-    <id>https://reman2021.github.io/posts/20220801cl6aynlvm000ngwf98x6rgdoe/</id>
+    <link href="https://reman2021.github.io/posts/20220801cl6bozqv5000fnkf9eqr91tyg/"/>
+    <id>https://reman2021.github.io/posts/20220801cl6bozqv5000fnkf9eqr91tyg/</id>
     <published>2022-08-01T01:04:45.000Z</published>
-    <updated>2022-08-01T09:55:47.675Z</updated>
+    <updated>2022-08-02T04:40:30.145Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;Ubuntu 使用优化（20.04.1）。&lt;/p&gt;
-&lt;h2 id=&quot;模板-template&quot;&gt;模板| Template&lt;/h2&gt;
-&lt;p&gt;Ubuntu 20.04 鼠标右击没有新建文本文档选项。进入/home
-下的模板（Template）目录，使用&lt;code&gt;sudo</summary>
-        
-      
+    <summary type="html">&lt;p&gt;Ubuntu 使用优化（20.04.1）。&lt;/p&gt;</summary>
     
     
     
@@ -216,9 +207,9 @@ John Gruber 于 2004 年创建，如今已成为世界上最受欢迎的标记�
     <category term="维护日志" scheme="https://reman2021.github.io/categories/%E7%BB%B4%E6%8A%A4%E6%97%A5%E5%BF%97/"/>
     
     
-    <category term="Markdown" scheme="https://reman2021.github.io/tags/Markdown/"/>
-    
     <category term="搭建博客" scheme="https://reman2021.github.io/tags/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"/>
+    
+    <category term="Markdown" scheme="https://reman2021.github.io/tags/Markdown/"/>
     
     <category term="Hexo" scheme="https://reman2021.github.io/tags/Hexo/"/>
     
@@ -245,8 +236,8 @@ John Gruber 于 2004 年创建，如今已成为世界上最受欢迎的标记�
   
   <entry>
     <title>Hello World</title>
-    <link href="https://reman2021.github.io/posts/20210811cl6aynlvn000qgwf95c8o1rgc/"/>
-    <id>https://reman2021.github.io/posts/20210811cl6aynlvn000qgwf95c8o1rgc/</id>
+    <link href="https://reman2021.github.io/posts/20210811cl6bozqv9000mnkf9cej97wlx/"/>
+    <id>https://reman2021.github.io/posts/20210811cl6bozqv9000mnkf9cej97wlx/</id>
     <published>2021-08-11T07:20:47.512Z</published>
     <updated>2021-08-13T05:25:59.383Z</updated>
     
