@@ -1190,60 +1190,6 @@ class="footnote-back" role="doc-backlink">↩︎</a></p></li>
       </tags>
   </entry>
   <entry>
-    <title>ROS学习记录2</title>
-    <url>/posts/20220731a1/</url>
-    <content><![CDATA[<p>记录 ROS 学习过程 Part2。<br />
-主要内容：ROS 测试、快速体验、开发环境搭建、架构认识。</p>
-<span id="more"></span>
-<h2 id="测试-ros">测试 ROS</h2>
-<p>开启三个终端，分别运行： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">roscore</span><br><span class="line">rosrun turtlesim turtlesim_node		#运行后弹出图形化界面</span><br><span class="line">rosrun turtlesim turtle_teleop_key	#运行后可以通过方向键控制海龟的运动</span><br></pre></td></tr></table></figure> <img
-src="https://s2.loli.net/2022/07/31/vd9mzgxcJNfYUkr.png" /></p>
-<h2 id="创建工作空间及初始化">创建工作空间及初始化</h2>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#创建工作空间并初始化</span><br><span class="line">mkdir -p 自定义空间名称/src</span><br><span class="line">cd 自定义空间名称</span><br><span class="line">catkin_make</span><br><span class="line"></span><br><span class="line">#进入 src 创建 ros 包并添加依赖</span><br><span class="line">cd src</span><br><span class="line">catkin_create_pkg 自定义ROS包名 roscpp rospy std_msgs</span><br></pre></td></tr></table></figure>
-<h2 id="helloworld-的-cpython-实现">HelloWorld 的 C++/Python 实现</h2>
-<h3 id="c-实现">C++ 实现</h3>
-<p>1、创建 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#创建工作空间 demo01 并初始化</span><br><span class="line">mkdir -p demo01/src</span><br><span class="line">cd demo01</span><br><span class="line">catkin_make</span><br><span class="line"></span><br><span class="line">#进入 src 创建 名为 helloworld 的 ros 包并添加依赖</span><br><span class="line">cd src</span><br><span class="line">catkin_create_pkg helloworld roscpp rospy std_msgs</span><br><span class="line"></span><br><span class="line">#进入创建的 ros 包</span><br><span class="line">cd helloworld</span><br><span class="line"></span><br><span class="line">#创建 helloworld_c.cpp</span><br><span class="line">gedit helloworld_c.cpp</span><br></pre></td></tr></table></figure> 2、编辑 cpp 文件：<br />
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &quot;ros/ros.h&quot;</span><br><span class="line"></span><br><span class="line">int main(int argc, char *argv[])</span><br><span class="line">&#123;</span><br><span class="line">    //执行 ros 节点初始化</span><br><span class="line">    ros::init(argc,argv,&quot;hello&quot;);</span><br><span class="line">    //创建 ros 节点句柄</span><br><span class="line">    ros::NodeHandle n;</span><br><span class="line">    //控制台输出 hello world</span><br><span class="line">    ROS_INFO(&quot;hello world!&quot;);</span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure> 3、编辑 helloworld 包下的 Cmakelist.txt 文件<br />
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">add_executable(任取节点名</span><br><span class="line">  src/helloworld_c.cpp</span><br><span class="line">)</span><br><span class="line">target_link_libraries(任取节点名</span><br><span class="line">  $&#123;catkin_LIBRARIES&#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure> <img
-src="https://s2.loli.net/2022/08/04/LYAtxeNwcy3KpEU.png" /> 4、编译
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#进入工作空间</span><br><span class="line">cd demo01</span><br><span class="line">#编译</span><br><span class="line">catkin_make</span><br></pre></td></tr></table></figure> 编译成功： <img
-src="https://s2.loli.net/2022/08/04/VsPtDkCfbmodKLi.png" /> 5、执行
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#在终端 1 执行</span><br><span class="line">roscore</span><br><span class="line"></span><br><span class="line">#在终端 2 执行</span><br><span class="line">#进入工作空间</span><br><span class="line">cd demo01</span><br><span class="line">#刷新环境变量</span><br><span class="line">source ./devel/setup.bash</span><br><span class="line">#rosrun 包名 节点名</span><br><span class="line">rosrun helloworld hellow_node</span><br></pre></td></tr></table></figure> <img
-src="https://s2.loli.net/2022/08/04/UrDkCiqh9u4vAGR.png" />
-<div class="note info"><p>如果没有执行<code>source ./devel/setup.bash</code>在当前终端刷新环境变量，则会报错，另开一个终端也要再执行一次。<br />
-<img src="https://s2.loli.net/2022/08/04/9zmVsfr7YwKQ3yg.png" />
-若嫌太麻烦，可以执行<code>echo "source ~/工作空间名/devel/setup.bash" &gt;&gt; ~/.bashrc</code>，之后就不用每次打开都执行一次。</p>
-</div> ### Python 实现</p>
-<p>1、创建 py 文件<br />
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#进入 helloworld 功能包</span><br><span class="line">cd demo01/src/helloworld</span><br><span class="line">#创建 scripts 文件夹</span><br><span class="line">mkdir scripts</span><br><span class="line">#进入 scripts 文件夹</span><br><span class="line">cd ./scripts</span><br><span class="line">#创建 py 文件</span><br><span class="line">gedit hw_py.py</span><br></pre></td></tr></table></figure> 2、编辑 py 文件<br />
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#! /usr/bin/env python</span><br><span class="line">#导入 rospy 包</span><br><span class="line">import rospy</span><br><span class="line">#编写主入口</span><br><span class="line">if __name__ == &quot;__main__&quot;:</span><br><span class="line">	#初始化 ros 节点</span><br><span class="line">    rospy.init_node(&quot;hello_py&quot;)</span><br><span class="line">	#输出日志</span><br><span class="line">    rospy.loginfo(&quot;hello world! by python&quot;)</span><br></pre></td></tr></table></figure> <img
-src="https://s2.loli.net/2022/08/04/Lf5hdrOG4waDBSF.png" /> 3、为 python
-文件添加可执行权限<br />
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">chmod +x hw_py.py</span><br></pre></td></tr></table></figure> <img
-src="https://s2.loli.net/2022/08/04/gXEufcCbhNdpjIT.png" /> 4、编辑
-helloworld 下的 CamkeList.txt 文件 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">catkin_install_python(PROGRAMS scripts/hw_py.py</span><br><span class="line">  DESTINATION $&#123;CATKIN_PACKAGE_BIN_DESTINATION&#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure> <img
-src="https://s2.loli.net/2022/08/04/GqkamehDbtMy2Ac.png" /> 5、编译
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#进入工作空间</span><br><span class="line">cd demo01</span><br><span class="line">#编译</span><br><span class="line">catkin_make</span><br></pre></td></tr></table></figure> 6、执行 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#在终端 1 执行</span><br><span class="line">roscore</span><br><span class="line"></span><br><span class="line">#在终端 2 执行</span><br><span class="line">#进入工作空间</span><br><span class="line">cd demo01</span><br><span class="line">#刷新环境变量</span><br><span class="line">source ./devel/setup.bash</span><br><span class="line">#rosrun 包名 py 文件名</span><br><span class="line">rosrun helloworld hw_py.py</span><br></pre></td></tr></table></figure> <img
-src="https://s2.loli.net/2022/08/04/QgXBErxh6e4ZbtD.png" /></p>
-<h2 id="安装并使用-vscode">安装并使用 VScode</h2>
-<h3 id="下载安装包">下载安装包</h3>
-<p>下载：https://code.visualstudio.com/docs?start=true
-历史版本：https://code.visualstudio.com/updates <img
-src="https://s2.loli.net/2022/08/04/pEJ6UgYwBx928iR.png" /></p>
-<h3 id="安装">安装</h3>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#在下载目录打开终端，执行</span><br><span class="line">sudo dpkg -i xxxx.deb</span><br></pre></td></tr></table></figure>
-<p><img src="https://s2.loli.net/2022/08/04/r2yRB4hIEwjNDkK.png" /></p>
-<h3 id="卸载">卸载</h3>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo dpkg --purge  code</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>ROS</category>
-      </categories>
-      <tags>
-        <tag>ROS</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>ROS 学习记录1</title>
     <url>/posts/20220728a1/</url>
     <content><![CDATA[<p>记录 ROS 学习过程 Part1。<br />
@@ -1346,7 +1292,7 @@ href="https://blog.csdn.net/tjy199610_10/article/details/120621676">最详细的
   </entry>
   <entry>
     <title>Ubuntu优化</title>
-    <url>/posts/20220801cl6f85ivh000qlgf9dwlq0d6v/</url>
+    <url>/posts/20220801cl6f8kevl000n0cf9faj81aha/</url>
     <content><![CDATA[<p>Ubuntu 使用优化（20.04.1）。</p>
 <span id="more"></span>
 <h2 id="模板-template">模板| Template</h2>
@@ -1403,6 +1349,61 @@ href="https://cloud.tencent.com/developer/article/1844735">Linux终端命令神�
       </categories>
       <tags>
         <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ROS学习记录2</title>
+    <url>/posts/20220731a1/</url>
+    <content><![CDATA[<p>记录 ROS 学习过程 Part2。<br />
+主要内容：ROS 测试、快速体验、开发环境搭建、架构认识。</p>
+<span id="more"></span>
+<h2 id="测试-ros">测试 ROS</h2>
+<p>开启三个终端，分别运行： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">roscore</span><br><span class="line">rosrun turtlesim turtlesim_node		#运行后弹出图形化界面</span><br><span class="line">rosrun turtlesim turtle_teleop_key	#运行后可以通过方向键控制海龟的运动</span><br></pre></td></tr></table></figure> <img
+src="https://s2.loli.net/2022/07/31/vd9mzgxcJNfYUkr.png" /></p>
+<h2 id="创建工作空间及初始化">创建工作空间及初始化</h2>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#创建工作空间并初始化</span><br><span class="line">mkdir -p 自定义空间名称/src</span><br><span class="line">cd 自定义空间名称</span><br><span class="line">catkin_make</span><br><span class="line"></span><br><span class="line">#进入 src 创建 ros 包并添加依赖</span><br><span class="line">cd src</span><br><span class="line">catkin_create_pkg 自定义ROS包名 roscpp rospy std_msgs</span><br></pre></td></tr></table></figure>
+<h2 id="helloworld-的-cpython-实现">HelloWorld 的 C++/Python 实现</h2>
+<h3 id="c-实现">C++ 实现</h3>
+<p>1、创建 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#创建工作空间 demo01 并初始化</span><br><span class="line">mkdir -p demo01/src</span><br><span class="line">cd demo01</span><br><span class="line">catkin_make</span><br><span class="line"></span><br><span class="line">#进入 src 创建 名为 helloworld 的 ros 包并添加依赖</span><br><span class="line">cd src</span><br><span class="line">catkin_create_pkg helloworld roscpp rospy std_msgs</span><br><span class="line"></span><br><span class="line">#进入创建的 ros 包</span><br><span class="line">cd helloworld</span><br><span class="line"></span><br><span class="line">#创建 helloworld_c.cpp</span><br><span class="line">gedit helloworld_c.cpp</span><br></pre></td></tr></table></figure> 2、编辑 cpp 文件：<br />
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &quot;ros/ros.h&quot;</span><br><span class="line"></span><br><span class="line">int main(int argc, char *argv[])</span><br><span class="line">&#123;</span><br><span class="line">    //执行 ros 节点初始化</span><br><span class="line">    ros::init(argc,argv,&quot;hello&quot;);</span><br><span class="line">    //创建 ros 节点句柄</span><br><span class="line">    ros::NodeHandle n;</span><br><span class="line">    //控制台输出 hello world</span><br><span class="line">    ROS_INFO(&quot;hello world!&quot;);</span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure> 3、编辑 helloworld 包下的 Cmakelist.txt 文件<br />
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">add_executable(任取节点名</span><br><span class="line">  src/helloworld_c.cpp</span><br><span class="line">)</span><br><span class="line">target_link_libraries(任取节点名</span><br><span class="line">  $&#123;catkin_LIBRARIES&#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure> <img
+src="https://s2.loli.net/2022/08/04/LYAtxeNwcy3KpEU.png" /> 4、编译
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#进入工作空间</span><br><span class="line">cd demo01</span><br><span class="line">#编译</span><br><span class="line">catkin_make</span><br></pre></td></tr></table></figure> 编译成功： <img
+src="https://s2.loli.net/2022/08/04/VsPtDkCfbmodKLi.png" /> 5、执行
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#在终端 1 执行</span><br><span class="line">roscore</span><br><span class="line"></span><br><span class="line">#在终端 2 执行</span><br><span class="line">#进入工作空间</span><br><span class="line">cd demo01</span><br><span class="line">#刷新环境变量</span><br><span class="line">source ./devel/setup.bash</span><br><span class="line">#rosrun 包名 节点名</span><br><span class="line">rosrun helloworld hellow_node</span><br></pre></td></tr></table></figure> <img
+src="https://s2.loli.net/2022/08/04/UrDkCiqh9u4vAGR.png" />
+<div class="note info"><p><i class="fa fa-info-circle" aria-hidden="true"></i>
+如果没有执行<code>source ./devel/setup.bash</code>在当前终端刷新环境变量，则会报错，另开一个终端也要再执行一次。<br />
+<img src="https://s2.loli.net/2022/08/04/9zmVsfr7YwKQ3yg.png" />
+若嫌太麻烦，可以执行<code>echo "source ~/工作空间名/devel/setup.bash" &gt;&gt; ~/.bashrc</code>，之后就不用每次打开都执行一次。</p>
+</div> ### Python 实现</p>
+<p>1、创建 py 文件<br />
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#进入 helloworld 功能包</span><br><span class="line">cd demo01/src/helloworld</span><br><span class="line">#创建 scripts 文件夹</span><br><span class="line">mkdir scripts</span><br><span class="line">#进入 scripts 文件夹</span><br><span class="line">cd ./scripts</span><br><span class="line">#创建 py 文件</span><br><span class="line">gedit hw_py.py</span><br></pre></td></tr></table></figure> 2、编辑 py 文件<br />
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#! /usr/bin/env python</span><br><span class="line">#导入 rospy 包</span><br><span class="line">import rospy</span><br><span class="line">#编写主入口</span><br><span class="line">if __name__ == &quot;__main__&quot;:</span><br><span class="line">	#初始化 ros 节点</span><br><span class="line">    rospy.init_node(&quot;hello_py&quot;)</span><br><span class="line">	#输出日志</span><br><span class="line">    rospy.loginfo(&quot;hello world! by python&quot;)</span><br></pre></td></tr></table></figure> <img
+src="https://s2.loli.net/2022/08/04/Lf5hdrOG4waDBSF.png" /> 3、为 python
+文件添加可执行权限<br />
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">chmod +x hw_py.py</span><br></pre></td></tr></table></figure> <img
+src="https://s2.loli.net/2022/08/04/gXEufcCbhNdpjIT.png" /> 4、编辑
+helloworld 下的 CamkeList.txt 文件 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">catkin_install_python(PROGRAMS scripts/hw_py.py</span><br><span class="line">  DESTINATION $&#123;CATKIN_PACKAGE_BIN_DESTINATION&#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure> <img
+src="https://s2.loli.net/2022/08/04/GqkamehDbtMy2Ac.png" /> 5、编译
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#进入工作空间</span><br><span class="line">cd demo01</span><br><span class="line">#编译</span><br><span class="line">catkin_make</span><br></pre></td></tr></table></figure> 6、执行 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#在终端 1 执行</span><br><span class="line">roscore</span><br><span class="line"></span><br><span class="line">#在终端 2 执行</span><br><span class="line">#进入工作空间</span><br><span class="line">cd demo01</span><br><span class="line">#刷新环境变量</span><br><span class="line">source ./devel/setup.bash</span><br><span class="line">#rosrun 包名 py 文件名</span><br><span class="line">rosrun helloworld hw_py.py</span><br></pre></td></tr></table></figure> <img
+src="https://s2.loli.net/2022/08/04/QgXBErxh6e4ZbtD.png" /></p>
+<h2 id="安装并使用-vscode">安装并使用 VScode</h2>
+<h3 id="下载安装包">下载安装包</h3>
+<p>下载：https://code.visualstudio.com/docs?start=true
+历史版本：https://code.visualstudio.com/updates <img
+src="https://s2.loli.net/2022/08/04/pEJ6UgYwBx928iR.png" /></p>
+<h3 id="安装">安装</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#在下载目录打开终端，执行</span><br><span class="line">sudo dpkg -i xxxx.deb</span><br></pre></td></tr></table></figure>
+<p><img src="https://s2.loli.net/2022/08/04/r2yRB4hIEwjNDkK.png" /></p>
+<h3 id="卸载">卸载</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo dpkg --purge  code</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>ROS</category>
+      </categories>
+      <tags>
+        <tag>ROS</tag>
       </tags>
   </entry>
   <entry>
@@ -1472,6 +1473,35 @@ src="https://s2.loli.net/2022/07/19/rdIiUW7hN1b5RXL.png" /><br />
       <tags>
         <tag>Windows</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/posts/20210811cl6f8kevo000x0cf9b49lg3w4/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very
+first post. Check <a href="https://hexo.io/docs/">documentation</a> for
+more info. If you get any problems when using Hexo, you can find the
+answer in <a
+href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or
+you can ask me on <a
+href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<p><span id="more"></span></p>
+<h2 id="quick-start">Quick Start</h2>
+<h3 id="create-a-new-post">Create a new post</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a
+href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="run-server">Run server</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="generate-static-files">Generate static files</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a
+href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a
+href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
   </entry>
   <entry>
     <title>使用 Jetson Nano 向 PX4 提供 t265 位置信息，实现室内定点飞行</title>
@@ -1585,35 +1615,6 @@ Nano使用T265向PX4提供位置信息</a></p>
       <tags>
         <tag>PX4飞控</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/posts/20210811cl6f85ivs001slgf92alk9gis/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very
-first post. Check <a href="https://hexo.io/docs/">documentation</a> for
-more info. If you get any problems when using Hexo, you can find the
-answer in <a
-href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or
-you can ask me on <a
-href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<p><span id="more"></span></p>
-<h2 id="quick-start">Quick Start</h2>
-<h3 id="create-a-new-post">Create a new post</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a
-href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="run-server">Run server</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="generate-static-files">Generate static files</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a
-href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a
-href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
   </entry>
   <entry>
     <title>在Hexo博客上进行创作</title>
