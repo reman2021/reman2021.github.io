@@ -30,11 +30,14 @@
 <meta property="og:site_name" content="ZCW_Blog">
 <meta property="og:description" content="记录 ROS 学习过程 Part2。 主要内容：ROS 测试、快速体验、开发环境搭建、架构认识。">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s2.loli.net/2022/08/04/9zmVsfr7YwKQ3yg.png">
+<meta property="og:image" content="https://s2.loli.net/2022/08/04/r2yRB4hIEwjNDkK.png">
 <meta property="article:published_time" content="2022-07-31T02:26:58.000Z">
-<meta property="article:modified_time" content="2022-08-01T09:57:28.807Z">
+<meta property="article:modified_time" content="2022-08-04T15:59:47.854Z">
 <meta property="article:author" content="reman">
 <meta property="article:tag" content="ROS">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2022/08/04/9zmVsfr7YwKQ3yg.png">
 
 
 <link rel="canonical" href="https://reman2021.github.io/posts/20220731a1/">
@@ -150,7 +153,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95-ros"><span class="nav-number">1.</span> <span class="nav-text">测试 ROS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E5%B7%A5%E4%BD%9C%E7%A9%BA%E9%97%B4%E5%8F%8A%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-number">2.</span> <span class="nav-text">创建工作空间及初始化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#helloworld-%E7%9A%84-cpython-%E5%AE%9E%E7%8E%B0"><span class="nav-number">3.</span> <span class="nav-text">HelloWorld 的 C++&#x2F;Python 实现</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95-ros"><span class="nav-number">1.</span> <span class="nav-text">测试 ROS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E5%B7%A5%E4%BD%9C%E7%A9%BA%E9%97%B4%E5%8F%8A%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-number">2.</span> <span class="nav-text">创建工作空间及初始化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#helloworld-%E7%9A%84-cpython-%E5%AE%9E%E7%8E%B0"><span class="nav-number">3.</span> <span class="nav-text">HelloWorld 的 C++&#x2F;Python 实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#c-%E5%AE%9E%E7%8E%B0"><span class="nav-number">3.1.</span> <span class="nav-text">C++ 实现</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E5%B9%B6%E4%BD%BF%E7%94%A8-vscode"><span class="nav-number">4.</span> <span class="nav-text">安装并使用 VScode</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85%E5%8C%85"><span class="nav-number">4.1.</span> <span class="nav-text">下载安装包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-number">4.2.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%B8%E8%BD%BD"><span class="nav-number">4.3.</span> <span class="nav-text">卸载</span></a></li></ol></li></ol></div>
 
           
           <script type="text/javascript" charset="utf-8" src="/js/tagcloud.js"></script>
@@ -562,7 +565,7 @@ if(canvas.getContext){
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-08-01 17:57:28" itemprop="dateModified" datetime="2022-08-01T17:57:28+08:00">2022-08-01</time>
+      <time title="修改时间：2022-08-04 23:59:47" itemprop="dateModified" datetime="2022-08-04T23:59:47+08:00">2022-08-04</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -595,14 +598,14 @@ if(canvas.getContext){
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>316</span>
+      <span>2k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
+      <span>2 分钟</span>
     </span>
 </div>
 
@@ -622,6 +625,40 @@ src="https://s2.loli.net/2022/07/31/vd9mzgxcJNfYUkr.png" /></p>
 <h2 id="创建工作空间及初始化">创建工作空间及初始化</h2>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#创建工作空间并初始化</span><br><span class="line">mkdir -p 自定义空间名称/src</span><br><span class="line">cd 自定义空间名称</span><br><span class="line">catkin_make</span><br><span class="line"></span><br><span class="line">#进入 src 创建 ros 包并添加依赖</span><br><span class="line">cd src</span><br><span class="line">catkin_create_pkg 自定义ROS包名 roscpp rospy std_msgs</span><br></pre></td></tr></table></figure>
 <h2 id="helloworld-的-cpython-实现">HelloWorld 的 C++/Python 实现</h2>
+<h3 id="c-实现">C++ 实现</h3>
+<p>1、创建 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">#创建工作空间 demo01 并初始化</span><br><span class="line">mkdir -p demo01/src</span><br><span class="line">cd demo01</span><br><span class="line">catkin_make</span><br><span class="line"></span><br><span class="line">#进入 src 创建 名为 helloworld 的 ros 包并添加依赖</span><br><span class="line">cd src</span><br><span class="line">catkin_create_pkg helloworld roscpp rospy std_msgs</span><br><span class="line"></span><br><span class="line">#进入创建的 ros 包</span><br><span class="line">cd helloworld</span><br><span class="line"></span><br><span class="line">#创建 helloworld_c.cpp</span><br><span class="line">gedit helloworld_c.cpp</span><br></pre></td></tr></table></figure> 2、编辑 cpp 文件：<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">#include &quot;ros/ros.h&quot;</span><br><span class="line"></span><br><span class="line">int main(int argc, char *argv[])</span><br><span class="line">&#123;</span><br><span class="line">    //执行 ros 节点初始化</span><br><span class="line">    ros::init(argc,argv,&quot;hello&quot;);</span><br><span class="line">    //创建 ros 节点句柄</span><br><span class="line">    ros::NodeHandle n;</span><br><span class="line">    //控制台输出 hello world</span><br><span class="line">    ROS_INFO(&quot;hello world!&quot;);</span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure> 3、编辑 helloworld 包下的 Cmakelist.txt 文件<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">add_executable(任取节点名</span><br><span class="line">  src/helloworld_c.cpp</span><br><span class="line">)</span><br><span class="line">target_link_libraries(任取节点名</span><br><span class="line">  $&#123;catkin_LIBRARIES&#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure> <img
+src="https://s2.loli.net/2022/08/04/LYAtxeNwcy3KpEU.png" /> 4、编译
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#进入工作空间</span><br><span class="line">cd demo01</span><br><span class="line">#编译</span><br><span class="line">catkin_make</span><br></pre></td></tr></table></figure> 编译成功： <img
+src="https://s2.loli.net/2022/08/04/VsPtDkCfbmodKLi.png" /> 5、执行
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#在终端 1 执行</span><br><span class="line">roscore</span><br><span class="line"></span><br><span class="line">#在终端 2 执行</span><br><span class="line">#进入工作空间</span><br><span class="line">cd demo01</span><br><span class="line">#刷新环境变量</span><br><span class="line">source ./devel/setup.bash</span><br><span class="line">#rosrun 包名 节点名</span><br><span class="line">rosrun helloworld hellow_node</span><br></pre></td></tr></table></figure> <img
+src="https://s2.loli.net/2022/08/04/UrDkCiqh9u4vAGR.png" />
+<div class="note info"><p>如果没有执行<code>source ./devel/setup.bash</code>在当前终端刷新环境变量，则会报错，另开一个终端也要再执行一次。<br />
+<img src="https://s2.loli.net/2022/08/04/9zmVsfr7YwKQ3yg.png" />
+若嫌太麻烦，可以执行<code>echo "source ~/工作空间名/devel/setup.bash" &gt;&gt; ~/.bashrc</code>，之后就不用每次打开都执行一次。</p>
+</div> ### Python 实现</p>
+<p>1、创建 py 文件<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#进入 helloworld 功能包</span><br><span class="line">cd demo01/src/helloworld</span><br><span class="line">#创建 scripts 文件夹</span><br><span class="line">mkdir scripts</span><br><span class="line">#进入 scripts 文件夹</span><br><span class="line">cd ./scripts</span><br><span class="line">#创建 py 文件</span><br><span class="line">gedit hw_py.py</span><br></pre></td></tr></table></figure> 2、编辑 py 文件<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#! /usr/bin/env python</span><br><span class="line">#导入 rospy 包</span><br><span class="line">import rospy</span><br><span class="line">#编写主入口</span><br><span class="line">if __name__ == &quot;__main__&quot;:</span><br><span class="line">	#初始化 ros 节点</span><br><span class="line">    rospy.init_node(&quot;hello_py&quot;)</span><br><span class="line">	#输出日志</span><br><span class="line">    rospy.loginfo(&quot;hello world! by python&quot;)</span><br></pre></td></tr></table></figure> <img
+src="https://s2.loli.net/2022/08/04/Lf5hdrOG4waDBSF.png" /> 3、为 python
+文件添加可执行权限<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod +x hw_py.py</span><br></pre></td></tr></table></figure> <img
+src="https://s2.loli.net/2022/08/04/gXEufcCbhNdpjIT.png" /> 4、编辑
+helloworld 下的 CamkeList.txt 文件 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">catkin_install_python(PROGRAMS scripts/hw_py.py</span><br><span class="line">  DESTINATION $&#123;CATKIN_PACKAGE_BIN_DESTINATION&#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure> <img
+src="https://s2.loli.net/2022/08/04/GqkamehDbtMy2Ac.png" /> 5、编译
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#进入工作空间</span><br><span class="line">cd demo01</span><br><span class="line">#编译</span><br><span class="line">catkin_make</span><br></pre></td></tr></table></figure> 6、执行 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#在终端 1 执行</span><br><span class="line">roscore</span><br><span class="line"></span><br><span class="line">#在终端 2 执行</span><br><span class="line">#进入工作空间</span><br><span class="line">cd demo01</span><br><span class="line">#刷新环境变量</span><br><span class="line">source ./devel/setup.bash</span><br><span class="line">#rosrun 包名 py 文件名</span><br><span class="line">rosrun helloworld hw_py.py</span><br></pre></td></tr></table></figure> <img
+src="https://s2.loli.net/2022/08/04/QgXBErxh6e4ZbtD.png" /></p>
+<h2 id="安装并使用-vscode">安装并使用 VScode</h2>
+<h3 id="下载安装包">下载安装包</h3>
+<p>下载：https://code.visualstudio.com/docs?start=true
+历史版本：https://code.visualstudio.com/updates <img
+src="https://s2.loli.net/2022/08/04/pEJ6UgYwBx928iR.png" /></p>
+<h3 id="安装">安装</h3>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#在下载目录打开终端，执行</span><br><span class="line">sudo dpkg -i xxxx.deb</span><br></pre></td></tr></table></figure>
+<p><img src="https://s2.loli.net/2022/08/04/r2yRB4hIEwjNDkK.png" /></p>
+<h3 id="卸载">卸载</h3>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dpkg --purge  code</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -670,7 +707,7 @@ src="https://s2.loli.net/2022/07/31/vd9mzgxcJNfYUkr.png" /></p>
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/posts/20220801cl6c99yyt000gvwf90ypw8ry5/" rel="next" title="Ubuntu优化">
+                <a href="/posts/20220801cl6f85ivh000qlgf9dwlq0d6v/" rel="next" title="Ubuntu优化">
                   Ubuntu优化 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
@@ -744,13 +781,13 @@ src="https://s2.loli.net/2022/07/31/vd9mzgxcJNfYUkr.png" /></p>
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">63k</span>
+    <span title="站点总字数">65k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">57 分钟</span>
+    <span title="站点阅读时长">59 分钟</span>
   </span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
