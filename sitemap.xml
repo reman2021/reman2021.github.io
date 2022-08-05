@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://reman2021.github.io/posts/20220801cl6g5g3n9000qlsf9a4yh4t3n/</loc>
+    
+    <lastmod>2022-08-05</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://reman2021.github.io/diary/index.html</loc>
     
     <lastmod>2022-08-05</lastmod>
@@ -19,13 +26,6 @@
     <loc>https://reman2021.github.io/posts/20220731a1/</loc>
     
     <lastmod>2022-08-05</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://reman2021.github.io/posts/20220801cl6g3wa1x000nbkf90hj7bv6o/</loc>
-    
-    <lastmod>2022-08-02</lastmod>
     
   </url>
   
@@ -128,7 +128,7 @@
   </url>
   
   <url>
-    <loc>https://reman2021.github.io/posts/20210811cl6g3wa20000xbkf9075k405d/</loc>
+    <loc>https://reman2021.github.io/posts/20210811cl6g5g3nb000wlsf997m3975d/</loc>
     
     <lastmod>2021-08-13</lastmod>
     
@@ -172,14 +172,14 @@
   </url>
   
   <url>
-    <loc>https://reman2021.github.io/tags/Markdown/</loc>
+    <loc>https://reman2021.github.io/tags/ROS/</loc>
     <lastmod>2022-08-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://reman2021.github.io/tags/ROS/</loc>
+    <loc>https://reman2021.github.io/tags/Markdown/</loc>
     <lastmod>2022-08-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
