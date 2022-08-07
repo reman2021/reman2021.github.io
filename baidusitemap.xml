@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://reman2021.github.io/posts/20220719a1/</loc>
+    <lastmod>2022-08-07</lastmod>
+  </url>
+  <url>
     <loc>https://reman2021.github.io/posts/20220801a1/</loc>
     <lastmod>2022-08-05</lastmod>
   </url>
@@ -11,10 +15,6 @@
   <url>
     <loc>https://reman2021.github.io/posts/20220731a1/</loc>
     <lastmod>2022-08-05</lastmod>
-  </url>
-  <url>
-    <loc>https://reman2021.github.io/posts/20220719a1/</loc>
-    <lastmod>2022-07-31</lastmod>
   </url>
   <url>
     <loc>https://reman2021.github.io/posts/20220726a1/</loc>
@@ -45,7 +45,7 @@
     <lastmod>2022-07-17</lastmod>
   </url>
   <url>
-    <loc>https://reman2021.github.io/posts/20210811cl6g5n1fb000ouwf9ftnlhzji/</loc>
+    <loc>https://reman2021.github.io/posts/20210811cl6inr9sy000oo0f92kr9hcdl/</loc>
     <lastmod>2021-08-13</lastmod>
   </url>
 </urlset> 
