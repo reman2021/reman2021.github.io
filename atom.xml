@@ -6,7 +6,7 @@
   <link href="https://reman2021.github.io/atom.xml" rel="self"/>
   
   <link href="https://reman2021.github.io/"/>
-  <updated>2022-08-16T13:12:40.616Z</updated>
+  <updated>2022-08-16T14:48:23.321Z</updated>
   <id>https://reman2021.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://reman2021.github.io/posts/20220816a1/"/>
     <id>https://reman2021.github.io/posts/20220816a1/</id>
     <published>2022-08-16T04:02:29.000Z</published>
-    <updated>2022-08-16T13:12:40.616Z</updated>
+    <updated>2022-08-16T14:48:23.321Z</updated>
     
     
     <summary type="html">&lt;div class=&quot;note &quot;&gt;&lt;p&gt;本文为在 Hexo &amp;amp; Next
@@ -33,9 +33,9 @@
     
     
     
-    <category term="NexT" scheme="https://reman2021.github.io/tags/NexT/"/>
-    
     <category term="Hexo" scheme="https://reman2021.github.io/tags/Hexo/"/>
+    
+    <category term="NexT" scheme="https://reman2021.github.io/tags/NexT/"/>
     
   </entry>
   
@@ -44,11 +44,12 @@
     <link href="https://reman2021.github.io/posts/20220811a1/"/>
     <id>https://reman2021.github.io/posts/20220811a1/</id>
     <published>2022-08-10T19:26:51.000Z</published>
-    <updated>2022-08-10T19:58:33.442Z</updated>
+    <updated>2022-08-16T14:35:24.948Z</updated>
     
     
-    <summary type="html">&lt;p&gt;在重新申请证书时，遇到 CNAME 记录影响 CAA 记录致 SSL
-证书无法签发的问题及其解决。&lt;/p&gt;</summary>
+    <summary type="html">&lt;div class=&quot;note &quot;&gt;&lt;p&gt;在重新申请 SSL 证书时，遇到 CNAME 记录影响 CAA 记录致 SSL
+证书无法签发的问题及其解决。&lt;/p&gt;
+&lt;/div&gt;</summary>
     
     
     
@@ -64,10 +65,11 @@
     <link href="https://reman2021.github.io/posts/20220809a1/"/>
     <id>https://reman2021.github.io/posts/20220809a1/</id>
     <published>2022-08-09T07:04:41.000Z</published>
-    <updated>2022-08-09T08:46:32.629Z</updated>
+    <updated>2022-08-16T14:34:27.465Z</updated>
     
     
-    <summary type="html">&lt;p&gt;2022.08.09 暴雨倾盆&lt;/p&gt;</summary>
+    <summary type="html">&lt;div class=&quot;note &quot;&gt;&lt;p&gt;2022.08.09 暴雨倾盆 雨中静听小记&lt;/p&gt;
+&lt;/div&gt;</summary>
     
     
     
@@ -101,11 +103,12 @@
     <link href="https://reman2021.github.io/posts/20220731a1/"/>
     <id>https://reman2021.github.io/posts/20220731a1/</id>
     <published>2022-07-31T02:26:58.000Z</published>
-    <updated>2022-08-11T01:33:12.047Z</updated>
+    <updated>2022-08-16T14:36:20.204Z</updated>
     
     
-    <summary type="html">&lt;p&gt;记录 ROS 学习过程 Part2。&lt;br /&gt;
-主要内容：ROS 测试、快速体验、开发环境搭建、架构认识。&lt;/p&gt;</summary>
+    <summary type="html">&lt;div class=&quot;note &quot;&gt;&lt;p&gt;记录 ROS 学习过程 Part2。&lt;br /&gt;
+主要内容：ROS 测试、快速体验、开发环境搭建、架构认识。&lt;/p&gt;
+&lt;/div&gt;</summary>
     
     
     
@@ -121,11 +124,12 @@
     <link href="https://reman2021.github.io/posts/20220728a1/"/>
     <id>https://reman2021.github.io/posts/20220728a1/</id>
     <published>2022-07-28T01:11:58.000Z</published>
-    <updated>2022-08-05T06:44:59.087Z</updated>
+    <updated>2022-08-16T14:38:56.651Z</updated>
     
     
-    <summary type="html">&lt;p&gt;记录 ROS 学习过程 Part1。&lt;br /&gt;
-主要内容：ROS 安装。&lt;/p&gt;</summary>
+    <summary type="html">&lt;div class=&quot;note &quot;&gt;&lt;p&gt;记录 ROS 学习过程 Part1。&lt;br /&gt;
+主要内容：ROS 安装。&lt;/p&gt;
+&lt;/div&gt;</summary>
     
     
     
@@ -141,11 +145,12 @@
     <link href="https://reman2021.github.io/posts/20220726a1/"/>
     <id>https://reman2021.github.io/posts/20220726a1/</id>
     <published>2022-07-26T00:12:41.000Z</published>
-    <updated>2022-07-28T14:03:30.820Z</updated>
+    <updated>2022-08-16T14:39:49.802Z</updated>
     
     
-    <summary type="html">&lt;p&gt;配置 Clash for Linux，并设置开机自启动。 Linux 系统版本：Ubuntu
-20.04.1&lt;/p&gt;</summary>
+    <summary type="html">&lt;div class=&quot;note &quot;&gt;&lt;p&gt;配置 Clash for Linux，并设置开机自启动。&lt;br /&gt;
+Linux 系统版本：Ubuntu 20.04.1&lt;/p&gt;
+&lt;/div&gt;</summary>
     
     
     
@@ -157,14 +162,15 @@
   </entry>
   
   <entry>
-    <title>Windows软件使用分享</title>
+    <title>Windows 软件使用分享</title>
     <link href="https://reman2021.github.io/posts/20220719a1/"/>
     <id>https://reman2021.github.io/posts/20220719a1/</id>
     <published>2022-07-19T14:35:02.000Z</published>
-    <updated>2022-08-15T09:22:49.412Z</updated>
+    <updated>2022-08-16T14:42:14.445Z</updated>
     
     
-    <summary type="html">&lt;p&gt;分享个人使用的 Windows 软件。&lt;/p&gt;</summary>
+    <summary type="html">&lt;div class=&quot;note &quot;&gt;&lt;p&gt;分享个人使用的 Windows 软件。&lt;/p&gt;
+&lt;/div&gt;</summary>
     
     
     
@@ -180,10 +186,11 @@
     <link href="https://reman2021.github.io/posts/20220424a1/"/>
     <id>https://reman2021.github.io/posts/20220424a1/</id>
     <published>2022-04-24T08:17:13.000Z</published>
-    <updated>2022-08-16T04:08:18.103Z</updated>
+    <updated>2022-08-16T14:39:53.461Z</updated>
     
     
-    <summary type="html">&lt;p&gt;记录 Hexo + NexT 的配置优化过程，以便后续更改和维护。&lt;/p&gt;</summary>
+    <summary type="html">&lt;div class=&quot;note &quot;&gt;&lt;p&gt;记录 Hexo + NexT 的配置优化过程，以便后续更改和维护。&lt;/p&gt;
+&lt;/div&gt;</summary>
     
     
     
@@ -201,10 +208,14 @@
     <link href="https://reman2021.github.io/posts/20211001a1/"/>
     <id>https://reman2021.github.io/posts/20211001a1/</id>
     <published>2021-10-01T08:24:10.000Z</published>
-    <updated>2022-07-26T05:15:56.334Z</updated>
+    <updated>2022-08-16T14:48:37.066Z</updated>
     
     
-    <summary type="html">&lt;p&gt;本文主要用于测试 mathjax 渲染功能&lt;/p&gt;
+    <summary type="html">&lt;div class=&quot;note &quot;&gt;&lt;p&gt;本文主要用于测试 mathjax 渲染功能。&lt;br /&gt;
+关于如何添加 Hexo 博客的 mathjax 渲染功能，可见&lt;a
+href=&quot;https://zcw-blog.top/posts/20220424a1/#%E6%B8%B2%E6%9F%93-mathjax&quot;&gt;Hexo
++ NexT 配置优化指南——渲染 mathjax&lt;/a&gt;。&lt;/p&gt;
+&lt;/div&gt;
 &lt;p&gt;</summary>
     
     
@@ -219,10 +230,13 @@
     <link href="https://reman2021.github.io/posts/20210907a1/"/>
     <id>https://reman2021.github.io/posts/20210907a1/</id>
     <published>2021-09-07T05:53:34.000Z</published>
-    <updated>2022-08-10T19:15:14.546Z</updated>
+    <updated>2022-08-16T14:43:45.526Z</updated>
     
     
-    <summary type="html">&lt;p&gt;本文作者：南京航空航天大学 科技中心 陈思祺&lt;/p&gt;
+    <summary type="html">&lt;div class=&quot;note &quot;&gt;&lt;p&gt;本文作者：南京航空航天大学 科技中心 陈思祺&lt;br /&gt;
+主要内容：详细阐述如何使用 Jetson Nano 向 PX4 提供 t265
+位置信息，从而实现室内定点飞行。&lt;/p&gt;
+&lt;/div&gt;
 &lt;p&gt;</summary>
     
     
@@ -235,16 +249,19 @@
   </entry>
   
   <entry>
-    <title>Markdown语法详解及使用技巧</title>
+    <title>Markdown 语法详解及使用技巧</title>
     <link href="https://reman2021.github.io/posts/20210819a1/"/>
     <id>https://reman2021.github.io/posts/20210819a1/</id>
     <published>2021-08-18T16:36:36.000Z</published>
-    <updated>2022-08-16T12:40:13.054Z</updated>
+    <updated>2022-08-16T14:41:41.095Z</updated>
     
     
-    <summary type="html">&lt;p&gt;Markdown
+    <summary type="html">&lt;div class=&quot;note &quot;&gt;&lt;p&gt;Markdown
 是一种轻量级的标记语言，可用于在纯文本文档中添加格式化元素。Markdown 由
-John Gruber 于 2004 年创建，如今已成为世界上最受欢迎的标记语言之一。&lt;/p&gt;</summary>
+John Gruber 于 2004
+年创建，如今已成为世界上最受欢迎的标记语言之一。&lt;br /&gt;
+本文详细记录了 Markdown 常用语法及使用技巧。&lt;/p&gt;
+&lt;/div&gt;</summary>
     
     
     
@@ -258,10 +275,13 @@ John Gruber 于 2004 年创建，如今已成为世界上最受欢迎的标记�
     <link href="https://reman2021.github.io/posts/20210817a1/"/>
     <id>https://reman2021.github.io/posts/20210817a1/</id>
     <published>2021-08-17T15:54:10.000Z</published>
-    <updated>2022-07-19T12:40:59.627Z</updated>
+    <updated>2022-08-16T14:46:10.696Z</updated>
     
     
-    <summary type="html">&lt;p&gt;本文主要介绍如何在Hexo博客上进行创作，包括新建、编辑和预览文章&lt;/p&gt;</summary>
+    <summary type="html">&lt;div class=&quot;note &quot;&gt;&lt;p&gt;本文主要介绍如何在Hexo博客上进行创作，包括新建、编辑和预览文章。&lt;br /&gt;
+内容主要搬运至 &lt;a href=&quot;https://hexo.io/zh-cn/docs&quot;&gt;Hexo
+文档&lt;/a&gt;的写作指导。&lt;/p&gt;
+&lt;/div&gt;</summary>
     
     
     
@@ -270,9 +290,9 @@ John Gruber 于 2004 年创建，如今已成为世界上最受欢迎的标记�
     
     <category term="搭建博客" scheme="https://reman2021.github.io/tags/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"/>
     
-    <category term="Markdown" scheme="https://reman2021.github.io/tags/Markdown/"/>
-    
     <category term="Hexo" scheme="https://reman2021.github.io/tags/Hexo/"/>
+    
+    <category term="Markdown" scheme="https://reman2021.github.io/tags/Markdown/"/>
     
   </entry>
   
@@ -281,10 +301,11 @@ John Gruber 于 2004 年创建，如今已成为世界上最受欢迎的标记�
     <link href="https://reman2021.github.io/posts/20210813a1/"/>
     <id>https://reman2021.github.io/posts/20210813a1/</id>
     <published>2021-08-13T01:28:02.000Z</published>
-    <updated>2022-07-17T07:27:07.683Z</updated>
+    <updated>2022-08-16T14:50:19.301Z</updated>
     
     
-    <summary type="html">&lt;p&gt;本文旨在记录本博客搭建的过程，同时也希望能够对别人有所帮助。&lt;/p&gt;</summary>
+    <summary type="html">&lt;div class=&quot;note &quot;&gt;&lt;p&gt;本文旨在记录本博客的搭建过程，同时希望能对别人有所帮助。&lt;/p&gt;
+&lt;/div&gt;</summary>
     
     
     
@@ -297,8 +318,8 @@ John Gruber 于 2004 年创建，如今已成为世界上最受欢迎的标记�
   
   <entry>
     <title>Hello World</title>
-    <link href="https://reman2021.github.io/posts/20210811cl6wa9fcz0014ckf9765v8xf5/"/>
-    <id>https://reman2021.github.io/posts/20210811cl6wa9fcz0014ckf9765v8xf5/</id>
+    <link href="https://reman2021.github.io/posts/20210811cl6wayrm50014q8f982qp2vcl/"/>
+    <id>https://reman2021.github.io/posts/20210811cl6wayrm50014q8f982qp2vcl/</id>
     <published>2021-08-11T07:20:47.512Z</published>
     <updated>2021-08-13T05:25:59.383Z</updated>
     
