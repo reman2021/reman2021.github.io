@@ -79,43 +79,6 @@
       </categories>
   </entry>
   <entry>
-    <title>CNAME 记录影响 CAA 记录致 SSL 证书无法签发问题</title>
-    <url>/posts/20220811a1/</url>
-    <content><![CDATA[<p>在重新申请证书时，遇到 CNAME 记录影响 CAA 记录致 SSL
-证书无法签发的问题及其解决。</p>
-<span id="more"></span>
-<p>博客不知不觉也已近一年，搭建完成后由于学习生活忙碌，一直搁置一旁，等到假期才得以学学写写。<br />
-不过都是借口罢了，只是还未养成记录的习惯，希望在这个暑假（可能是最后一个暑假）能将习惯培养起来。<br />
-域名和 SSL 证书也相继到期，不管怎样，我还是想继续运维下去。</p>
-<h2 id="问题">问题</h2>
-<p>在申请 SSL 证书时，显示：您的域名进行了 cname 操作，指向
-x.github.io，域名配置了 CAA 信息，该 CAA 信息会导致证书签发失败。<br />
-<img src="https://s2.loli.net/2022/08/11/FTpR6eEGQs4S9dM.png" /></p>
-<h2 id="解决方法">解决方法</h2>
-<p>先暂停解析该 cname 解析记录，添加 SSL 证书签发所需的 CAA
-记录（所申请的机构记录类型已由 TXT 更改为
-CNAME），待证书签发成功后，删除证书签发所需的 CAA 记录，重新开启 GitHub
-Pages 的 cname 解析即可。</p>
-<h2 id="原因">原因</h2>
-<p>CAA 记录检查继续对指向不同域的 CNAME 记录进行，因而阻止了 CA
-颁发证书，证书颁发机构无法为对应域名颁发证书。<br />
-<div class="note info"><p>CAA(Certificate Authority
-Authorization)，即证书颁发机构授权。是一项新的可以添加到DNS记录中的额外字段,通过DNS机制创建CAA资源记录，可以限定域名颁发的证书和CA（证书颁发机构）之间的联系。未经授权的第三方尝试通过其他CA注册获取用于该域名的SSL/TLS证书将被拒绝。<br />
-域名设置 CAA
-记录，使网站所有者，可授权指定CA机构为自己的域名颁发证书，以防止HTTPS证书错误签发，从而提高网站安全性。</p>
-</div></p>
-<h2 id="参考">参考</h2>
-<p><a
-href="https://chziq.com/posts/3655275721/">CNAME记录指向vercel影响了CAA记录导致的SSL证书无法签发的问题</a></p>
-]]></content>
-      <categories>
-        <category>维护日志</category>
-      </categories>
-      <tags>
-        <tag>搭建博客</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Clash for Linux</title>
     <url>/posts/20220726a1/</url>
     <content><![CDATA[<p>配置 Clash for Linux，并设置开机自启动。 Linux 系统版本：Ubuntu
@@ -160,6 +123,43 @@ HTTP 和 HTTPS 代理为 127.0.0.1:7890，填写 Socks 主机为
       </categories>
       <tags>
         <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CNAME 记录影响 CAA 记录致 SSL 证书无法签发问题</title>
+    <url>/posts/20220811a1/</url>
+    <content><![CDATA[<p>在重新申请证书时，遇到 CNAME 记录影响 CAA 记录致 SSL
+证书无法签发的问题及其解决。</p>
+<span id="more"></span>
+<p>博客不知不觉也已近一年，搭建完成后由于学习生活忙碌，一直搁置一旁，等到假期才得以学学写写。<br />
+不过都是借口罢了，只是还未养成记录的习惯，希望在这个暑假（可能是最后一个暑假）能将习惯培养起来。<br />
+域名和 SSL 证书也相继到期，不管怎样，我还是想继续运维下去。</p>
+<h2 id="问题">问题</h2>
+<p>在申请 SSL 证书时，显示：您的域名进行了 cname 操作，指向
+x.github.io，域名配置了 CAA 信息，该 CAA 信息会导致证书签发失败。<br />
+<img src="https://s2.loli.net/2022/08/11/FTpR6eEGQs4S9dM.png" /></p>
+<h2 id="解决方法">解决方法</h2>
+<p>先暂停解析该 cname 解析记录，添加 SSL 证书签发所需的 CAA
+记录（所申请的机构记录类型已由 TXT 更改为
+CNAME），待证书签发成功后，删除证书签发所需的 CAA 记录，重新开启 GitHub
+Pages 的 cname 解析即可。</p>
+<h2 id="原因">原因</h2>
+<p>CAA 记录检查继续对指向不同域的 CNAME 记录进行，因而阻止了 CA
+颁发证书，证书颁发机构无法为对应域名颁发证书。<br />
+<div class="note info"><p>CAA(Certificate Authority
+Authorization)，即证书颁发机构授权。是一项新的可以添加到DNS记录中的额外字段,通过DNS机制创建CAA资源记录，可以限定域名颁发的证书和CA（证书颁发机构）之间的联系。未经授权的第三方尝试通过其他CA注册获取用于该域名的SSL/TLS证书将被拒绝。<br />
+域名设置 CAA
+记录，使网站所有者，可授权指定CA机构为自己的域名颁发证书，以防止HTTPS证书错误签发，从而提高网站安全性。</p>
+</div></p>
+<h2 id="参考">参考</h2>
+<p><a
+href="https://chziq.com/posts/3655275721/">CNAME记录指向vercel影响了CAA记录导致的SSL证书无法签发的问题</a></p>
+]]></content>
+      <categories>
+        <category>维护日志</category>
+      </categories>
+      <tags>
+        <tag>搭建博客</tag>
       </tags>
   </entry>
   <entry>
@@ -313,6 +313,14 @@ Pandoc，安装后重启电脑。</p>
 <div class="note info"><p>只有 source 目录下的文件才会发布，因此 Hexo 只渲染 source
 目录下的文件。skip_render 参数设置的路径是相对于 source 目录的路径。</p>
 </div> <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment">#单个文件</span></span><br><span class="line"><span class="attr">skip_render:</span> <span class="string">hello.html</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#单个文件夹下全部文件</span></span><br><span class="line"><span class="attr">skip_render:</span> <span class="string">test/*</span> </span><br><span class="line"></span><br><span class="line"><span class="comment">#单个文件夹下指定类型文件</span></span><br><span class="line"><span class="attr">skip_render:</span> <span class="string">test/*.md</span>  </span><br><span class="line"></span><br><span class="line"><span class="comment">#单个文件夹下全部文件以及子目录</span></span><br><span class="line"><span class="attr">skip_render:</span> <span class="string">test/**</span>  </span><br><span class="line"></span><br><span class="line"><span class="comment">#跳过多个目录，或者多个文件</span></span><br><span class="line"><span class="attr">skip_render:</span> [<span class="string">&#x27;*.html&#x27;</span>, <span class="string">demo/**</span>, <span class="string">test/*</span>]</span><br></pre></td></tr></table></figure></p>
+<h3 id="配置主题加载动画">配置主题加载动画</h3>
+<p>在<strong>主题配置文件</strong>中找到 motion 项进行配置。<br />
+Next 主题支持的动画可在<a
+href="https://theme-next.js.org/animate/">这里</a>查看。<br />
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">motion:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">async:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">transition:</span></span><br><span class="line">    <span class="comment"># All available transition variants: https://theme-next.js.org/animate/</span></span><br><span class="line">    <span class="attr">post_block:</span> <span class="string">fadeIn</span>		<span class="comment"># 文章板块动画</span></span><br><span class="line">    <span class="attr">post_header:</span> <span class="string">fadeInDown</span>	<span class="comment"># 文章标题动画</span></span><br><span class="line">    <span class="attr">post_body:</span> <span class="string">fadeInDown</span>	<span class="comment"># 文章内容动画</span></span><br><span class="line">    <span class="attr">coll_header:</span> <span class="string">fadeInLeft</span></span><br><span class="line">    <span class="comment"># Only for Pisces | Gemini.</span></span><br><span class="line">    <span class="attr">sidebar:</span> <span class="string">fadeInUp</span>		<span class="comment"># 侧边栏动画</span></span><br></pre></td></tr></table></figure> 配置 post-header 和 post-body 的 visibility 属性为
+inherit，使其继承父元素的 visibility
+属性的值，可让文章标题和内容与其他元素同步加载。<br />
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">.use-motion .post-header, .use-motion .post-body</span><br><span class="line">  visibility: inherit</span><br></pre></td></tr></table></figure></p>
 <h2 id="侧边栏配置">侧边栏配置</h2>
 <h3 id="侧边栏头像">侧边栏头像</h3>
 <p>将头像（jpg、gif）放到 root/themes/next/source/images
@@ -372,6 +380,9 @@ root/source/_data/sidebar.njk 添加如下代码：</p>
 <p>在<strong>站点配置文件</strong>中找到 index_generator，修改 per_page
 项：<br />
 <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">index_generator:</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">&#x27;&#x27;</span></span><br><span class="line">  <span class="attr">per_page:</span> <span class="number">5</span></span><br><span class="line">  <span class="attr">order_by:</span> <span class="string">-date</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="关闭首页阅读更多按钮">关闭首页“阅读更多”按钮</h3>
+<p>在<strong>主题配置文件</strong>中找到 read_more_btn，修改其值为
+false，即可关闭。</p>
 <h3 id="显示文章字数和阅读时长">显示文章字数和阅读时长</h3>
 <p>1.根目录打开 Git Bash ，执行下面的命令，安装插件：</p>
 <p><code>npm install hexo-wordcount --save</code><br />
@@ -1305,108 +1316,6 @@ class="footnote-back" role="doc-backlink">↩︎</a></p></li>
       </tags>
   </entry>
   <entry>
-    <title>ROS 学习记录1</title>
-    <url>/posts/20220728a1/</url>
-    <content><![CDATA[<p>记录 ROS 学习过程 Part1。<br />
-主要内容：ROS 安装。</p>
-<span id="more"></span>
-<h2 id="学习参考课程">学习参考课程</h2>
-<p><a
-href="https://www.bilibili.com/video/BV1zt411G7Vn?spm_id_from=333.788.top_right_bar_window_custom_collection.content.click&amp;vd_source=2986b70c538b1a31836b82311d90b18a">【古月居】古月·ROS入门21讲
-| 一学就会的ROS机器人入门教程</a><br />
-<strong>强烈推荐</strong>：<a
-href="https://www.bilibili.com/video/BV1Ci4y1L7ZZ?spm_id_from=333.1007.top_right_bar_window_custom_collection.content.click&amp;vd_source=2986b70c538b1a31836b82311d90b18a">【Autolabor初级教程】ROS机器人入门</a></p>
-<h2 id="ros-安装">ROS 安装</h2>
-<p>Linux 系统版本：Ubuntu 20.04.1，ROS 版本为 ROS1 的终极版本:
-noetic，支持 Python3。<br />
-<img src="https://s2.loli.net/2022/07/28/3H8dPUoR26BNWmi.png" /></p>
-<h3 id="配置ubuntu的软件和更新">配置ubuntu的软件和更新</h3>
-<p>打开“软件和更新”对话框，确保勾选了"restricted"， "universe"， 和
-"multiverse"。</p>
-<h3 id="设置安装源">设置安装源</h3>
-<p>官方安装源：<br />
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo sh -c &#x27;echo &quot;deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main&quot; &gt; /etc/apt/sources.list.d/ros-latest.list&#x27;</span><br></pre></td></tr></table></figure> 国内清华镜像：<br />
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo sh -c &#x27;. /etc/lsb-release &amp;&amp; echo &quot;deb http://mirrors.tuna.tsinghua.edu.cn/ros/ubuntu/ `lsb_release -cs` main&quot; &gt; /etc/apt/sources.list.d/ros-latest.list&#x27;</span><br></pre></td></tr></table></figure> 国内中科大镜像： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo sh -c &#x27;. /etc/lsb-release &amp;&amp; echo &quot;deb http://mirrors.ustc.edu.cn/ros/ubuntu/ `lsb_release -cs` main&quot; &gt; /etc/apt/sources.list.d/ros-latest.list&#x27;</span><br></pre></td></tr></table></figure></p>
-<h3 id="设置-key">设置 key</h3>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt-key adv --keyserver &#x27;hkp://keyserver.ubuntu.com:80&#x27; --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654</span><br></pre></td></tr></table></figure>
-<h3 id="安装">安装</h3>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt update		#更新 apt</span><br><span class="line">sudo apt install ros-noetic-desktop-full	#安装 Desktop-Full</span><br></pre></td></tr></table></figure>
-<h4
-id="出现n-忽略ros-latest.listsudo于目录etcaptsources.list.d鉴于它的文件扩展名无效">出现“N:
-忽略‘ros-latest.listsudo’(于目录‘/etc/apt/sources.list.d/’)，鉴于它的文件扩展名无效”</h4>
-<p>解决方法： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo rm -f /etc/apt/sources.list.d/ros-latest.listsudo</span><br></pre></td></tr></table></figure></p>
-<h4 id="终端配置代理">终端配置代理</h4>
-<p>我在系统中设置了代理，于是直接使用官方源，结果不管怎么 update
-和install 都因为连接超时卡在了
-96%。于是我直接访问对应网址，轻松连上，便考虑是否是终端未代理的问题。<br />
-搜了一下，确实如此：SS/Clash 等一般是 web
-代理，终端无法使用，需要单独配置代理。<br />
-方法如下： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo gedit ~/.bashrc		#编辑 .bashrc 文件</span><br></pre></td></tr></table></figure> 在最后加上： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">alias proxy-on=&#x27;export http_proxy=127.0.0.1:7890;export https_proxy=$http_proxy&#x27;</span><br><span class="line">alias proxy-off=&#x27;unset http_proxy;unset https_proxy&#x27; </span><br></pre></td></tr></table></figure> <img
-src="https://s2.loli.net/2022/07/28/ybUAM4NdRt9mSwr.png" />
-保存退出后执行下面命令使文件生效：<br />
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">source ~/.bashrc</span><br></pre></td></tr></table></figure>
-现在使用命令<code>proxy-on</code>和<code>proxy-off</code>便可开关代理。</p>
-<div class="note info"><p>该命令只在当前终端生效，重新打开终端需要重新执行 proxy-on。</p>
-</div>
-<p>使用<code>curl -L www.google.com</code>可以检查代理是否开启，从下图可看出，我们本次请求网站页面成功返回了谷歌起始页的
-HTML 代码。<br />
-也可以使用<code>curl cip.cc</code>查看 IP 来检查。<br />
-<img src="https://s2.loli.net/2022/07/29/67KpCwHzgj1aRXd.png" /></p>
-<div class="note info"><p>访问 google.com 时会自动将地址重定向到
-google.com.hk，故执行<code>curl www.google.com</code>会出现 302 Moved
-提示。</p>
-</div>
-<h4 id="apt-配置代理">apt 配置代理</h4>
-<p>终端配置代理后，还是卡在了 96%。<br />
-查找发现 export 中 http_proxy 和 https_proxy 方式只是修改终端中的 http
-与 https 的代理方式，而 apt install 有自己独立的配置文件，配置终端代理后
-apt 也是直接连接。 所以要进行 apt 代理配置：<br />
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo touch /etc/apt/apt.conf.d/proxy.conf	#创建新的配置文件 proxy.conf</span><br></pre></td></tr></table></figure> 在 proxy.conf 文件里添加：<br />
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Acquire &#123;</span><br><span class="line">  HTTP::proxy &quot;http://127.0.0.1:7890&quot;;</span><br><span class="line">  HTTPS::proxy &quot;http://127.0.0.1:7890&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure> 记得将 7890 改为自己的端口。<br />
-<img src="https://s2.loli.net/2022/07/29/uqUaGJQL5BgXK84.png" />
-保存关闭后重新 apt install，顺利下载安装完成。<br />
-<img src="https://s2.loli.net/2022/07/29/JqWxSpHofRUFuVZ.png" /></p>
-<h3 id="配置环境变量">配置环境变量</h3>
-<p>配置环境变量，方便在任意终端中使用 ROS。<br />
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">echo &quot;source /opt/ros/noetic/setup.bash&quot; &gt;&gt; ~/.bashrc</span><br><span class="line">source ~/.bashrc</span><br></pre></td></tr></table></figure> 至此便可运行<code>roscore</code>进行测试。</p>
-<h3 id="安装构建依赖">安装构建依赖</h3>
-<p>noetic
-最初发布时，和其他历史版本稍有差异的是:没有安装构建依赖这一步骤。随着
-noetic 不断完善，官方补齐了这一操作。<br />
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">安装构建依赖的相关工具</span></span><br><span class="line">sudo apt install python3-rosdep python3-rosinstall python3-rosinstall-generator python3-wstool build-essential</span><br><span class="line">sudo apt install python3-rosdep</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">初始化 rosdep</span></span><br><span class="line">sudo rosdep init</span><br><span class="line">rosdep update</span><br></pre></td></tr></table></figure></p>
-<h4 id="rosdep-init-时出现-website-may-be-down">rosdep init 时出现
-Website may be down</h4>
-<p><a
-href="https://ping.chinaz.com/raw.githubusercontent.com">点此</a>找到
-raw.githubusercontent.com 对应 IP。<br />
-接下来修改 hosts 文件：<br />
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo gedit /etc/hosts</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">添加如下内容</span></span><br><span class="line">185.199.108.133 raw.githubusercontent.com</span><br></pre></td></tr></table></figure> <img
-src="https://s2.loli.net/2022/07/29/Yfa87V1inDFlBtq.png" />
-重新执行<code>rosdep init</code>即可。<br />
-执行成功：<br />
-<img src="https://s2.loli.net/2022/07/29/GtfWnew8HdsuMXP.png" /> <img
-src="https://s2.loli.net/2022/07/29/jgaKLenRwI6oxPd.png" /></p>
-<h2 id="参考文章">参考文章</h2>
-<p><a href="http://wiki.ros.org/noetic/Installation/Ubuntu">Ubuntu
-install of ROS Noetic</a><br />
-<a
-href="http://www.autolabor.com.cn/book/ROSTutorials/">【Autolabor初级教程】ROS机器人入门课程文档</a><br />
-<a
-href="https://www.serverlab.ca/tutorials/linux/administration-linux/how-to-set-the-proxy-for-apt-for-ubuntu-18-04/">How
-to Set the Proxy for APT on Ubuntu 18.04</a><br />
-<a
-href="https://juejin.cn/post/7070003235934715940">Terminal（终端）使用代理进行连接</a><br />
-<a
-href="https://blog.csdn.net/tjy199610_10/article/details/120621676">最详细的ros安装（包含所有相关依赖文件）</a></p>
-]]></content>
-      <categories>
-        <category>ROS</category>
-      </categories>
-      <tags>
-        <tag>ROS</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>ROS 学习记录2</title>
     <url>/posts/20220731a1/</url>
     <content><![CDATA[<p>记录 ROS 学习过程 Part2。<br />
@@ -1601,6 +1510,108 @@ Linux中的蓝牙连接问题</a></p>
       </tags>
   </entry>
   <entry>
+    <title>ROS 学习记录1</title>
+    <url>/posts/20220728a1/</url>
+    <content><![CDATA[<p>记录 ROS 学习过程 Part1。<br />
+主要内容：ROS 安装。</p>
+<span id="more"></span>
+<h2 id="学习参考课程">学习参考课程</h2>
+<p><a
+href="https://www.bilibili.com/video/BV1zt411G7Vn?spm_id_from=333.788.top_right_bar_window_custom_collection.content.click&amp;vd_source=2986b70c538b1a31836b82311d90b18a">【古月居】古月·ROS入门21讲
+| 一学就会的ROS机器人入门教程</a><br />
+<strong>强烈推荐</strong>：<a
+href="https://www.bilibili.com/video/BV1Ci4y1L7ZZ?spm_id_from=333.1007.top_right_bar_window_custom_collection.content.click&amp;vd_source=2986b70c538b1a31836b82311d90b18a">【Autolabor初级教程】ROS机器人入门</a></p>
+<h2 id="ros-安装">ROS 安装</h2>
+<p>Linux 系统版本：Ubuntu 20.04.1，ROS 版本为 ROS1 的终极版本:
+noetic，支持 Python3。<br />
+<img src="https://s2.loli.net/2022/07/28/3H8dPUoR26BNWmi.png" /></p>
+<h3 id="配置ubuntu的软件和更新">配置ubuntu的软件和更新</h3>
+<p>打开“软件和更新”对话框，确保勾选了"restricted"， "universe"， 和
+"multiverse"。</p>
+<h3 id="设置安装源">设置安装源</h3>
+<p>官方安装源：<br />
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo sh -c &#x27;echo &quot;deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main&quot; &gt; /etc/apt/sources.list.d/ros-latest.list&#x27;</span><br></pre></td></tr></table></figure> 国内清华镜像：<br />
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo sh -c &#x27;. /etc/lsb-release &amp;&amp; echo &quot;deb http://mirrors.tuna.tsinghua.edu.cn/ros/ubuntu/ `lsb_release -cs` main&quot; &gt; /etc/apt/sources.list.d/ros-latest.list&#x27;</span><br></pre></td></tr></table></figure> 国内中科大镜像： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo sh -c &#x27;. /etc/lsb-release &amp;&amp; echo &quot;deb http://mirrors.ustc.edu.cn/ros/ubuntu/ `lsb_release -cs` main&quot; &gt; /etc/apt/sources.list.d/ros-latest.list&#x27;</span><br></pre></td></tr></table></figure></p>
+<h3 id="设置-key">设置 key</h3>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt-key adv --keyserver &#x27;hkp://keyserver.ubuntu.com:80&#x27; --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654</span><br></pre></td></tr></table></figure>
+<h3 id="安装">安装</h3>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt update		#更新 apt</span><br><span class="line">sudo apt install ros-noetic-desktop-full	#安装 Desktop-Full</span><br></pre></td></tr></table></figure>
+<h4
+id="出现n-忽略ros-latest.listsudo于目录etcaptsources.list.d鉴于它的文件扩展名无效">出现“N:
+忽略‘ros-latest.listsudo’(于目录‘/etc/apt/sources.list.d/’)，鉴于它的文件扩展名无效”</h4>
+<p>解决方法： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo rm -f /etc/apt/sources.list.d/ros-latest.listsudo</span><br></pre></td></tr></table></figure></p>
+<h4 id="终端配置代理">终端配置代理</h4>
+<p>我在系统中设置了代理，于是直接使用官方源，结果不管怎么 update
+和install 都因为连接超时卡在了
+96%。于是我直接访问对应网址，轻松连上，便考虑是否是终端未代理的问题。<br />
+搜了一下，确实如此：SS/Clash 等一般是 web
+代理，终端无法使用，需要单独配置代理。<br />
+方法如下： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo gedit ~/.bashrc		#编辑 .bashrc 文件</span><br></pre></td></tr></table></figure> 在最后加上： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">alias proxy-on=&#x27;export http_proxy=127.0.0.1:7890;export https_proxy=$http_proxy&#x27;</span><br><span class="line">alias proxy-off=&#x27;unset http_proxy;unset https_proxy&#x27; </span><br></pre></td></tr></table></figure> <img
+src="https://s2.loli.net/2022/07/28/ybUAM4NdRt9mSwr.png" />
+保存退出后执行下面命令使文件生效：<br />
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">source ~/.bashrc</span><br></pre></td></tr></table></figure>
+现在使用命令<code>proxy-on</code>和<code>proxy-off</code>便可开关代理。</p>
+<div class="note info"><p>该命令只在当前终端生效，重新打开终端需要重新执行 proxy-on。</p>
+</div>
+<p>使用<code>curl -L www.google.com</code>可以检查代理是否开启，从下图可看出，我们本次请求网站页面成功返回了谷歌起始页的
+HTML 代码。<br />
+也可以使用<code>curl cip.cc</code>查看 IP 来检查。<br />
+<img src="https://s2.loli.net/2022/07/29/67KpCwHzgj1aRXd.png" /></p>
+<div class="note info"><p>访问 google.com 时会自动将地址重定向到
+google.com.hk，故执行<code>curl www.google.com</code>会出现 302 Moved
+提示。</p>
+</div>
+<h4 id="apt-配置代理">apt 配置代理</h4>
+<p>终端配置代理后，还是卡在了 96%。<br />
+查找发现 export 中 http_proxy 和 https_proxy 方式只是修改终端中的 http
+与 https 的代理方式，而 apt install 有自己独立的配置文件，配置终端代理后
+apt 也是直接连接。 所以要进行 apt 代理配置：<br />
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo touch /etc/apt/apt.conf.d/proxy.conf	#创建新的配置文件 proxy.conf</span><br></pre></td></tr></table></figure> 在 proxy.conf 文件里添加：<br />
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Acquire &#123;</span><br><span class="line">  HTTP::proxy &quot;http://127.0.0.1:7890&quot;;</span><br><span class="line">  HTTPS::proxy &quot;http://127.0.0.1:7890&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure> 记得将 7890 改为自己的端口。<br />
+<img src="https://s2.loli.net/2022/07/29/uqUaGJQL5BgXK84.png" />
+保存关闭后重新 apt install，顺利下载安装完成。<br />
+<img src="https://s2.loli.net/2022/07/29/JqWxSpHofRUFuVZ.png" /></p>
+<h3 id="配置环境变量">配置环境变量</h3>
+<p>配置环境变量，方便在任意终端中使用 ROS。<br />
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">echo &quot;source /opt/ros/noetic/setup.bash&quot; &gt;&gt; ~/.bashrc</span><br><span class="line">source ~/.bashrc</span><br></pre></td></tr></table></figure> 至此便可运行<code>roscore</code>进行测试。</p>
+<h3 id="安装构建依赖">安装构建依赖</h3>
+<p>noetic
+最初发布时，和其他历史版本稍有差异的是:没有安装构建依赖这一步骤。随着
+noetic 不断完善，官方补齐了这一操作。<br />
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">安装构建依赖的相关工具</span></span><br><span class="line">sudo apt install python3-rosdep python3-rosinstall python3-rosinstall-generator python3-wstool build-essential</span><br><span class="line">sudo apt install python3-rosdep</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">初始化 rosdep</span></span><br><span class="line">sudo rosdep init</span><br><span class="line">rosdep update</span><br></pre></td></tr></table></figure></p>
+<h4 id="rosdep-init-时出现-website-may-be-down">rosdep init 时出现
+Website may be down</h4>
+<p><a
+href="https://ping.chinaz.com/raw.githubusercontent.com">点此</a>找到
+raw.githubusercontent.com 对应 IP。<br />
+接下来修改 hosts 文件：<br />
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo gedit /etc/hosts</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">添加如下内容</span></span><br><span class="line">185.199.108.133 raw.githubusercontent.com</span><br></pre></td></tr></table></figure> <img
+src="https://s2.loli.net/2022/07/29/Yfa87V1inDFlBtq.png" />
+重新执行<code>rosdep init</code>即可。<br />
+执行成功：<br />
+<img src="https://s2.loli.net/2022/07/29/GtfWnew8HdsuMXP.png" /> <img
+src="https://s2.loli.net/2022/07/29/jgaKLenRwI6oxPd.png" /></p>
+<h2 id="参考文章">参考文章</h2>
+<p><a href="http://wiki.ros.org/noetic/Installation/Ubuntu">Ubuntu
+install of ROS Noetic</a><br />
+<a
+href="http://www.autolabor.com.cn/book/ROSTutorials/">【Autolabor初级教程】ROS机器人入门课程文档</a><br />
+<a
+href="https://www.serverlab.ca/tutorials/linux/administration-linux/how-to-set-the-proxy-for-apt-for-ubuntu-18-04/">How
+to Set the Proxy for APT on Ubuntu 18.04</a><br />
+<a
+href="https://juejin.cn/post/7070003235934715940">Terminal（终端）使用代理进行连接</a><br />
+<a
+href="https://blog.csdn.net/tjy199610_10/article/details/120621676">最详细的ros安装（包含所有相关依赖文件）</a></p>
+]]></content>
+      <categories>
+        <category>ROS</category>
+      </categories>
+      <tags>
+        <tag>ROS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Windows软件使用分享</title>
     <url>/posts/20220719a1/</url>
     <content><![CDATA[<p>分享个人使用的 Windows 软件。</p>
@@ -1616,22 +1627,30 @@ Adobe Acrobat Reader DC。如果只有阅读需求，Microsoft Edge 的 PDF
 在尝试过两个之后，个人还是更喜欢福昕高级PDF编辑器。<br />
 <img src="https://s2.loli.net/2022/07/19/5vtSUKqVi3ENRxd.png" /><br />
 <img src="https://s2.loli.net/2022/07/19/9abxiS2NT17k5rw.png" /><br />
-这里附上9.7.1版本的安装文件和来自胡萝卜周的补丁：<br />
+这里附上 9.7.1
+版本的安装文件和来自<strong>胡萝卜周</strong>的补丁：<br />
 链接：https://pan.baidu.com/s/12zbUdP_Bsz65t1omdXKdLA<br />
 提取码：w899</p>
 <h2 id="知云文献翻译">知云文献翻译</h2>
 <p>外文论文文献翻译利器。<br />
+官网下载：<a href="https://www.zhiyunwenxian.cn/"
+class="uri">https://www.zhiyunwenxian.cn/</a><br />
 <img src="https://s2.loli.net/2022/07/19/tF3whGmuzoIsZWk.png" /></p>
 <h2 id="ev录屏">EV录屏</h2>
-<p><img
-src="https://s2.loli.net/2022/07/19/JDzuTnXlq2oMS36.png" /><br />
+<p>官网下载：<a href="https://www.ieway.cn/evcapture.html"
+class="uri">https://www.ieway.cn/evcapture.html</a><br />
+<img src="https://s2.loli.net/2022/07/19/JDzuTnXlq2oMS36.png" /><br />
 <img src="https://s2.loli.net/2022/07/19/oXYdGM9cJaKu4VI.png" /></p>
 <h2 id="mathpix-snipping-tool">Mathpix Snipping Tool</h2>
 <p>识别公式并生成相应代码，非常好用。（每个月只能免费使用10次）<br />
+官网下载：<a href="https://mathpix.com/"
+class="uri">https://mathpix.com/</a><br />
 <img src="https://s2.loli.net/2022/07/19/Z5IELwFAXuW1kiv.png" /><br />
 <img src="https://s2.loli.net/2022/07/19/CAnMGTyzx1DlBjX.png" /></p>
 <h2 id="snipaste">Snipaste</h2>
 <p>个人最常用的截图工具，小巧好用。<br />
+官网下载：<a href="https://www.snipaste.com/"
+class="uri">https://www.snipaste.com/</a><br />
 <img src="https://s2.loli.net/2022/07/19/CqKFAOUXkczMsV8.png" /><br />
 它还可以将截图贴在屏幕上，并支持放大缩小。<br />
 <img src="https://s2.loli.net/2022/07/19/tzD4pxUdQ2ZT837.png" /><br />
@@ -1639,6 +1658,8 @@ src="https://s2.loli.net/2022/07/19/JDzuTnXlq2oMS36.png" /><br />
 <img src="https://s2.loli.net/2022/07/19/ypBJm5TxzfriGwD.png" /></p>
 <h2 id="bandizip">Bandizip</h2>
 <p>压缩解压缩软件，没有 WinRAR 烦人的广告。<br />
+官网下载：<a href="https://www.bandisoft.com/bandizip/"
+class="uri">https://www.bandisoft.com/bandizip/</a><br />
 <img src="https://s2.loli.net/2022/07/19/P1mKs5MZorLd2AS.png" /><br />
 <img src="https://s2.loli.net/2022/07/19/oADFHTQzOPmbBIx.png" /></p>
 <h2 id="wox-everything">Wox + Everything</h2>
@@ -1649,18 +1670,29 @@ href="https://blog.csdn.net/qq_29860591/article/details/107873980">Wox+Everythin
 src="https://s2.loli.net/2022/07/19/rdIiUW7hN1b5RXL.png" /> <img
 src="https://s2.loli.net/2022/07/31/EVkcWijDqBdgNRv.png" /></p>
 <h2 id="向日葵远程控制">向日葵远程控制</h2>
-<p>可用手机平板远程控制电脑，进行文件传输。<br />
+<p>可用手机平板远程控制电脑，进行文件传输，免费版功能基本满足所需。<br />
+官网下载：<a href="https://sunlogin.oray.com/"
+class="uri">https://sunlogin.oray.com/</a><br />
 <img src="https://s2.loli.net/2022/07/19/vXCISpwyTstoLMq.png" /><br />
 <img src="https://s2.loli.net/2022/07/19/EXLG9bSNlIOutdy.png" /></p>
 <h2 id="picpick">PicPick</h2>
 <p>小工具箱。<br />
+官网下载：<a href="https://picpick.app/zh/"
+class="uri">https://picpick.app/zh/</a><br />
 <img src="https://s2.loli.net/2022/07/20/TB3eCAybEJk2tqN.png" /><br />
 <img src="https://s2.loli.net/2022/07/20/Jx8YPnZA96VhQau.png" /></p>
 <h2 id="linux-reader">Linux Reader</h2>
 <p>适用于双系统，可在 Windows 下访问 Linux 的文件。<br />
-<a href="https://www.diskinternals.com/download/">这里下载</a><br />
+官网下载：<a href="https://www.diskinternals.com/download/"
+class="uri">https://www.diskinternals.com/download/</a><br />
 <img src="https://s2.loli.net/2022/07/31/Bs79aMTrGgF4kYI.png" /><br />
 <img src="https://s2.loli.net/2022/07/31/XfsjBr39zb7JHNl.png" /></p>
+<h2 id="motrix">Motrix</h2>
+<p>简洁美观的磁力下载器，同样适用于 Linux、macOS。<br />
+官网下载：<a href="https://motrix.app/"
+class="uri">https://motrix.app/</a><br />
+<img src="https://s2.loli.net/2022/08/14/PrD7vIfhcjkJl4q.png" /> <img
+src="https://s2.loli.net/2022/08/14/3piwBjGfbULu9ag.png" /></p>
 ]]></content>
       <categories>
         <category>软件</category>
@@ -1670,8 +1702,121 @@ src="https://s2.loli.net/2022/07/31/EVkcWijDqBdgNRv.png" /></p>
       </tags>
   </entry>
   <entry>
+    <title>使用 Jetson Nano 向 PX4 提供 t265 位置信息，实现室内定点飞行</title>
+    <url>/posts/20210907a1/</url>
+    <content><![CDATA[<p>本文作者：南京航空航天大学 科技中心 陈思祺</p>
+<p><span id="more"></span></p>
+<p>使用的 Jetson Nano 镜像版本：4.6（2021-08-04 发布）</p>
+<p><a
+href="https://developer.nvidia.com/zh-cn/embedded/downloads">NVIDIA官方镜像下载链接</a></p>
+<p><img src="https://s2.loli.net/2022/07/19/d6PRHu7trEnLG2l.jpg" /></p>
+<p>下载好镜像，烧录进 TF
+卡，初次开机简单配置后进入系统，建议系统语言选择英语，正式开始本次教程。</p>
+<h2 id="更新软件列表更新软件">更新软件列表，更新软件</h2>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt-get update </span><br><span class="line">sudo apt-get upgrade </span><br></pre></td></tr></table></figure>
+<h2 id="安装-ros-melodic">安装 ROS Melodic</h2>
+<p>参考<a
+href="http://wiki.ros.org/melodic/Installation/Ubuntu">官网安装教程</a></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 设置sources.list</span></span><br><span class="line">sudo sh -c &#x27;echo &quot;deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main&quot; &gt; /etc/apt/sources.list.d/ros-latest.list&#x27;</span><br><span class="line"><span class="meta">#</span><span class="bash"> 设置密钥</span></span><br><span class="line">sudo apt install curl</span><br><span class="line">curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add -</span><br><span class="line"><span class="meta">#</span><span class="bash"> 确保 Debian 包索引是最新的</span></span><br><span class="line">sudo apt update</span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装桌面完整版（推荐）</span></span><br><span class="line">sudo apt install ros-melodic-desktop-full</span><br><span class="line"><span class="meta">#</span><span class="bash"> 设置环境</span></span><br><span class="line">echo &quot;source /opt/ros/melodic/setup.bash&quot; &gt;&gt; ~/.bashrc</span><br><span class="line">source ~/.bashrc</span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装 rosdep</span></span><br><span class="line">sudo apt install python-rosdep</span><br><span class="line"><span class="meta">#</span><span class="bash"> 初始化 rosdep</span></span><br><span class="line">sudo rosdep init</span><br><span class="line">rosdep update</span><br><span class="line"><span class="meta">#</span><span class="bash"> 试一下效果</span></span><br><span class="line">roscore</span><br></pre></td></tr></table></figure>
+<h2 id="安装realsense">安装realsense</h2>
+<p>参考<a
+href="https://github.com/IntelRealSense/librealsense/blob/master/doc/installation.md">官网安装教程</a></p>
+<p>安装过程中请拔下摄像头</p>
+<h3 id="安装realsense-sdk">安装Realsense SDK</h3>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 下载<span class="built_in">source</span></span> </span><br><span class="line"><span class="meta">#</span><span class="bash"> 可使用Proxy代理加速下载。详见：https://ghproxy.com/</span></span><br><span class="line">git clone https://github.com/IntelRealSense/librealsense</span><br><span class="line">cd librealsense</span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装依赖项</span> </span><br><span class="line">sudo apt-get install libudev-dev pkg-config libgtk-3-dev</span><br><span class="line">sudo apt-get install libusb-1.0-0-dev pkg-config</span><br><span class="line">sudo apt-get install libglfw3-dev</span><br><span class="line">sudo apt-get install libssl-dev</span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装位于 librealsense 源目录中的 Intel Realsense 权限脚本</span></span><br><span class="line">sudo cp config/99-realsense-libusb.rules /etc/udev/rules.d/</span><br><span class="line">sudo udevadm control --reload-rules &amp;&amp; udevadm trigger </span><br><span class="line"><span class="meta">#</span><span class="bash"> 编译</span></span><br><span class="line">mkdir build</span><br><span class="line">cd build</span><br><span class="line">cmake ../ -DBUILD_EXAMPLES=true</span><br><span class="line">make</span><br><span class="line">sudo make install</span><br><span class="line"><span class="meta">#</span><span class="bash"> 试一下效果</span></span><br><span class="line">realsense-viewer</span><br></pre></td></tr></table></figure>
+<h3 id="安装realsense-ros">安装realsense-ros</h3>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 下载<span class="built_in">source</span></span></span><br><span class="line">mkdir -p ~/catkin_ws/src</span><br><span class="line">cd ~/catkin_ws/src/</span><br><span class="line">git clone https://github.com/IntelRealSense/realsense-ros.git</span><br><span class="line">git clone https://github.com/pal-robotics/ddynamic_reconfigure</span><br><span class="line">cd realsense-ros/</span><br><span class="line">git checkout `git tag | sort -V | grep -P &quot;^\d+\.\d+\.\d+&quot; | tail -1`</span><br><span class="line"><span class="meta">#</span><span class="bash"> 更改cv_bridgeConfig.cmake中opencv4路径</span></span><br><span class="line">sudo gedit /opt/ros/melodic/share/cv_bridge/cmake/cv_bridgeConfig.cmake</span><br></pre></td></tr></table></figure>
+<p>如图</p>
+<p><img src="https://s2.loli.net/2022/07/19/QFk1VvcSTZz8xWU.png" /></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 编译</span></span><br><span class="line">cd ~/catkin_ws</span><br><span class="line">catkin_make</span><br><span class="line"><span class="meta">#</span><span class="bash"> 设置环境</span></span><br><span class="line">echo &quot;source ~/catkin_ws/devel/setup.bash&quot;&gt;&gt;~/.bashrc </span><br><span class="line">source ~/.bashrc</span><br><span class="line"><span class="meta">#</span><span class="bash">试一下效果</span></span><br><span class="line">roslaunch realsense2_camera rs_t265.launch</span><br></pre></td></tr></table></figure>
+<h2 id="px4配置">PX4配置</h2>
+<p>下载 <em>QGroundControl</em></p>
+<p><a
+href="https://github.com/mavlink/qgroundcontrol/releases/">GitHub链接</a></p>
+<p><a href="https://docs.qgroundcontrol.com/master/en/">使用说明</a></p>
+<ul>
+<li><p><code>MAV_1_CONFIG</code>= <code>TELEM 2</code></p></li>
+<li><p><code>MAV_1_MODE</code> = <code>Onboard</code></p></li>
+<li><p><code>SER_TEL2_BAUD</code> = <code>57600 8N1</code></p></li>
+<li><p><code>EKF2_AID_MASK</code> 勾选
+<code>vision position fusion</code>和<code>vision yaw fusion</code></p></li>
+<li><p><code>EKF2_HGT_MODE</code> 设置为 <code>Vision</code></p></li>
+<li><p><code>MAV_ODOM_LP</code>设置为<code>1</code></p></li>
+</ul>
+<h2 id="mavros-和vio">MAVROS 和VIO</h2>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> MAVROS</span></span><br><span class="line">sudo apt install python-catkin-tools</span><br><span class="line">sudo apt install ros-melodic-mavros ros-melodic-mavros-extras</span><br><span class="line">sudo apt-get install ros-indigo-mavros ros-indigo-mavros-extras ros‐indigo‐control‐toolbox</span><br><span class="line"><span class="meta">#</span><span class="bash"> VIO</span></span><br><span class="line">cd ~/catkin_ws/src</span><br><span class="line">git clone https://github.com/Auterion/VIO.git</span><br><span class="line">cd ..</span><br><span class="line">catkin_make</span><br></pre></td></tr></table></figure>
+<p>更改以下配置</p>
+<ol type="1">
+<li>T265 相对位置及朝向</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">gedit ~/catkin_ws/src/VIO/launch/bridge.launch</span><br></pre></td></tr></table></figure>
+<p>修改</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">&lt;node pkg=&quot;tf&quot; type=&quot;static_transform_publisher&quot; name=&quot;tf_baseLink_cameraPose&quot;args=&quot;0 0 0 0 1.5708 0 base_link camera_pose_frame 1000&quot;/&gt;</span><br></pre></td></tr></table></figure>
+<p><code>args</code>中</p>
+<ul>
+<li><p>开头三个参数为飞控中心指向 T265 中心的向量。例如 T265 在飞控前方
+10 cm，上方 4 cm, 则前三个参数为：<code>[0.1, 0, -0.04]</code></p></li>
+<li><p>中间三个参数为旋转角(偏航, 俯仰, 横滚)。默认 T265
+朝地，则参数为<code>[0, 1.5708, 0]</code>；T265
+照射飞机机头方向，则参数为 <code>[0 0 0]</code></p></li>
+</ul>
+<ol start="2" type="1">
+<li>如果 TTL 的速度异常</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo gedit /opt/ros/melodic/share/mavros/launch/px4_config.yaml</span><br></pre></td></tr></table></figure>
+<p>第 12 行改为</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">timesync_rate: 0.0</span><br></pre></td></tr></table></figure>
+<ol start="3" type="1">
+<li>如果使用 USB 连接</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo gedit /opt/ros/melodic/share/mavros/launch/px4.launch</span><br></pre></td></tr></table></figure>
+<p>修改第 5 行为</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">&lt;arg name=&quot;fcu_url&quot; default=&quot;/dev/ttyUSB0:57600&quot; /&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">gedit ~/catkin_ws/src/VIO/launch/bridge_mavros.launch</span><br></pre></td></tr></table></figure>
+<p>修改第 3 行为</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">&lt;arg name=&quot;fcu_url&quot; default=&quot;/dev/ttyUSB0:57600&quot; /&gt;</span><br></pre></td></tr></table></figure>
+<ol start="4" type="1">
+<li>放开串口权限</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 用你自己的用户名替代下面的&lt;username&gt;</span></span><br><span class="line">sudo usermod -a -G dialout &lt;username&gt;</span><br><span class="line"><span class="meta">#</span><span class="bash"> 修改后需重启生效</span></span><br><span class="line">reboot now</span><br></pre></td></tr></table></figure>
+<h2 id="起飞前检查">起飞前检查</h2>
+<p>详情请看<a
+href="https://docs.px4.io/master/en/computer_vision/visual_inertial_odometry.html#verify_estimate">官网说明</a></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 开启VIO</span></span><br><span class="line">roslaunch px4_realsense_bridge bridge_mavros.launch</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>连接好摄像头、USB、PX4，可暂不接电池，查看 MAVLink
+Inspector</p></li>
+<li><p>偏航机身，直到<code>ODOMETRY</code>消息的四元数非常接近单位四元数（w
+= 1，x = y = z = 0）</p></li>
+<li><p>向前移动无人机，x 坐标应增大</p></li>
+<li><p>向右移动无人机，y 坐标应增大</p></li>
+<li><p>向上移动无人机，z 坐标应减小</p></li>
+<li><p>遥控器切换到 Position Flight Mode，若切换成功，应闪绿灯</p></li>
+</ul>
+<p>然后可以接上电池，尝试定点飞行</p>
+<h2 id="参考文章">参考文章</h2>
+<p><a href="https://docs.px4.io/master/en/">PX4 User Guide</a></p>
+<p><a href="http://wiki.ros.org/">ROS Wiki</a></p>
+<p><a href="https://github.com/IntelRealSense/">Intel RealSense</a></p>
+<p><a
+href="https://lifuguan.github.io/d435i/ros/2019/05/28/realsense-melodic-installation/">ROS
+melodic kernel 4.18 安装 realsense D435i</a></p>
+<p><a
+href="https://zhuanlan.zhihu.com/p/364390798">通过MAVROS连接机载电脑（NANO/TX2/NX）与Pixhawk</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/367357019">Jetson
+Nano使用T265向PX4提供位置信息</a></p>
+<p><a href="https://ghproxy.com/">GitHub Proxy</a></p>
+]]></content>
+      <categories>
+        <category>PX4</category>
+      </categories>
+      <tags>
+        <tag>PX4飞控</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hello World</title>
-    <url>/posts/20210811cl6ofxdwo000tckf9edcffeu6/</url>
+    <url>/posts/20210811cl6vm86yn000x4wf9hqph0xx5/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very
 first post. Check <a href="https://hexo.io/docs/">documentation</a> for
 more info. If you get any problems when using Hexo, you can find the
@@ -1903,117 +2048,35 @@ href="https://zcw-blog.top/posts/20210819a1/#more">Markdown语法详解</a></p>
       </tags>
   </entry>
   <entry>
-    <title>使用 Jetson Nano 向 PX4 提供 t265 位置信息，实现室内定点飞行</title>
-    <url>/posts/20210907a1/</url>
-    <content><![CDATA[<p>本文作者：南京航空航天大学 科技中心 陈思祺</p>
+    <title>小笔记-积化和差、和差化积公式</title>
+    <url>/posts/20211001a1/</url>
+    <content><![CDATA[<p>本文主要用于测试 mathjax 渲染功能</p>
 <p><span id="more"></span></p>
-<p>使用的 Jetson Nano 镜像版本：4.6（2021-08-04 发布）</p>
-<p><a
-href="https://developer.nvidia.com/zh-cn/embedded/downloads">NVIDIA官方镜像下载链接</a></p>
-<p><img src="https://s2.loli.net/2022/07/19/d6PRHu7trEnLG2l.jpg" /></p>
-<p>下载好镜像，烧录进 TF
-卡，初次开机简单配置后进入系统，建议系统语言选择英语，正式开始本次教程。</p>
-<h2 id="更新软件列表更新软件">更新软件列表，更新软件</h2>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt-get update </span><br><span class="line">sudo apt-get upgrade </span><br></pre></td></tr></table></figure>
-<h2 id="安装-ros-melodic">安装 ROS Melodic</h2>
-<p>参考<a
-href="http://wiki.ros.org/melodic/Installation/Ubuntu">官网安装教程</a></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 设置sources.list</span></span><br><span class="line">sudo sh -c &#x27;echo &quot;deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main&quot; &gt; /etc/apt/sources.list.d/ros-latest.list&#x27;</span><br><span class="line"><span class="meta">#</span><span class="bash"> 设置密钥</span></span><br><span class="line">sudo apt install curl</span><br><span class="line">curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add -</span><br><span class="line"><span class="meta">#</span><span class="bash"> 确保 Debian 包索引是最新的</span></span><br><span class="line">sudo apt update</span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装桌面完整版（推荐）</span></span><br><span class="line">sudo apt install ros-melodic-desktop-full</span><br><span class="line"><span class="meta">#</span><span class="bash"> 设置环境</span></span><br><span class="line">echo &quot;source /opt/ros/melodic/setup.bash&quot; &gt;&gt; ~/.bashrc</span><br><span class="line">source ~/.bashrc</span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装 rosdep</span></span><br><span class="line">sudo apt install python-rosdep</span><br><span class="line"><span class="meta">#</span><span class="bash"> 初始化 rosdep</span></span><br><span class="line">sudo rosdep init</span><br><span class="line">rosdep update</span><br><span class="line"><span class="meta">#</span><span class="bash"> 试一下效果</span></span><br><span class="line">roscore</span><br></pre></td></tr></table></figure>
-<h2 id="安装realsense">安装realsense</h2>
-<p>参考<a
-href="https://github.com/IntelRealSense/librealsense/blob/master/doc/installation.md">官网安装教程</a></p>
-<p>安装过程中请拔下摄像头</p>
-<h3 id="安装realsense-sdk">安装Realsense SDK</h3>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 下载<span class="built_in">source</span></span> </span><br><span class="line"><span class="meta">#</span><span class="bash"> 可使用Proxy代理加速下载。详见：https://ghproxy.com/</span></span><br><span class="line">git clone https://github.com/IntelRealSense/librealsense</span><br><span class="line">cd librealsense</span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装依赖项</span> </span><br><span class="line">sudo apt-get install libudev-dev pkg-config libgtk-3-dev</span><br><span class="line">sudo apt-get install libusb-1.0-0-dev pkg-config</span><br><span class="line">sudo apt-get install libglfw3-dev</span><br><span class="line">sudo apt-get install libssl-dev</span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装位于 librealsense 源目录中的 Intel Realsense 权限脚本</span></span><br><span class="line">sudo cp config/99-realsense-libusb.rules /etc/udev/rules.d/</span><br><span class="line">sudo udevadm control --reload-rules &amp;&amp; udevadm trigger </span><br><span class="line"><span class="meta">#</span><span class="bash"> 编译</span></span><br><span class="line">mkdir build</span><br><span class="line">cd build</span><br><span class="line">cmake ../ -DBUILD_EXAMPLES=true</span><br><span class="line">make</span><br><span class="line">sudo make install</span><br><span class="line"><span class="meta">#</span><span class="bash"> 试一下效果</span></span><br><span class="line">realsense-viewer</span><br></pre></td></tr></table></figure>
-<h3 id="安装realsense-ros">安装realsense-ros</h3>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 下载<span class="built_in">source</span></span></span><br><span class="line">mkdir -p ~/catkin_ws/src</span><br><span class="line">cd ~/catkin_ws/src/</span><br><span class="line">git clone https://github.com/IntelRealSense/realsense-ros.git</span><br><span class="line">git clone https://github.com/pal-robotics/ddynamic_reconfigure</span><br><span class="line">cd realsense-ros/</span><br><span class="line">git checkout `git tag | sort -V | grep -P &quot;^\d+\.\d+\.\d+&quot; | tail -1`</span><br><span class="line"><span class="meta">#</span><span class="bash"> 更改cv_bridgeConfig.cmake中opencv4路径</span></span><br><span class="line">sudo gedit /opt/ros/melodic/share/cv_bridge/cmake/cv_bridgeConfig.cmake</span><br></pre></td></tr></table></figure>
-<p>如图</p>
-<p><img src="https://s2.loli.net/2022/07/19/QFk1VvcSTZz8xWU.png" /></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 编译</span></span><br><span class="line">cd ~/catkin_ws</span><br><span class="line">catkin_make</span><br><span class="line"><span class="meta">#</span><span class="bash"> 设置环境</span></span><br><span class="line">echo &quot;source ~/catkin_ws/devel/setup.bash&quot;&gt;&gt;~/.bashrc </span><br><span class="line">source ~/.bashrc</span><br><span class="line"><span class="meta">#</span><span class="bash">试一下效果</span></span><br><span class="line">roslaunch realsense2_camera rs_t265.launch</span><br></pre></td></tr></table></figure>
-<h2 id="px4配置">PX4配置</h2>
-<p>下载 <em>QGroundControl</em></p>
-<p><a
-href="https://github.com/mavlink/qgroundcontrol/releases/">GitHub链接</a></p>
-<p><a href="https://docs.qgroundcontrol.com/master/en/">使用说明</a></p>
-<ul>
-<li><p><code>MAV_1_CONFIG</code>= <code>TELEM 2</code></p></li>
-<li><p><code>MAV_1_MODE</code> = <code>Onboard</code></p></li>
-<li><p><code>SER_TEL2_BAUD</code> = <code>57600 8N1</code></p></li>
-<li><p><code>EKF2_AID_MASK</code> 勾选
-<code>vision position fusion</code>和<code>vision yaw fusion</code></p></li>
-<li><p><code>EKF2_HGT_MODE</code> 设置为 <code>Vision</code></p></li>
-<li><p><code>MAV_ODOM_LP</code>设置为<code>1</code></p></li>
-</ul>
-<h2 id="mavros-和vio">MAVROS 和VIO</h2>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> MAVROS</span></span><br><span class="line">sudo apt install python-catkin-tools</span><br><span class="line">sudo apt install ros-melodic-mavros ros-melodic-mavros-extras</span><br><span class="line">sudo apt-get install ros-indigo-mavros ros-indigo-mavros-extras ros‐indigo‐control‐toolbox</span><br><span class="line"><span class="meta">#</span><span class="bash"> VIO</span></span><br><span class="line">cd ~/catkin_ws/src</span><br><span class="line">git clone https://github.com/Auterion/VIO.git</span><br><span class="line">cd ..</span><br><span class="line">catkin_make</span><br></pre></td></tr></table></figure>
-<p>更改以下配置</p>
-<ol type="1">
-<li>T265 相对位置及朝向</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">gedit ~/catkin_ws/src/VIO/launch/bridge.launch</span><br></pre></td></tr></table></figure>
-<p>修改</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">&lt;node pkg=&quot;tf&quot; type=&quot;static_transform_publisher&quot; name=&quot;tf_baseLink_cameraPose&quot;args=&quot;0 0 0 0 1.5708 0 base_link camera_pose_frame 1000&quot;/&gt;</span><br></pre></td></tr></table></figure>
-<p><code>args</code>中</p>
-<ul>
-<li><p>开头三个参数为飞控中心指向 T265 中心的向量。例如 T265 在飞控前方
-10 cm，上方 4 cm, 则前三个参数为：<code>[0.1, 0, -0.04]</code></p></li>
-<li><p>中间三个参数为旋转角(偏航, 俯仰, 横滚)。默认 T265
-朝地，则参数为<code>[0, 1.5708, 0]</code>；T265
-照射飞机机头方向，则参数为 <code>[0 0 0]</code></p></li>
-</ul>
-<ol start="2" type="1">
-<li>如果 TTL 的速度异常</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo gedit /opt/ros/melodic/share/mavros/launch/px4_config.yaml</span><br></pre></td></tr></table></figure>
-<p>第 12 行改为</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">timesync_rate: 0.0</span><br></pre></td></tr></table></figure>
-<ol start="3" type="1">
-<li>如果使用 USB 连接</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo gedit /opt/ros/melodic/share/mavros/launch/px4.launch</span><br></pre></td></tr></table></figure>
-<p>修改第 5 行为</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">&lt;arg name=&quot;fcu_url&quot; default=&quot;/dev/ttyUSB0:57600&quot; /&gt;</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">gedit ~/catkin_ws/src/VIO/launch/bridge_mavros.launch</span><br></pre></td></tr></table></figure>
-<p>修改第 3 行为</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">&lt;arg name=&quot;fcu_url&quot; default=&quot;/dev/ttyUSB0:57600&quot; /&gt;</span><br></pre></td></tr></table></figure>
-<ol start="4" type="1">
-<li>放开串口权限</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 用你自己的用户名替代下面的&lt;username&gt;</span></span><br><span class="line">sudo usermod -a -G dialout &lt;username&gt;</span><br><span class="line"><span class="meta">#</span><span class="bash"> 修改后需重启生效</span></span><br><span class="line">reboot now</span><br></pre></td></tr></table></figure>
-<h2 id="起飞前检查">起飞前检查</h2>
-<p>详情请看<a
-href="https://docs.px4.io/master/en/computer_vision/visual_inertial_odometry.html#verify_estimate">官网说明</a></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 开启VIO</span></span><br><span class="line">roslaunch px4_realsense_bridge bridge_mavros.launch</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>连接好摄像头、USB、PX4，可暂不接电池，查看 MAVLink
-Inspector</p></li>
-<li><p>偏航机身，直到<code>ODOMETRY</code>消息的四元数非常接近单位四元数（w
-= 1，x = y = z = 0）</p></li>
-<li><p>向前移动无人机，x 坐标应增大</p></li>
-<li><p>向右移动无人机，y 坐标应增大</p></li>
-<li><p>向上移动无人机，z 坐标应减小</p></li>
-<li><p>遥控器切换到 Position Flight Mode，若切换成功，应闪绿灯</p></li>
-</ul>
-<p>然后可以接上电池，尝试定点飞行</p>
-<h2 id="参考文章">参考文章</h2>
-<p><a href="https://docs.px4.io/master/en/">PX4 User Guide</a></p>
-<p><a href="http://wiki.ros.org/">ROS Wiki</a></p>
-<p><a href="https://github.com/IntelRealSense/">Intel RealSense</a></p>
-<p><a
-href="https://lifuguan.github.io/d435i/ros/2019/05/28/realsense-melodic-installation/">ROS
-melodic kernel 4.18 安装 realsense D435i</a></p>
-<p><a
-href="https://zhuanlan.zhihu.com/p/364390798">通过MAVROS连接机载电脑（NANO/TX2/NX）与Pixhawk</a></p>
-<p><a href="https://zhuanlan.zhihu.com/p/367357019">Jetson
-Nano使用T265向PX4提供位置信息</a></p>
-<p><a href="https://ghproxy.com/">GitHub Proxy</a></p>
+<h2 id="和差化积">和差化积</h2>
+<p><span class="math display">\[
+\sin x+\sin y=2 \sin \frac{x+y}{2} \cos \frac{x-y}{2}
+\]</span> <span class="math display">\[
+\sin x-\sin y=2 \cos \frac{x+y}{2} \sin \frac{x-y}{2}
+\]</span> <span class="math display">\[
+\cos x+\cos y=2 \cos \frac{x+y}{2} \cos \frac{x-y}{2}
+\]</span> <span class="math display">\[
+\cos x-\cos y=-2 \sin \frac{x+y}{2} \sin \frac{x-y}{2}
+\]</span></p>
+<h2 id="积化和差">积化和差</h2>
+<p><span class="math display">\[
+\sin x \sin y=-\frac{1}{2}[\cos (x+y)-\cos (x-y)]
+\]</span> <span class="math display">\[
+\cos x \cos y=\frac{1}{2}[\cos (x+y)+\cos (x-y)]
+\]</span> <span class="math display">\[
+\sin x \cos y=\frac{1}{2}[\sin (x+y)+\sin (x-y)]
+\]</span></p>
+<p>辅助记忆口诀：</p>
+<p>正加正，正在前，余加余，余并肩</p>
+<p>正减正，余在前，余减余，负正弦</p>
 ]]></content>
       <categories>
-        <category>PX4</category>
+        <category>小笔记</category>
       </categories>
-      <tags>
-        <tag>PX4飞控</tag>
-      </tags>
   </entry>
   <entry>
     <title>搭建个人博客</title>
@@ -2375,36 +2438,5 @@ href="https://zcw-blog.top/posts/20220424a1/">Hexo+NexT配置优化指南</a></p
       <tags>
         <tag>搭建博客</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>小笔记-积化和差、和差化积公式</title>
-    <url>/posts/20211001a1/</url>
-    <content><![CDATA[<p>本文主要用于测试 mathjax 渲染功能</p>
-<p><span id="more"></span></p>
-<h2 id="和差化积">和差化积</h2>
-<p><span class="math display">\[
-\sin x+\sin y=2 \sin \frac{x+y}{2} \cos \frac{x-y}{2}
-\]</span> <span class="math display">\[
-\sin x-\sin y=2 \cos \frac{x+y}{2} \sin \frac{x-y}{2}
-\]</span> <span class="math display">\[
-\cos x+\cos y=2 \cos \frac{x+y}{2} \cos \frac{x-y}{2}
-\]</span> <span class="math display">\[
-\cos x-\cos y=-2 \sin \frac{x+y}{2} \sin \frac{x-y}{2}
-\]</span></p>
-<h2 id="积化和差">积化和差</h2>
-<p><span class="math display">\[
-\sin x \sin y=-\frac{1}{2}[\cos (x+y)-\cos (x-y)]
-\]</span> <span class="math display">\[
-\cos x \cos y=\frac{1}{2}[\cos (x+y)+\cos (x-y)]
-\]</span> <span class="math display">\[
-\sin x \cos y=\frac{1}{2}[\sin (x+y)+\sin (x-y)]
-\]</span></p>
-<p>辅助记忆口诀：</p>
-<p>正加正，正在前，余加余，余并肩</p>
-<p>正减正，余在前，余减余，负正弦</p>
-]]></content>
-      <categories>
-        <category>小笔记</category>
-      </categories>
   </entry>
 </search>
