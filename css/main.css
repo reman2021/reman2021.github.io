@@ -3141,3 +3141,7 @@ code {
     font-size: 13px;
   }
 }
+.use-motion .post-header,
+.use-motion .post-body {
+  visibility: inherit;
+}
