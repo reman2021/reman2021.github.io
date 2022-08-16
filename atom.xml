@@ -77,14 +77,15 @@
   </entry>
   
   <entry>
-    <title>Ubuntu优化</title>
+    <title>Ubuntu 优化</title>
     <link href="https://reman2021.github.io/posts/20220801a1/"/>
     <id>https://reman2021.github.io/posts/20220801a1/</id>
     <published>2022-08-01T01:04:45.000Z</published>
-    <updated>2022-08-08T20:26:11.919Z</updated>
+    <updated>2022-08-16T14:31:05.616Z</updated>
     
     
-    <summary type="html">&lt;p&gt;Ubuntu 使用优化（20.04.1）。&lt;/p&gt;</summary>
+    <summary type="html">&lt;div class=&quot;note &quot;&gt;&lt;p&gt;Ubuntu 使用优化（20.04.1）。&lt;/p&gt;
+&lt;/div&gt;</summary>
     
     
     
@@ -269,9 +270,9 @@ John Gruber 于 2004 年创建，如今已成为世界上最受欢迎的标记�
     
     <category term="搭建博客" scheme="https://reman2021.github.io/tags/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"/>
     
-    <category term="Hexo" scheme="https://reman2021.github.io/tags/Hexo/"/>
-    
     <category term="Markdown" scheme="https://reman2021.github.io/tags/Markdown/"/>
+    
+    <category term="Hexo" scheme="https://reman2021.github.io/tags/Hexo/"/>
     
   </entry>
   
@@ -296,8 +297,8 @@ John Gruber 于 2004 年创建，如今已成为世界上最受欢迎的标记�
   
   <entry>
     <title>Hello World</title>
-    <link href="https://reman2021.github.io/posts/20210811cl6w97ao60012t4f9bdca5ddh/"/>
-    <id>https://reman2021.github.io/posts/20210811cl6w97ao60012t4f9bdca5ddh/</id>
+    <link href="https://reman2021.github.io/posts/20210811cl6wa9fcz0014ckf9765v8xf5/"/>
+    <id>https://reman2021.github.io/posts/20210811cl6wa9fcz0014ckf9765v8xf5/</id>
     <published>2021-08-11T07:20:47.512Z</published>
     <updated>2021-08-13T05:25:59.383Z</updated>
     
