@@ -1,0 +1,20 @@
+#hexo robots.txt
+User-agent: *
+
+Allow: /
+Allow: /archives/
+Allow: /about/
+Allow: /categories/
+Allow: /bookmarks/
+Allow: /gallery/
+
+Disallow: /vendors/
+Disallow: /js/
+Disallow: /css/
+Disallow: /fonts/
+Disallow: /vendors/
+Disallow: /fancybox/
+
+Sitemap: http://zcw-blog.top/search.xml
+Sitemap: http://zcw-blog.top/sitemap.xml
+Sitemap: http://zcw-blog.top/baidusitemap.xml
