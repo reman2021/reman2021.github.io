@@ -118,54 +118,6 @@ href="https://chziq.com/posts/3655275721/">CNAME记录指向vercel影响了CAA�
       </tags>
   </entry>
   <entry>
-    <title>Clash for Linux</title>
-    <url>/posts/20220726a1/</url>
-    <content><![CDATA[<div class="note "><p>配置 Clash for Linux，并设置开机自启动。<br />
-Linux 系统版本：Ubuntu 20.04.1</p>
-</div>
-<span id="more"></span>
-<h2 id="下载解压-clash-linux-amd64">下载解压 clash-linux-amd64</h2>
-<p>从 <a href="https://github.com/Dreamacro/clash/releases">GitHub</a>
-上下载任意版本的 clash-linux-amd64-vx.x.x.gz。<br />
-在下载目录打开终端，输入如下命令：<br />
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">gunzip clash-linux-amd64-vx.x.x.gz	#文件解压</span><br><span class="line">mv clash-linux-amd64-vx.x.x clash	#文件改名</span><br></pre></td></tr></table></figure> 我在 /home/username 目录下创建了 clash
-文件夹，将解压后的文件移动到里面：<br />
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mkdir Clash			#创建名为 clash 的文件夹  </span><br><span class="line">mv clash /home/username/clash	#将解压改名后的 clash 文件移入 clash 文件夹  </span><br></pre></td></tr></table></figure></p>
-<h2 id="配置-clash">配置 clash</h2>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">chmod +x clash		#首先授权可执行权限  </span><br><span class="line">./clash -d .		#初始化执行 clash  </span><br></pre></td></tr></table></figure>
-<p>在初始化执行 clash 后会默认在当前目录下生成配置文件
-config.yaml和全球IP地址库 Country.mmdb。<br />
-<img src="https://www.hualigs.cn/image/62dfe7b13c9d4.jpg" />
-从代理商那获得配置文件 config.yaml，替换默认生成的配置文件。<br />
-再次初始化执行 clash：<code>./clash -d .</code>。<br />
-出现如下初始化显示：<br />
-<img src="https://www.hualigs.cn/image/62dfe0460215b.jpg" />
-接下来进行系统网络代理设置，打开系统设置-网络-网络代理，选择手动，填写
-HTTP 和 HTTPS 代理为 127.0.0.1:7890，填写 Socks 主机为
-127.0.0.1:7891，即可启用系统代理。<br />
-<img src="https://www.hualigs.cn/image/62dfe11216cb4.jpg" /> 浏览器访问
-<a href="https://google.cn/">Google</a> 验证网络。</p>
-<h2 id="设置开机自启动">设置开机自启动</h2>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo touch /etc/systemd/system/clash.service	#创建 service 文件  </span><br><span class="line">vi /etc/systemd/system/clash.service 	#编辑 service 文件  </span><br></pre></td></tr></table></figure>
-<p>输入如下文本（记得修改 ExecStart 为自己的路径）：<br />
-<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line">[Unit] </span><br><span class="line">Description=clash daemon  </span><br><span class="line">[Service] </span><br><span class="line">Type=simple </span><br><span class="line">User=root </span><br><span class="line">ExecStart=/home/username/clash/clash -d /home/username/clash/ </span><br><span class="line">Restart=<span class="keyword">on</span>-failure  </span><br><span class="line">[Install] </span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure> 使用的 vim 命令参考：<br />
-<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line">i    在当前光标的前面插入字符</span><br><span class="line">A    在一行的结尾处添加文本</span><br><span class="line"><span class="keyword">x</span>    删除当前光标所在处的字符</span><br><span class="line">dw   删除一个单词(从光标处到空格)</span><br><span class="line"><span class="keyword">u</span>    撤销上一步的操作。</span><br><span class="line">:q   若文件没有修改，直接退出</span><br><span class="line">:q!  文件已经被修改，放弃修改退出</span><br><span class="line">:<span class="keyword">wq</span>  文件已经被修改，保存修改并退出</span><br></pre></td></tr></table></figure> 编辑后查看文件内容如下图：<br />
-<img src="https://www.hualigs.cn/image/62dfe84b32703.jpg" />
-接着依次执行下面四个命令：<br />
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo systemctl daemon-reload </span><br><span class="line">sudo systemctl enable clash </span><br><span class="line">sudo systemctl start clash </span><br><span class="line">sudo systemctl status clash</span><br></pre></td></tr></table></figure> 成功后出现如下内容：<br />
-<img src="https://www.hualigs.cn/image/62dfe1481d42a.jpg" /></p>
-<h2 id="参考文章">参考文章</h2>
-<p><a href="https://zhuanlan.zhihu.com/p/430035973">配置 clash for linux
-，适用于ubuntu 20.04（更新于2021.11.6）</a></p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hexo + NexT 配置优化指南</title>
     <url>/posts/20220424a1/</url>
     <content><![CDATA[<div class="note warning"><p>超长文警告！</p>
@@ -255,6 +207,10 @@ class="footnote-ref" id="fnref1"
 role="doc-noteref"><sup>1</sup></a>如：</p>
 <figure class="highlight styl"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.site-brand-container</span> &#123;</span><br><span class="line">  <span class="comment">//background: var(--theme-color);</span></span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#475164</span>;</span><br></pre></td></tr></table></figure>
 <p>还可以改为渐变色，如： <figure class="highlight styl"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.site-brand-container</span> &#123;</span><br><span class="line">  <span class="comment">//background: var(--theme-color);</span></span><br><span class="line">  <span class="attribute">background</span>: linear-gradient(<span class="number">200deg</span>, <span class="number">#2e80a5</span>, <span class="number">#0c0c0b</span>);</span><br></pre></td></tr></table></figure></p>
+<h3 id="调整页面宽度gemini">调整页面宽度（Gemini）</h3>
+<p>修改文件
+root/themes/next/source/css/_variables/Pisces.styl，调整如下：
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$content-desktop              = &#x27;calc(100% - %s)&#x27; % unit($content-desktop-padding / 2, &#x27;px&#x27;);</span><br><span class="line">// $content-desktop-large        = 1160px;</span><br><span class="line">// $content-desktop-largest      = 73%;</span><br><span class="line"></span><br><span class="line">$content-desktop-large   = 85em</span><br><span class="line">$content-desktop-largest = 85%</span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
 <h3 id="安装rss插件">安装RSS插件</h3>
 <p>1.在根目录打开 Git Bash 执行指令安装插件：<a href="#fn2"
 class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
@@ -310,8 +266,15 @@ root/themes/source/js/src/ 下。<br />
 href="https://u.sb/css-cdn/">烧饼博客</a>提供的镜像。<br />
 在主题配置文件对 font 进行如下修改： <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">font:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line"> </span><br><span class="line">  <span class="comment"># Uri of fonts host, e.g. https://fonts.googleapis.com (Default).</span></span><br><span class="line">  <span class="comment"># 使用烧饼博客的CDN</span></span><br><span class="line">  <span class="attr">host:</span> <span class="string">https://fonts.loli.net</span></span><br><span class="line"> </span><br><span class="line">  <span class="comment"># Font options:</span></span><br><span class="line">  <span class="comment"># `external: true` will load this font family from `host` above.</span></span><br><span class="line">  <span class="comment"># `family: Times New Roman`. Without any quotes.</span></span><br><span class="line">  <span class="comment"># `size: x.x`. Use `em` as unit. Default: 1 (16px)</span></span><br><span class="line"> </span><br><span class="line">  <span class="comment"># Global font settings used for all elements inside &lt;body&gt;.</span></span><br><span class="line">  <span class="comment"># 全局字体设置</span></span><br><span class="line">  <span class="attr">global:</span></span><br><span class="line">    <span class="attr">external:</span> <span class="literal">true</span></span><br><span class="line">    <span class="comment">#family: EB Garamond</span></span><br><span class="line">    <span class="attr">family:</span> <span class="string">Noto</span> <span class="string">Serif</span> <span class="string">SC</span></span><br><span class="line">    <span class="attr">size:</span> <span class="number">0.9</span></span><br><span class="line"> </span><br><span class="line">  <span class="comment"># Font settings for site title (.site-title).</span></span><br><span class="line">  <span class="comment"># .site-title 站点标题字体设置</span></span><br><span class="line">  <span class="attr">title:</span></span><br><span class="line">    <span class="attr">external:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">family:</span> <span class="string">EB</span> <span class="string">Garamond</span></span><br><span class="line">    <span class="attr">size:</span></span><br><span class="line"> </span><br><span class="line">  <span class="comment"># Font settings for headlines (&lt;h1&gt; to &lt;h6&gt;).</span></span><br><span class="line">  <span class="comment"># 文章标题字体设置</span></span><br><span class="line">  <span class="attr">headings:</span></span><br><span class="line">    <span class="attr">external:</span> <span class="literal">true</span></span><br><span class="line">    <span class="comment">#family: Roboto Slab</span></span><br><span class="line">    <span class="attr">family:</span> <span class="string">EB</span> <span class="string">Garamond</span></span><br><span class="line">    <span class="attr">size:</span></span><br><span class="line"> </span><br><span class="line">  <span class="comment"># Font settings for posts (.post-body).</span></span><br><span class="line">  <span class="comment"># 文章页面字体设置</span></span><br><span class="line">  <span class="attr">posts:</span></span><br><span class="line">    <span class="attr">external:</span> <span class="literal">true</span></span><br><span class="line">    <span class="comment">#family: Roboto Slab</span></span><br><span class="line"> </span><br><span class="line">  <span class="comment"># Font settings for &lt;code&gt; and code blocks.</span></span><br><span class="line">  <span class="comment"># 代码块字体设置</span></span><br><span class="line">  <span class="attr">codes:</span></span><br><span class="line">    <span class="attr">external:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">family:</span> <span class="string">Source</span> <span class="string">Code</span> <span class="string">Pro</span></span><br></pre></td></tr></table></figure></p>
 <h3 id="首页顶部留白">首页顶部留白</h3>
-<p>在 root/source/_data/styles.styl里添加如下内容：<br />
+<p>在 root/source/_data/styles.styl 里添加如下内容：<br />
 <figure class="highlight styl"><table><tr><td class="code"><pre><span class="line"><span class="comment">//首页顶部留白</span></span><br><span class="line">.container&#123;<span class="attribute">margin-top</span>:<span class="number">10px</span>;&#125; </span><br></pre></td></tr></table></figure></p>
+<h3 id="鼠标样式">鼠标样式</h3>
+<p>1.在 root/source/_data/styles.styl 里添加样式： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 鼠标样式</span><br><span class="line">  * &#123;</span><br><span class="line">      cursor: url(/images/default.cur),auto!important</span><br><span class="line">  &#125;</span><br><span class="line">  :link &#123;</span><br><span class="line">      cursor: url(/images/pointer.cur),auto!important</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+2.将下面两个文件放在 root/themes/next/source/images/ 下。<br />
+<a id="download" href="https://zcw-blog.top/images/default.cur"><i class="fa fa-download"></i><span>
+default.cur</span></a>
+<a id="download" href="https://zcw-blog.top/images/pointer.cur"><i class="fa fa-download"></i><span>
+pointer.cur</span></a></p>
 <h3 id="鼠标点击烟花效果">鼠标点击烟花效果</h3>
 <p>1.下载<a
 href="https://aliyun-oss-pic-bucket.oss-cn-beijing.aliyuncs.com/file/fireworks.js">JavaScript
@@ -475,17 +438,19 @@ permalink，设置如下：<br />
 <p>先在 themes/next/source/css/_custom/custom.styl 中添加以下样式：
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 下载样式</span><br><span class="line">a#download &#123;</span><br><span class="line">display: inline-block;</span><br><span class="line">padding: 0 10px;</span><br><span class="line">color: #000;</span><br><span class="line">background: transparent;</span><br><span class="line">border: 2px solid #000;</span><br><span class="line">border-radius: 2px;</span><br><span class="line">transition: all .5s ease;</span><br><span class="line">font-weight: bold;</span><br><span class="line">&amp;:hover &#123;</span><br><span class="line">background: #000;</span><br><span class="line">color: #fff;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">//颜色块-黄</span><br><span class="line">span#inline-yellow &#123;</span><br><span class="line">display:inline;</span><br><span class="line">padding:.2em .6em .3em;</span><br><span class="line">font-size:80%;</span><br><span class="line">font-weight:bold;</span><br><span class="line">line-height:1;</span><br><span class="line">color:#fff;</span><br><span class="line">text-align:center;</span><br><span class="line">white-space:nowrap;</span><br><span class="line">vertical-align:baseline;</span><br><span class="line">border-radius:0;</span><br><span class="line">background-color: #f0ad4e;</span><br><span class="line">&#125;</span><br><span class="line">// 颜色块-绿</span><br><span class="line">span#inline-green &#123;</span><br><span class="line">display:inline;</span><br><span class="line">padding:.2em .6em .3em;</span><br><span class="line">font-size:80%;</span><br><span class="line">font-weight:bold;</span><br><span class="line">line-height:1;</span><br><span class="line">color:#fff;</span><br><span class="line">text-align:center;</span><br><span class="line">white-space:nowrap;</span><br><span class="line">vertical-align:baseline;</span><br><span class="line">border-radius:0;</span><br><span class="line">background-color: #5cb85c;</span><br><span class="line">&#125;</span><br><span class="line">// 颜色块-蓝</span><br><span class="line">span#inline-blue &#123;</span><br><span class="line">display:inline;</span><br><span class="line">padding:.2em .6em .3em;</span><br><span class="line">font-size:80%;</span><br><span class="line">font-weight:bold;</span><br><span class="line">line-height:1;</span><br><span class="line">color:#fff;</span><br><span class="line">text-align:center;</span><br><span class="line">white-space:nowrap;</span><br><span class="line">vertical-align:baseline;</span><br><span class="line">border-radius:0;</span><br><span class="line">background-color: #2780e3;</span><br><span class="line">&#125;</span><br><span class="line">// 颜色块-紫</span><br><span class="line">span#inline-purple &#123;</span><br><span class="line">display:inline;</span><br><span class="line">padding:.2em .6em .3em;</span><br><span class="line">font-size:80%;</span><br><span class="line">font-weight:bold;</span><br><span class="line">line-height:1;</span><br><span class="line">color:#fff;</span><br><span class="line">text-align:center;</span><br><span class="line">white-space:nowrap;</span><br><span class="line">vertical-align:baseline;</span><br><span class="line">border-radius:0;</span><br><span class="line">background-color: #9954bb;</span><br><span class="line">&#125;</span><br><span class="line">// 右侧边框红色块级</span><br><span class="line">p#div-border-right-red &#123;</span><br><span class="line">display: block;</span><br><span class="line">padding: 10px;</span><br><span class="line">margin: 10px 0;</span><br><span class="line">border: 1px solid #ccc;</span><br><span class="line">border-right-width: 5px;</span><br><span class="line">border-radius: 3px;</span><br><span class="line">border-right-color: #df3e3e;</span><br><span class="line">&#125;</span><br><span class="line">// 右侧边框黄色块级</span><br><span class="line">p#div-border-right-yellow &#123;</span><br><span class="line">display: block;</span><br><span class="line">padding: 10px;</span><br><span class="line">margin: 10px 0;</span><br><span class="line">border: 1px solid #ccc;</span><br><span class="line">border-right-width: 5px;</span><br><span class="line">border-radius: 3px;</span><br><span class="line">border-right-color: #f0ad4e;</span><br><span class="line">&#125;</span><br><span class="line">// 右侧边框绿色块级</span><br><span class="line">p#div-border-right-green &#123;</span><br><span class="line">display: block;</span><br><span class="line">padding: 10px;</span><br><span class="line">margin: 10px 0;</span><br><span class="line">border: 1px solid #ccc;</span><br><span class="line">border-right-width: 5px;</span><br><span class="line">border-radius: 3px;</span><br><span class="line">border-right-color: #5cb85c;</span><br><span class="line">&#125;</span><br><span class="line">// 右侧边框蓝色块级</span><br><span class="line">p#div-border-right-blue &#123;</span><br><span class="line">display: block;</span><br><span class="line">padding: 10px;</span><br><span class="line">margin: 10px 0;</span><br><span class="line">border: 1px solid #ccc;</span><br><span class="line">border-right-width: 5px;</span><br><span class="line">border-radius: 3px;</span><br><span class="line">border-right-color: #2780e3;</span><br><span class="line">&#125;</span><br><span class="line">// 右侧边框紫色块级</span><br><span class="line">p#div-border-right-purple &#123;</span><br><span class="line">display: block;</span><br><span class="line">padding: 10px;</span><br><span class="line">margin: 10px 0;</span><br><span class="line">border: 1px solid #ccc;</span><br><span class="line">border-right-width: 5px;</span><br><span class="line">border-radius: 3px;</span><br><span class="line">border-right-color: #9954bb;</span><br><span class="line">&#125;</span><br><span class="line">// 上侧边框红色</span><br><span class="line">p#div-border-top-red &#123;</span><br><span class="line">display: block;</span><br><span class="line">padding: 10px;</span><br><span class="line">margin: 10px 0;</span><br><span class="line">border: 1px solid #ccc;</span><br><span class="line">border-top-width: 5px;</span><br><span class="line">border-radius: 3px;</span><br><span class="line">border-top-color: #df3e3e;</span><br><span class="line">&#125;</span><br><span class="line">// 上侧边框黄色</span><br><span class="line">p#div-border-top-yellow &#123;</span><br><span class="line">display: block;</span><br><span class="line">padding: 10px;</span><br><span class="line">margin: 10px 0;</span><br><span class="line">border: 1px solid #ccc;</span><br><span class="line">border-top-width: 5px;</span><br><span class="line">border-radius: 3px;</span><br><span class="line">border-top-color: #f0ad4e;</span><br><span class="line">&#125;</span><br><span class="line">// 上侧边框绿色</span><br><span class="line">p#div-border-top-green &#123;</span><br><span class="line">display: block;</span><br><span class="line">padding: 10px;</span><br><span class="line">margin: 10px 0;</span><br><span class="line">border: 1px solid #ccc;</span><br><span class="line">border-top-width: 5px;</span><br><span class="line">border-radius: 3px;</span><br><span class="line">border-top-color: #5cb85c;</span><br><span class="line">&#125;</span><br><span class="line">// 上侧边框蓝色</span><br><span class="line">p#div-border-top-blue &#123;</span><br><span class="line">display: block;</span><br><span class="line">padding: 10px;</span><br><span class="line">margin: 10px 0;</span><br><span class="line">border: 1px solid #ccc;</span><br><span class="line">border-top-width: 5px;</span><br><span class="line">border-radius: 3px;</span><br><span class="line">border-top-color: #2780e3;</span><br><span class="line">&#125;</span><br><span class="line">// 上侧边框紫色</span><br><span class="line">p#div-border-top-purple &#123;</span><br><span class="line">display: block;</span><br><span class="line">padding: 10px;</span><br><span class="line">margin: 10px 0;</span><br><span class="line">border: 1px solid #ccc;</span><br><span class="line">border-top-width: 5px;</span><br><span class="line">border-radius: 3px;</span><br><span class="line">border-top-color: #9954bb;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h4 id="文字背景色块">文字背景色块</h4>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">&quot;inline-blue&quot;</span>&gt;</span>站点配置文件<span class="tag">&lt;/<span class="name">span</span>&gt;</span>，</span><br><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">&quot;inline-purple&quot;</span>&gt;</span>主题配置文件<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p><span id="inline-blue">站点配置文件</span>， <span
-id="inline-purple">主题配置文件</span> <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">&quot;inline-blue&quot;</span>&gt;</span>站点配置文件<span class="tag">&lt;/<span class="name">span</span>&gt;</span>，</span><br><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">&quot;inline-purple&quot;</span>&gt;</span>主题配置文件<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+id="inline-purple">主题配置文件</span></p>
 <h4 id="引用边框变色">引用边框变色</h4>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">&quot;div-border-right-red&quot;</span>&gt;</span>div-border-right-red <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">&quot;div-border-top-blue&quot;</span>&gt;</span>div-border-top-blue<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p id="div-border-right-red">
 div-border-right-red
 </p>
 <p id="div-border-top-blue">
 div-border-top-blue
 </p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">&quot;div-border-right-red&quot;</span>&gt;</span>div-border-right-red <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">&quot;div-border-top-blue&quot;</span>&gt;</span>div-border-top-blue<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h4 id="图形边框效果">图形边框效果</h4>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;a id=&quot;download&quot; href=&quot;https://git-scm.com/download/win&quot;&gt;&lt;i class=&quot;fa fa-download&quot;&gt;&lt;/i&gt;&lt;span&gt; Download Now&lt;/span&gt;</span><br><span class="line">&lt;/a&gt;</span><br></pre></td></tr></table></figure>
 <p><a id="download" href="https://git-scm.com/download/win"><i class="fa fa-download"></i><span>
 Download Now</span> </a></p>
 <h3 id="使用-hexo-next-支持的标签">使用 Hexo &amp; Next 支持的标签</h3>
@@ -512,9 +477,21 @@ href="http://zhanzhang.baidu.com/linksubmit/url">百度站长</a>添加网站域
 4.完成验证。</p>
 <h3 id="添加并提交sitemap">添加并提交sitemap</h3>
 <p>1.安装 hexo 的 sitemap 网站地图生成插件： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-sitemap --save</span><br><span class="line">npm install hexo-generator-baidu-sitemap --save</span><br></pre></td></tr></table></figure>
-2.在站点配置文件中添加如下代码： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># hexo sitemap</span><br><span class="line">sitemap:</span><br><span class="line">  path: sitemap.xml</span><br><span class="line"></span><br><span class="line">baidusitemap:</span><br><span class="line">  path: baidusitemap.xml</span><br></pre></td></tr></table></figure> 3.提交百度
-sitemap，如下： <img
-src="https://s2.loli.net/2022/08/17/BhsVvN7L5bd6yAI.png" /></p>
+2.在站点配置文件中添加如下代码： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># hexo sitemap</span><br><span class="line">sitemap:</span><br><span class="line">  path: sitemap.xml</span><br><span class="line"></span><br><span class="line">baidusitemap:</span><br><span class="line">  path: baidusitemap.xml</span><br></pre></td></tr></table></figure> 配置成功后，会生成
+sitemap.xml 和 baidusitemap.xml，前者适合提交给谷歌搜素引擎,
+后者适合提交百度搜索引擎。<br />
+3.提交百度 sitemap，如下： <img
+src="https://s2.loli.net/2022/08/17/BhsVvN7L5bd6yAI.png" /> 4.提交
+Google sitemap，如下：</p>
+<h3 id="添加蜘蛛协议">添加蜘蛛协议</h3>
+<p>1.在 /source 目录下新建一个 robots.txt 文件，添加代码：
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#hexo robots.txt</span><br><span class="line">User-agent: *</span><br><span class="line"></span><br><span class="line">Allow: /</span><br><span class="line">Allow: /archives/</span><br><span class="line">Allow: /about/</span><br><span class="line">Allow: /categories/</span><br><span class="line">Allow: /bookmarks/</span><br><span class="line">Allow: /gallery/</span><br><span class="line"></span><br><span class="line">Disallow: /vendors/</span><br><span class="line">Disallow: /js/</span><br><span class="line">Disallow: /css/</span><br><span class="line">Disallow: /fonts/</span><br><span class="line">Disallow: /vendors/</span><br><span class="line">Disallow: /fancybox/</span><br><span class="line"></span><br><span class="line">Sitemap: http://zcw-blog.top/search.xml</span><br><span class="line">Sitemap: http://zcw-blog.top/sitemap.xml</span><br><span class="line">Sitemap: http://zcw-blog.top/baidusitemap.xml</span><br></pre></td></tr></table></figure> Allow
+字段的值即为允许搜索引擎爬取的内容，可以对应到主题配置文件中的 menu
+目录配置，如果菜单栏还有其他选项都可以按照格式自行添加。同时还需将
+Sitemap 的值改成自己的域名。<br />
+2.然后到百度站长更新一下： <img
+src="https://s2.loli.net/2022/08/17/so7TkVdXtfUENIc.png" /> 3.在 Google
+更新一下：</p>
 <h3 id="主动推送">主动推送</h3>
 <p>1.安装主动推送插件： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-baidu-url-submit --save</span><br></pre></td></tr></table></figure> 2.在站点配置文件中添加如下代码：
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">baidu_url_submit:</span><br><span class="line">  count: 3 ## 比如3, 代表提交最新的三个链接</span><br><span class="line">  host: www.henvyluk.com ## 在百度站长平台中注册的域名</span><br><span class="line">  token: your_token ## 请注意这是您的秘钥, 请不要发布在公众仓库里!</span><br><span class="line">  path: baidu_urls.txt ## 文本文档的地址, 新链接会保存在此文本文档里</span><br></pre></td></tr></table></figure> 3.your_token 可在百度站长如下位置找到 <img
@@ -530,14 +507,6 @@ src="https://s2.loli.net/2022/08/17/GkDhedsTFzRt8pr.png" />
 </div></p>
 <h3 id="自动推送">自动推送</h3>
 <p>把主题配置文件中的 baidu_push 设置为 true 即可。</p>
-<h3 id="添加蜘蛛协议">添加蜘蛛协议</h3>
-<p>1.在 /source 目录下新建一个 robots.txt 文件，添加代码：
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#hexo robots.txt</span><br><span class="line">User-agent: *</span><br><span class="line"></span><br><span class="line">Allow: /</span><br><span class="line">Allow: /archives/</span><br><span class="line">Allow: /about/</span><br><span class="line">Allow: /categories/</span><br><span class="line">Allow: /bookmarks/</span><br><span class="line">Allow: /gallery/</span><br><span class="line"></span><br><span class="line">Disallow: /vendors/</span><br><span class="line">Disallow: /js/</span><br><span class="line">Disallow: /css/</span><br><span class="line">Disallow: /fonts/</span><br><span class="line">Disallow: /vendors/</span><br><span class="line">Disallow: /fancybox/</span><br><span class="line"></span><br><span class="line">Sitemap: http://zcw-blog.top/search.xml</span><br><span class="line">Sitemap: http://zcw-blog.top/sitemap.xml</span><br><span class="line">Sitemap: http://zcw-blog.top/baidusitemap.xml</span><br></pre></td></tr></table></figure> Allow
-字段的值即为允许搜索引擎爬取的内容，可以对应到主题配置文件中的 menu
-目录配置，如果菜单栏还有其他选项都可以按照格式自行添加。同时还需将
-Sitemap 的值改成自己的域名。<br />
-2.然后到百度站长更新一下： <img
-src="https://s2.loli.net/2022/08/17/so7TkVdXtfUENIc.png" /></p>
 <h3 id="自动给所有外部链接添加-nofollow">自动给所有外部链接添加
 nofollow</h3>
 <p>1.安装 hexo-autonofollow：<br />
@@ -560,7 +529,9 @@ href="https://blog.csdn.net/yangguang_98/article/details/105004466">Hexo设置�
 <a href="https://tding.top/archives/3cdfe265.html">Hexo-NexT
 支持简体繁体一键切换</a><br />
 <a
-href="https://yangbingdong.com/2017/build-blog-hexo-advanced/">基于Hexo搭建个人博客——进阶篇(从入门到入土)</a></p>
+href="https://yangbingdong.com/2017/build-blog-hexo-advanced/">基于Hexo搭建个人博客——进阶篇(从入门到入土)</a><br />
+<a href="https://www.liaofuzhan.com/posts/2114475547.html"
+class="uri">https://www.liaofuzhan.com/posts/2114475547.html</a></p>
 <section class="footnotes footnotes-end-of-document"
 role="doc-endnotes">
 <hr />
@@ -589,6 +560,54 @@ class="footnote-back" role="doc-backlink">↩︎</a></p></li>
       <tags>
         <tag>搭建博客</tag>
         <tag>NexT</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Clash for Linux</title>
+    <url>/posts/20220726a1/</url>
+    <content><![CDATA[<div class="note "><p>配置 Clash for Linux，并设置开机自启动。<br />
+Linux 系统版本：Ubuntu 20.04.1</p>
+</div>
+<span id="more"></span>
+<h2 id="下载解压-clash-linux-amd64">下载解压 clash-linux-amd64</h2>
+<p>从 <a href="https://github.com/Dreamacro/clash/releases">GitHub</a>
+上下载任意版本的 clash-linux-amd64-vx.x.x.gz。<br />
+在下载目录打开终端，输入如下命令：<br />
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">gunzip clash-linux-amd64-vx.x.x.gz	#文件解压</span><br><span class="line">mv clash-linux-amd64-vx.x.x clash	#文件改名</span><br></pre></td></tr></table></figure> 我在 /home/username 目录下创建了 clash
+文件夹，将解压后的文件移动到里面：<br />
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mkdir Clash			#创建名为 clash 的文件夹  </span><br><span class="line">mv clash /home/username/clash	#将解压改名后的 clash 文件移入 clash 文件夹  </span><br></pre></td></tr></table></figure></p>
+<h2 id="配置-clash">配置 clash</h2>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">chmod +x clash		#首先授权可执行权限  </span><br><span class="line">./clash -d .		#初始化执行 clash  </span><br></pre></td></tr></table></figure>
+<p>在初始化执行 clash 后会默认在当前目录下生成配置文件
+config.yaml和全球IP地址库 Country.mmdb。<br />
+<img src="https://www.hualigs.cn/image/62dfe7b13c9d4.jpg" />
+从代理商那获得配置文件 config.yaml，替换默认生成的配置文件。<br />
+再次初始化执行 clash：<code>./clash -d .</code>。<br />
+出现如下初始化显示：<br />
+<img src="https://www.hualigs.cn/image/62dfe0460215b.jpg" />
+接下来进行系统网络代理设置，打开系统设置-网络-网络代理，选择手动，填写
+HTTP 和 HTTPS 代理为 127.0.0.1:7890，填写 Socks 主机为
+127.0.0.1:7891，即可启用系统代理。<br />
+<img src="https://www.hualigs.cn/image/62dfe11216cb4.jpg" /> 浏览器访问
+<a href="https://google.cn/">Google</a> 验证网络。</p>
+<h2 id="设置开机自启动">设置开机自启动</h2>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo touch /etc/systemd/system/clash.service	#创建 service 文件  </span><br><span class="line">vi /etc/systemd/system/clash.service 	#编辑 service 文件  </span><br></pre></td></tr></table></figure>
+<p>输入如下文本（记得修改 ExecStart 为自己的路径）：<br />
+<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line">[Unit] </span><br><span class="line">Description=clash daemon  </span><br><span class="line">[Service] </span><br><span class="line">Type=simple </span><br><span class="line">User=root </span><br><span class="line">ExecStart=/home/username/clash/clash -d /home/username/clash/ </span><br><span class="line">Restart=<span class="keyword">on</span>-failure  </span><br><span class="line">[Install] </span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure> 使用的 vim 命令参考：<br />
+<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line">i    在当前光标的前面插入字符</span><br><span class="line">A    在一行的结尾处添加文本</span><br><span class="line"><span class="keyword">x</span>    删除当前光标所在处的字符</span><br><span class="line">dw   删除一个单词(从光标处到空格)</span><br><span class="line"><span class="keyword">u</span>    撤销上一步的操作。</span><br><span class="line">:q   若文件没有修改，直接退出</span><br><span class="line">:q!  文件已经被修改，放弃修改退出</span><br><span class="line">:<span class="keyword">wq</span>  文件已经被修改，保存修改并退出</span><br></pre></td></tr></table></figure> 编辑后查看文件内容如下图：<br />
+<img src="https://www.hualigs.cn/image/62dfe84b32703.jpg" />
+接着依次执行下面四个命令：<br />
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo systemctl daemon-reload </span><br><span class="line">sudo systemctl enable clash </span><br><span class="line">sudo systemctl start clash </span><br><span class="line">sudo systemctl status clash</span><br></pre></td></tr></table></figure> 成功后出现如下内容：<br />
+<img src="https://www.hualigs.cn/image/62dfe1481d42a.jpg" /></p>
+<h2 id="参考文章">参考文章</h2>
+<p><a href="https://zhuanlan.zhihu.com/p/430035973">配置 clash for linux
+，适用于ubuntu 20.04（更新于2021.11.6）</a></p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
@@ -741,6 +760,110 @@ source/downloads/code 不是固定的，取决于你在配置文件中 code_dir
       <tags>
         <tag>NexT</tag>
         <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ROS 学习记录1</title>
+    <url>/posts/20220728a1/</url>
+    <content><![CDATA[<div class="note "><p>记录 ROS 学习过程 Part1。<br />
+主要内容：ROS 安装。</p>
+</div>
+<span id="more"></span>
+<h2 id="学习参考课程">学习参考课程</h2>
+<p><a
+href="https://www.bilibili.com/video/BV1zt411G7Vn?spm_id_from=333.788.top_right_bar_window_custom_collection.content.click&amp;vd_source=2986b70c538b1a31836b82311d90b18a">【古月居】古月·ROS入门21讲
+| 一学就会的ROS机器人入门教程</a><br />
+<strong>强烈推荐</strong>：<a
+href="https://www.bilibili.com/video/BV1Ci4y1L7ZZ?spm_id_from=333.1007.top_right_bar_window_custom_collection.content.click&amp;vd_source=2986b70c538b1a31836b82311d90b18a">【Autolabor初级教程】ROS机器人入门</a></p>
+<h2 id="ros-安装">ROS 安装</h2>
+<p>Linux 系统版本：Ubuntu 20.04.1，ROS 版本为 ROS1 的终极版本:
+noetic，支持 Python3。<br />
+<img src="https://s2.loli.net/2022/07/28/3H8dPUoR26BNWmi.png" /></p>
+<h3 id="配置ubuntu的软件和更新">配置ubuntu的软件和更新</h3>
+<p>打开“软件和更新”对话框，确保勾选了"restricted"， "universe"， 和
+"multiverse"。</p>
+<h3 id="设置安装源">设置安装源</h3>
+<p>官方安装源：<br />
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo sh -c &#x27;echo &quot;deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main&quot; &gt; /etc/apt/sources.list.d/ros-latest.list&#x27;</span><br></pre></td></tr></table></figure> 国内清华镜像：<br />
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo sh -c &#x27;. /etc/lsb-release &amp;&amp; echo &quot;deb http://mirrors.tuna.tsinghua.edu.cn/ros/ubuntu/ `lsb_release -cs` main&quot; &gt; /etc/apt/sources.list.d/ros-latest.list&#x27;</span><br></pre></td></tr></table></figure> 国内中科大镜像： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo sh -c &#x27;. /etc/lsb-release &amp;&amp; echo &quot;deb http://mirrors.ustc.edu.cn/ros/ubuntu/ `lsb_release -cs` main&quot; &gt; /etc/apt/sources.list.d/ros-latest.list&#x27;</span><br></pre></td></tr></table></figure></p>
+<h3 id="设置-key">设置 key</h3>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt-key adv --keyserver &#x27;hkp://keyserver.ubuntu.com:80&#x27; --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654</span><br></pre></td></tr></table></figure>
+<h3 id="安装">安装</h3>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt update		#更新 apt</span><br><span class="line">sudo apt install ros-noetic-desktop-full	#安装 Desktop-Full</span><br></pre></td></tr></table></figure>
+<h4
+id="出现n-忽略ros-latest.listsudo于目录etcaptsources.list.d鉴于它的文件扩展名无效">出现“N:
+忽略‘ros-latest.listsudo’(于目录‘/etc/apt/sources.list.d/’)，鉴于它的文件扩展名无效”</h4>
+<p>解决方法： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo rm -f /etc/apt/sources.list.d/ros-latest.listsudo</span><br></pre></td></tr></table></figure></p>
+<h4 id="终端配置代理">终端配置代理</h4>
+<p>我在系统中设置了代理，于是直接使用官方源，结果不管怎么 update
+和install 都因为连接超时卡在了
+96%。于是我直接访问对应网址，轻松连上，便考虑是否是终端未代理的问题。<br />
+搜了一下，确实如此：SS/Clash 等一般是 web
+代理，终端无法使用，需要单独配置代理。<br />
+方法如下： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo gedit ~/.bashrc		#编辑 .bashrc 文件</span><br></pre></td></tr></table></figure> 在最后加上： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">alias proxy-on=&#x27;export http_proxy=127.0.0.1:7890;export https_proxy=$http_proxy&#x27;</span><br><span class="line">alias proxy-off=&#x27;unset http_proxy;unset https_proxy&#x27; </span><br></pre></td></tr></table></figure> <img
+src="https://s2.loli.net/2022/07/28/ybUAM4NdRt9mSwr.png" />
+保存退出后执行下面命令使文件生效：<br />
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">source ~/.bashrc</span><br></pre></td></tr></table></figure>
+现在使用命令<code>proxy-on</code>和<code>proxy-off</code>便可开关代理。</p>
+<div class="note info"><p>该命令只在当前终端生效，重新打开终端需要重新执行 proxy-on。</p>
+</div>
+<p>使用<code>curl -L www.google.com</code>可以检查代理是否开启，从下图可看出，我们本次请求网站页面成功返回了谷歌起始页的
+HTML 代码。<br />
+也可以使用<code>curl cip.cc</code>查看 IP 来检查。<br />
+<img src="https://s2.loli.net/2022/07/29/67KpCwHzgj1aRXd.png" /></p>
+<div class="note info"><p>访问 google.com 时会自动将地址重定向到
+google.com.hk，故执行<code>curl www.google.com</code>会出现 302 Moved
+提示。</p>
+</div>
+<h4 id="apt-配置代理">apt 配置代理</h4>
+<p>终端配置代理后，还是卡在了 96%。<br />
+查找发现 export 中 http_proxy 和 https_proxy 方式只是修改终端中的 http
+与 https 的代理方式，而 apt install 有自己独立的配置文件，配置终端代理后
+apt 也是直接连接。 所以要进行 apt 代理配置：<br />
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo touch /etc/apt/apt.conf.d/proxy.conf	#创建新的配置文件 proxy.conf</span><br></pre></td></tr></table></figure> 在 proxy.conf 文件里添加：<br />
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Acquire &#123;</span><br><span class="line">  HTTP::proxy &quot;http://127.0.0.1:7890&quot;;</span><br><span class="line">  HTTPS::proxy &quot;http://127.0.0.1:7890&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure> 记得将 7890 改为自己的端口。<br />
+<img src="https://s2.loli.net/2022/07/29/uqUaGJQL5BgXK84.png" />
+保存关闭后重新 apt install，顺利下载安装完成。<br />
+<img src="https://s2.loli.net/2022/07/29/JqWxSpHofRUFuVZ.png" /></p>
+<h3 id="配置环境变量">配置环境变量</h3>
+<p>配置环境变量，方便在任意终端中使用 ROS。<br />
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">echo &quot;source /opt/ros/noetic/setup.bash&quot; &gt;&gt; ~/.bashrc</span><br><span class="line">source ~/.bashrc</span><br></pre></td></tr></table></figure> 至此便可运行<code>roscore</code>进行测试。</p>
+<h3 id="安装构建依赖">安装构建依赖</h3>
+<p>noetic
+最初发布时，和其他历史版本稍有差异的是:没有安装构建依赖这一步骤。随着
+noetic 不断完善，官方补齐了这一操作。<br />
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">安装构建依赖的相关工具</span></span><br><span class="line">sudo apt install python3-rosdep python3-rosinstall python3-rosinstall-generator python3-wstool build-essential</span><br><span class="line">sudo apt install python3-rosdep</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">初始化 rosdep</span></span><br><span class="line">sudo rosdep init</span><br><span class="line">rosdep update</span><br></pre></td></tr></table></figure></p>
+<h4 id="rosdep-init-时出现-website-may-be-down">rosdep init 时出现
+Website may be down</h4>
+<p><a
+href="https://ping.chinaz.com/raw.githubusercontent.com">点此</a>找到
+raw.githubusercontent.com 对应 IP。<br />
+接下来修改 hosts 文件：<br />
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo gedit /etc/hosts</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">添加如下内容</span></span><br><span class="line">185.199.108.133 raw.githubusercontent.com</span><br></pre></td></tr></table></figure> <img
+src="https://s2.loli.net/2022/07/29/Yfa87V1inDFlBtq.png" />
+重新执行<code>rosdep init</code>即可。<br />
+执行成功：<br />
+<img src="https://s2.loli.net/2022/07/29/GtfWnew8HdsuMXP.png" /> <img
+src="https://s2.loli.net/2022/07/29/jgaKLenRwI6oxPd.png" /></p>
+<h2 id="参考文章">参考文章</h2>
+<p><a href="http://wiki.ros.org/noetic/Installation/Ubuntu">Ubuntu
+install of ROS Noetic</a><br />
+<a
+href="http://www.autolabor.com.cn/book/ROSTutorials/">【Autolabor初级教程】ROS机器人入门课程文档</a><br />
+<a
+href="https://www.serverlab.ca/tutorials/linux/administration-linux/how-to-set-the-proxy-for-apt-for-ubuntu-18-04/">How
+to Set the Proxy for APT on Ubuntu 18.04</a><br />
+<a
+href="https://juejin.cn/post/7070003235934715940">Terminal（终端）使用代理进行连接</a><br />
+<a
+href="https://blog.csdn.net/tjy199610_10/article/details/120621676">最详细的ros安装（包含所有相关依赖文件）</a></p>
+]]></content>
+      <categories>
+        <category>学习笔记</category>
+        <category>ROS</category>
+      </categories>
+      <tags>
+        <tag>ROS</tag>
       </tags>
   </entry>
   <entry>
@@ -1657,110 +1780,6 @@ href="http://www.autolabor.com.cn/book/ROSTutorials/">【Autolabor初级教程�
       </tags>
   </entry>
   <entry>
-    <title>ROS 学习记录1</title>
-    <url>/posts/20220728a1/</url>
-    <content><![CDATA[<div class="note "><p>记录 ROS 学习过程 Part1。<br />
-主要内容：ROS 安装。</p>
-</div>
-<span id="more"></span>
-<h2 id="学习参考课程">学习参考课程</h2>
-<p><a
-href="https://www.bilibili.com/video/BV1zt411G7Vn?spm_id_from=333.788.top_right_bar_window_custom_collection.content.click&amp;vd_source=2986b70c538b1a31836b82311d90b18a">【古月居】古月·ROS入门21讲
-| 一学就会的ROS机器人入门教程</a><br />
-<strong>强烈推荐</strong>：<a
-href="https://www.bilibili.com/video/BV1Ci4y1L7ZZ?spm_id_from=333.1007.top_right_bar_window_custom_collection.content.click&amp;vd_source=2986b70c538b1a31836b82311d90b18a">【Autolabor初级教程】ROS机器人入门</a></p>
-<h2 id="ros-安装">ROS 安装</h2>
-<p>Linux 系统版本：Ubuntu 20.04.1，ROS 版本为 ROS1 的终极版本:
-noetic，支持 Python3。<br />
-<img src="https://s2.loli.net/2022/07/28/3H8dPUoR26BNWmi.png" /></p>
-<h3 id="配置ubuntu的软件和更新">配置ubuntu的软件和更新</h3>
-<p>打开“软件和更新”对话框，确保勾选了"restricted"， "universe"， 和
-"multiverse"。</p>
-<h3 id="设置安装源">设置安装源</h3>
-<p>官方安装源：<br />
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo sh -c &#x27;echo &quot;deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main&quot; &gt; /etc/apt/sources.list.d/ros-latest.list&#x27;</span><br></pre></td></tr></table></figure> 国内清华镜像：<br />
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo sh -c &#x27;. /etc/lsb-release &amp;&amp; echo &quot;deb http://mirrors.tuna.tsinghua.edu.cn/ros/ubuntu/ `lsb_release -cs` main&quot; &gt; /etc/apt/sources.list.d/ros-latest.list&#x27;</span><br></pre></td></tr></table></figure> 国内中科大镜像： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo sh -c &#x27;. /etc/lsb-release &amp;&amp; echo &quot;deb http://mirrors.ustc.edu.cn/ros/ubuntu/ `lsb_release -cs` main&quot; &gt; /etc/apt/sources.list.d/ros-latest.list&#x27;</span><br></pre></td></tr></table></figure></p>
-<h3 id="设置-key">设置 key</h3>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt-key adv --keyserver &#x27;hkp://keyserver.ubuntu.com:80&#x27; --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654</span><br></pre></td></tr></table></figure>
-<h3 id="安装">安装</h3>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt update		#更新 apt</span><br><span class="line">sudo apt install ros-noetic-desktop-full	#安装 Desktop-Full</span><br></pre></td></tr></table></figure>
-<h4
-id="出现n-忽略ros-latest.listsudo于目录etcaptsources.list.d鉴于它的文件扩展名无效">出现“N:
-忽略‘ros-latest.listsudo’(于目录‘/etc/apt/sources.list.d/’)，鉴于它的文件扩展名无效”</h4>
-<p>解决方法： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo rm -f /etc/apt/sources.list.d/ros-latest.listsudo</span><br></pre></td></tr></table></figure></p>
-<h4 id="终端配置代理">终端配置代理</h4>
-<p>我在系统中设置了代理，于是直接使用官方源，结果不管怎么 update
-和install 都因为连接超时卡在了
-96%。于是我直接访问对应网址，轻松连上，便考虑是否是终端未代理的问题。<br />
-搜了一下，确实如此：SS/Clash 等一般是 web
-代理，终端无法使用，需要单独配置代理。<br />
-方法如下： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo gedit ~/.bashrc		#编辑 .bashrc 文件</span><br></pre></td></tr></table></figure> 在最后加上： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">alias proxy-on=&#x27;export http_proxy=127.0.0.1:7890;export https_proxy=$http_proxy&#x27;</span><br><span class="line">alias proxy-off=&#x27;unset http_proxy;unset https_proxy&#x27; </span><br></pre></td></tr></table></figure> <img
-src="https://s2.loli.net/2022/07/28/ybUAM4NdRt9mSwr.png" />
-保存退出后执行下面命令使文件生效：<br />
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">source ~/.bashrc</span><br></pre></td></tr></table></figure>
-现在使用命令<code>proxy-on</code>和<code>proxy-off</code>便可开关代理。</p>
-<div class="note info"><p>该命令只在当前终端生效，重新打开终端需要重新执行 proxy-on。</p>
-</div>
-<p>使用<code>curl -L www.google.com</code>可以检查代理是否开启，从下图可看出，我们本次请求网站页面成功返回了谷歌起始页的
-HTML 代码。<br />
-也可以使用<code>curl cip.cc</code>查看 IP 来检查。<br />
-<img src="https://s2.loli.net/2022/07/29/67KpCwHzgj1aRXd.png" /></p>
-<div class="note info"><p>访问 google.com 时会自动将地址重定向到
-google.com.hk，故执行<code>curl www.google.com</code>会出现 302 Moved
-提示。</p>
-</div>
-<h4 id="apt-配置代理">apt 配置代理</h4>
-<p>终端配置代理后，还是卡在了 96%。<br />
-查找发现 export 中 http_proxy 和 https_proxy 方式只是修改终端中的 http
-与 https 的代理方式，而 apt install 有自己独立的配置文件，配置终端代理后
-apt 也是直接连接。 所以要进行 apt 代理配置：<br />
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo touch /etc/apt/apt.conf.d/proxy.conf	#创建新的配置文件 proxy.conf</span><br></pre></td></tr></table></figure> 在 proxy.conf 文件里添加：<br />
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Acquire &#123;</span><br><span class="line">  HTTP::proxy &quot;http://127.0.0.1:7890&quot;;</span><br><span class="line">  HTTPS::proxy &quot;http://127.0.0.1:7890&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure> 记得将 7890 改为自己的端口。<br />
-<img src="https://s2.loli.net/2022/07/29/uqUaGJQL5BgXK84.png" />
-保存关闭后重新 apt install，顺利下载安装完成。<br />
-<img src="https://s2.loli.net/2022/07/29/JqWxSpHofRUFuVZ.png" /></p>
-<h3 id="配置环境变量">配置环境变量</h3>
-<p>配置环境变量，方便在任意终端中使用 ROS。<br />
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">echo &quot;source /opt/ros/noetic/setup.bash&quot; &gt;&gt; ~/.bashrc</span><br><span class="line">source ~/.bashrc</span><br></pre></td></tr></table></figure> 至此便可运行<code>roscore</code>进行测试。</p>
-<h3 id="安装构建依赖">安装构建依赖</h3>
-<p>noetic
-最初发布时，和其他历史版本稍有差异的是:没有安装构建依赖这一步骤。随着
-noetic 不断完善，官方补齐了这一操作。<br />
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">安装构建依赖的相关工具</span></span><br><span class="line">sudo apt install python3-rosdep python3-rosinstall python3-rosinstall-generator python3-wstool build-essential</span><br><span class="line">sudo apt install python3-rosdep</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">初始化 rosdep</span></span><br><span class="line">sudo rosdep init</span><br><span class="line">rosdep update</span><br></pre></td></tr></table></figure></p>
-<h4 id="rosdep-init-时出现-website-may-be-down">rosdep init 时出现
-Website may be down</h4>
-<p><a
-href="https://ping.chinaz.com/raw.githubusercontent.com">点此</a>找到
-raw.githubusercontent.com 对应 IP。<br />
-接下来修改 hosts 文件：<br />
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo gedit /etc/hosts</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">添加如下内容</span></span><br><span class="line">185.199.108.133 raw.githubusercontent.com</span><br></pre></td></tr></table></figure> <img
-src="https://s2.loli.net/2022/07/29/Yfa87V1inDFlBtq.png" />
-重新执行<code>rosdep init</code>即可。<br />
-执行成功：<br />
-<img src="https://s2.loli.net/2022/07/29/GtfWnew8HdsuMXP.png" /> <img
-src="https://s2.loli.net/2022/07/29/jgaKLenRwI6oxPd.png" /></p>
-<h2 id="参考文章">参考文章</h2>
-<p><a href="http://wiki.ros.org/noetic/Installation/Ubuntu">Ubuntu
-install of ROS Noetic</a><br />
-<a
-href="http://www.autolabor.com.cn/book/ROSTutorials/">【Autolabor初级教程】ROS机器人入门课程文档</a><br />
-<a
-href="https://www.serverlab.ca/tutorials/linux/administration-linux/how-to-set-the-proxy-for-apt-for-ubuntu-18-04/">How
-to Set the Proxy for APT on Ubuntu 18.04</a><br />
-<a
-href="https://juejin.cn/post/7070003235934715940">Terminal（终端）使用代理进行连接</a><br />
-<a
-href="https://blog.csdn.net/tjy199610_10/article/details/120621676">最详细的ros安装（包含所有相关依赖文件）</a></p>
-]]></content>
-      <categories>
-        <category>学习笔记</category>
-        <category>ROS</category>
-      </categories>
-      <tags>
-        <tag>ROS</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Ubuntu 优化</title>
     <url>/posts/20220801a1/</url>
     <content><![CDATA[<div class="note "><p>Ubuntu 使用优化（20.04.1）。</p>
@@ -1939,6 +1958,35 @@ src="https://s2.loli.net/2022/08/14/3piwBjGfbULu9ag.png" /></p>
       <tags>
         <tag>Windows</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/posts/20210811cl6xtsumd001rwgf91iwqa28u/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very
+first post. Check <a href="https://hexo.io/docs/">documentation</a> for
+more info. If you get any problems when using Hexo, you can find the
+answer in <a
+href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or
+you can ask me on <a
+href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<p><span id="more"></span></p>
+<h2 id="quick-start">Quick Start</h2>
+<h3 id="create-a-new-post">Create a new post</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a
+href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="run-server">Run server</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="generate-static-files">Generate static files</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a
+href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a
+href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
   </entry>
   <entry>
     <title>使用 Jetson Nano 向 PX4 提供 t265 位置信息，实现室内定点飞行</title>
@@ -2261,6 +2309,50 @@ href="https://zcw-blog.top/posts/20210819a1/#more">Markdown语法详解</a></p>
       <tags>
         <tag>Hexo</tag>
         <tag>Markdown</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>博客创作出现报错解决</title>
+    <url>/posts/20220817a1/</url>
+    <content><![CDATA[<div class="note "><p>书写博客时出现以下报错的原因及解决方法：</p>
+<ul>
+<li>Template render error: (unknown path)<br />
+</li>
+<li>err: YAMLException: incomplete explicit mapping pair; a key node is
+missed; or followed by a non-tabulated empty line</li>
+</ul>
+</div>
+<span id="more"></span>
+<h2 id="报错-template-render-error-unknown-path">报错 Template render
+error: (unknown path)</h2>
+<p>今天书写博客时，出现了报错 Template render error: (unknown path)：
+<img src="https://s2.loli.net/2022/08/17/x97uDhPUQBqX2w8.png" /></p>
+<h3 id="原因">原因</h3>
+<p>经过查找，发现是因为使用 note 标签没有正确结束，即出现了 unexpected
+end，故报错。<br />
+另外可能的原因：出现了<code>&#123;&#123;&#125;&#125;</code> <code>&#123;% %&#125;</code>
+<code>&#123;#</code>等等 hexo 无法转义的字符。</p>
+<h3 id="解决方法">解决方法</h3>
+<ul>
+<li>使用 note 标签时注意要正确结束： <figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&#123;% note %&#125;</span><br><span class="line">content</span><br><span class="line">&#123;% endnote %&#125;	#一定要有 endnote</span><br></pre></td></tr></table></figure></li>
+<li>避免使用 hexo 无法转义的字符串。</li>
+</ul>
+<h2
+id="报错-err-yamlexception-incomplete-explicit-mapping-pair-a-key-node-is-missed-or-followed-by-a-non-tabulated-empty-line">报错
+err: YAMLException: incomplete explicit mapping pair; a key node is
+missed; or followed by a non-tabulated empty line</h2>
+<p><img src="https://s2.loli.net/2022/08/17/QmST9Utvn8CPlhM.png" /></p>
+<h3 id="原因-1">原因</h3>
+<p>文章的 title 有非法字符，如英文冒号“:”。</p>
+<h3 id="解决">解决</h3>
+<p>修改文章名或将英文冒号“:”改为中文冒号“：”。</p>
+]]></content>
+      <categories>
+        <category>维护日志</category>
+        <category>创作</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -2624,35 +2716,6 @@ href="https://zcw-blog.top/posts/20220424a1/">Hexo+NexT配置优化指南</a></p
       <tags>
         <tag>搭建博客</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/posts/20210811cl6xoy1ve002q8gf92ogrcodg/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very
-first post. Check <a href="https://hexo.io/docs/">documentation</a> for
-more info. If you get any problems when using Hexo, you can find the
-answer in <a
-href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or
-you can ask me on <a
-href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<p><span id="more"></span></p>
-<h2 id="quick-start">Quick Start</h2>
-<h3 id="create-a-new-post">Create a new post</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a
-href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="run-server">Run server</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="generate-static-files">Generate static files</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a
-href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a
-href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
   </entry>
   <entry>
     <title>积化和差、和差化积公式</title>
