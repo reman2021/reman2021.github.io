@@ -6,7 +6,7 @@
   <link href="https://reman2021.github.io/atom.xml" rel="self"/>
   
   <link href="https://reman2021.github.io/"/>
-  <updated>2022-08-16T14:48:23.321Z</updated>
+  <updated>2022-08-17T04:32:47.841Z</updated>
   <id>https://reman2021.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://reman2021.github.io/posts/20220816a1/"/>
     <id>https://reman2021.github.io/posts/20220816a1/</id>
     <published>2022-08-16T04:02:29.000Z</published>
-    <updated>2022-08-16T14:48:23.321Z</updated>
+    <updated>2022-08-17T04:32:47.841Z</updated>
     
     
     <summary type="html">&lt;div class=&quot;note &quot;&gt;&lt;p&gt;本文为在 Hexo &amp;amp; Next
@@ -32,10 +32,14 @@
     
     
     
+    <category term="维护日志" scheme="https://reman2021.github.io/categories/%E7%BB%B4%E6%8A%A4%E6%97%A5%E5%BF%97/"/>
     
-    <category term="NexT" scheme="https://reman2021.github.io/tags/NexT/"/>
+    <category term="创作" scheme="https://reman2021.github.io/categories/%E7%BB%B4%E6%8A%A4%E6%97%A5%E5%BF%97/%E5%88%9B%E4%BD%9C/"/>
+    
     
     <category term="Hexo" scheme="https://reman2021.github.io/tags/Hexo/"/>
+    
+    <category term="NexT" scheme="https://reman2021.github.io/tags/NexT/"/>
     
   </entry>
   
@@ -44,7 +48,7 @@
     <link href="https://reman2021.github.io/posts/20220811a1/"/>
     <id>https://reman2021.github.io/posts/20220811a1/</id>
     <published>2022-08-10T19:26:51.000Z</published>
-    <updated>2022-08-16T14:35:24.948Z</updated>
+    <updated>2022-08-17T04:34:32.598Z</updated>
     
     
     <summary type="html">&lt;div class=&quot;note &quot;&gt;&lt;p&gt;在重新申请 SSL 证书时，遇到 CNAME 记录影响 CAA 记录致 SSL
@@ -103,7 +107,7 @@
     <link href="https://reman2021.github.io/posts/20220731a1/"/>
     <id>https://reman2021.github.io/posts/20220731a1/</id>
     <published>2022-07-31T02:26:58.000Z</published>
-    <updated>2022-08-16T14:36:20.204Z</updated>
+    <updated>2022-08-17T04:30:48.625Z</updated>
     
     
     <summary type="html">&lt;div class=&quot;note &quot;&gt;&lt;p&gt;记录 ROS 学习过程 Part2。&lt;br /&gt;
@@ -112,7 +116,9 @@
     
     
     
-    <category term="ROS" scheme="https://reman2021.github.io/categories/ROS/"/>
+    <category term="学习笔记" scheme="https://reman2021.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="ROS" scheme="https://reman2021.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/ROS/"/>
     
     
     <category term="ROS" scheme="https://reman2021.github.io/tags/ROS/"/>
@@ -124,7 +130,7 @@
     <link href="https://reman2021.github.io/posts/20220728a1/"/>
     <id>https://reman2021.github.io/posts/20220728a1/</id>
     <published>2022-07-28T01:11:58.000Z</published>
-    <updated>2022-08-16T14:38:56.651Z</updated>
+    <updated>2022-08-17T04:30:33.347Z</updated>
     
     
     <summary type="html">&lt;div class=&quot;note &quot;&gt;&lt;p&gt;记录 ROS 学习过程 Part1。&lt;br /&gt;
@@ -133,7 +139,9 @@
     
     
     
-    <category term="ROS" scheme="https://reman2021.github.io/categories/ROS/"/>
+    <category term="学习笔记" scheme="https://reman2021.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="ROS" scheme="https://reman2021.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/ROS/"/>
     
     
     <category term="ROS" scheme="https://reman2021.github.io/tags/ROS/"/>
@@ -166,7 +174,7 @@ Linux 系统版本：Ubuntu 20.04.1&lt;/p&gt;
     <link href="https://reman2021.github.io/posts/20220719a1/"/>
     <id>https://reman2021.github.io/posts/20220719a1/</id>
     <published>2022-07-19T14:35:02.000Z</published>
-    <updated>2022-08-16T14:42:14.445Z</updated>
+    <updated>2022-08-17T04:33:26.929Z</updated>
     
     
     <summary type="html">&lt;div class=&quot;note &quot;&gt;&lt;p&gt;分享个人使用的 Windows 软件。&lt;/p&gt;
@@ -174,7 +182,7 @@ Linux 系统版本：Ubuntu 20.04.1&lt;/p&gt;
     
     
     
-    <category term="软件" scheme="https://reman2021.github.io/categories/%E8%BD%AF%E4%BB%B6/"/>
+    <category term="Windows" scheme="https://reman2021.github.io/categories/Windows/"/>
     
     
     <category term="Windows" scheme="https://reman2021.github.io/tags/Windows/"/>
@@ -186,7 +194,7 @@ Linux 系统版本：Ubuntu 20.04.1&lt;/p&gt;
     <link href="https://reman2021.github.io/posts/20220424a1/"/>
     <id>https://reman2021.github.io/posts/20220424a1/</id>
     <published>2022-04-24T08:17:13.000Z</published>
-    <updated>2022-08-16T14:39:53.461Z</updated>
+    <updated>2022-08-17T04:35:04.783Z</updated>
     
     
     <summary type="html">&lt;div class=&quot;note &quot;&gt;&lt;p&gt;记录 Hexo + NexT 的配置优化过程，以便后续更改和维护。&lt;/p&gt;
@@ -204,11 +212,11 @@ Linux 系统版本：Ubuntu 20.04.1&lt;/p&gt;
   </entry>
   
   <entry>
-    <title>小笔记-积化和差、和差化积公式</title>
+    <title>积化和差、和差化积公式</title>
     <link href="https://reman2021.github.io/posts/20211001a1/"/>
     <id>https://reman2021.github.io/posts/20211001a1/</id>
     <published>2021-10-01T08:24:10.000Z</published>
-    <updated>2022-08-16T14:48:37.066Z</updated>
+    <updated>2022-08-17T04:33:54.034Z</updated>
     
     
     <summary type="html">&lt;div class=&quot;note &quot;&gt;&lt;p&gt;本文主要用于测试 mathjax 渲染功能。&lt;br /&gt;
@@ -219,8 +227,6 @@ href=&quot;https://zcw-blog.top/posts/20220424a1/#%E6%B8%B2%E6%9F%93-mathjax&quo
 &lt;p&gt;</summary>
     
     
-    
-    <category term="小笔记" scheme="https://reman2021.github.io/categories/%E5%B0%8F%E7%AC%94%E8%AE%B0/"/>
     
     
   </entry>
@@ -253,7 +259,7 @@ href=&quot;https://zcw-blog.top/posts/20220424a1/#%E6%B8%B2%E6%9F%93-mathjax&quo
     <link href="https://reman2021.github.io/posts/20210819a1/"/>
     <id>https://reman2021.github.io/posts/20210819a1/</id>
     <published>2021-08-18T16:36:36.000Z</published>
-    <updated>2022-08-16T14:41:41.095Z</updated>
+    <updated>2022-08-17T04:35:49.570Z</updated>
     
     
     <summary type="html">&lt;div class=&quot;note &quot;&gt;&lt;p&gt;Markdown
@@ -265,6 +271,10 @@ John Gruber 于 2004
     
     
     
+    <category term="学习笔记" scheme="https://reman2021.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="Markdown" scheme="https://reman2021.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Markdown/"/>
+    
     
     <category term="Markdown" scheme="https://reman2021.github.io/tags/Markdown/"/>
     
@@ -275,7 +285,7 @@ John Gruber 于 2004
     <link href="https://reman2021.github.io/posts/20210817a1/"/>
     <id>https://reman2021.github.io/posts/20210817a1/</id>
     <published>2021-08-17T15:54:10.000Z</published>
-    <updated>2022-08-16T14:46:10.696Z</updated>
+    <updated>2022-08-17T04:32:48.865Z</updated>
     
     
     <summary type="html">&lt;div class=&quot;note &quot;&gt;&lt;p&gt;本文主要介绍如何在Hexo博客上进行创作，包括新建、编辑和预览文章。&lt;br /&gt;
@@ -287,8 +297,8 @@ John Gruber 于 2004
     
     <category term="维护日志" scheme="https://reman2021.github.io/categories/%E7%BB%B4%E6%8A%A4%E6%97%A5%E5%BF%97/"/>
     
+    <category term="创作" scheme="https://reman2021.github.io/categories/%E7%BB%B4%E6%8A%A4%E6%97%A5%E5%BF%97/%E5%88%9B%E4%BD%9C/"/>
     
-    <category term="搭建博客" scheme="https://reman2021.github.io/tags/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"/>
     
     <category term="Hexo" scheme="https://reman2021.github.io/tags/Hexo/"/>
     
@@ -318,8 +328,8 @@ John Gruber 于 2004
   
   <entry>
     <title>Hello World</title>
-    <link href="https://reman2021.github.io/posts/20210811cl6wc1ol9000wfgf99flxh8ky/"/>
-    <id>https://reman2021.github.io/posts/20210811cl6wc1ol9000wfgf99flxh8ky/</id>
+    <link href="https://reman2021.github.io/posts/20210811cl6x4gj770013eof950ic7dgu/"/>
+    <id>https://reman2021.github.io/posts/20210811cl6x4gj770013eof950ic7dgu/</id>
     <published>2021-08-11T07:20:47.512Z</published>
     <updated>2021-08-13T05:25:59.383Z</updated>
     
