@@ -166,6 +166,158 @@ HTTP 和 HTTPS 代理为 127.0.0.1:7890，填写 Socks 主机为
       </tags>
   </entry>
   <entry>
+    <title>Hexo &amp; Next 标签使用说明</title>
+    <url>/posts/20220816a1/</url>
+    <content><![CDATA[<div class="note "><p>本文为在 Hexo &amp; Next
+使用标签的说明，使用标签可在文章中快速插入特定内容，使文章更加美观易读。<br />
+本文内容主要搬运至 <a href="https://hexo.io/zh-cn/docs">Hexo
+文档</a>的标签插件使用样例。</p>
+</div>
+<span id="more"></span>
+<h2 id="hexo-标签插件">Hexo 标签插件</h2>
+<h3 id="引用块-blockquote">引用块 blockquote</h3>
+<p>在文章中插入引言，可包含作者、来源和标题。<br />
+使用方式： <figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&#123;% blockquote [author[, source]] [link] [source_link_title] %&#125;</span><br><span class="line">content</span><br><span class="line">&#123;% endblockquote %&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="普通的-blockquote">普通的 blockquote</h4>
+<p>没有提供参数，则只输出普通的 blockquote： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% blockquote %&#125;</span><br><span class="line">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque hendrerit lacus ut purus iaculis feugiat. Sed nec tempor elit, quis aliquam neque. Curabitur sed diam eget dolor fermentum semper at eu lorem.</span><br><span class="line">&#123;% endblockquote %&#125;</span><br></pre></td></tr></table></figure>
+<blockquote><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
+hendrerit lacus ut purus iaculis feugiat. Sed nec tempor elit, quis
+aliquam neque. Curabitur sed diam eget dolor fermentum semper at eu
+lorem.</p>
+</blockquote></p>
+<h4 id="引用书上的句子">引用书上的句子</h4>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&#123;% blockquote David Levithan, Wide Awake %&#125;</span><br><span class="line">Do not just seek happiness for yourself. Seek happiness for all. Through kindness. Through mercy.</span><br><span class="line">&#123;% endblockquote %&#125;</span><br></pre></td></tr></table></figure>
+<blockquote><p>Do not just seek happiness for yourself. Seek happiness for all.
+Through kindness. Through mercy.</p>
+<footer><strong>David Levithan</strong><cite>Wide Awake</cite></footer></blockquote>
+<h4 id="引用-twitter">引用 Twitter</h4>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% blockquote @DevDocs https://twitter.com/devdocs/status/356095192085962752 %&#125;</span><br><span class="line">NEW: DevDocs now comes with syntax highlighting. http://devdocs.io</span><br><span class="line">&#123;% endblockquote %&#125;</span><br></pre></td></tr></table></figure>
+<blockquote><p>NEW: DevDocs now comes with syntax highlighting.
+http://devdocs.io</p>
+<footer><strong>@DevDocs</strong><cite><a href="https://twitter.com/devdocs/status/356095192085962752">twitter.com/devdocs/status/356095192085962752</a></cite></footer></blockquote>
+<h4 id="引用网络上的文章">引用网络上的文章</h4>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&#123;% blockquote Seth Godin http://sethgodin.typepad.com/seths_blog/2009/07/welcome-to-island-marketing.html Welcome to Island Marketing %&#125;</span><br><span class="line">Every interaction is both precious and an opportunity to delight.</span><br><span class="line">&#123;% endblockquote %&#125;</span><br></pre></td></tr></table></figure>
+<blockquote><p>Every interaction is both precious and an opportunity to delight.</p>
+<footer><strong>Seth Godin</strong><cite><a href="http://sethgodin.typepad.com/seths_blog/2009/07/welcome-to-island-marketing.html">Welcome to Island Marketing</a></cite></footer></blockquote>
+<h4 id="markdown-的引用块">Markdown 的引用块</h4>
+<p>详见<a
+href="https://zcw-blog.top/posts/20210819a1/">Markdown语法详解及使用技巧——引用块</a>。</p>
+<h3 id="代码块-codeblock">代码块 codeblock</h3>
+<p>在文章中插入代码。<br />
+使用方式： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% codeblock [title] [lang:language] [url] [link text] [additional options] %&#125;</span><br><span class="line">code snippet</span><br><span class="line">&#123;% endcodeblock %&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="普通的代码块">普通的代码块</h4>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&#123;% codeblock %&#125;</span><br><span class="line">alert(&#x27;Hello World!&#x27;);</span><br><span class="line">&#123;% endcodeblock %&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">alert(&#x27;Hello World!&#x27;);</span><br></pre></td></tr></table></figure>
+<h4 id="指定语言">指定语言</h4>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&#123;% codeblock lang:objc %&#125;</span><br><span class="line">[rectangle setX: 10 y: 10 width: 20 height: 20];</span><br><span class="line">&#123;% endcodeblock %&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">[rectangle setX: <span class="number">10</span> y: <span class="number">10</span> width: <span class="number">20</span> height: <span class="number">20</span>];</span><br></pre></td></tr></table></figure>
+<h4 id="附加说明">附加说明</h4>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% codeblock Array.map %&#125;</span><br><span class="line">array.map(callback[, thisArg])</span><br><span class="line">&#123;% endcodeblock %&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><figcaption><span>Array.map</span></figcaption><table><tr><td class="code"><pre><span class="line">array.map(callback[, thisArg])</span><br></pre></td></tr></table></figure>
+<h4 id="附加说明和网址">附加说明和网址</h4>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% codeblock _.compact http://underscorejs.org/#compact Underscore.js %&#125;</span><br><span class="line">_.compact([0, 1, false, 2, &#x27;&#x27;, 3]);</span><br><span class="line">=&gt; [1, 2, 3]</span><br><span class="line">&#123;% endcodeblock %&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><figcaption><span>_.compact</span><a href="http://underscorejs.org/#compact">Underscore.js</a></figcaption><table><tr><td class="code"><pre><span class="line">_.compact([0, 1, false, 2, &#x27;&#x27;, 3]);</span><br><span class="line">=&gt; [1, 2, 3]</span><br></pre></td></tr></table></figure>
+<h4 id="markdown-的围栏代码块">Markdown 的围栏代码块</h4>
+<p>详见<a
+href="https://zcw-blog.top/posts/20210819a1/">Markdown语法详解及使用技巧——围栏代码块</a>。</p>
+<h3 id="插入代码文件">插入代码文件</h3>
+<p>插入 source/downloads/code 文件夹内的代码文件。路径
+source/downloads/code 不是固定的，取决于你在配置文件中 code_dir
+的配置。<br />
+使用方式： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% include_code [title] [lang:language] [from:line] [to:line] path/to/file %&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="youtube">Youtube</h3>
+<p>在文章中插入 Youtube 视频。<br />
+使用方式： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% youtube video_id [type] [cookie] %&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="mathjax">MathJax</h3>
+<p>插入利用 MathJax 显示的数学公式，需要安装 hexo-renderer-mathjax
+并更换 Pandoc 渲染器。<br />
+详见<a href="https://zcw-blog.top/posts/20220424a1/">Hexo + NexT
+配置优化指南——渲染 mathjax</a>。</p>
+<h2 id="next-内建标签的使用">Next 内建标签的使用</h2>
+<h3 id="文本居中引用">文本居中引用</h3>
+调用方法： <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- HTML方式: 直接在 Markdown 文件中编写 HTML 来调用 --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 其中 class=&quot;blockquote-center&quot; 是必须的 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">blockquote</span> <span class="attr">class</span>=<span class="string">&quot;blockquote-center&quot;</span>&gt;</span>blah blah blah<span class="tag">&lt;/<span class="name">blockquote</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 标签 方式，要求版本在0.4.5或以上 --&gt;</span></span><br><span class="line">&#123;% centerquote %&#125;blah blah blah&#123;% endcenterquote %&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 标签别名 --&gt;</span></span><br><span class="line">&#123;% cq %&#125; blah blah blah &#123;% endcq %&#125;</span><br></pre></td></tr></table></figure> 示例： <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">blockquote</span> <span class="attr">class</span>=<span class="string">&quot;blockquote-center&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>人的一切痛苦 本质上是对自己无能的愤怒<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>**王小波**<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">blockquote</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote class="blockquote-center">
+<p>
+人的一切痛苦 本质上是对自己无能的愤怒
+</p>
+<p>
+<strong>王小波</strong>
+</p>
+</blockquote>
+<h3 id="note-标签">Note 标签</h3>
+<p>调用方法： <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- HTML方式: 直接在 Markdown 文件中编写 HTML 来调用 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;note class_name&quot;</span>&gt;</span>blah blah blah<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 标签 方式 --&gt;</span></span><br><span class="line">&#123;% note class_name %&#125;</span><br><span class="line">blah blah blah</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure> 示例：<br />
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% note %&#125;</span><br><span class="line">#### Header</span><br><span class="line">(without define class style)</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure> <div class="note "><h4 id="header">Header</h4>
+<p>content</p>
+</div></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% note default %&#125;</span><br><span class="line">#### Default Header</span><br><span class="line">Default content</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
+<div class="note default"><h4 id="default-header">Default Header</h4>
+<p>Default content</p>
+</div>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% note primary %&#125;</span><br><span class="line">#### Primary Header</span><br><span class="line">Primary content</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
+<div class="note primary"><h4 id="primary-header">Primary Header</h4>
+<p>Primary content</p>
+</div>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% note info %&#125;</span><br><span class="line">#### Info Header</span><br><span class="line">Info content</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
+<div class="note info"><h4 id="info-header">Info Header</h4>
+<p>Info content</p>
+</div>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% note success %&#125;</span><br><span class="line">#### Success Header</span><br><span class="line">Success content</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
+<div class="note success"><h4 id="success-header">Success Header</h4>
+<p>Success content</p>
+</div>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% note warning %&#125;</span><br><span class="line">#### Warning Header</span><br><span class="line">Warning content</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
+<div class="note warning"><h4 id="warning-header">Warning Header</h4>
+<p>Warning content</p>
+</div>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% note danger %&#125;</span><br><span class="line">#### Danger Header</span><br><span class="line">Danger content</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
+<div class="note danger"><h4 id="danger-header">Danger Header</h4>
+<p>Danger content</p>
+</div>
+<p>可用<code>no-icon</code>取消图标： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% note info no-icon %&#125;</span><br><span class="line">#### No icon note</span><br><span class="line">content</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure> <div class="note info no-icon"><h4 id="no-icon-note">No icon note</h4>
+<p>content</p>
+</div></p>
+<p>标签内容可折叠： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% note primary This is a summary %&#125;</span><br><span class="line">#### Details and summary</span><br><span class="line">Note with summary: `note primary This is a summary`</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure> <details class="note primary"><summary><p>This is a summary</p>
+</summary>
+<h4 id="details-and-summary">Details and summary</h4>
+<p>Note with summary: <code>note primary This is a summary</code></p>
+
+</details></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% note info no-icon This is a summary %&#125;</span><br><span class="line">#### Details and summary (No icon)</span><br><span class="line">Note with summary: `note info no-icon This is a summary`</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
+<details class="note info no-icon"><summary><p>This is a summary</p>
+</summary>
+<h4 id="details-and-summary-no-icon">Details and summary (No icon)</h4>
+<p>Note with summary:
+<code>note info no-icon This is a summary</code></p>
+
+</details>
+<h3 id="label-标签">Label 标签</h3>
+<p>调用方法：<br />
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&#123;% label [class_name] @blah blah blah %&#125;</span><br></pre></td></tr></table></figure> <code>class_name</code>取值同 Note 标签。 示例：<br />
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">我坐在床前，望着窗外，&#123;% label @回忆满天 %&#125;。生命是&#123;% label primary @华丽错觉 %&#125;，时间是贼偷走一切。  </span><br><span class="line">七岁的那一年，抓住那只&#123;% label success @蝉 %&#125;，以为能抓住夏天。十七岁的那年，吻过他的脸，就以为和他能&#123;% label info @永远 %&#125;。   </span><br><span class="line">有没有那么一种永远，&#123;% label warning @永远不改变 %&#125;，拥抱过的美丽，都再也不破碎。   </span><br><span class="line">让险峻岁月不能，在脸上撒野，让&#123;% label danger @生离和死别都遥远 %&#125;，有谁能听见。   </span><br></pre></td></tr></table></figure>
+我坐在床前，望着窗外，<mark class="label ">回忆满天</mark>。生命是<mark class="label primary">华丽错觉</mark>，时间是贼偷走一切。<br />
+七岁的那一年，抓住那只<mark class="label success">蝉</mark>，以为能抓住夏天。十七岁的那年，吻过他的脸，就以为和他能<mark class="label info">永远</mark>。<br />
+有没有那么一种永远，<mark class="label warning">永远不改变</mark>，拥抱过的美丽，都再也不破碎。<br />
+让险峻岁月不能，在脸上撒野，让<mark class="label danger">生离和死别都遥远</mark>，有谁能听见。</p>
+<h3 id="tab-标签">Tab 标签</h3>
+<p>调用方法：<br />
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&#123;% tabs [Unique name], [index] %&#125;</span><br><span class="line"><span class="comment">&lt;!-- tab [Tab caption]@[icon] --&gt;</span></span><br><span class="line">Any content (support inline tags too).</span><br><span class="line"><span class="comment">&lt;!-- endtab --&gt;</span></span><br><span class="line">&#123;% endtabs %&#125;</span><br></pre></td></tr></table></figure> <div class="note info"><p><code>Unique name</code>为每个标签页组唯一的名称<br />
+<code>index</code>为初始激活的标签页<br />
+<code>Tab caption</code>为标签页名称，不指定时为所属标签页组名称加索引<br />
+<code>icon</code>为 Font awesome 图标</p>
+</div> 示例：<br />
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&#123;% tabs 选项卡, 3 %&#125;</span><br><span class="line"><span class="comment">&lt;!-- tab --&gt;</span></span><br><span class="line">这是选项卡 1</span><br><span class="line"><span class="comment">&lt;!-- endtab --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- tab --&gt;</span></span><br><span class="line">这是选项卡 2</span><br><span class="line"><span class="comment">&lt;!-- endtab --&gt;</span></span><br><span class="line">&#123;% endtabs %&#125;</span><br></pre></td></tr></table></figure> <div class="tabs" id="选项卡"><ul class="nav-tabs"><li class="tab"><a href="#选项卡-1">选项卡 1</a></li><li class="tab"><a href="#选项卡-2">选项卡 2</a></li></ul><div class="tab-content"><div class="tab-pane" id="选项卡-1"><p>这是选项卡 1</p></div><div class="tab-pane" id="选项卡-2"><p>这是选项卡 2</p></div></div></div> <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% tabs 选项卡 2 %&#125;</span><br><span class="line">&lt;!-- tab 自定义名称1 --&gt;</span><br><span class="line">这是选项卡 1</span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line">&lt;!-- tab 自定义名称2 --&gt;</span><br><span class="line">这是选项卡 2</span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line">&#123;% endtabs %&#125;</span><br></pre></td></tr></table></figure> <div class="tabs" id="选项卡-2"><ul class="nav-tabs"><li class="tab active"><a href="#选项卡-2-1">自定义名称1</a></li><li class="tab"><a href="#选项卡-2-2">自定义名称2</a></li></ul><div class="tab-content"><div class="tab-pane active" id="选项卡-2-1"><p>这是选项卡 1</p></div><div class="tab-pane" id="选项卡-2-2"><p>这是选项卡 2</p></div></div></div>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% tabs 选项卡 2 %&#125;</span><br><span class="line">&lt;!-- tab 自定义名称1@text-width --&gt;</span><br><span class="line">这是选项卡 1</span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line">&lt;!-- tab 自定义名称2@amazon --&gt;</span><br><span class="line">这是选项卡 2</span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line">&#123;% endtabs %&#125;</span><br></pre></td></tr></table></figure> <div class="tabs" id="选项卡-2"><ul class="nav-tabs"><li class="tab active"><a href="#选项卡-2-1"><i class="fa fa-text-width"></i>自定义名称1</a></li><li class="tab"><a href="#选项卡-2-2"><i class="fa fa-amazon"></i>自定义名称2</a></li></ul><div class="tab-content"><div class="tab-pane active" id="选项卡-2-1"><p>这是选项卡 1</p></div><div class="tab-pane" id="选项卡-2-2"><p>这是选项卡 2</p></div></div></div></p>
+]]></content>
+      <categories>
+        <category>维护日志</category>
+        <category>创作</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>NexT</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo + NexT 配置优化指南</title>
     <url>/posts/20220424a1/</url>
     <content><![CDATA[<div class="note warning"><p>超长文警告！</p>
@@ -629,158 +781,6 @@ class="footnote-back" role="doc-backlink">↩︎</a></p></li>
       <tags>
         <tag>搭建博客</tag>
         <tag>NexT</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo &amp; Next 标签使用说明</title>
-    <url>/posts/20220816a1/</url>
-    <content><![CDATA[<div class="note "><p>本文为在 Hexo &amp; Next
-使用标签的说明，使用标签可在文章中快速插入特定内容，使文章更加美观易读。<br />
-本文内容主要搬运至 <a href="https://hexo.io/zh-cn/docs">Hexo
-文档</a>的标签插件使用样例。</p>
-</div>
-<span id="more"></span>
-<h2 id="hexo-标签插件">Hexo 标签插件</h2>
-<h3 id="引用块-blockquote">引用块 blockquote</h3>
-<p>在文章中插入引言，可包含作者、来源和标题。<br />
-使用方式： <figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&#123;% blockquote [author[, source]] [link] [source_link_title] %&#125;</span><br><span class="line">content</span><br><span class="line">&#123;% endblockquote %&#125;</span><br></pre></td></tr></table></figure></p>
-<h4 id="普通的-blockquote">普通的 blockquote</h4>
-<p>没有提供参数，则只输出普通的 blockquote： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% blockquote %&#125;</span><br><span class="line">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque hendrerit lacus ut purus iaculis feugiat. Sed nec tempor elit, quis aliquam neque. Curabitur sed diam eget dolor fermentum semper at eu lorem.</span><br><span class="line">&#123;% endblockquote %&#125;</span><br></pre></td></tr></table></figure>
-<blockquote><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
-hendrerit lacus ut purus iaculis feugiat. Sed nec tempor elit, quis
-aliquam neque. Curabitur sed diam eget dolor fermentum semper at eu
-lorem.</p>
-</blockquote></p>
-<h4 id="引用书上的句子">引用书上的句子</h4>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&#123;% blockquote David Levithan, Wide Awake %&#125;</span><br><span class="line">Do not just seek happiness for yourself. Seek happiness for all. Through kindness. Through mercy.</span><br><span class="line">&#123;% endblockquote %&#125;</span><br></pre></td></tr></table></figure>
-<blockquote><p>Do not just seek happiness for yourself. Seek happiness for all.
-Through kindness. Through mercy.</p>
-<footer><strong>David Levithan</strong><cite>Wide Awake</cite></footer></blockquote>
-<h4 id="引用-twitter">引用 Twitter</h4>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% blockquote @DevDocs https://twitter.com/devdocs/status/356095192085962752 %&#125;</span><br><span class="line">NEW: DevDocs now comes with syntax highlighting. http://devdocs.io</span><br><span class="line">&#123;% endblockquote %&#125;</span><br></pre></td></tr></table></figure>
-<blockquote><p>NEW: DevDocs now comes with syntax highlighting.
-http://devdocs.io</p>
-<footer><strong>@DevDocs</strong><cite><a href="https://twitter.com/devdocs/status/356095192085962752">twitter.com/devdocs/status/356095192085962752</a></cite></footer></blockquote>
-<h4 id="引用网络上的文章">引用网络上的文章</h4>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&#123;% blockquote Seth Godin http://sethgodin.typepad.com/seths_blog/2009/07/welcome-to-island-marketing.html Welcome to Island Marketing %&#125;</span><br><span class="line">Every interaction is both precious and an opportunity to delight.</span><br><span class="line">&#123;% endblockquote %&#125;</span><br></pre></td></tr></table></figure>
-<blockquote><p>Every interaction is both precious and an opportunity to delight.</p>
-<footer><strong>Seth Godin</strong><cite><a href="http://sethgodin.typepad.com/seths_blog/2009/07/welcome-to-island-marketing.html">Welcome to Island Marketing</a></cite></footer></blockquote>
-<h4 id="markdown-的引用块">Markdown 的引用块</h4>
-<p>详见<a
-href="https://zcw-blog.top/posts/20210819a1/">Markdown语法详解及使用技巧——引用块</a>。</p>
-<h3 id="代码块-codeblock">代码块 codeblock</h3>
-<p>在文章中插入代码。<br />
-使用方式： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% codeblock [title] [lang:language] [url] [link text] [additional options] %&#125;</span><br><span class="line">code snippet</span><br><span class="line">&#123;% endcodeblock %&#125;</span><br></pre></td></tr></table></figure></p>
-<h4 id="普通的代码块">普通的代码块</h4>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&#123;% codeblock %&#125;</span><br><span class="line">alert(&#x27;Hello World!&#x27;);</span><br><span class="line">&#123;% endcodeblock %&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">alert(&#x27;Hello World!&#x27;);</span><br></pre></td></tr></table></figure>
-<h4 id="指定语言">指定语言</h4>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&#123;% codeblock lang:objc %&#125;</span><br><span class="line">[rectangle setX: 10 y: 10 width: 20 height: 20];</span><br><span class="line">&#123;% endcodeblock %&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">[rectangle setX: <span class="number">10</span> y: <span class="number">10</span> width: <span class="number">20</span> height: <span class="number">20</span>];</span><br></pre></td></tr></table></figure>
-<h4 id="附加说明">附加说明</h4>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% codeblock Array.map %&#125;</span><br><span class="line">array.map(callback[, thisArg])</span><br><span class="line">&#123;% endcodeblock %&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><figcaption><span>Array.map</span></figcaption><table><tr><td class="code"><pre><span class="line">array.map(callback[, thisArg])</span><br></pre></td></tr></table></figure>
-<h4 id="附加说明和网址">附加说明和网址</h4>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% codeblock _.compact http://underscorejs.org/#compact Underscore.js %&#125;</span><br><span class="line">_.compact([0, 1, false, 2, &#x27;&#x27;, 3]);</span><br><span class="line">=&gt; [1, 2, 3]</span><br><span class="line">&#123;% endcodeblock %&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><figcaption><span>_.compact</span><a href="http://underscorejs.org/#compact">Underscore.js</a></figcaption><table><tr><td class="code"><pre><span class="line">_.compact([0, 1, false, 2, &#x27;&#x27;, 3]);</span><br><span class="line">=&gt; [1, 2, 3]</span><br></pre></td></tr></table></figure>
-<h4 id="markdown-的围栏代码块">Markdown 的围栏代码块</h4>
-<p>详见<a
-href="https://zcw-blog.top/posts/20210819a1/">Markdown语法详解及使用技巧——围栏代码块</a>。</p>
-<h3 id="插入代码文件">插入代码文件</h3>
-<p>插入 source/downloads/code 文件夹内的代码文件。路径
-source/downloads/code 不是固定的，取决于你在配置文件中 code_dir
-的配置。<br />
-使用方式： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% include_code [title] [lang:language] [from:line] [to:line] path/to/file %&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="youtube">Youtube</h3>
-<p>在文章中插入 Youtube 视频。<br />
-使用方式： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% youtube video_id [type] [cookie] %&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="mathjax">MathJax</h3>
-<p>插入利用 MathJax 显示的数学公式，需要安装 hexo-renderer-mathjax
-并更换 Pandoc 渲染器。<br />
-详见<a href="https://zcw-blog.top/posts/20220424a1/">Hexo + NexT
-配置优化指南——渲染 mathjax</a>。</p>
-<h2 id="next-内建标签的使用">Next 内建标签的使用</h2>
-<h3 id="文本居中引用">文本居中引用</h3>
-调用方法： <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- HTML方式: 直接在 Markdown 文件中编写 HTML 来调用 --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 其中 class=&quot;blockquote-center&quot; 是必须的 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">blockquote</span> <span class="attr">class</span>=<span class="string">&quot;blockquote-center&quot;</span>&gt;</span>blah blah blah<span class="tag">&lt;/<span class="name">blockquote</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 标签 方式，要求版本在0.4.5或以上 --&gt;</span></span><br><span class="line">&#123;% centerquote %&#125;blah blah blah&#123;% endcenterquote %&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 标签别名 --&gt;</span></span><br><span class="line">&#123;% cq %&#125; blah blah blah &#123;% endcq %&#125;</span><br></pre></td></tr></table></figure> 示例： <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">blockquote</span> <span class="attr">class</span>=<span class="string">&quot;blockquote-center&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>人的一切痛苦 本质上是对自己无能的愤怒<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>**王小波**<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">blockquote</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<blockquote class="blockquote-center">
-<p>
-人的一切痛苦 本质上是对自己无能的愤怒
-</p>
-<p>
-<strong>王小波</strong>
-</p>
-</blockquote>
-<h3 id="note-标签">Note 标签</h3>
-<p>调用方法： <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- HTML方式: 直接在 Markdown 文件中编写 HTML 来调用 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;note class_name&quot;</span>&gt;</span>blah blah blah<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 标签 方式 --&gt;</span></span><br><span class="line">&#123;% note class_name %&#125;</span><br><span class="line">blah blah blah</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure> 示例：<br />
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% note %&#125;</span><br><span class="line">#### Header</span><br><span class="line">(without define class style)</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure> <div class="note "><h4 id="header">Header</h4>
-<p>content</p>
-</div></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% note default %&#125;</span><br><span class="line">#### Default Header</span><br><span class="line">Default content</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
-<div class="note default"><h4 id="default-header">Default Header</h4>
-<p>Default content</p>
-</div>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% note primary %&#125;</span><br><span class="line">#### Primary Header</span><br><span class="line">Primary content</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
-<div class="note primary"><h4 id="primary-header">Primary Header</h4>
-<p>Primary content</p>
-</div>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% note info %&#125;</span><br><span class="line">#### Info Header</span><br><span class="line">Info content</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
-<div class="note info"><h4 id="info-header">Info Header</h4>
-<p>Info content</p>
-</div>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% note success %&#125;</span><br><span class="line">#### Success Header</span><br><span class="line">Success content</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
-<div class="note success"><h4 id="success-header">Success Header</h4>
-<p>Success content</p>
-</div>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% note warning %&#125;</span><br><span class="line">#### Warning Header</span><br><span class="line">Warning content</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
-<div class="note warning"><h4 id="warning-header">Warning Header</h4>
-<p>Warning content</p>
-</div>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% note danger %&#125;</span><br><span class="line">#### Danger Header</span><br><span class="line">Danger content</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
-<div class="note danger"><h4 id="danger-header">Danger Header</h4>
-<p>Danger content</p>
-</div>
-<p>可用<code>no-icon</code>取消图标： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% note info no-icon %&#125;</span><br><span class="line">#### No icon note</span><br><span class="line">content</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure> <div class="note info no-icon"><h4 id="no-icon-note">No icon note</h4>
-<p>content</p>
-</div></p>
-<p>标签内容可折叠： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% note primary This is a summary %&#125;</span><br><span class="line">#### Details and summary</span><br><span class="line">Note with summary: `note primary This is a summary`</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure> <details class="note primary"><summary><p>This is a summary</p>
-</summary>
-<h4 id="details-and-summary">Details and summary</h4>
-<p>Note with summary: <code>note primary This is a summary</code></p>
-
-</details></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% note info no-icon This is a summary %&#125;</span><br><span class="line">#### Details and summary (No icon)</span><br><span class="line">Note with summary: `note info no-icon This is a summary`</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
-<details class="note info no-icon"><summary><p>This is a summary</p>
-</summary>
-<h4 id="details-and-summary-no-icon">Details and summary (No icon)</h4>
-<p>Note with summary:
-<code>note info no-icon This is a summary</code></p>
-
-</details>
-<h3 id="label-标签">Label 标签</h3>
-<p>调用方法：<br />
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&#123;% label [class_name] @blah blah blah %&#125;</span><br></pre></td></tr></table></figure> <code>class_name</code>取值同 Note 标签。 示例：<br />
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">我坐在床前，望着窗外，&#123;% label @回忆满天 %&#125;。生命是&#123;% label primary @华丽错觉 %&#125;，时间是贼偷走一切。  </span><br><span class="line">七岁的那一年，抓住那只&#123;% label success @蝉 %&#125;，以为能抓住夏天。十七岁的那年，吻过他的脸，就以为和他能&#123;% label info @永远 %&#125;。   </span><br><span class="line">有没有那么一种永远，&#123;% label warning @永远不改变 %&#125;，拥抱过的美丽，都再也不破碎。   </span><br><span class="line">让险峻岁月不能，在脸上撒野，让&#123;% label danger @生离和死别都遥远 %&#125;，有谁能听见。   </span><br></pre></td></tr></table></figure>
-我坐在床前，望着窗外，<mark class="label ">回忆满天</mark>。生命是<mark class="label primary">华丽错觉</mark>，时间是贼偷走一切。<br />
-七岁的那一年，抓住那只<mark class="label success">蝉</mark>，以为能抓住夏天。十七岁的那年，吻过他的脸，就以为和他能<mark class="label info">永远</mark>。<br />
-有没有那么一种永远，<mark class="label warning">永远不改变</mark>，拥抱过的美丽，都再也不破碎。<br />
-让险峻岁月不能，在脸上撒野，让<mark class="label danger">生离和死别都遥远</mark>，有谁能听见。</p>
-<h3 id="tab-标签">Tab 标签</h3>
-<p>调用方法：<br />
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&#123;% tabs [Unique name], [index] %&#125;</span><br><span class="line"><span class="comment">&lt;!-- tab [Tab caption]@[icon] --&gt;</span></span><br><span class="line">Any content (support inline tags too).</span><br><span class="line"><span class="comment">&lt;!-- endtab --&gt;</span></span><br><span class="line">&#123;% endtabs %&#125;</span><br></pre></td></tr></table></figure> <div class="note info"><p><code>Unique name</code>为每个标签页组唯一的名称<br />
-<code>index</code>为初始激活的标签页<br />
-<code>Tab caption</code>为标签页名称，不指定时为所属标签页组名称加索引<br />
-<code>icon</code>为 Font awesome 图标</p>
-</div> 示例：<br />
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&#123;% tabs 选项卡, 3 %&#125;</span><br><span class="line"><span class="comment">&lt;!-- tab --&gt;</span></span><br><span class="line">这是选项卡 1</span><br><span class="line"><span class="comment">&lt;!-- endtab --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- tab --&gt;</span></span><br><span class="line">这是选项卡 2</span><br><span class="line"><span class="comment">&lt;!-- endtab --&gt;</span></span><br><span class="line">&#123;% endtabs %&#125;</span><br></pre></td></tr></table></figure> <div class="tabs" id="选项卡"><ul class="nav-tabs"><li class="tab"><a href="#选项卡-1">选项卡 1</a></li><li class="tab"><a href="#选项卡-2">选项卡 2</a></li></ul><div class="tab-content"><div class="tab-pane" id="选项卡-1"><p>这是选项卡 1</p></div><div class="tab-pane" id="选项卡-2"><p>这是选项卡 2</p></div></div></div> <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% tabs 选项卡 2 %&#125;</span><br><span class="line">&lt;!-- tab 自定义名称1 --&gt;</span><br><span class="line">这是选项卡 1</span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line">&lt;!-- tab 自定义名称2 --&gt;</span><br><span class="line">这是选项卡 2</span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line">&#123;% endtabs %&#125;</span><br></pre></td></tr></table></figure> <div class="tabs" id="选项卡-2"><ul class="nav-tabs"><li class="tab active"><a href="#选项卡-2-1">自定义名称1</a></li><li class="tab"><a href="#选项卡-2-2">自定义名称2</a></li></ul><div class="tab-content"><div class="tab-pane active" id="选项卡-2-1"><p>这是选项卡 1</p></div><div class="tab-pane" id="选项卡-2-2"><p>这是选项卡 2</p></div></div></div>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% tabs 选项卡 2 %&#125;</span><br><span class="line">&lt;!-- tab 自定义名称1@text-width --&gt;</span><br><span class="line">这是选项卡 1</span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line">&lt;!-- tab 自定义名称2@amazon --&gt;</span><br><span class="line">这是选项卡 2</span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line">&#123;% endtabs %&#125;</span><br></pre></td></tr></table></figure> <div class="tabs" id="选项卡-2"><ul class="nav-tabs"><li class="tab active"><a href="#选项卡-2-1"><i class="fa fa-text-width"></i>自定义名称1</a></li><li class="tab"><a href="#选项卡-2-2"><i class="fa fa-amazon"></i>自定义名称2</a></li></ul><div class="tab-content"><div class="tab-pane active" id="选项卡-2-1"><p>这是选项卡 1</p></div><div class="tab-pane" id="选项卡-2-2"><p>这是选项卡 2</p></div></div></div></p>
-]]></content>
-      <categories>
-        <category>维护日志</category>
-        <category>创作</category>
-      </categories>
-      <tags>
-        <tag>NexT</tag>
-        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -1801,95 +1801,6 @@ href="http://www.autolabor.com.cn/book/ROSTutorials/">【Autolabor初级教程�
       </tags>
   </entry>
   <entry>
-    <title>Ubuntu 优化</title>
-    <url>/posts/20220801a1/</url>
-    <content><![CDATA[<div class="note "><p>Ubuntu 使用优化（20.04.1）。</p>
-</div>
-<span id="more"></span>
-<h2 id="模板-template">模板| Template</h2>
-<p>Ubuntu 20.04 鼠标右击没有新建文本文档选项。进入/home
-下的模板（Template）目录，使用<code>sudo gedit 新建文本文档.txt</code>创建一个空文本文档，保存退出后，鼠标右击即可添加新建文本文档，且创建的文档与自定义的文档名称一致。</p>
-<h2 id="解决-firefox-无法播放-bilibili-视频">解决 Firefox 无法播放
-bilibili 视频</h2>
-<p>在 Firefox 打开 bilibili 发现无法播放视频，显示没有 flash
-插件。<br />
-在终端输入<code>sudo apt install ubuntu-restricted-extras</code>安装相应解码器即可。<br />
-中间需要选择“确定”，按 Tab 即可选择。<br />
-<img src="https://s2.loli.net/2022/08/05/PmJx1ducGlgkTOh.png" />
-安装成功：<br />
-<img src="https://s2.loli.net/2022/08/05/J6G4AkMDqjTmdKC.png" />
-再次使用 Firefox 打开 bilibili 已经可以播放视频了。</p>
-<h2 id="蓝牙配置">蓝牙配置</h2>
-<p>检查蓝牙服务是否正在运行：<br />
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo systemctl status bluetooth.service</span><br></pre></td></tr></table></figure> 启用蓝牙服务：<br />
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo systemctl <span class="built_in">enable</span> bluetooth.service</span><br></pre></td></tr></table></figure> 使用 systemctl 重新启动该服务：<br />
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo systemctl start bluetooth.service</span><br></pre></td></tr></table></figure> 编辑配置文件：<br />
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo gedit /etc/bluetooth/main.conf</span><br></pre></td></tr></table></figure>
-<strong>自动启用</strong>：自动启用可确保在设备重启时启用蓝牙模块，并允许蓝牙适配器识别周围新连接的蓝牙设备。<br />
-<img src="https://s2.loli.net/2022/08/09/PmRaYzTNSlB1QtI.png" />
-<strong>启用重新连接尝试</strong>：配置后每当蓝牙设备和计算机断开连接时，它都会尝试重新连接。只需取消注释配置文件中的
-ReconnectAttempts = 7 行。<br />
-<img src="https://s2.loli.net/2022/08/09/xsTJODdfFGMn6uw.png" />
-<strong>启用快速连接</strong>：通过将 FastConnectable 的值设置为
-true，可以确保在重启或休眠时，蓝牙设备能够更快地连接到 PC。<br />
-<img src="https://s2.loli.net/2022/08/09/2RoOpZ4y9IgkneP.png" /></p>
-<h2 id="终端工具">终端工具</h2>
-<h3 id="terminator-终端模拟器">Terminator 终端模拟器</h3>
-<p>下载：<code>sudo apt install terminator</code></p>
-<h4 id="快捷键">快捷键</h4>
-<p>同一窗口内操作： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Alt+Up                          //移动到上面的终端</span><br><span class="line">Alt+Down                        //移动到下面的终端</span><br><span class="line">Alt+Left                        //移动到左边的终端</span><br><span class="line">Alt+Right                       //移动到右边的终端</span><br><span class="line">Ctrl+Shift+O                    //水平分割终端</span><br><span class="line">Ctrl+Shift+E                    //垂直分割终端</span><br><span class="line">Ctrl+Shift+Right                //在垂直分割的终端中将分割条向右移动</span><br><span class="line">Ctrl+Shift+Left                 //在垂直分割的终端中将分割条向左移动</span><br><span class="line">Ctrl+Shift+Up                   //在水平分割的终端中将分割条向上移动</span><br><span class="line">Ctrl+Shift+Down                 //在水平分割的终端中将分割条向下移动</span><br><span class="line">Ctrl+Shift+S                    //隐藏/显示滚动条</span><br><span class="line">Ctrl+Shift+F                    //搜索</span><br><span class="line">Ctrl+Shift+C                    //复制选中的内容到剪贴板</span><br><span class="line">Ctrl+Shift+V                    //粘贴剪贴板的内容到此处</span><br><span class="line">Ctrl+Shift+W                    //关闭当前终端</span><br><span class="line">Ctrl+Shift+Q                    //退出当前窗口，当前窗口的所有终端都将被关闭</span><br><span class="line">Ctrl+Shift+X                    //最大化显示当前终端</span><br><span class="line">Ctrl+Shift+Z                    //最大化显示当前终端并使字体放大</span><br><span class="line">Ctrl+Shift+N or Ctrl+Tab        //移动到下一个终端</span><br><span class="line">Ctrl+Shift+P or Ctrl+Shift+Tab  //Crtl+Shift+Tab 移动到之前的一个终端</span><br></pre></td></tr></table></figure></p>
-<p>各个窗口间操作： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">F11                             //全屏开关</span><br><span class="line">Ctrl+Shift+T                    //打开一个新的标签</span><br><span class="line">Ctrl+PageDown                   //移动到下一个标签</span><br><span class="line">Ctrl+PageUp                     //移动到上一个标签</span><br><span class="line">Ctrl+Shift+PageDown             //将当前标签与其后一个标签交换位置</span><br><span class="line">Ctrl+Shift+PageUp               //将当前标签与其前一个标签交换位置</span><br><span class="line">Ctrl+Plus (+)                   //增大字体</span><br><span class="line">Ctrl+Minus (-)                  //减小字体</span><br><span class="line">Ctrl+Zero (0)                   //恢复字体到原始大小</span><br><span class="line">Ctrl+Shift+R                    //重置终端状态</span><br><span class="line">Ctrl+Shift+G                    //重置终端状态并clear屏幕</span><br><span class="line">Super+g                         //绑定所有的终端，以便向一个输入能够输入到所有的终端</span><br><span class="line">Super+Shift+G                   //解除绑定</span><br><span class="line">Super+t                         //绑定当前标签的所有终端，向一个终端输入的内容会自动输入到其他终端</span><br><span class="line">Super+Shift+T                   //解除绑定</span><br><span class="line">Ctrl+Shift+I                    //打开一个窗口，新窗口与原来的窗口使用同一个进程</span><br><span class="line">Super+i                         //打开一个新窗口，新窗口与原来的窗口使用不同的进程</span><br></pre></td></tr></table></figure></p>
-<h3 id="gnu-screen">GNU Screen</h3>
-<p>下载：<code>sudo apt install screen</code></p>
-<h4 id="gnu-screen-简介">GNU Screen 简介</h4>
-<p>screen 是一款由 GNU
-计划开发的用于命令行终端切换的自由软件。用户可以通过该软件同时连接多个本地或远程的命令行会话，并在其间自由切换。GNU
-Screen
-可以看作是窗口管理器的命令行界面版本。它提供了统一的管理多个会话的界面和相应的功能。<br />
-在 screen
-环境下，所有的会话都独立的运行，并拥有各自的编号、输入、输出和窗口缓存。用户可以通过快捷键在不同的窗口下切换，并可以自由的重定向各个窗口的输入和输出。</p>
-<h4 id="功能">功能</h4>
-<ul>
-<li>可以创建一个session（会话），实现不同终端之间的交互。<br />
-</li>
-<li>可以实现多人观看同一终端等功能。</li>
-<li>在工作中，如遇突发情况（例如断电，蓝屏等），终端断开，服务器端所有收到信号的前台任务将全部终止，各种工作环境将全部丢失。若在
-screen 里操作，终端意外关闭之后，下次登录到服务器上，进入 screen，之前在
-screen 上运行的任务还在继续运行。screen
-的功能可以大概理解为它将前台任务放入了后台进行，并且不受终端关闭或其它意外事故的影响。</li>
-</ul>
-<h3 id="tmuxterminal-multiplexer类似-gnu-screen">Tmux（terminal
-multiplexer,类似 GNU Screen）</h3>
-<p>下载：<code>sudo apt install tmux</code></p>
-<h4 id="功能-1">功能</h4>
-<ul>
-<li>允许在单个窗口中，同时访问多个会话。这对于同时运行多个命令行程序很有用。<br />
-</li>
-<li>可以让新窗口"接入"已经存在的会话。<br />
-</li>
-<li>允许每个会话有多个连接窗口，因此可以多人实时共享会话。<br />
-</li>
-<li>支持窗口任意的垂直和水平拆分。</li>
-</ul>
-<h2 id="参考文章">参考文章</h2>
-<p><a href="https://www.ruanyifeng.com/blog/2019/10/tmux.html">Tmux
-使用教程</a><br />
-<a
-href="https://www.homedt.net/40644.html">Linux中的screen命令的使用</a><br />
-<a
-href="https://cloud.tencent.com/developer/article/1844735">Linux终端命令神器--Screen命令详解。助力Linux使用和管理</a><br />
-<a
-href="https://zhongguo.eskere.club/%E5%A6%82%E4%BD%95%E4%BF%AE%E5%A4%8Dubuntu-linux%E4%B8%AD%E7%9A%84%E8%93%9D%E7%89%99%E8%BF%9E%E6%8E%A5%E9%97%AE%E9%A2%98/2021-05-12/?__cf_chl_tk=UCmaDe_SWYb41eIhI0dKuadHk0.rGbm7YcRyUkdjQMM-1660017919-0-gaNycGzNCH0">如何修复Ubuntu
-Linux中的蓝牙连接问题</a></p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Windows 软件使用分享</title>
     <url>/posts/20220719a1/</url>
     <content><![CDATA[<div class="note "><p>分享个人使用的 Windows 软件。</p>
@@ -1981,33 +1892,93 @@ src="https://s2.loli.net/2022/08/14/3piwBjGfbULu9ag.png" /></p>
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/posts/20210811cl6yo7lfx0014qgf96ls55olp/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very
-first post. Check <a href="https://hexo.io/docs/">documentation</a> for
-more info. If you get any problems when using Hexo, you can find the
-answer in <a
-href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or
-you can ask me on <a
-href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<p><span id="more"></span></p>
-<h2 id="quick-start">Quick Start</h2>
-<h3 id="create-a-new-post">Create a new post</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a
-href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="run-server">Run server</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="generate-static-files">Generate static files</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a
-href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a
-href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+    <title>Ubuntu 优化</title>
+    <url>/posts/20220801a1/</url>
+    <content><![CDATA[<div class="note "><p>Ubuntu 使用优化（20.04.1）。</p>
+</div>
+<span id="more"></span>
+<h2 id="模板-template">模板| Template</h2>
+<p>Ubuntu 20.04 鼠标右击没有新建文本文档选项。进入/home
+下的模板（Template）目录，使用<code>sudo gedit 新建文本文档.txt</code>创建一个空文本文档，保存退出后，鼠标右击即可添加新建文本文档，且创建的文档与自定义的文档名称一致。</p>
+<h2 id="解决-firefox-无法播放-bilibili-视频">解决 Firefox 无法播放
+bilibili 视频</h2>
+<p>在 Firefox 打开 bilibili 发现无法播放视频，显示没有 flash
+插件。<br />
+在终端输入<code>sudo apt install ubuntu-restricted-extras</code>安装相应解码器即可。<br />
+中间需要选择“确定”，按 Tab 即可选择。<br />
+<img src="https://s2.loli.net/2022/08/05/PmJx1ducGlgkTOh.png" />
+安装成功：<br />
+<img src="https://s2.loli.net/2022/08/05/J6G4AkMDqjTmdKC.png" />
+再次使用 Firefox 打开 bilibili 已经可以播放视频了。</p>
+<h2 id="蓝牙配置">蓝牙配置</h2>
+<p>检查蓝牙服务是否正在运行：<br />
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo systemctl status bluetooth.service</span><br></pre></td></tr></table></figure> 启用蓝牙服务：<br />
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo systemctl <span class="built_in">enable</span> bluetooth.service</span><br></pre></td></tr></table></figure> 使用 systemctl 重新启动该服务：<br />
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo systemctl start bluetooth.service</span><br></pre></td></tr></table></figure> 编辑配置文件：<br />
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo gedit /etc/bluetooth/main.conf</span><br></pre></td></tr></table></figure>
+<strong>自动启用</strong>：自动启用可确保在设备重启时启用蓝牙模块，并允许蓝牙适配器识别周围新连接的蓝牙设备。<br />
+<img src="https://s2.loli.net/2022/08/09/PmRaYzTNSlB1QtI.png" />
+<strong>启用重新连接尝试</strong>：配置后每当蓝牙设备和计算机断开连接时，它都会尝试重新连接。只需取消注释配置文件中的
+ReconnectAttempts = 7 行。<br />
+<img src="https://s2.loli.net/2022/08/09/xsTJODdfFGMn6uw.png" />
+<strong>启用快速连接</strong>：通过将 FastConnectable 的值设置为
+true，可以确保在重启或休眠时，蓝牙设备能够更快地连接到 PC。<br />
+<img src="https://s2.loli.net/2022/08/09/2RoOpZ4y9IgkneP.png" /></p>
+<h2 id="终端工具">终端工具</h2>
+<h3 id="terminator-终端模拟器">Terminator 终端模拟器</h3>
+<p>下载：<code>sudo apt install terminator</code></p>
+<h4 id="快捷键">快捷键</h4>
+<p>同一窗口内操作： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Alt+Up                          //移动到上面的终端</span><br><span class="line">Alt+Down                        //移动到下面的终端</span><br><span class="line">Alt+Left                        //移动到左边的终端</span><br><span class="line">Alt+Right                       //移动到右边的终端</span><br><span class="line">Ctrl+Shift+O                    //水平分割终端</span><br><span class="line">Ctrl+Shift+E                    //垂直分割终端</span><br><span class="line">Ctrl+Shift+Right                //在垂直分割的终端中将分割条向右移动</span><br><span class="line">Ctrl+Shift+Left                 //在垂直分割的终端中将分割条向左移动</span><br><span class="line">Ctrl+Shift+Up                   //在水平分割的终端中将分割条向上移动</span><br><span class="line">Ctrl+Shift+Down                 //在水平分割的终端中将分割条向下移动</span><br><span class="line">Ctrl+Shift+S                    //隐藏/显示滚动条</span><br><span class="line">Ctrl+Shift+F                    //搜索</span><br><span class="line">Ctrl+Shift+C                    //复制选中的内容到剪贴板</span><br><span class="line">Ctrl+Shift+V                    //粘贴剪贴板的内容到此处</span><br><span class="line">Ctrl+Shift+W                    //关闭当前终端</span><br><span class="line">Ctrl+Shift+Q                    //退出当前窗口，当前窗口的所有终端都将被关闭</span><br><span class="line">Ctrl+Shift+X                    //最大化显示当前终端</span><br><span class="line">Ctrl+Shift+Z                    //最大化显示当前终端并使字体放大</span><br><span class="line">Ctrl+Shift+N or Ctrl+Tab        //移动到下一个终端</span><br><span class="line">Ctrl+Shift+P or Ctrl+Shift+Tab  //Crtl+Shift+Tab 移动到之前的一个终端</span><br></pre></td></tr></table></figure></p>
+<p>各个窗口间操作： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">F11                             //全屏开关</span><br><span class="line">Ctrl+Shift+T                    //打开一个新的标签</span><br><span class="line">Ctrl+PageDown                   //移动到下一个标签</span><br><span class="line">Ctrl+PageUp                     //移动到上一个标签</span><br><span class="line">Ctrl+Shift+PageDown             //将当前标签与其后一个标签交换位置</span><br><span class="line">Ctrl+Shift+PageUp               //将当前标签与其前一个标签交换位置</span><br><span class="line">Ctrl+Plus (+)                   //增大字体</span><br><span class="line">Ctrl+Minus (-)                  //减小字体</span><br><span class="line">Ctrl+Zero (0)                   //恢复字体到原始大小</span><br><span class="line">Ctrl+Shift+R                    //重置终端状态</span><br><span class="line">Ctrl+Shift+G                    //重置终端状态并clear屏幕</span><br><span class="line">Super+g                         //绑定所有的终端，以便向一个输入能够输入到所有的终端</span><br><span class="line">Super+Shift+G                   //解除绑定</span><br><span class="line">Super+t                         //绑定当前标签的所有终端，向一个终端输入的内容会自动输入到其他终端</span><br><span class="line">Super+Shift+T                   //解除绑定</span><br><span class="line">Ctrl+Shift+I                    //打开一个窗口，新窗口与原来的窗口使用同一个进程</span><br><span class="line">Super+i                         //打开一个新窗口，新窗口与原来的窗口使用不同的进程</span><br></pre></td></tr></table></figure></p>
+<h3 id="gnu-screen">GNU Screen</h3>
+<p>下载：<code>sudo apt install screen</code></p>
+<h4 id="gnu-screen-简介">GNU Screen 简介</h4>
+<p>screen 是一款由 GNU
+计划开发的用于命令行终端切换的自由软件。用户可以通过该软件同时连接多个本地或远程的命令行会话，并在其间自由切换。GNU
+Screen
+可以看作是窗口管理器的命令行界面版本。它提供了统一的管理多个会话的界面和相应的功能。<br />
+在 screen
+环境下，所有的会话都独立的运行，并拥有各自的编号、输入、输出和窗口缓存。用户可以通过快捷键在不同的窗口下切换，并可以自由的重定向各个窗口的输入和输出。</p>
+<h4 id="功能">功能</h4>
+<ul>
+<li>可以创建一个session（会话），实现不同终端之间的交互。<br />
+</li>
+<li>可以实现多人观看同一终端等功能。</li>
+<li>在工作中，如遇突发情况（例如断电，蓝屏等），终端断开，服务器端所有收到信号的前台任务将全部终止，各种工作环境将全部丢失。若在
+screen 里操作，终端意外关闭之后，下次登录到服务器上，进入 screen，之前在
+screen 上运行的任务还在继续运行。screen
+的功能可以大概理解为它将前台任务放入了后台进行，并且不受终端关闭或其它意外事故的影响。</li>
+</ul>
+<h3 id="tmuxterminal-multiplexer类似-gnu-screen">Tmux（terminal
+multiplexer,类似 GNU Screen）</h3>
+<p>下载：<code>sudo apt install tmux</code></p>
+<h4 id="功能-1">功能</h4>
+<ul>
+<li>允许在单个窗口中，同时访问多个会话。这对于同时运行多个命令行程序很有用。<br />
+</li>
+<li>可以让新窗口"接入"已经存在的会话。<br />
+</li>
+<li>允许每个会话有多个连接窗口，因此可以多人实时共享会话。<br />
+</li>
+<li>支持窗口任意的垂直和水平拆分。</li>
+</ul>
+<h2 id="参考文章">参考文章</h2>
+<p><a href="https://www.ruanyifeng.com/blog/2019/10/tmux.html">Tmux
+使用教程</a><br />
+<a
+href="https://www.homedt.net/40644.html">Linux中的screen命令的使用</a><br />
+<a
+href="https://cloud.tencent.com/developer/article/1844735">Linux终端命令神器--Screen命令详解。助力Linux使用和管理</a><br />
+<a
+href="https://zhongguo.eskere.club/%E5%A6%82%E4%BD%95%E4%BF%AE%E5%A4%8Dubuntu-linux%E4%B8%AD%E7%9A%84%E8%93%9D%E7%89%99%E8%BF%9E%E6%8E%A5%E9%97%AE%E9%A2%98/2021-05-12/?__cf_chl_tk=UCmaDe_SWYb41eIhI0dKuadHk0.rGbm7YcRyUkdjQMM-1660017919-0-gaNycGzNCH0">如何修复Ubuntu
+Linux中的蓝牙连接问题</a></p>
 ]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
   </entry>
   <entry>
     <title>使用 Jetson Nano 向 PX4 提供 t265 位置信息，实现室内定点飞行</title>
@@ -2126,48 +2097,33 @@ Nano使用T265向PX4提供位置信息</a></p>
       </tags>
   </entry>
   <entry>
-    <title>博客创作出现报错解决</title>
-    <url>/posts/20220817a1/</url>
-    <content><![CDATA[<div class="note "><p>书写博客时出现以下报错的原因及解决方法：</p>
-<ul>
-<li>Template render error: (unknown path)<br />
-</li>
-<li>err: YAMLException: incomplete explicit mapping pair; a key node is
-missed; or followed by a non-tabulated empty line</li>
-</ul>
-</div>
-<span id="more"></span>
-<h2 id="报错-template-render-error-unknown-path">报错 Template render
-error: (unknown path)</h2>
-<p>今天书写博客时，出现了报错 Template render error: (unknown path)：
-<img src="https://s2.loli.net/2022/08/17/x97uDhPUQBqX2w8.png" /></p>
-<h3 id="原因">原因</h3>
-<p>经过查找，发现是因为使用 note 标签没有正确结束，即出现了 unexpected
-end，故报错。<br />
-另外可能的原因：出现了<code>&#123;&#123;&#125;&#125;</code> <code>&#123;% %&#125;</code>
-<code>&#123;#</code>等等 hexo 无法转义的字符。</p>
-<h3 id="解决方法">解决方法</h3>
-<ul>
-<li>使用 note 标签时注意要正确结束： <figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&#123;% note %&#125;</span><br><span class="line">content</span><br><span class="line">&#123;% endnote %&#125;	#一定要有 endnote</span><br></pre></td></tr></table></figure></li>
-<li>避免使用 hexo 无法转义的字符串。</li>
-</ul>
-<h2
-id="报错-err-yamlexception-incomplete-explicit-mapping-pair-a-key-node-is-missed-or-followed-by-a-non-tabulated-empty-line">报错
-err: YAMLException: incomplete explicit mapping pair; a key node is
-missed; or followed by a non-tabulated empty line</h2>
-<p><img src="https://s2.loli.net/2022/08/17/QmST9Utvn8CPlhM.png" /></p>
-<h3 id="原因-1">原因</h3>
-<p>文章的 title 有非法字符，如英文冒号“:”。</p>
-<h3 id="解决">解决</h3>
-<p>修改文章名或将英文冒号“:”改为中文冒号“：”。</p>
+    <title>Hello World</title>
+    <url>/posts/20210811cl6yw4img00189of9dvxq97ht/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very
+first post. Check <a href="https://hexo.io/docs/">documentation</a> for
+more info. If you get any problems when using Hexo, you can find the
+answer in <a
+href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or
+you can ask me on <a
+href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<p><span id="more"></span></p>
+<h2 id="quick-start">Quick Start</h2>
+<h3 id="create-a-new-post">Create a new post</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a
+href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="run-server">Run server</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="generate-static-files">Generate static files</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a
+href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a
+href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
-      <categories>
-        <category>维护日志</category>
-        <category>创作</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
   </entry>
   <entry>
     <title>在Hexo博客上进行创作</title>
@@ -2374,6 +2330,50 @@ href="https://zcw-blog.top/posts/20210819a1/#more">Markdown语法详解</a></p>
       <tags>
         <tag>Hexo</tag>
         <tag>Markdown</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>博客创作出现报错解决</title>
+    <url>/posts/20220817a1/</url>
+    <content><![CDATA[<div class="note "><p>书写博客时出现以下报错的原因及解决方法：</p>
+<ul>
+<li>Template render error: (unknown path)<br />
+</li>
+<li>err: YAMLException: incomplete explicit mapping pair; a key node is
+missed; or followed by a non-tabulated empty line</li>
+</ul>
+</div>
+<span id="more"></span>
+<h2 id="报错-template-render-error-unknown-path">报错 Template render
+error: (unknown path)</h2>
+<p>今天书写博客时，出现了报错 Template render error: (unknown path)：
+<img src="https://s2.loli.net/2022/08/17/x97uDhPUQBqX2w8.png" /></p>
+<h3 id="原因">原因</h3>
+<p>经过查找，发现是因为使用 note 标签没有正确结束，即出现了 unexpected
+end，故报错。<br />
+另外可能的原因：出现了<code>&#123;&#123;&#125;&#125;</code> <code>&#123;% %&#125;</code>
+<code>&#123;#</code>等等 hexo 无法转义的字符。</p>
+<h3 id="解决方法">解决方法</h3>
+<ul>
+<li>使用 note 标签时注意要正确结束： <figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&#123;% note %&#125;</span><br><span class="line">content</span><br><span class="line">&#123;% endnote %&#125;	#一定要有 endnote</span><br></pre></td></tr></table></figure></li>
+<li>避免使用 hexo 无法转义的字符串。</li>
+</ul>
+<h2
+id="报错-err-yamlexception-incomplete-explicit-mapping-pair-a-key-node-is-missed-or-followed-by-a-non-tabulated-empty-line">报错
+err: YAMLException: incomplete explicit mapping pair; a key node is
+missed; or followed by a non-tabulated empty line</h2>
+<p><img src="https://s2.loli.net/2022/08/17/QmST9Utvn8CPlhM.png" /></p>
+<h3 id="原因-1">原因</h3>
+<p>文章的 title 有非法字符，如英文冒号“:”。</p>
+<h3 id="解决">解决</h3>
+<p>修改文章名或将英文冒号“:”改为中文冒号“：”。</p>
+]]></content>
+      <categories>
+        <category>维护日志</category>
+        <category>创作</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
