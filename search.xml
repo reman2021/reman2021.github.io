@@ -118,6 +118,54 @@ href="https://chziq.com/posts/3655275721/">CNAME记录指向vercel影响了CAA�
       </tags>
   </entry>
   <entry>
+    <title>Clash for Linux</title>
+    <url>/posts/20220726a1/</url>
+    <content><![CDATA[<div class="note "><p>配置 Clash for Linux，并设置开机自启动。<br />
+Linux 系统版本：Ubuntu 20.04.1</p>
+</div>
+<span id="more"></span>
+<h2 id="下载解压-clash-linux-amd64">下载解压 clash-linux-amd64</h2>
+<p>从 <a href="https://github.com/Dreamacro/clash/releases">GitHub</a>
+上下载任意版本的 clash-linux-amd64-vx.x.x.gz。<br />
+在下载目录打开终端，输入如下命令：<br />
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">gunzip clash-linux-amd64-vx.x.x.gz	#文件解压</span><br><span class="line">mv clash-linux-amd64-vx.x.x clash	#文件改名</span><br></pre></td></tr></table></figure> 我在 /home/username 目录下创建了 clash
+文件夹，将解压后的文件移动到里面：<br />
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mkdir Clash			#创建名为 clash 的文件夹  </span><br><span class="line">mv clash /home/username/clash	#将解压改名后的 clash 文件移入 clash 文件夹  </span><br></pre></td></tr></table></figure></p>
+<h2 id="配置-clash">配置 clash</h2>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">chmod +x clash		#首先授权可执行权限  </span><br><span class="line">./clash -d .		#初始化执行 clash  </span><br></pre></td></tr></table></figure>
+<p>在初始化执行 clash 后会默认在当前目录下生成配置文件
+config.yaml和全球IP地址库 Country.mmdb。<br />
+<img src="https://www.hualigs.cn/image/62dfe7b13c9d4.jpg" />
+从代理商那获得配置文件 config.yaml，替换默认生成的配置文件。<br />
+再次初始化执行 clash：<code>./clash -d .</code>。<br />
+出现如下初始化显示：<br />
+<img src="https://www.hualigs.cn/image/62dfe0460215b.jpg" />
+接下来进行系统网络代理设置，打开系统设置-网络-网络代理，选择手动，填写
+HTTP 和 HTTPS 代理为 127.0.0.1:7890，填写 Socks 主机为
+127.0.0.1:7891，即可启用系统代理。<br />
+<img src="https://www.hualigs.cn/image/62dfe11216cb4.jpg" /> 浏览器访问
+<a href="https://google.cn/">Google</a> 验证网络。</p>
+<h2 id="设置开机自启动">设置开机自启动</h2>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo touch /etc/systemd/system/clash.service	#创建 service 文件  </span><br><span class="line">vi /etc/systemd/system/clash.service 	#编辑 service 文件  </span><br></pre></td></tr></table></figure>
+<p>输入如下文本（记得修改 ExecStart 为自己的路径）：<br />
+<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line">[Unit] </span><br><span class="line">Description=clash daemon  </span><br><span class="line">[Service] </span><br><span class="line">Type=simple </span><br><span class="line">User=root </span><br><span class="line">ExecStart=/home/username/clash/clash -d /home/username/clash/ </span><br><span class="line">Restart=<span class="keyword">on</span>-failure  </span><br><span class="line">[Install] </span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure> 使用的 vim 命令参考：<br />
+<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line">i    在当前光标的前面插入字符</span><br><span class="line">A    在一行的结尾处添加文本</span><br><span class="line"><span class="keyword">x</span>    删除当前光标所在处的字符</span><br><span class="line">dw   删除一个单词(从光标处到空格)</span><br><span class="line"><span class="keyword">u</span>    撤销上一步的操作。</span><br><span class="line">:q   若文件没有修改，直接退出</span><br><span class="line">:q!  文件已经被修改，放弃修改退出</span><br><span class="line">:<span class="keyword">wq</span>  文件已经被修改，保存修改并退出</span><br></pre></td></tr></table></figure> 编辑后查看文件内容如下图：<br />
+<img src="https://www.hualigs.cn/image/62dfe84b32703.jpg" />
+接着依次执行下面四个命令：<br />
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo systemctl daemon-reload </span><br><span class="line">sudo systemctl enable clash </span><br><span class="line">sudo systemctl start clash </span><br><span class="line">sudo systemctl status clash</span><br></pre></td></tr></table></figure> 成功后出现如下内容：<br />
+<img src="https://www.hualigs.cn/image/62dfe1481d42a.jpg" /></p>
+<h2 id="参考文章">参考文章</h2>
+<p><a href="https://zhuanlan.zhihu.com/p/430035973">配置 clash for linux
+，适用于ubuntu 20.04（更新于2021.11.6）</a></p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo + NexT 配置优化指南</title>
     <url>/posts/20220424a1/</url>
     <content><![CDATA[<div class="note warning"><p>超长文警告！</p>
@@ -563,54 +611,6 @@ class="footnote-back" role="doc-backlink">↩︎</a></p></li>
       </tags>
   </entry>
   <entry>
-    <title>Clash for Linux</title>
-    <url>/posts/20220726a1/</url>
-    <content><![CDATA[<div class="note "><p>配置 Clash for Linux，并设置开机自启动。<br />
-Linux 系统版本：Ubuntu 20.04.1</p>
-</div>
-<span id="more"></span>
-<h2 id="下载解压-clash-linux-amd64">下载解压 clash-linux-amd64</h2>
-<p>从 <a href="https://github.com/Dreamacro/clash/releases">GitHub</a>
-上下载任意版本的 clash-linux-amd64-vx.x.x.gz。<br />
-在下载目录打开终端，输入如下命令：<br />
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">gunzip clash-linux-amd64-vx.x.x.gz	#文件解压</span><br><span class="line">mv clash-linux-amd64-vx.x.x clash	#文件改名</span><br></pre></td></tr></table></figure> 我在 /home/username 目录下创建了 clash
-文件夹，将解压后的文件移动到里面：<br />
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mkdir Clash			#创建名为 clash 的文件夹  </span><br><span class="line">mv clash /home/username/clash	#将解压改名后的 clash 文件移入 clash 文件夹  </span><br></pre></td></tr></table></figure></p>
-<h2 id="配置-clash">配置 clash</h2>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">chmod +x clash		#首先授权可执行权限  </span><br><span class="line">./clash -d .		#初始化执行 clash  </span><br></pre></td></tr></table></figure>
-<p>在初始化执行 clash 后会默认在当前目录下生成配置文件
-config.yaml和全球IP地址库 Country.mmdb。<br />
-<img src="https://www.hualigs.cn/image/62dfe7b13c9d4.jpg" />
-从代理商那获得配置文件 config.yaml，替换默认生成的配置文件。<br />
-再次初始化执行 clash：<code>./clash -d .</code>。<br />
-出现如下初始化显示：<br />
-<img src="https://www.hualigs.cn/image/62dfe0460215b.jpg" />
-接下来进行系统网络代理设置，打开系统设置-网络-网络代理，选择手动，填写
-HTTP 和 HTTPS 代理为 127.0.0.1:7890，填写 Socks 主机为
-127.0.0.1:7891，即可启用系统代理。<br />
-<img src="https://www.hualigs.cn/image/62dfe11216cb4.jpg" /> 浏览器访问
-<a href="https://google.cn/">Google</a> 验证网络。</p>
-<h2 id="设置开机自启动">设置开机自启动</h2>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo touch /etc/systemd/system/clash.service	#创建 service 文件  </span><br><span class="line">vi /etc/systemd/system/clash.service 	#编辑 service 文件  </span><br></pre></td></tr></table></figure>
-<p>输入如下文本（记得修改 ExecStart 为自己的路径）：<br />
-<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line">[Unit] </span><br><span class="line">Description=clash daemon  </span><br><span class="line">[Service] </span><br><span class="line">Type=simple </span><br><span class="line">User=root </span><br><span class="line">ExecStart=/home/username/clash/clash -d /home/username/clash/ </span><br><span class="line">Restart=<span class="keyword">on</span>-failure  </span><br><span class="line">[Install] </span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure> 使用的 vim 命令参考：<br />
-<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line">i    在当前光标的前面插入字符</span><br><span class="line">A    在一行的结尾处添加文本</span><br><span class="line"><span class="keyword">x</span>    删除当前光标所在处的字符</span><br><span class="line">dw   删除一个单词(从光标处到空格)</span><br><span class="line"><span class="keyword">u</span>    撤销上一步的操作。</span><br><span class="line">:q   若文件没有修改，直接退出</span><br><span class="line">:q!  文件已经被修改，放弃修改退出</span><br><span class="line">:<span class="keyword">wq</span>  文件已经被修改，保存修改并退出</span><br></pre></td></tr></table></figure> 编辑后查看文件内容如下图：<br />
-<img src="https://www.hualigs.cn/image/62dfe84b32703.jpg" />
-接着依次执行下面四个命令：<br />
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo systemctl daemon-reload </span><br><span class="line">sudo systemctl enable clash </span><br><span class="line">sudo systemctl start clash </span><br><span class="line">sudo systemctl status clash</span><br></pre></td></tr></table></figure> 成功后出现如下内容：<br />
-<img src="https://www.hualigs.cn/image/62dfe1481d42a.jpg" /></p>
-<h2 id="参考文章">参考文章</h2>
-<p><a href="https://zhuanlan.zhihu.com/p/430035973">配置 clash for linux
-，适用于ubuntu 20.04（更新于2021.11.6）</a></p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hexo &amp; Next 标签使用说明</title>
     <url>/posts/20220816a1/</url>
     <content><![CDATA[<div class="note "><p>本文为在 Hexo &amp; Next
@@ -760,110 +760,6 @@ source/downloads/code 不是固定的，取决于你在配置文件中 code_dir
       <tags>
         <tag>NexT</tag>
         <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>ROS 学习记录1</title>
-    <url>/posts/20220728a1/</url>
-    <content><![CDATA[<div class="note "><p>记录 ROS 学习过程 Part1。<br />
-主要内容：ROS 安装。</p>
-</div>
-<span id="more"></span>
-<h2 id="学习参考课程">学习参考课程</h2>
-<p><a
-href="https://www.bilibili.com/video/BV1zt411G7Vn?spm_id_from=333.788.top_right_bar_window_custom_collection.content.click&amp;vd_source=2986b70c538b1a31836b82311d90b18a">【古月居】古月·ROS入门21讲
-| 一学就会的ROS机器人入门教程</a><br />
-<strong>强烈推荐</strong>：<a
-href="https://www.bilibili.com/video/BV1Ci4y1L7ZZ?spm_id_from=333.1007.top_right_bar_window_custom_collection.content.click&amp;vd_source=2986b70c538b1a31836b82311d90b18a">【Autolabor初级教程】ROS机器人入门</a></p>
-<h2 id="ros-安装">ROS 安装</h2>
-<p>Linux 系统版本：Ubuntu 20.04.1，ROS 版本为 ROS1 的终极版本:
-noetic，支持 Python3。<br />
-<img src="https://s2.loli.net/2022/07/28/3H8dPUoR26BNWmi.png" /></p>
-<h3 id="配置ubuntu的软件和更新">配置ubuntu的软件和更新</h3>
-<p>打开“软件和更新”对话框，确保勾选了"restricted"， "universe"， 和
-"multiverse"。</p>
-<h3 id="设置安装源">设置安装源</h3>
-<p>官方安装源：<br />
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo sh -c &#x27;echo &quot;deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main&quot; &gt; /etc/apt/sources.list.d/ros-latest.list&#x27;</span><br></pre></td></tr></table></figure> 国内清华镜像：<br />
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo sh -c &#x27;. /etc/lsb-release &amp;&amp; echo &quot;deb http://mirrors.tuna.tsinghua.edu.cn/ros/ubuntu/ `lsb_release -cs` main&quot; &gt; /etc/apt/sources.list.d/ros-latest.list&#x27;</span><br></pre></td></tr></table></figure> 国内中科大镜像： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo sh -c &#x27;. /etc/lsb-release &amp;&amp; echo &quot;deb http://mirrors.ustc.edu.cn/ros/ubuntu/ `lsb_release -cs` main&quot; &gt; /etc/apt/sources.list.d/ros-latest.list&#x27;</span><br></pre></td></tr></table></figure></p>
-<h3 id="设置-key">设置 key</h3>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt-key adv --keyserver &#x27;hkp://keyserver.ubuntu.com:80&#x27; --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654</span><br></pre></td></tr></table></figure>
-<h3 id="安装">安装</h3>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt update		#更新 apt</span><br><span class="line">sudo apt install ros-noetic-desktop-full	#安装 Desktop-Full</span><br></pre></td></tr></table></figure>
-<h4
-id="出现n-忽略ros-latest.listsudo于目录etcaptsources.list.d鉴于它的文件扩展名无效">出现“N:
-忽略‘ros-latest.listsudo’(于目录‘/etc/apt/sources.list.d/’)，鉴于它的文件扩展名无效”</h4>
-<p>解决方法： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo rm -f /etc/apt/sources.list.d/ros-latest.listsudo</span><br></pre></td></tr></table></figure></p>
-<h4 id="终端配置代理">终端配置代理</h4>
-<p>我在系统中设置了代理，于是直接使用官方源，结果不管怎么 update
-和install 都因为连接超时卡在了
-96%。于是我直接访问对应网址，轻松连上，便考虑是否是终端未代理的问题。<br />
-搜了一下，确实如此：SS/Clash 等一般是 web
-代理，终端无法使用，需要单独配置代理。<br />
-方法如下： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo gedit ~/.bashrc		#编辑 .bashrc 文件</span><br></pre></td></tr></table></figure> 在最后加上： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">alias proxy-on=&#x27;export http_proxy=127.0.0.1:7890;export https_proxy=$http_proxy&#x27;</span><br><span class="line">alias proxy-off=&#x27;unset http_proxy;unset https_proxy&#x27; </span><br></pre></td></tr></table></figure> <img
-src="https://s2.loli.net/2022/07/28/ybUAM4NdRt9mSwr.png" />
-保存退出后执行下面命令使文件生效：<br />
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">source ~/.bashrc</span><br></pre></td></tr></table></figure>
-现在使用命令<code>proxy-on</code>和<code>proxy-off</code>便可开关代理。</p>
-<div class="note info"><p>该命令只在当前终端生效，重新打开终端需要重新执行 proxy-on。</p>
-</div>
-<p>使用<code>curl -L www.google.com</code>可以检查代理是否开启，从下图可看出，我们本次请求网站页面成功返回了谷歌起始页的
-HTML 代码。<br />
-也可以使用<code>curl cip.cc</code>查看 IP 来检查。<br />
-<img src="https://s2.loli.net/2022/07/29/67KpCwHzgj1aRXd.png" /></p>
-<div class="note info"><p>访问 google.com 时会自动将地址重定向到
-google.com.hk，故执行<code>curl www.google.com</code>会出现 302 Moved
-提示。</p>
-</div>
-<h4 id="apt-配置代理">apt 配置代理</h4>
-<p>终端配置代理后，还是卡在了 96%。<br />
-查找发现 export 中 http_proxy 和 https_proxy 方式只是修改终端中的 http
-与 https 的代理方式，而 apt install 有自己独立的配置文件，配置终端代理后
-apt 也是直接连接。 所以要进行 apt 代理配置：<br />
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo touch /etc/apt/apt.conf.d/proxy.conf	#创建新的配置文件 proxy.conf</span><br></pre></td></tr></table></figure> 在 proxy.conf 文件里添加：<br />
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Acquire &#123;</span><br><span class="line">  HTTP::proxy &quot;http://127.0.0.1:7890&quot;;</span><br><span class="line">  HTTPS::proxy &quot;http://127.0.0.1:7890&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure> 记得将 7890 改为自己的端口。<br />
-<img src="https://s2.loli.net/2022/07/29/uqUaGJQL5BgXK84.png" />
-保存关闭后重新 apt install，顺利下载安装完成。<br />
-<img src="https://s2.loli.net/2022/07/29/JqWxSpHofRUFuVZ.png" /></p>
-<h3 id="配置环境变量">配置环境变量</h3>
-<p>配置环境变量，方便在任意终端中使用 ROS。<br />
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">echo &quot;source /opt/ros/noetic/setup.bash&quot; &gt;&gt; ~/.bashrc</span><br><span class="line">source ~/.bashrc</span><br></pre></td></tr></table></figure> 至此便可运行<code>roscore</code>进行测试。</p>
-<h3 id="安装构建依赖">安装构建依赖</h3>
-<p>noetic
-最初发布时，和其他历史版本稍有差异的是:没有安装构建依赖这一步骤。随着
-noetic 不断完善，官方补齐了这一操作。<br />
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">安装构建依赖的相关工具</span></span><br><span class="line">sudo apt install python3-rosdep python3-rosinstall python3-rosinstall-generator python3-wstool build-essential</span><br><span class="line">sudo apt install python3-rosdep</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">初始化 rosdep</span></span><br><span class="line">sudo rosdep init</span><br><span class="line">rosdep update</span><br></pre></td></tr></table></figure></p>
-<h4 id="rosdep-init-时出现-website-may-be-down">rosdep init 时出现
-Website may be down</h4>
-<p><a
-href="https://ping.chinaz.com/raw.githubusercontent.com">点此</a>找到
-raw.githubusercontent.com 对应 IP。<br />
-接下来修改 hosts 文件：<br />
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo gedit /etc/hosts</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">添加如下内容</span></span><br><span class="line">185.199.108.133 raw.githubusercontent.com</span><br></pre></td></tr></table></figure> <img
-src="https://s2.loli.net/2022/07/29/Yfa87V1inDFlBtq.png" />
-重新执行<code>rosdep init</code>即可。<br />
-执行成功：<br />
-<img src="https://s2.loli.net/2022/07/29/GtfWnew8HdsuMXP.png" /> <img
-src="https://s2.loli.net/2022/07/29/jgaKLenRwI6oxPd.png" /></p>
-<h2 id="参考文章">参考文章</h2>
-<p><a href="http://wiki.ros.org/noetic/Installation/Ubuntu">Ubuntu
-install of ROS Noetic</a><br />
-<a
-href="http://www.autolabor.com.cn/book/ROSTutorials/">【Autolabor初级教程】ROS机器人入门课程文档</a><br />
-<a
-href="https://www.serverlab.ca/tutorials/linux/administration-linux/how-to-set-the-proxy-for-apt-for-ubuntu-18-04/">How
-to Set the Proxy for APT on Ubuntu 18.04</a><br />
-<a
-href="https://juejin.cn/post/7070003235934715940">Terminal（终端）使用代理进行连接</a><br />
-<a
-href="https://blog.csdn.net/tjy199610_10/article/details/120621676">最详细的ros安装（包含所有相关依赖文件）</a></p>
-]]></content>
-      <categories>
-        <category>学习笔记</category>
-        <category>ROS</category>
-      </categories>
-      <tags>
-        <tag>ROS</tag>
       </tags>
   </entry>
   <entry>
@@ -1672,104 +1568,100 @@ class="footnote-back" role="doc-backlink">↩︎</a></p></li>
       </tags>
   </entry>
   <entry>
-    <title>ROS 学习记录2</title>
-    <url>/posts/20220731a1/</url>
-    <content><![CDATA[<div class="note "><p>记录 ROS 学习过程 Part2。<br />
-主要内容：ROS 测试、快速体验、开发环境搭建、架构认识。</p>
+    <title>ROS 学习记录1</title>
+    <url>/posts/20220728a1/</url>
+    <content><![CDATA[<div class="note "><p>记录 ROS 学习过程 Part1。<br />
+主要内容：ROS 安装。</p>
 </div>
 <span id="more"></span>
-<h2 id="测试-ros">测试 ROS</h2>
-<p>开启三个终端，分别运行： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">roscore</span><br><span class="line">rosrun turtlesim turtlesim_node		#运行后弹出图形化界面</span><br><span class="line">rosrun turtlesim turtle_teleop_key	#运行后可以通过方向键控制海龟的运动</span><br></pre></td></tr></table></figure> <img
-src="https://s2.loli.net/2022/07/31/vd9mzgxcJNfYUkr.png" /></p>
-<h2 id="创建工作空间及初始化">创建工作空间及初始化</h2>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#创建工作空间并初始化</span><br><span class="line">mkdir -p 自定义空间名称/src</span><br><span class="line">cd 自定义空间名称</span><br><span class="line">catkin_make</span><br><span class="line"></span><br><span class="line">#进入 src 创建 ros 包并添加依赖</span><br><span class="line">cd src</span><br><span class="line">catkin_create_pkg 自定义ROS包名 roscpp rospy std_msgs</span><br></pre></td></tr></table></figure>
-<h2 id="helloworld-的-cpython-实现">HelloWorld 的 C++/Python 实现</h2>
-<h3 id="c-实现">C++ 实现</h3>
-<p>1、创建 ROS 工作空间 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#创建工作空间 demo01 并初始化</span><br><span class="line">mkdir -p demo01/src</span><br><span class="line">cd demo01</span><br><span class="line">catkin_make</span><br><span class="line"></span><br><span class="line">#进入 src 创建 名为 helloworld 的 ros 包并添加依赖</span><br><span class="line">cd src</span><br><span class="line">catkin_create_pkg helloworld roscpp rospy std_msgs</span><br><span class="line"></span><br><span class="line">#进入创建的 ros 包</span><br><span class="line">cd helloworld</span><br><span class="line"></span><br><span class="line">#创建 helloworld_c.cpp</span><br><span class="line">gedit helloworld_c.cpp</span><br></pre></td></tr></table></figure> 2、编辑 cpp 文件：<br />
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &quot;ros/ros.h&quot;</span><br><span class="line"></span><br><span class="line">int main(int argc, char *argv[])</span><br><span class="line">&#123;</span><br><span class="line">    //执行 ros 节点初始化</span><br><span class="line">    ros::init(argc,argv,&quot;hello&quot;);</span><br><span class="line">    //创建 ros 节点句柄</span><br><span class="line">    ros::NodeHandle n;</span><br><span class="line">    //控制台输出 hello world</span><br><span class="line">    ROS_INFO(&quot;hello world!&quot;);</span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure> 3、编辑 helloworld 包下的 Cmakelist.txt 文件<br />
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">add_executable(任取节点名</span><br><span class="line">  src/helloworld_c.cpp</span><br><span class="line">)</span><br><span class="line">target_link_libraries(任取节点名</span><br><span class="line">  $&#123;catkin_LIBRARIES&#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure> <img
-src="https://s2.loli.net/2022/08/04/LYAtxeNwcy3KpEU.png" /> 4、编译
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#进入工作空间</span><br><span class="line">cd demo01</span><br><span class="line">#编译</span><br><span class="line">catkin_make</span><br></pre></td></tr></table></figure> 编译成功： <img
-src="https://s2.loli.net/2022/08/04/VsPtDkCfbmodKLi.png" /> 5、执行
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#在终端 1 执行</span><br><span class="line">roscore</span><br><span class="line"></span><br><span class="line">#在终端 2 执行</span><br><span class="line">#进入工作空间</span><br><span class="line">cd demo01</span><br><span class="line">#刷新环境变量</span><br><span class="line">source ./devel/setup.bash</span><br><span class="line">#rosrun 包名 节点名</span><br><span class="line">rosrun helloworld hellow_node</span><br></pre></td></tr></table></figure> <img
-src="https://s2.loli.net/2022/08/04/UrDkCiqh9u4vAGR.png" />
-<div class="note info"><p>如果没有执行<code>source ./devel/setup.bash</code>在当前终端刷新环境变量，则会报错，另开一个终端也要再执行一次。<br />
-<img src="https://s2.loli.net/2022/08/04/9zmVsfr7YwKQ3yg.png" />
-若嫌太麻烦，可以执行<code>echo "source ~/工作空间名/devel/setup.bash" &gt;&gt; ~/.bashrc</code>，之后就不用每次打开都执行一次。</p>
-</div></p>
-<h3 id="python-实现">Python 实现</h3>
-<p>1、创建 py 文件<br />
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#进入 helloworld 功能包</span><br><span class="line">cd demo01/src/helloworld</span><br><span class="line">#创建 scripts 文件夹</span><br><span class="line">mkdir scripts</span><br><span class="line">#进入 scripts 文件夹</span><br><span class="line">cd ./scripts</span><br><span class="line">#创建 py 文件</span><br><span class="line">gedit hw_py.py</span><br></pre></td></tr></table></figure> 2、编辑 py 文件<br />
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#! /usr/bin/env python</span><br><span class="line">#导入 rospy 包</span><br><span class="line">import rospy</span><br><span class="line">#编写主入口</span><br><span class="line">if __name__ == &quot;__main__&quot;:</span><br><span class="line">	#初始化 ros 节点</span><br><span class="line">    rospy.init_node(&quot;hello_py&quot;)</span><br><span class="line">	#输出日志</span><br><span class="line">    rospy.loginfo(&quot;hello world! by python&quot;)</span><br></pre></td></tr></table></figure> <img
-src="https://s2.loli.net/2022/08/04/Lf5hdrOG4waDBSF.png" /> 3、为 python
-文件添加可执行权限<br />
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">chmod +x hw_py.py</span><br></pre></td></tr></table></figure> <img
-src="https://s2.loli.net/2022/08/04/gXEufcCbhNdpjIT.png" /> 4、编辑
-helloworld 下的 CamkeList.txt 文件<br />
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">catkin_install_python(PROGRAMS scripts/hw_py.py</span><br><span class="line">  DESTINATION $&#123;CATKIN_PACKAGE_BIN_DESTINATION&#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure> <img
-src="https://s2.loli.net/2022/08/04/GqkamehDbtMy2Ac.png" />
-5、编译<br />
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#进入工作空间</span><br><span class="line">cd demo01</span><br><span class="line">#编译</span><br><span class="line">catkin_make</span><br></pre></td></tr></table></figure> 6、执行<br />
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#在终端 1 执行</span><br><span class="line">roscore</span><br><span class="line"></span><br><span class="line">#在终端 2 执行</span><br><span class="line">#进入工作空间</span><br><span class="line">cd demo01</span><br><span class="line">#刷新环境变量</span><br><span class="line">source ./devel/setup.bash</span><br><span class="line">#rosrun 包名 py 文件名</span><br><span class="line">rosrun helloworld hw_py.py</span><br></pre></td></tr></table></figure> <img
-src="https://s2.loli.net/2022/08/04/QgXBErxh6e4ZbtD.png" /></p>
-<h2 id="安装并使用-vscode">安装并使用 VScode</h2>
-<h3 id="下载安装包">下载安装包</h3>
-<p>下载地址：<a href="https://code.visualstudio.com/docs?start=true"
-class="uri">https://code.visualstudio.com/docs?start=true</a><br />
-历史版本下载：<a href="https://code.visualstudio.com/updates"
-class="uri">https://code.visualstudio.com/updates</a><br />
-<img src="https://s2.loli.net/2022/08/04/pEJ6UgYwBx928iR.png" /></p>
-<h3 id="安装">安装</h3>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#在下载目录打开终端，执行</span><br><span class="line">sudo dpkg -i xxxx.deb</span><br></pre></td></tr></table></figure>
-<p><img src="https://s2.loli.net/2022/08/04/r2yRB4hIEwjNDkK.png" /></p>
-<h3 id="卸载">卸载</h3>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo dpkg --purge  code</span><br></pre></td></tr></table></figure>
-<h3 id="添加插件">添加插件</h3>
-<p>在插件里搜索并下载 C/C++、CMake Tools、Python、ROS。<br />
-<img src="https://s2.loli.net/2022/08/05/Iuiypt8q5jFCL7Y.png" /></p>
-<h3 id="vscode-基本使用">vscode 基本使用</h3>
-<p>1、创建 ROS 工作空间并启动 vscode<br />
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#创建工作空间 demo02 并初始化</span><br><span class="line">mkdir -p demo02/src</span><br><span class="line">cd demo02</span><br><span class="line">catkin_make</span><br><span class="line"></span><br><span class="line">#启动 vscode</span><br><span class="line">code .</span><br></pre></td></tr></table></figure> 2、配置默认编译选项<br />
-快捷键：Ctrl + Shift + B，选择 catkin_make:build 的设置选项，进入
-.vscode/tasks.json 文件。<br />
-<img src="https://s2.loli.net/2022/08/05/bQv5RXesH6LxINd.png" /> <img
-src="https://s2.loli.net/2022/08/05/Cz9Tnpbdcq7oEIV.png" />
-将文件内容修改如下：<br />
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;version&quot;: &quot;2.0.0&quot;,</span><br><span class="line">    &quot;tasks&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;label&quot;: &quot;catkin_make:debug&quot;, //代表提示的描述性信息</span><br><span class="line">            &quot;type&quot;: &quot;shell&quot;,  //可以选择shell或者process,如果是shell代码是在shell里面运行一个命令，如果是process代表作为一个进程来运行</span><br><span class="line">            &quot;command&quot;: &quot;catkin_make&quot;,//这个是我们需要运行的命令</span><br><span class="line">            &quot;args&quot;: [],//如果需要在命令后面加一些后缀，可以写在这里，比如-DCATKIN_WHITELIST_PACKAGES=“pac1;pac2”</span><br><span class="line">            &quot;group&quot;: &#123;&quot;kind&quot;:&quot;build&quot;,&quot;isDefault&quot;:true&#125;,</span><br><span class="line">            &quot;presentation&quot;: &#123;</span><br><span class="line">                &quot;reveal&quot;: &quot;always&quot;//可选always或者silence，代表是否输出信息</span><br><span class="line">            &#125;,</span><br><span class="line">            &quot;problemMatcher&quot;: &quot;$msCompile&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure> <img
-src="https://s2.loli.net/2022/08/05/priIPRXJo7q9zmW.png" />
-之后使用快捷键 Ctrl + Shift + B 即默认使用 catkin_make:build
-进行编译。<br />
-3、创建 ROS 功能包<br />
-右键 src，选择 create catkin package，然后依次设置包名、添加依赖。<br />
-<img src="https://s2.loli.net/2022/08/05/dze24Qp1HjNfaSO.png" /> <img
-src="https://s2.loli.net/2022/08/05/DRPNVquGb2hgAJ8.png" /> 4、C++
-源文件<br />
-在<strong>功能包</strong>的 src 下创建 cpp 文件。<br />
-<img src="https://s2.loli.net/2022/08/05/E3jqZQgRPVwGKm2.png" /> 编写
-C++ 源文件： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &quot;ros/ros.h&quot;</span><br><span class="line"></span><br><span class="line">int main(int argc, char *argv[])</span><br><span class="line">&#123;</span><br><span class="line">    ros::init(argc,argv,&quot;hello&quot;);</span><br><span class="line">    ROS_INFO(&quot;hello&quot;);</span><br><span class="line">	</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure> <div class="note info"><p><i class="fa fa-circle" aria-hidden="true"></i>如果没有代码提示，则修改
-.vscode/c_cpp_properties.json 中 cppStandard 的值为 c++17。<br />
-<img src="https://s2.loli.net/2022/08/05/IcGZeUvTH4YARir.png" />
-<i class="fa fa-circle" aria-hidden="true"></i>当ROS_INFO
-终端输出有中文时，会出现乱码，解决办法为在函数开头加入下面的任意一句代码。<br />
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">setlocale(LC_CTYPE, &quot;zh_CN.utf8&quot;);</span><br><span class="line">setlocale(LC_ALL, &quot;&quot;);</span><br></pre></td></tr></table></figure></p>
-</div> 5、py 文件<br />
-在<strong>功能包</strong>下新建 scripts 文件夹，添加 py
-文件，并添加可执行权限。<br />
-<img src="https://s2.loli.net/2022/08/05/kS5TbaosRIGLQ3A.png" /></p>
-<p>编写 py 文件： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#! /usr/bin/env python</span><br><span class="line"></span><br><span class="line">import rospy</span><br><span class="line"></span><br><span class="line">if __name__ == &quot;__main__&quot;:</span><br><span class="line"></span><br><span class="line">    rospy.init_node(&quot;hello&quot;)</span><br><span class="line">    rospy.loginfo(&quot;hello vscode by python&quot;)</span><br></pre></td></tr></table></figure> 6、配置 CMakeLists.txt<br />
-C++ 配置:<br />
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">add_executable(节点名称</span><br><span class="line">  src/C++源文件名.cpp</span><br><span class="line">)</span><br><span class="line">target_link_libraries(节点名称</span><br><span class="line">  $&#123;catkin_LIBRARIES&#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure> Python 配置:<br />
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">catkin_install_python(PROGRAMS scripts/py文件名.py</span><br><span class="line">  DESTINATION $&#123;CATKIN_PACKAGE_BIN_DESTINATION&#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure> 7、编译执行<br />
-编译：Ctrl + Shift + B。<br />
-<img src="https://s2.loli.net/2022/08/05/lALT5QJvbVPjcs9.png" /> <img
-src="https://s2.loli.net/2022/08/05/aVphjCtLmxRdwDJ.png" /> 执行：可以在
-VScode 中添加终端，命令与之前一致。<br />
-<img src="https://s2.loli.net/2022/08/05/5tgroTYdFfynGlk.png" /> <img
-src="https://s2.loli.net/2022/08/05/1HxpgAyMPwYehu6.png" /> <img
-src="https://s2.loli.net/2022/08/05/pkGVR9fvoqTHiZU.png" /></p>
-<h2 id="参考">参考</h2>
+<h2 id="学习参考课程">学习参考课程</h2>
 <p><a
-href="http://www.autolabor.com.cn/book/ROSTutorials/">【Autolabor初级教程】ROS机器人入门课程文档</a></p>
+href="https://www.bilibili.com/video/BV1zt411G7Vn?spm_id_from=333.788.top_right_bar_window_custom_collection.content.click&amp;vd_source=2986b70c538b1a31836b82311d90b18a">【古月居】古月·ROS入门21讲
+| 一学就会的ROS机器人入门教程</a><br />
+<strong>强烈推荐</strong>：<a
+href="https://www.bilibili.com/video/BV1Ci4y1L7ZZ?spm_id_from=333.1007.top_right_bar_window_custom_collection.content.click&amp;vd_source=2986b70c538b1a31836b82311d90b18a">【Autolabor初级教程】ROS机器人入门</a></p>
+<h2 id="ros-安装">ROS 安装</h2>
+<p>Linux 系统版本：Ubuntu 20.04.1，ROS 版本为 ROS1 的终极版本:
+noetic，支持 Python3。<br />
+<img src="https://s2.loli.net/2022/07/28/3H8dPUoR26BNWmi.png" /></p>
+<h3 id="配置ubuntu的软件和更新">配置ubuntu的软件和更新</h3>
+<p>打开“软件和更新”对话框，确保勾选了"restricted"， "universe"， 和
+"multiverse"。</p>
+<h3 id="设置安装源">设置安装源</h3>
+<p>官方安装源：<br />
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo sh -c &#x27;echo &quot;deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main&quot; &gt; /etc/apt/sources.list.d/ros-latest.list&#x27;</span><br></pre></td></tr></table></figure> 国内清华镜像：<br />
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo sh -c &#x27;. /etc/lsb-release &amp;&amp; echo &quot;deb http://mirrors.tuna.tsinghua.edu.cn/ros/ubuntu/ `lsb_release -cs` main&quot; &gt; /etc/apt/sources.list.d/ros-latest.list&#x27;</span><br></pre></td></tr></table></figure> 国内中科大镜像： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo sh -c &#x27;. /etc/lsb-release &amp;&amp; echo &quot;deb http://mirrors.ustc.edu.cn/ros/ubuntu/ `lsb_release -cs` main&quot; &gt; /etc/apt/sources.list.d/ros-latest.list&#x27;</span><br></pre></td></tr></table></figure></p>
+<h3 id="设置-key">设置 key</h3>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt-key adv --keyserver &#x27;hkp://keyserver.ubuntu.com:80&#x27; --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654</span><br></pre></td></tr></table></figure>
+<h3 id="安装">安装</h3>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt update		#更新 apt</span><br><span class="line">sudo apt install ros-noetic-desktop-full	#安装 Desktop-Full</span><br></pre></td></tr></table></figure>
+<h4
+id="出现n-忽略ros-latest.listsudo于目录etcaptsources.list.d鉴于它的文件扩展名无效">出现“N:
+忽略‘ros-latest.listsudo’(于目录‘/etc/apt/sources.list.d/’)，鉴于它的文件扩展名无效”</h4>
+<p>解决方法： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo rm -f /etc/apt/sources.list.d/ros-latest.listsudo</span><br></pre></td></tr></table></figure></p>
+<h4 id="终端配置代理">终端配置代理</h4>
+<p>我在系统中设置了代理，于是直接使用官方源，结果不管怎么 update
+和install 都因为连接超时卡在了
+96%。于是我直接访问对应网址，轻松连上，便考虑是否是终端未代理的问题。<br />
+搜了一下，确实如此：SS/Clash 等一般是 web
+代理，终端无法使用，需要单独配置代理。<br />
+方法如下： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo gedit ~/.bashrc		#编辑 .bashrc 文件</span><br></pre></td></tr></table></figure> 在最后加上： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">alias proxy-on=&#x27;export http_proxy=127.0.0.1:7890;export https_proxy=$http_proxy&#x27;</span><br><span class="line">alias proxy-off=&#x27;unset http_proxy;unset https_proxy&#x27; </span><br></pre></td></tr></table></figure> <img
+src="https://s2.loli.net/2022/07/28/ybUAM4NdRt9mSwr.png" />
+保存退出后执行下面命令使文件生效：<br />
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">source ~/.bashrc</span><br></pre></td></tr></table></figure>
+现在使用命令<code>proxy-on</code>和<code>proxy-off</code>便可开关代理。</p>
+<div class="note info"><p>该命令只在当前终端生效，重新打开终端需要重新执行 proxy-on。</p>
+</div>
+<p>使用<code>curl -L www.google.com</code>可以检查代理是否开启，从下图可看出，我们本次请求网站页面成功返回了谷歌起始页的
+HTML 代码。<br />
+也可以使用<code>curl cip.cc</code>查看 IP 来检查。<br />
+<img src="https://s2.loli.net/2022/07/29/67KpCwHzgj1aRXd.png" /></p>
+<div class="note info"><p>访问 google.com 时会自动将地址重定向到
+google.com.hk，故执行<code>curl www.google.com</code>会出现 302 Moved
+提示。</p>
+</div>
+<h4 id="apt-配置代理">apt 配置代理</h4>
+<p>终端配置代理后，还是卡在了 96%。<br />
+查找发现 export 中 http_proxy 和 https_proxy 方式只是修改终端中的 http
+与 https 的代理方式，而 apt install 有自己独立的配置文件，配置终端代理后
+apt 也是直接连接。 所以要进行 apt 代理配置：<br />
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo touch /etc/apt/apt.conf.d/proxy.conf	#创建新的配置文件 proxy.conf</span><br></pre></td></tr></table></figure> 在 proxy.conf 文件里添加：<br />
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Acquire &#123;</span><br><span class="line">  HTTP::proxy &quot;http://127.0.0.1:7890&quot;;</span><br><span class="line">  HTTPS::proxy &quot;http://127.0.0.1:7890&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure> 记得将 7890 改为自己的端口。<br />
+<img src="https://s2.loli.net/2022/07/29/uqUaGJQL5BgXK84.png" />
+保存关闭后重新 apt install，顺利下载安装完成。<br />
+<img src="https://s2.loli.net/2022/07/29/JqWxSpHofRUFuVZ.png" /></p>
+<h3 id="配置环境变量">配置环境变量</h3>
+<p>配置环境变量，方便在任意终端中使用 ROS。<br />
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">echo &quot;source /opt/ros/noetic/setup.bash&quot; &gt;&gt; ~/.bashrc</span><br><span class="line">source ~/.bashrc</span><br></pre></td></tr></table></figure> 至此便可运行<code>roscore</code>进行测试。</p>
+<h3 id="安装构建依赖">安装构建依赖</h3>
+<p>noetic
+最初发布时，和其他历史版本稍有差异的是:没有安装构建依赖这一步骤。随着
+noetic 不断完善，官方补齐了这一操作。<br />
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">安装构建依赖的相关工具</span></span><br><span class="line">sudo apt install python3-rosdep python3-rosinstall python3-rosinstall-generator python3-wstool build-essential</span><br><span class="line">sudo apt install python3-rosdep</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">初始化 rosdep</span></span><br><span class="line">sudo rosdep init</span><br><span class="line">rosdep update</span><br></pre></td></tr></table></figure></p>
+<h4 id="rosdep-init-时出现-website-may-be-down">rosdep init 时出现
+Website may be down</h4>
+<p><a
+href="https://ping.chinaz.com/raw.githubusercontent.com">点此</a>找到
+raw.githubusercontent.com 对应 IP。<br />
+接下来修改 hosts 文件：<br />
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo gedit /etc/hosts</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">添加如下内容</span></span><br><span class="line">185.199.108.133 raw.githubusercontent.com</span><br></pre></td></tr></table></figure> <img
+src="https://s2.loli.net/2022/07/29/Yfa87V1inDFlBtq.png" />
+重新执行<code>rosdep init</code>即可。<br />
+执行成功：<br />
+<img src="https://s2.loli.net/2022/07/29/GtfWnew8HdsuMXP.png" /> <img
+src="https://s2.loli.net/2022/07/29/jgaKLenRwI6oxPd.png" /></p>
+<h2 id="参考文章">参考文章</h2>
+<p><a href="http://wiki.ros.org/noetic/Installation/Ubuntu">Ubuntu
+install of ROS Noetic</a><br />
+<a
+href="http://www.autolabor.com.cn/book/ROSTutorials/">【Autolabor初级教程】ROS机器人入门课程文档</a><br />
+<a
+href="https://www.serverlab.ca/tutorials/linux/administration-linux/how-to-set-the-proxy-for-apt-for-ubuntu-18-04/">How
+to Set the Proxy for APT on Ubuntu 18.04</a><br />
+<a
+href="https://juejin.cn/post/7070003235934715940">Terminal（终端）使用代理进行连接</a><br />
+<a
+href="https://blog.csdn.net/tjy199610_10/article/details/120621676">最详细的ros安装（包含所有相关依赖文件）</a></p>
 ]]></content>
       <categories>
         <category>学习笔记</category>
@@ -1961,7 +1853,7 @@ src="https://s2.loli.net/2022/08/14/3piwBjGfbULu9ag.png" /></p>
   </entry>
   <entry>
     <title>Hello World</title>
-    <url>/posts/20210811cl6xtsumd001rwgf91iwqa28u/</url>
+    <url>/posts/20210811cl6yevhke0012ekf9683x779g/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very
 first post. Check <a href="https://hexo.io/docs/">documentation</a> for
 more info. If you get any problems when using Hexo, you can find the
@@ -1987,122 +1879,6 @@ href="https://hexo.io/docs/generating.html">Generating</a></p>
 <p>More info: <a
 href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
-  </entry>
-  <entry>
-    <title>使用 Jetson Nano 向 PX4 提供 t265 位置信息，实现室内定点飞行</title>
-    <url>/posts/20210907a1/</url>
-    <content><![CDATA[<div class="note "><p>本文作者：南京航空航天大学 科技中心 陈思祺<br />
-主要内容：详细阐述如何使用 Jetson Nano 向 PX4 提供 t265
-位置信息，从而实现室内定点飞行。</p>
-</div>
-<p><span id="more"></span></p>
-<p>使用的 Jetson Nano 镜像版本：4.6（2021-08-04 发布）</p>
-<p><a
-href="https://developer.nvidia.com/zh-cn/embedded/downloads">NVIDIA官方镜像下载链接</a></p>
-<p><img src="https://s2.loli.net/2022/07/19/d6PRHu7trEnLG2l.jpg" /></p>
-<p>下载好镜像，烧录进 TF
-卡，初次开机简单配置后进入系统，建议系统语言选择英语，正式开始本次教程。</p>
-<h2 id="更新软件列表更新软件">更新软件列表，更新软件</h2>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt-get update </span><br><span class="line">sudo apt-get upgrade </span><br></pre></td></tr></table></figure>
-<h2 id="安装-ros-melodic">安装 ROS Melodic</h2>
-<p>参考<a
-href="http://wiki.ros.org/melodic/Installation/Ubuntu">官网安装教程</a></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 设置sources.list</span></span><br><span class="line">sudo sh -c &#x27;echo &quot;deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main&quot; &gt; /etc/apt/sources.list.d/ros-latest.list&#x27;</span><br><span class="line"><span class="meta">#</span><span class="bash"> 设置密钥</span></span><br><span class="line">sudo apt install curl</span><br><span class="line">curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add -</span><br><span class="line"><span class="meta">#</span><span class="bash"> 确保 Debian 包索引是最新的</span></span><br><span class="line">sudo apt update</span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装桌面完整版（推荐）</span></span><br><span class="line">sudo apt install ros-melodic-desktop-full</span><br><span class="line"><span class="meta">#</span><span class="bash"> 设置环境</span></span><br><span class="line">echo &quot;source /opt/ros/melodic/setup.bash&quot; &gt;&gt; ~/.bashrc</span><br><span class="line">source ~/.bashrc</span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装 rosdep</span></span><br><span class="line">sudo apt install python-rosdep</span><br><span class="line"><span class="meta">#</span><span class="bash"> 初始化 rosdep</span></span><br><span class="line">sudo rosdep init</span><br><span class="line">rosdep update</span><br><span class="line"><span class="meta">#</span><span class="bash"> 试一下效果</span></span><br><span class="line">roscore</span><br></pre></td></tr></table></figure>
-<h2 id="安装realsense">安装realsense</h2>
-<p>参考<a
-href="https://github.com/IntelRealSense/librealsense/blob/master/doc/installation.md">官网安装教程</a></p>
-<p>安装过程中请拔下摄像头</p>
-<h3 id="安装realsense-sdk">安装Realsense SDK</h3>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 下载<span class="built_in">source</span></span> </span><br><span class="line"><span class="meta">#</span><span class="bash"> 可使用Proxy代理加速下载。详见：https://ghproxy.com/</span></span><br><span class="line">git clone https://github.com/IntelRealSense/librealsense</span><br><span class="line">cd librealsense</span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装依赖项</span> </span><br><span class="line">sudo apt-get install libudev-dev pkg-config libgtk-3-dev</span><br><span class="line">sudo apt-get install libusb-1.0-0-dev pkg-config</span><br><span class="line">sudo apt-get install libglfw3-dev</span><br><span class="line">sudo apt-get install libssl-dev</span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装位于 librealsense 源目录中的 Intel Realsense 权限脚本</span></span><br><span class="line">sudo cp config/99-realsense-libusb.rules /etc/udev/rules.d/</span><br><span class="line">sudo udevadm control --reload-rules &amp;&amp; udevadm trigger </span><br><span class="line"><span class="meta">#</span><span class="bash"> 编译</span></span><br><span class="line">mkdir build</span><br><span class="line">cd build</span><br><span class="line">cmake ../ -DBUILD_EXAMPLES=true</span><br><span class="line">make</span><br><span class="line">sudo make install</span><br><span class="line"><span class="meta">#</span><span class="bash"> 试一下效果</span></span><br><span class="line">realsense-viewer</span><br></pre></td></tr></table></figure>
-<h3 id="安装realsense-ros">安装realsense-ros</h3>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 下载<span class="built_in">source</span></span></span><br><span class="line">mkdir -p ~/catkin_ws/src</span><br><span class="line">cd ~/catkin_ws/src/</span><br><span class="line">git clone https://github.com/IntelRealSense/realsense-ros.git</span><br><span class="line">git clone https://github.com/pal-robotics/ddynamic_reconfigure</span><br><span class="line">cd realsense-ros/</span><br><span class="line">git checkout `git tag | sort -V | grep -P &quot;^\d+\.\d+\.\d+&quot; | tail -1`</span><br><span class="line"><span class="meta">#</span><span class="bash"> 更改cv_bridgeConfig.cmake中opencv4路径</span></span><br><span class="line">sudo gedit /opt/ros/melodic/share/cv_bridge/cmake/cv_bridgeConfig.cmake</span><br></pre></td></tr></table></figure>
-<p>如图</p>
-<p><img src="https://s2.loli.net/2022/07/19/QFk1VvcSTZz8xWU.png" /></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 编译</span></span><br><span class="line">cd ~/catkin_ws</span><br><span class="line">catkin_make</span><br><span class="line"><span class="meta">#</span><span class="bash"> 设置环境</span></span><br><span class="line">echo &quot;source ~/catkin_ws/devel/setup.bash&quot;&gt;&gt;~/.bashrc </span><br><span class="line">source ~/.bashrc</span><br><span class="line"><span class="meta">#</span><span class="bash">试一下效果</span></span><br><span class="line">roslaunch realsense2_camera rs_t265.launch</span><br></pre></td></tr></table></figure>
-<h2 id="px4配置">PX4配置</h2>
-<p>下载 <em>QGroundControl</em></p>
-<p><a
-href="https://github.com/mavlink/qgroundcontrol/releases/">GitHub链接</a></p>
-<p><a href="https://docs.qgroundcontrol.com/master/en/">使用说明</a></p>
-<ul>
-<li><p><code>MAV_1_CONFIG</code>= <code>TELEM 2</code></p></li>
-<li><p><code>MAV_1_MODE</code> = <code>Onboard</code></p></li>
-<li><p><code>SER_TEL2_BAUD</code> = <code>57600 8N1</code></p></li>
-<li><p><code>EKF2_AID_MASK</code> 勾选
-<code>vision position fusion</code>和<code>vision yaw fusion</code></p></li>
-<li><p><code>EKF2_HGT_MODE</code> 设置为 <code>Vision</code></p></li>
-<li><p><code>MAV_ODOM_LP</code>设置为<code>1</code></p></li>
-</ul>
-<h2 id="mavros-和vio">MAVROS 和VIO</h2>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> MAVROS</span></span><br><span class="line">sudo apt install python-catkin-tools</span><br><span class="line">sudo apt install ros-melodic-mavros ros-melodic-mavros-extras</span><br><span class="line">sudo apt-get install ros-indigo-mavros ros-indigo-mavros-extras ros‐indigo‐control‐toolbox</span><br><span class="line"><span class="meta">#</span><span class="bash"> VIO</span></span><br><span class="line">cd ~/catkin_ws/src</span><br><span class="line">git clone https://github.com/Auterion/VIO.git</span><br><span class="line">cd ..</span><br><span class="line">catkin_make</span><br></pre></td></tr></table></figure>
-<p>更改以下配置</p>
-<ol type="1">
-<li>T265 相对位置及朝向</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">gedit ~/catkin_ws/src/VIO/launch/bridge.launch</span><br></pre></td></tr></table></figure>
-<p>修改</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">&lt;node pkg=&quot;tf&quot; type=&quot;static_transform_publisher&quot; name=&quot;tf_baseLink_cameraPose&quot;args=&quot;0 0 0 0 1.5708 0 base_link camera_pose_frame 1000&quot;/&gt;</span><br></pre></td></tr></table></figure>
-<p><code>args</code>中</p>
-<ul>
-<li><p>开头三个参数为飞控中心指向 T265 中心的向量。例如 T265 在飞控前方
-10 cm，上方 4 cm, 则前三个参数为：<code>[0.1, 0, -0.04]</code></p></li>
-<li><p>中间三个参数为旋转角(偏航, 俯仰, 横滚)。默认 T265
-朝地，则参数为<code>[0, 1.5708, 0]</code>；T265
-照射飞机机头方向，则参数为 <code>[0 0 0]</code></p></li>
-</ul>
-<ol start="2" type="1">
-<li>如果 TTL 的速度异常</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo gedit /opt/ros/melodic/share/mavros/launch/px4_config.yaml</span><br></pre></td></tr></table></figure>
-<p>第 12 行改为</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">timesync_rate: 0.0</span><br></pre></td></tr></table></figure>
-<ol start="3" type="1">
-<li>如果使用 USB 连接</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo gedit /opt/ros/melodic/share/mavros/launch/px4.launch</span><br></pre></td></tr></table></figure>
-<p>修改第 5 行为</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">&lt;arg name=&quot;fcu_url&quot; default=&quot;/dev/ttyUSB0:57600&quot; /&gt;</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">gedit ~/catkin_ws/src/VIO/launch/bridge_mavros.launch</span><br></pre></td></tr></table></figure>
-<p>修改第 3 行为</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">&lt;arg name=&quot;fcu_url&quot; default=&quot;/dev/ttyUSB0:57600&quot; /&gt;</span><br></pre></td></tr></table></figure>
-<ol start="4" type="1">
-<li>放开串口权限</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 用你自己的用户名替代下面的&lt;username&gt;</span></span><br><span class="line">sudo usermod -a -G dialout &lt;username&gt;</span><br><span class="line"><span class="meta">#</span><span class="bash"> 修改后需重启生效</span></span><br><span class="line">reboot now</span><br></pre></td></tr></table></figure>
-<h2 id="起飞前检查">起飞前检查</h2>
-<p>详情请看<a
-href="https://docs.px4.io/master/en/computer_vision/visual_inertial_odometry.html#verify_estimate">官网说明</a></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 开启VIO</span></span><br><span class="line">roslaunch px4_realsense_bridge bridge_mavros.launch</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>连接好摄像头、USB、PX4，可暂不接电池，查看 MAVLink
-Inspector</p></li>
-<li><p>偏航机身，直到<code>ODOMETRY</code>消息的四元数非常接近单位四元数（w
-= 1，x = y = z = 0）</p></li>
-<li><p>向前移动无人机，x 坐标应增大</p></li>
-<li><p>向右移动无人机，y 坐标应增大</p></li>
-<li><p>向上移动无人机，z 坐标应减小</p></li>
-<li><p>遥控器切换到 Position Flight Mode，若切换成功，应闪绿灯</p></li>
-</ul>
-<p>然后可以接上电池，尝试定点飞行</p>
-<h2 id="参考文章">参考文章</h2>
-<p><a href="https://docs.px4.io/master/en/">PX4 User Guide</a></p>
-<p><a href="http://wiki.ros.org/">ROS Wiki</a></p>
-<p><a href="https://github.com/IntelRealSense/">Intel RealSense</a></p>
-<p><a
-href="https://lifuguan.github.io/d435i/ros/2019/05/28/realsense-melodic-installation/">ROS
-melodic kernel 4.18 安装 realsense D435i</a></p>
-<p><a
-href="https://zhuanlan.zhihu.com/p/364390798">通过MAVROS连接机载电脑（NANO/TX2/NX）与Pixhawk</a></p>
-<p><a href="https://zhuanlan.zhihu.com/p/367357019">Jetson
-Nano使用T265向PX4提供位置信息</a></p>
-<p><a href="https://ghproxy.com/">GitHub Proxy</a></p>
-]]></content>
-      <categories>
-        <category>PX4</category>
-      </categories>
-      <tags>
-        <tag>PX4飞控</tag>
-      </tags>
   </entry>
   <entry>
     <title>在Hexo博客上进行创作</title>
@@ -2353,6 +2129,230 @@ missed; or followed by a non-tabulated empty line</h2>
       </categories>
       <tags>
         <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ROS 学习记录2</title>
+    <url>/posts/20220731a1/</url>
+    <content><![CDATA[<div class="note "><p>记录 ROS 学习过程 Part2。<br />
+主要内容：ROS 测试、快速体验、开发环境搭建、架构认识。</p>
+</div>
+<span id="more"></span>
+<h2 id="测试-ros">测试 ROS</h2>
+<p>开启三个终端，分别运行： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">roscore</span><br><span class="line">rosrun turtlesim turtlesim_node		#运行后弹出图形化界面</span><br><span class="line">rosrun turtlesim turtle_teleop_key	#运行后可以通过方向键控制海龟的运动</span><br></pre></td></tr></table></figure> <img
+src="https://s2.loli.net/2022/07/31/vd9mzgxcJNfYUkr.png" /></p>
+<h2 id="创建工作空间及初始化">创建工作空间及初始化</h2>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#创建工作空间并初始化</span><br><span class="line">mkdir -p 自定义空间名称/src</span><br><span class="line">cd 自定义空间名称</span><br><span class="line">catkin_make</span><br><span class="line"></span><br><span class="line">#进入 src 创建 ros 包并添加依赖</span><br><span class="line">cd src</span><br><span class="line">catkin_create_pkg 自定义ROS包名 roscpp rospy std_msgs</span><br></pre></td></tr></table></figure>
+<h2 id="helloworld-的-cpython-实现">HelloWorld 的 C++/Python 实现</h2>
+<h3 id="c-实现">C++ 实现</h3>
+<p>1、创建 ROS 工作空间 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#创建工作空间 demo01 并初始化</span><br><span class="line">mkdir -p demo01/src</span><br><span class="line">cd demo01</span><br><span class="line">catkin_make</span><br><span class="line"></span><br><span class="line">#进入 src 创建 名为 helloworld 的 ros 包并添加依赖</span><br><span class="line">cd src</span><br><span class="line">catkin_create_pkg helloworld roscpp rospy std_msgs</span><br><span class="line"></span><br><span class="line">#进入创建的 ros 包</span><br><span class="line">cd helloworld</span><br><span class="line"></span><br><span class="line">#创建 helloworld_c.cpp</span><br><span class="line">gedit helloworld_c.cpp</span><br></pre></td></tr></table></figure> 2、编辑 cpp 文件：<br />
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &quot;ros/ros.h&quot;</span><br><span class="line"></span><br><span class="line">int main(int argc, char *argv[])</span><br><span class="line">&#123;</span><br><span class="line">    //执行 ros 节点初始化</span><br><span class="line">    ros::init(argc,argv,&quot;hello&quot;);</span><br><span class="line">    //创建 ros 节点句柄</span><br><span class="line">    ros::NodeHandle n;</span><br><span class="line">    //控制台输出 hello world</span><br><span class="line">    ROS_INFO(&quot;hello world!&quot;);</span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure> 3、编辑 helloworld 包下的 Cmakelist.txt 文件<br />
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">add_executable(任取节点名</span><br><span class="line">  src/helloworld_c.cpp</span><br><span class="line">)</span><br><span class="line">target_link_libraries(任取节点名</span><br><span class="line">  $&#123;catkin_LIBRARIES&#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure> <img
+src="https://s2.loli.net/2022/08/04/LYAtxeNwcy3KpEU.png" /> 4、编译
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#进入工作空间</span><br><span class="line">cd demo01</span><br><span class="line">#编译</span><br><span class="line">catkin_make</span><br></pre></td></tr></table></figure> 编译成功： <img
+src="https://s2.loli.net/2022/08/04/VsPtDkCfbmodKLi.png" /> 5、执行
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#在终端 1 执行</span><br><span class="line">roscore</span><br><span class="line"></span><br><span class="line">#在终端 2 执行</span><br><span class="line">#进入工作空间</span><br><span class="line">cd demo01</span><br><span class="line">#刷新环境变量</span><br><span class="line">source ./devel/setup.bash</span><br><span class="line">#rosrun 包名 节点名</span><br><span class="line">rosrun helloworld hellow_node</span><br></pre></td></tr></table></figure> <img
+src="https://s2.loli.net/2022/08/04/UrDkCiqh9u4vAGR.png" />
+<div class="note info"><p>如果没有执行<code>source ./devel/setup.bash</code>在当前终端刷新环境变量，则会报错，另开一个终端也要再执行一次。<br />
+<img src="https://s2.loli.net/2022/08/04/9zmVsfr7YwKQ3yg.png" />
+若嫌太麻烦，可以执行<code>echo "source ~/工作空间名/devel/setup.bash" &gt;&gt; ~/.bashrc</code>，之后就不用每次打开都执行一次。</p>
+</div></p>
+<h3 id="python-实现">Python 实现</h3>
+<p>1、创建 py 文件<br />
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#进入 helloworld 功能包</span><br><span class="line">cd demo01/src/helloworld</span><br><span class="line">#创建 scripts 文件夹</span><br><span class="line">mkdir scripts</span><br><span class="line">#进入 scripts 文件夹</span><br><span class="line">cd ./scripts</span><br><span class="line">#创建 py 文件</span><br><span class="line">gedit hw_py.py</span><br></pre></td></tr></table></figure> 2、编辑 py 文件<br />
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#! /usr/bin/env python</span><br><span class="line">#导入 rospy 包</span><br><span class="line">import rospy</span><br><span class="line">#编写主入口</span><br><span class="line">if __name__ == &quot;__main__&quot;:</span><br><span class="line">	#初始化 ros 节点</span><br><span class="line">    rospy.init_node(&quot;hello_py&quot;)</span><br><span class="line">	#输出日志</span><br><span class="line">    rospy.loginfo(&quot;hello world! by python&quot;)</span><br></pre></td></tr></table></figure> <img
+src="https://s2.loli.net/2022/08/04/Lf5hdrOG4waDBSF.png" /> 3、为 python
+文件添加可执行权限<br />
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">chmod +x hw_py.py</span><br></pre></td></tr></table></figure> <img
+src="https://s2.loli.net/2022/08/04/gXEufcCbhNdpjIT.png" /> 4、编辑
+helloworld 下的 CamkeList.txt 文件<br />
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">catkin_install_python(PROGRAMS scripts/hw_py.py</span><br><span class="line">  DESTINATION $&#123;CATKIN_PACKAGE_BIN_DESTINATION&#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure> <img
+src="https://s2.loli.net/2022/08/04/GqkamehDbtMy2Ac.png" />
+5、编译<br />
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#进入工作空间</span><br><span class="line">cd demo01</span><br><span class="line">#编译</span><br><span class="line">catkin_make</span><br></pre></td></tr></table></figure> 6、执行<br />
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#在终端 1 执行</span><br><span class="line">roscore</span><br><span class="line"></span><br><span class="line">#在终端 2 执行</span><br><span class="line">#进入工作空间</span><br><span class="line">cd demo01</span><br><span class="line">#刷新环境变量</span><br><span class="line">source ./devel/setup.bash</span><br><span class="line">#rosrun 包名 py 文件名</span><br><span class="line">rosrun helloworld hw_py.py</span><br></pre></td></tr></table></figure> <img
+src="https://s2.loli.net/2022/08/04/QgXBErxh6e4ZbtD.png" /></p>
+<h2 id="安装并使用-vscode">安装并使用 VScode</h2>
+<h3 id="下载安装包">下载安装包</h3>
+<p>下载地址：<a href="https://code.visualstudio.com/docs?start=true"
+class="uri">https://code.visualstudio.com/docs?start=true</a><br />
+历史版本下载：<a href="https://code.visualstudio.com/updates"
+class="uri">https://code.visualstudio.com/updates</a><br />
+<img src="https://s2.loli.net/2022/08/04/pEJ6UgYwBx928iR.png" /></p>
+<h3 id="安装">安装</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#在下载目录打开终端，执行</span><br><span class="line">sudo dpkg -i xxxx.deb</span><br></pre></td></tr></table></figure>
+<p><img src="https://s2.loli.net/2022/08/04/r2yRB4hIEwjNDkK.png" /></p>
+<h3 id="卸载">卸载</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo dpkg --purge  code</span><br></pre></td></tr></table></figure>
+<h3 id="添加插件">添加插件</h3>
+<p>在插件里搜索并下载 C/C++、CMake Tools、Python、ROS。<br />
+<img src="https://s2.loli.net/2022/08/05/Iuiypt8q5jFCL7Y.png" /></p>
+<h3 id="vscode-基本使用">vscode 基本使用</h3>
+<p>1、创建 ROS 工作空间并启动 vscode<br />
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#创建工作空间 demo02 并初始化</span><br><span class="line">mkdir -p demo02/src</span><br><span class="line">cd demo02</span><br><span class="line">catkin_make</span><br><span class="line"></span><br><span class="line">#启动 vscode</span><br><span class="line">code .</span><br></pre></td></tr></table></figure> 2、配置默认编译选项<br />
+快捷键：Ctrl + Shift + B，选择 catkin_make:build 的设置选项，进入
+.vscode/tasks.json 文件。<br />
+<img src="https://s2.loli.net/2022/08/05/bQv5RXesH6LxINd.png" /> <img
+src="https://s2.loli.net/2022/08/05/Cz9Tnpbdcq7oEIV.png" />
+将文件内容修改如下：<br />
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;version&quot;: &quot;2.0.0&quot;,</span><br><span class="line">    &quot;tasks&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;label&quot;: &quot;catkin_make:debug&quot;, //代表提示的描述性信息</span><br><span class="line">            &quot;type&quot;: &quot;shell&quot;,  //可以选择shell或者process,如果是shell代码是在shell里面运行一个命令，如果是process代表作为一个进程来运行</span><br><span class="line">            &quot;command&quot;: &quot;catkin_make&quot;,//这个是我们需要运行的命令</span><br><span class="line">            &quot;args&quot;: [],//如果需要在命令后面加一些后缀，可以写在这里，比如-DCATKIN_WHITELIST_PACKAGES=“pac1;pac2”</span><br><span class="line">            &quot;group&quot;: &#123;&quot;kind&quot;:&quot;build&quot;,&quot;isDefault&quot;:true&#125;,</span><br><span class="line">            &quot;presentation&quot;: &#123;</span><br><span class="line">                &quot;reveal&quot;: &quot;always&quot;//可选always或者silence，代表是否输出信息</span><br><span class="line">            &#125;,</span><br><span class="line">            &quot;problemMatcher&quot;: &quot;$msCompile&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure> <img
+src="https://s2.loli.net/2022/08/05/priIPRXJo7q9zmW.png" />
+之后使用快捷键 Ctrl + Shift + B 即默认使用 catkin_make:build
+进行编译。<br />
+3、创建 ROS 功能包<br />
+右键 src，选择 create catkin package，然后依次设置包名、添加依赖。<br />
+<img src="https://s2.loli.net/2022/08/05/dze24Qp1HjNfaSO.png" /> <img
+src="https://s2.loli.net/2022/08/05/DRPNVquGb2hgAJ8.png" /> 4、C++
+源文件<br />
+在<strong>功能包</strong>的 src 下创建 cpp 文件。<br />
+<img src="https://s2.loli.net/2022/08/05/E3jqZQgRPVwGKm2.png" /> 编写
+C++ 源文件： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &quot;ros/ros.h&quot;</span><br><span class="line"></span><br><span class="line">int main(int argc, char *argv[])</span><br><span class="line">&#123;</span><br><span class="line">    ros::init(argc,argv,&quot;hello&quot;);</span><br><span class="line">    ROS_INFO(&quot;hello&quot;);</span><br><span class="line">	</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure> <div class="note info"><p><i class="fa fa-circle" aria-hidden="true"></i>如果没有代码提示，则修改
+.vscode/c_cpp_properties.json 中 cppStandard 的值为 c++17。<br />
+<img src="https://s2.loli.net/2022/08/05/IcGZeUvTH4YARir.png" />
+<i class="fa fa-circle" aria-hidden="true"></i>当ROS_INFO
+终端输出有中文时，会出现乱码，解决办法为在函数开头加入下面的任意一句代码。<br />
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">setlocale(LC_CTYPE, &quot;zh_CN.utf8&quot;);</span><br><span class="line">setlocale(LC_ALL, &quot;&quot;);</span><br></pre></td></tr></table></figure></p>
+</div> 5、py 文件<br />
+在<strong>功能包</strong>下新建 scripts 文件夹，添加 py
+文件，并添加可执行权限。<br />
+<img src="https://s2.loli.net/2022/08/05/kS5TbaosRIGLQ3A.png" /></p>
+<p>编写 py 文件： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#! /usr/bin/env python</span><br><span class="line"></span><br><span class="line">import rospy</span><br><span class="line"></span><br><span class="line">if __name__ == &quot;__main__&quot;:</span><br><span class="line"></span><br><span class="line">    rospy.init_node(&quot;hello&quot;)</span><br><span class="line">    rospy.loginfo(&quot;hello vscode by python&quot;)</span><br></pre></td></tr></table></figure> 6、配置 CMakeLists.txt<br />
+C++ 配置:<br />
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">add_executable(节点名称</span><br><span class="line">  src/C++源文件名.cpp</span><br><span class="line">)</span><br><span class="line">target_link_libraries(节点名称</span><br><span class="line">  $&#123;catkin_LIBRARIES&#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure> Python 配置:<br />
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">catkin_install_python(PROGRAMS scripts/py文件名.py</span><br><span class="line">  DESTINATION $&#123;CATKIN_PACKAGE_BIN_DESTINATION&#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure> 7、编译执行<br />
+编译：Ctrl + Shift + B。<br />
+<img src="https://s2.loli.net/2022/08/05/lALT5QJvbVPjcs9.png" /> <img
+src="https://s2.loli.net/2022/08/05/aVphjCtLmxRdwDJ.png" /> 执行：可以在
+VScode 中添加终端，命令与之前一致。<br />
+<img src="https://s2.loli.net/2022/08/05/5tgroTYdFfynGlk.png" /> <img
+src="https://s2.loli.net/2022/08/05/1HxpgAyMPwYehu6.png" /> <img
+src="https://s2.loli.net/2022/08/05/pkGVR9fvoqTHiZU.png" /></p>
+<h2 id="参考">参考</h2>
+<p><a
+href="http://www.autolabor.com.cn/book/ROSTutorials/">【Autolabor初级教程】ROS机器人入门课程文档</a></p>
+]]></content>
+      <categories>
+        <category>学习笔记</category>
+        <category>ROS</category>
+      </categories>
+      <tags>
+        <tag>ROS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>使用 Jetson Nano 向 PX4 提供 t265 位置信息，实现室内定点飞行</title>
+    <url>/posts/20210907a1/</url>
+    <content><![CDATA[<div class="note "><p>本文作者：南京航空航天大学 科技中心 陈思祺<br />
+主要内容：详细阐述如何使用 Jetson Nano 向 PX4 提供 t265
+位置信息，从而实现室内定点飞行。</p>
+</div>
+<p><span id="more"></span></p>
+<p>使用的 Jetson Nano 镜像版本：4.6（2021-08-04 发布）</p>
+<p><a
+href="https://developer.nvidia.com/zh-cn/embedded/downloads">NVIDIA官方镜像下载链接</a></p>
+<p><img src="https://s2.loli.net/2022/07/19/d6PRHu7trEnLG2l.jpg" /></p>
+<p>下载好镜像，烧录进 TF
+卡，初次开机简单配置后进入系统，建议系统语言选择英语，正式开始本次教程。</p>
+<h2 id="更新软件列表更新软件">更新软件列表，更新软件</h2>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt-get update </span><br><span class="line">sudo apt-get upgrade </span><br></pre></td></tr></table></figure>
+<h2 id="安装-ros-melodic">安装 ROS Melodic</h2>
+<p>参考<a
+href="http://wiki.ros.org/melodic/Installation/Ubuntu">官网安装教程</a></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 设置sources.list</span></span><br><span class="line">sudo sh -c &#x27;echo &quot;deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main&quot; &gt; /etc/apt/sources.list.d/ros-latest.list&#x27;</span><br><span class="line"><span class="meta">#</span><span class="bash"> 设置密钥</span></span><br><span class="line">sudo apt install curl</span><br><span class="line">curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add -</span><br><span class="line"><span class="meta">#</span><span class="bash"> 确保 Debian 包索引是最新的</span></span><br><span class="line">sudo apt update</span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装桌面完整版（推荐）</span></span><br><span class="line">sudo apt install ros-melodic-desktop-full</span><br><span class="line"><span class="meta">#</span><span class="bash"> 设置环境</span></span><br><span class="line">echo &quot;source /opt/ros/melodic/setup.bash&quot; &gt;&gt; ~/.bashrc</span><br><span class="line">source ~/.bashrc</span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装 rosdep</span></span><br><span class="line">sudo apt install python-rosdep</span><br><span class="line"><span class="meta">#</span><span class="bash"> 初始化 rosdep</span></span><br><span class="line">sudo rosdep init</span><br><span class="line">rosdep update</span><br><span class="line"><span class="meta">#</span><span class="bash"> 试一下效果</span></span><br><span class="line">roscore</span><br></pre></td></tr></table></figure>
+<h2 id="安装realsense">安装realsense</h2>
+<p>参考<a
+href="https://github.com/IntelRealSense/librealsense/blob/master/doc/installation.md">官网安装教程</a></p>
+<p>安装过程中请拔下摄像头</p>
+<h3 id="安装realsense-sdk">安装Realsense SDK</h3>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 下载<span class="built_in">source</span></span> </span><br><span class="line"><span class="meta">#</span><span class="bash"> 可使用Proxy代理加速下载。详见：https://ghproxy.com/</span></span><br><span class="line">git clone https://github.com/IntelRealSense/librealsense</span><br><span class="line">cd librealsense</span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装依赖项</span> </span><br><span class="line">sudo apt-get install libudev-dev pkg-config libgtk-3-dev</span><br><span class="line">sudo apt-get install libusb-1.0-0-dev pkg-config</span><br><span class="line">sudo apt-get install libglfw3-dev</span><br><span class="line">sudo apt-get install libssl-dev</span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装位于 librealsense 源目录中的 Intel Realsense 权限脚本</span></span><br><span class="line">sudo cp config/99-realsense-libusb.rules /etc/udev/rules.d/</span><br><span class="line">sudo udevadm control --reload-rules &amp;&amp; udevadm trigger </span><br><span class="line"><span class="meta">#</span><span class="bash"> 编译</span></span><br><span class="line">mkdir build</span><br><span class="line">cd build</span><br><span class="line">cmake ../ -DBUILD_EXAMPLES=true</span><br><span class="line">make</span><br><span class="line">sudo make install</span><br><span class="line"><span class="meta">#</span><span class="bash"> 试一下效果</span></span><br><span class="line">realsense-viewer</span><br></pre></td></tr></table></figure>
+<h3 id="安装realsense-ros">安装realsense-ros</h3>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 下载<span class="built_in">source</span></span></span><br><span class="line">mkdir -p ~/catkin_ws/src</span><br><span class="line">cd ~/catkin_ws/src/</span><br><span class="line">git clone https://github.com/IntelRealSense/realsense-ros.git</span><br><span class="line">git clone https://github.com/pal-robotics/ddynamic_reconfigure</span><br><span class="line">cd realsense-ros/</span><br><span class="line">git checkout `git tag | sort -V | grep -P &quot;^\d+\.\d+\.\d+&quot; | tail -1`</span><br><span class="line"><span class="meta">#</span><span class="bash"> 更改cv_bridgeConfig.cmake中opencv4路径</span></span><br><span class="line">sudo gedit /opt/ros/melodic/share/cv_bridge/cmake/cv_bridgeConfig.cmake</span><br></pre></td></tr></table></figure>
+<p>如图</p>
+<p><img src="https://s2.loli.net/2022/07/19/QFk1VvcSTZz8xWU.png" /></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 编译</span></span><br><span class="line">cd ~/catkin_ws</span><br><span class="line">catkin_make</span><br><span class="line"><span class="meta">#</span><span class="bash"> 设置环境</span></span><br><span class="line">echo &quot;source ~/catkin_ws/devel/setup.bash&quot;&gt;&gt;~/.bashrc </span><br><span class="line">source ~/.bashrc</span><br><span class="line"><span class="meta">#</span><span class="bash">试一下效果</span></span><br><span class="line">roslaunch realsense2_camera rs_t265.launch</span><br></pre></td></tr></table></figure>
+<h2 id="px4配置">PX4配置</h2>
+<p>下载 <em>QGroundControl</em></p>
+<p><a
+href="https://github.com/mavlink/qgroundcontrol/releases/">GitHub链接</a></p>
+<p><a href="https://docs.qgroundcontrol.com/master/en/">使用说明</a></p>
+<ul>
+<li><p><code>MAV_1_CONFIG</code>= <code>TELEM 2</code></p></li>
+<li><p><code>MAV_1_MODE</code> = <code>Onboard</code></p></li>
+<li><p><code>SER_TEL2_BAUD</code> = <code>57600 8N1</code></p></li>
+<li><p><code>EKF2_AID_MASK</code> 勾选
+<code>vision position fusion</code>和<code>vision yaw fusion</code></p></li>
+<li><p><code>EKF2_HGT_MODE</code> 设置为 <code>Vision</code></p></li>
+<li><p><code>MAV_ODOM_LP</code>设置为<code>1</code></p></li>
+</ul>
+<h2 id="mavros-和vio">MAVROS 和VIO</h2>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> MAVROS</span></span><br><span class="line">sudo apt install python-catkin-tools</span><br><span class="line">sudo apt install ros-melodic-mavros ros-melodic-mavros-extras</span><br><span class="line">sudo apt-get install ros-indigo-mavros ros-indigo-mavros-extras ros‐indigo‐control‐toolbox</span><br><span class="line"><span class="meta">#</span><span class="bash"> VIO</span></span><br><span class="line">cd ~/catkin_ws/src</span><br><span class="line">git clone https://github.com/Auterion/VIO.git</span><br><span class="line">cd ..</span><br><span class="line">catkin_make</span><br></pre></td></tr></table></figure>
+<p>更改以下配置</p>
+<ol type="1">
+<li>T265 相对位置及朝向</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">gedit ~/catkin_ws/src/VIO/launch/bridge.launch</span><br></pre></td></tr></table></figure>
+<p>修改</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">&lt;node pkg=&quot;tf&quot; type=&quot;static_transform_publisher&quot; name=&quot;tf_baseLink_cameraPose&quot;args=&quot;0 0 0 0 1.5708 0 base_link camera_pose_frame 1000&quot;/&gt;</span><br></pre></td></tr></table></figure>
+<p><code>args</code>中</p>
+<ul>
+<li><p>开头三个参数为飞控中心指向 T265 中心的向量。例如 T265 在飞控前方
+10 cm，上方 4 cm, 则前三个参数为：<code>[0.1, 0, -0.04]</code></p></li>
+<li><p>中间三个参数为旋转角(偏航, 俯仰, 横滚)。默认 T265
+朝地，则参数为<code>[0, 1.5708, 0]</code>；T265
+照射飞机机头方向，则参数为 <code>[0 0 0]</code></p></li>
+</ul>
+<ol start="2" type="1">
+<li>如果 TTL 的速度异常</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo gedit /opt/ros/melodic/share/mavros/launch/px4_config.yaml</span><br></pre></td></tr></table></figure>
+<p>第 12 行改为</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">timesync_rate: 0.0</span><br></pre></td></tr></table></figure>
+<ol start="3" type="1">
+<li>如果使用 USB 连接</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo gedit /opt/ros/melodic/share/mavros/launch/px4.launch</span><br></pre></td></tr></table></figure>
+<p>修改第 5 行为</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">&lt;arg name=&quot;fcu_url&quot; default=&quot;/dev/ttyUSB0:57600&quot; /&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">gedit ~/catkin_ws/src/VIO/launch/bridge_mavros.launch</span><br></pre></td></tr></table></figure>
+<p>修改第 3 行为</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">&lt;arg name=&quot;fcu_url&quot; default=&quot;/dev/ttyUSB0:57600&quot; /&gt;</span><br></pre></td></tr></table></figure>
+<ol start="4" type="1">
+<li>放开串口权限</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 用你自己的用户名替代下面的&lt;username&gt;</span></span><br><span class="line">sudo usermod -a -G dialout &lt;username&gt;</span><br><span class="line"><span class="meta">#</span><span class="bash"> 修改后需重启生效</span></span><br><span class="line">reboot now</span><br></pre></td></tr></table></figure>
+<h2 id="起飞前检查">起飞前检查</h2>
+<p>详情请看<a
+href="https://docs.px4.io/master/en/computer_vision/visual_inertial_odometry.html#verify_estimate">官网说明</a></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 开启VIO</span></span><br><span class="line">roslaunch px4_realsense_bridge bridge_mavros.launch</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>连接好摄像头、USB、PX4，可暂不接电池，查看 MAVLink
+Inspector</p></li>
+<li><p>偏航机身，直到<code>ODOMETRY</code>消息的四元数非常接近单位四元数（w
+= 1，x = y = z = 0）</p></li>
+<li><p>向前移动无人机，x 坐标应增大</p></li>
+<li><p>向右移动无人机，y 坐标应增大</p></li>
+<li><p>向上移动无人机，z 坐标应减小</p></li>
+<li><p>遥控器切换到 Position Flight Mode，若切换成功，应闪绿灯</p></li>
+</ul>
+<p>然后可以接上电池，尝试定点飞行</p>
+<h2 id="参考文章">参考文章</h2>
+<p><a href="https://docs.px4.io/master/en/">PX4 User Guide</a></p>
+<p><a href="http://wiki.ros.org/">ROS Wiki</a></p>
+<p><a href="https://github.com/IntelRealSense/">Intel RealSense</a></p>
+<p><a
+href="https://lifuguan.github.io/d435i/ros/2019/05/28/realsense-melodic-installation/">ROS
+melodic kernel 4.18 安装 realsense D435i</a></p>
+<p><a
+href="https://zhuanlan.zhihu.com/p/364390798">通过MAVROS连接机载电脑（NANO/TX2/NX）与Pixhawk</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/367357019">Jetson
+Nano使用T265向PX4提供位置信息</a></p>
+<p><a href="https://ghproxy.com/">GitHub Proxy</a></p>
+]]></content>
+      <categories>
+        <category>PX4</category>
+      </categories>
+      <tags>
+        <tag>PX4飞控</tag>
       </tags>
   </entry>
   <entry>
