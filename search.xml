@@ -237,7 +237,7 @@ source/_data/styles.styl 取消注释：<br />
 <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">custom_file_path:</span></span><br><span class="line">  <span class="attr">style:</span> <span class="string">source/_data/styles.styl</span></span><br></pre></td></tr></table></figure> 3.在 root/source 下创建文件
 _data/styles.styl，添加以下内容：<br />
 <figure class="highlight styl"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 添加背景图片</span></span><br><span class="line"><span class="comment">// 添加背景图片</span></span><br><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">      <span class="attribute">background</span>: url(/images/background.jpg);	<span class="comment">// 可以是路径也可以是链接</span></span><br><span class="line">      <span class="attribute">background-size</span>: cover			// 设置保持图像的纵横比并将图像缩放成将完全覆盖背景定位区域的最小大小</span><br><span class="line">      <span class="attribute">background-repeat</span>: no-repeat;		<span class="comment">// 设定背景图片非重复填充</span></span><br><span class="line">      <span class="attribute">background-attachment</span>: fixed;		<span class="comment">// 设置背景图片不随页面滚动</span></span><br><span class="line">      <span class="attribute">background-position</span>: <span class="number">50%</span> <span class="number">50%</span>;		<span class="comment">// 图片位置：居中</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="添加fork-me-on-github">添加Fork me on Github</h3>
+<h3 id="添加-fork-me-on-github">添加 Fork me on Github</h3>
 <p>打开 <a href="https://tholman.com/github-corners/">Github Corners</a>
 ，选择喜欢的样式，复制相应代码到 root/themes/next/layout/_layout.njk
 文件中，放在<code>&lt;div class="headband"&gt;&lt;/div&gt;</code>后面，并修改<code>href="https://your-url"</code>里的网址为自己
@@ -439,6 +439,24 @@ END POST BODY 后添加代码：<br />
 <h3 id="文章添加版权说明">文章添加版权说明</h3>
 <p>在<span id="inline-purple">主题配置文件</span>中找到 creative_commons
 进行修改： <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">creative_commons:</span></span><br><span class="line">  <span class="attr">license:</span> <span class="string">by-nc-sa</span></span><br><span class="line">  <span class="attr">sidebar:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">post:</span> <span class="literal">true</span>  		<span class="comment"># 将false改为true即可显示版权信息</span></span><br><span class="line">  <span class="attr">language:</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="文章版权样式自定义">文章版权样式自定义</h3>
+<p>1.在目录 root/themes/next/layout/_macro/ 下添加
+my-copyright.njk，内容如下：<br />
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&#123;% if page.copyright %&#125;</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;my_post_copyright&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  </span><br><span class="line">  <span class="comment">&lt;!-- JS库 sweetalert 可修改路径 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span> <span class="attr">src</span>=<span class="string">&quot;http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">type</span>=<span class="string">&quot;text/css&quot;</span> <span class="attr">href</span>=<span class="string">&quot;http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span>本文标题:<span class="tag">&lt;/<span class="name">span</span>&gt;</span>&#123;&#123; page.title &#125;&#125;<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span>文章作者:<span class="tag">&lt;/<span class="name">span</span>&gt;</span>&#123;&#123; author &#125;&#125;<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span>发布时间:<span class="tag">&lt;/<span class="name">span</span>&gt;</span>&#123;&#123; page.date.format(&quot;YYYY年MM月DD日 - HH:mm:ss&quot;) &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span>最后更新:<span class="tag">&lt;/<span class="name">span</span>&gt;</span>&#123;&#123; page.updated.format(&quot;YYYY年MM月DD日 - HH:mm:ss&quot;) &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span>原始链接:<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;&#123;&#123; url_for(page.path) &#125;&#125;&quot;</span> <span class="attr">title</span>=<span class="string">&quot;&#123;&#123; page.title &#125;&#125;&quot;</span>&gt;</span>&#123;&#123; page.permalink &#125;&#125;<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;copy-path&quot;</span>  <span class="attr">title</span>=<span class="string">&quot;点击复制文章链接&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">&quot;fa fa-clipboard&quot;</span> <span class="attr">data-clipboard-text</span>=<span class="string">&quot;&#123;&#123; page.permalink &#125;&#125;&quot;</span>  <span class="attr">aria-label</span>=<span class="string">&quot;复制成功！&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span>许可协议:<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">&quot;fa fa-creative-commons&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span> <span class="tag">&lt;<span class="name">a</span> <span class="attr">rel</span>=<span class="string">&quot;license&quot;</span> <span class="attr">href</span>=<span class="string">&quot;https://creativecommons.org/licenses/by-nc-nd/4.0/&quot;</span> <span class="attr">target</span>=<span class="string">&quot;_blank&quot;</span> <span class="attr">title</span>=<span class="string">&quot;Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)&quot;</span>&gt;</span>署名-非商业性使用-禁止演绎 4.0 国际<span class="tag">&lt;/<span class="name">a</span>&gt;</span> 转载请保留原文链接及作者。<span class="tag">&lt;/<span class="name">p</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"> </span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> clipboard = <span class="keyword">new</span> Clipboard(<span class="string">&#x27;.fa-clipboard&#x27;</span>);</span></span><br><span class="line"><span class="javascript">    clipboard.on(<span class="string">&#x27;success&#x27;</span>, $(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">      $(<span class="string">&quot;.fa-clipboard&quot;</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">        swal(&#123;   </span></span><br><span class="line"><span class="javascript">          <span class="attr">title</span>: <span class="string">&quot;&quot;</span>,   </span></span><br><span class="line"><span class="javascript">          <span class="attr">text</span>: <span class="string">&#x27;复制成功&#x27;</span>,   </span></span><br><span class="line"><span class="javascript">          <span class="attr">html</span>: <span class="literal">false</span>,</span></span><br><span class="line"><span class="javascript">          <span class="attr">timer</span>: <span class="number">500</span>,   </span></span><br><span class="line"><span class="javascript">          <span class="attr">showConfirmButton</span>: <span class="literal">false</span></span></span><br><span class="line"><span class="javascript">        &#125;);</span></span><br><span class="line"><span class="javascript">      &#125;);</span></span><br><span class="line"><span class="javascript">    &#125;));  </span></span><br><span class="line"><span class="javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">&#123;% endif %&#125;</span><br></pre></td></tr></table></figure> 2.在目录
+root/themes/next/source/css/_common/components/post/ 下添加
+my-post-copyright.styl，内容如下:<br />
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.my_post_copyright</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">85%</span>;</span><br><span class="line">  <span class="attribute">max-width</span>: <span class="number">45em</span>;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">2.8em</span> auto <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">0.5em</span> <span class="number">1.0em</span>;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#d3d3d3</span>;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">0.93rem</span>;</span><br><span class="line">  <span class="attribute">line-height</span>: <span class="number">1.6em</span>;</span><br><span class="line">  <span class="attribute">word-break</span>: break-all;</span><br><span class="line">  <span class="attribute">background</span>: <span class="built_in">rgba</span>(<span class="number">255</span>,<span class="number">255</span>,<span class="number">255</span>,<span class="number">0.4</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.my_post_copyright</span> <span class="selector-tag">p</span>&#123;<span class="attribute">margin</span>:<span class="number">0</span>;&#125;</span><br><span class="line"><span class="selector-class">.my_post_copyright</span> <span class="selector-tag">span</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: inline-block;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">5.2em</span>;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#333333</span>; // title <span class="attribute">color</span></span><br><span class="line">  <span class="attribute">font-weight</span>: bold;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.my_post_copyright</span> <span class="selector-class">.raw</span> &#123;</span><br><span class="line">  <span class="attribute">margin-left</span>: <span class="number">1em</span>;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">5em</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.my_post_copyright</span> <span class="selector-tag">a</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#808080</span>;</span><br><span class="line">  <span class="attribute">border-bottom</span>:<span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.my_post_copyright</span> <span class="selector-tag">a</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#0593d3</span>; // link <span class="attribute">color</span></span><br><span class="line">  <span class="attribute">text-decoration</span>: underline;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.my_post_copyright</span><span class="selector-pseudo">:hover</span> <span class="selector-class">.fa-clipboard</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#000</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.my_post_copyright</span> <span class="selector-class">.post-url</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">  <span class="attribute">font-weight</span>: normal;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.my_post_copyright</span> <span class="selector-class">.copy-path</span> &#123;</span><br><span class="line">  <span class="attribute">margin-left</span>: <span class="number">1em</span>;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">1em</span>;</span><br><span class="line">  +mobile()&#123;<span class="attribute">display</span>:none;&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.my_post_copyright</span> <span class="selector-class">.copy-path</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#808080</span>;</span><br><span class="line">  <span class="attribute">cursor</span>: pointer;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure> 3.在 root/themes/next/layout/_macro/post.njk
+添加如下代码：<br />
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&#123;#####################&#125;</span><br><span class="line">&#123;### END POST BODY ###&#125;</span><br><span class="line">&#123;#####################&#125;</span><br><span class="line"></span><br><span class="line">&#123;% if not is_index %&#125;</span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    &#123;% include &#x27;my-copyright.njk&#x27; %&#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">&#123;% endif %&#125;</span><br></pre></td></tr></table></figure> 4.打开
+root/themes/next/source/css/_common/components/post/index.styl
+文件，在最后一行增加代码：<br />
+<figure class="highlight styl"><table><tr><td class="code"><pre><span class="line"><span class="keyword">@import</span> <span class="string">&quot;my-post-copyright&quot;</span></span><br></pre></td></tr></table></figure> 5.设置新建文章自动开启 copyright
+，即新建文章自动显示自定义的版权声明，打开 root/scaffolds/post.md
+文件，设置如下：<br />
+<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: &#123;&#123; title &#125;&#125;</span><br><span class="line">date: &#123;&#123; date &#125;&#125;</span><br><span class="line"><span class="section">copyright: true </span></span><br><span class="line"><span class="section">---</span></span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>注：之前发布的文章需在文章配置内添加属性 copyright: true。</li>
+</ul>
 <h3 id="代码样式自定义">代码样式自定义</h3>
 <p>在 root/source/_data/styles.styl 添加以下内容： <figure class="highlight styl"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Custom styles.</span></span><br><span class="line"><span class="selector-tag">code</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#B22222</span>;			<span class="comment">//代码颜色</span></span><br><span class="line">    <span class="attribute">background</span>: <span class="number">#fbf7f8</span>;	<span class="comment">//代码背景颜色</span></span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">5px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h3 id="代码块样式更改">代码块样式更改</h3>
@@ -579,7 +597,10 @@ href="https://blog.csdn.net/yangguang_98/article/details/105004466">Hexo设置�
 <a
 href="https://yangbingdong.com/2017/build-blog-hexo-advanced/">基于Hexo搭建个人博客——进阶篇(从入门到入土)</a><br />
 <a href="https://www.liaofuzhan.com/posts/2114475547.html"
-class="uri">https://www.liaofuzhan.com/posts/2114475547.html</a></p>
+class="uri">https://www.liaofuzhan.com/posts/2114475547.html</a><br />
+<a
+href="https://www.cnblogs.com/aoguai/p/11239182.html">2019Hexo博客Next主题深度美化
+打造一个炫酷博客(2)</a></p>
 <section class="footnotes footnotes-end-of-document"
 role="doc-endnotes">
 <hr />
@@ -1568,6 +1589,95 @@ class="footnote-back" role="doc-backlink">↩︎</a></p></li>
       </tags>
   </entry>
   <entry>
+    <title>Ubuntu 优化</title>
+    <url>/posts/20220801a1/</url>
+    <content><![CDATA[<div class="note "><p>Ubuntu 使用优化（20.04.1）。</p>
+</div>
+<span id="more"></span>
+<h2 id="模板-template">模板| Template</h2>
+<p>Ubuntu 20.04 鼠标右击没有新建文本文档选项。进入/home
+下的模板（Template）目录，使用<code>sudo gedit 新建文本文档.txt</code>创建一个空文本文档，保存退出后，鼠标右击即可添加新建文本文档，且创建的文档与自定义的文档名称一致。</p>
+<h2 id="解决-firefox-无法播放-bilibili-视频">解决 Firefox 无法播放
+bilibili 视频</h2>
+<p>在 Firefox 打开 bilibili 发现无法播放视频，显示没有 flash
+插件。<br />
+在终端输入<code>sudo apt install ubuntu-restricted-extras</code>安装相应解码器即可。<br />
+中间需要选择“确定”，按 Tab 即可选择。<br />
+<img src="https://s2.loli.net/2022/08/05/PmJx1ducGlgkTOh.png" />
+安装成功：<br />
+<img src="https://s2.loli.net/2022/08/05/J6G4AkMDqjTmdKC.png" />
+再次使用 Firefox 打开 bilibili 已经可以播放视频了。</p>
+<h2 id="蓝牙配置">蓝牙配置</h2>
+<p>检查蓝牙服务是否正在运行：<br />
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo systemctl status bluetooth.service</span><br></pre></td></tr></table></figure> 启用蓝牙服务：<br />
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo systemctl <span class="built_in">enable</span> bluetooth.service</span><br></pre></td></tr></table></figure> 使用 systemctl 重新启动该服务：<br />
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo systemctl start bluetooth.service</span><br></pre></td></tr></table></figure> 编辑配置文件：<br />
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo gedit /etc/bluetooth/main.conf</span><br></pre></td></tr></table></figure>
+<strong>自动启用</strong>：自动启用可确保在设备重启时启用蓝牙模块，并允许蓝牙适配器识别周围新连接的蓝牙设备。<br />
+<img src="https://s2.loli.net/2022/08/09/PmRaYzTNSlB1QtI.png" />
+<strong>启用重新连接尝试</strong>：配置后每当蓝牙设备和计算机断开连接时，它都会尝试重新连接。只需取消注释配置文件中的
+ReconnectAttempts = 7 行。<br />
+<img src="https://s2.loli.net/2022/08/09/xsTJODdfFGMn6uw.png" />
+<strong>启用快速连接</strong>：通过将 FastConnectable 的值设置为
+true，可以确保在重启或休眠时，蓝牙设备能够更快地连接到 PC。<br />
+<img src="https://s2.loli.net/2022/08/09/2RoOpZ4y9IgkneP.png" /></p>
+<h2 id="终端工具">终端工具</h2>
+<h3 id="terminator-终端模拟器">Terminator 终端模拟器</h3>
+<p>下载：<code>sudo apt install terminator</code></p>
+<h4 id="快捷键">快捷键</h4>
+<p>同一窗口内操作： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Alt+Up                          //移动到上面的终端</span><br><span class="line">Alt+Down                        //移动到下面的终端</span><br><span class="line">Alt+Left                        //移动到左边的终端</span><br><span class="line">Alt+Right                       //移动到右边的终端</span><br><span class="line">Ctrl+Shift+O                    //水平分割终端</span><br><span class="line">Ctrl+Shift+E                    //垂直分割终端</span><br><span class="line">Ctrl+Shift+Right                //在垂直分割的终端中将分割条向右移动</span><br><span class="line">Ctrl+Shift+Left                 //在垂直分割的终端中将分割条向左移动</span><br><span class="line">Ctrl+Shift+Up                   //在水平分割的终端中将分割条向上移动</span><br><span class="line">Ctrl+Shift+Down                 //在水平分割的终端中将分割条向下移动</span><br><span class="line">Ctrl+Shift+S                    //隐藏/显示滚动条</span><br><span class="line">Ctrl+Shift+F                    //搜索</span><br><span class="line">Ctrl+Shift+C                    //复制选中的内容到剪贴板</span><br><span class="line">Ctrl+Shift+V                    //粘贴剪贴板的内容到此处</span><br><span class="line">Ctrl+Shift+W                    //关闭当前终端</span><br><span class="line">Ctrl+Shift+Q                    //退出当前窗口，当前窗口的所有终端都将被关闭</span><br><span class="line">Ctrl+Shift+X                    //最大化显示当前终端</span><br><span class="line">Ctrl+Shift+Z                    //最大化显示当前终端并使字体放大</span><br><span class="line">Ctrl+Shift+N or Ctrl+Tab        //移动到下一个终端</span><br><span class="line">Ctrl+Shift+P or Ctrl+Shift+Tab  //Crtl+Shift+Tab 移动到之前的一个终端</span><br></pre></td></tr></table></figure></p>
+<p>各个窗口间操作： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">F11                             //全屏开关</span><br><span class="line">Ctrl+Shift+T                    //打开一个新的标签</span><br><span class="line">Ctrl+PageDown                   //移动到下一个标签</span><br><span class="line">Ctrl+PageUp                     //移动到上一个标签</span><br><span class="line">Ctrl+Shift+PageDown             //将当前标签与其后一个标签交换位置</span><br><span class="line">Ctrl+Shift+PageUp               //将当前标签与其前一个标签交换位置</span><br><span class="line">Ctrl+Plus (+)                   //增大字体</span><br><span class="line">Ctrl+Minus (-)                  //减小字体</span><br><span class="line">Ctrl+Zero (0)                   //恢复字体到原始大小</span><br><span class="line">Ctrl+Shift+R                    //重置终端状态</span><br><span class="line">Ctrl+Shift+G                    //重置终端状态并clear屏幕</span><br><span class="line">Super+g                         //绑定所有的终端，以便向一个输入能够输入到所有的终端</span><br><span class="line">Super+Shift+G                   //解除绑定</span><br><span class="line">Super+t                         //绑定当前标签的所有终端，向一个终端输入的内容会自动输入到其他终端</span><br><span class="line">Super+Shift+T                   //解除绑定</span><br><span class="line">Ctrl+Shift+I                    //打开一个窗口，新窗口与原来的窗口使用同一个进程</span><br><span class="line">Super+i                         //打开一个新窗口，新窗口与原来的窗口使用不同的进程</span><br></pre></td></tr></table></figure></p>
+<h3 id="gnu-screen">GNU Screen</h3>
+<p>下载：<code>sudo apt install screen</code></p>
+<h4 id="gnu-screen-简介">GNU Screen 简介</h4>
+<p>screen 是一款由 GNU
+计划开发的用于命令行终端切换的自由软件。用户可以通过该软件同时连接多个本地或远程的命令行会话，并在其间自由切换。GNU
+Screen
+可以看作是窗口管理器的命令行界面版本。它提供了统一的管理多个会话的界面和相应的功能。<br />
+在 screen
+环境下，所有的会话都独立的运行，并拥有各自的编号、输入、输出和窗口缓存。用户可以通过快捷键在不同的窗口下切换，并可以自由的重定向各个窗口的输入和输出。</p>
+<h4 id="功能">功能</h4>
+<ul>
+<li>可以创建一个session（会话），实现不同终端之间的交互。<br />
+</li>
+<li>可以实现多人观看同一终端等功能。</li>
+<li>在工作中，如遇突发情况（例如断电，蓝屏等），终端断开，服务器端所有收到信号的前台任务将全部终止，各种工作环境将全部丢失。若在
+screen 里操作，终端意外关闭之后，下次登录到服务器上，进入 screen，之前在
+screen 上运行的任务还在继续运行。screen
+的功能可以大概理解为它将前台任务放入了后台进行，并且不受终端关闭或其它意外事故的影响。</li>
+</ul>
+<h3 id="tmuxterminal-multiplexer类似-gnu-screen">Tmux（terminal
+multiplexer,类似 GNU Screen）</h3>
+<p>下载：<code>sudo apt install tmux</code></p>
+<h4 id="功能-1">功能</h4>
+<ul>
+<li>允许在单个窗口中，同时访问多个会话。这对于同时运行多个命令行程序很有用。<br />
+</li>
+<li>可以让新窗口"接入"已经存在的会话。<br />
+</li>
+<li>允许每个会话有多个连接窗口，因此可以多人实时共享会话。<br />
+</li>
+<li>支持窗口任意的垂直和水平拆分。</li>
+</ul>
+<h2 id="参考文章">参考文章</h2>
+<p><a href="https://www.ruanyifeng.com/blog/2019/10/tmux.html">Tmux
+使用教程</a><br />
+<a
+href="https://www.homedt.net/40644.html">Linux中的screen命令的使用</a><br />
+<a
+href="https://cloud.tencent.com/developer/article/1844735">Linux终端命令神器--Screen命令详解。助力Linux使用和管理</a><br />
+<a
+href="https://zhongguo.eskere.club/%E5%A6%82%E4%BD%95%E4%BF%AE%E5%A4%8Dubuntu-linux%E4%B8%AD%E7%9A%84%E8%93%9D%E7%89%99%E8%BF%9E%E6%8E%A5%E9%97%AE%E9%A2%98/2021-05-12/?__cf_chl_tk=UCmaDe_SWYb41eIhI0dKuadHk0.rGbm7YcRyUkdjQMM-1660017919-0-gaNycGzNCH0">如何修复Ubuntu
+Linux中的蓝牙连接问题</a></p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>ROS 学习记录1</title>
     <url>/posts/20220728a1/</url>
     <content><![CDATA[<div class="note "><p>记录 ROS 学习过程 Part1。<br />
@@ -1672,92 +1782,111 @@ href="https://blog.csdn.net/tjy199610_10/article/details/120621676">最详细的
       </tags>
   </entry>
   <entry>
-    <title>Ubuntu 优化</title>
-    <url>/posts/20220801a1/</url>
-    <content><![CDATA[<div class="note "><p>Ubuntu 使用优化（20.04.1）。</p>
+    <title>ROS 学习记录2</title>
+    <url>/posts/20220731a1/</url>
+    <content><![CDATA[<div class="note "><p>记录 ROS 学习过程 Part2。<br />
+主要内容：ROS 测试、快速体验、开发环境搭建、架构认识。</p>
 </div>
 <span id="more"></span>
-<h2 id="模板-template">模板| Template</h2>
-<p>Ubuntu 20.04 鼠标右击没有新建文本文档选项。进入/home
-下的模板（Template）目录，使用<code>sudo gedit 新建文本文档.txt</code>创建一个空文本文档，保存退出后，鼠标右击即可添加新建文本文档，且创建的文档与自定义的文档名称一致。</p>
-<h2 id="解决-firefox-无法播放-bilibili-视频">解决 Firefox 无法播放
-bilibili 视频</h2>
-<p>在 Firefox 打开 bilibili 发现无法播放视频，显示没有 flash
-插件。<br />
-在终端输入<code>sudo apt install ubuntu-restricted-extras</code>安装相应解码器即可。<br />
-中间需要选择“确定”，按 Tab 即可选择。<br />
-<img src="https://s2.loli.net/2022/08/05/PmJx1ducGlgkTOh.png" />
-安装成功：<br />
-<img src="https://s2.loli.net/2022/08/05/J6G4AkMDqjTmdKC.png" />
-再次使用 Firefox 打开 bilibili 已经可以播放视频了。</p>
-<h2 id="蓝牙配置">蓝牙配置</h2>
-<p>检查蓝牙服务是否正在运行：<br />
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo systemctl status bluetooth.service</span><br></pre></td></tr></table></figure> 启用蓝牙服务：<br />
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo systemctl <span class="built_in">enable</span> bluetooth.service</span><br></pre></td></tr></table></figure> 使用 systemctl 重新启动该服务：<br />
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo systemctl start bluetooth.service</span><br></pre></td></tr></table></figure> 编辑配置文件：<br />
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo gedit /etc/bluetooth/main.conf</span><br></pre></td></tr></table></figure>
-<strong>自动启用</strong>：自动启用可确保在设备重启时启用蓝牙模块，并允许蓝牙适配器识别周围新连接的蓝牙设备。<br />
-<img src="https://s2.loli.net/2022/08/09/PmRaYzTNSlB1QtI.png" />
-<strong>启用重新连接尝试</strong>：配置后每当蓝牙设备和计算机断开连接时，它都会尝试重新连接。只需取消注释配置文件中的
-ReconnectAttempts = 7 行。<br />
-<img src="https://s2.loli.net/2022/08/09/xsTJODdfFGMn6uw.png" />
-<strong>启用快速连接</strong>：通过将 FastConnectable 的值设置为
-true，可以确保在重启或休眠时，蓝牙设备能够更快地连接到 PC。<br />
-<img src="https://s2.loli.net/2022/08/09/2RoOpZ4y9IgkneP.png" /></p>
-<h2 id="终端工具">终端工具</h2>
-<h3 id="terminator-终端模拟器">Terminator 终端模拟器</h3>
-<p>下载：<code>sudo apt install terminator</code></p>
-<h4 id="快捷键">快捷键</h4>
-<p>同一窗口内操作： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Alt+Up                          //移动到上面的终端</span><br><span class="line">Alt+Down                        //移动到下面的终端</span><br><span class="line">Alt+Left                        //移动到左边的终端</span><br><span class="line">Alt+Right                       //移动到右边的终端</span><br><span class="line">Ctrl+Shift+O                    //水平分割终端</span><br><span class="line">Ctrl+Shift+E                    //垂直分割终端</span><br><span class="line">Ctrl+Shift+Right                //在垂直分割的终端中将分割条向右移动</span><br><span class="line">Ctrl+Shift+Left                 //在垂直分割的终端中将分割条向左移动</span><br><span class="line">Ctrl+Shift+Up                   //在水平分割的终端中将分割条向上移动</span><br><span class="line">Ctrl+Shift+Down                 //在水平分割的终端中将分割条向下移动</span><br><span class="line">Ctrl+Shift+S                    //隐藏/显示滚动条</span><br><span class="line">Ctrl+Shift+F                    //搜索</span><br><span class="line">Ctrl+Shift+C                    //复制选中的内容到剪贴板</span><br><span class="line">Ctrl+Shift+V                    //粘贴剪贴板的内容到此处</span><br><span class="line">Ctrl+Shift+W                    //关闭当前终端</span><br><span class="line">Ctrl+Shift+Q                    //退出当前窗口，当前窗口的所有终端都将被关闭</span><br><span class="line">Ctrl+Shift+X                    //最大化显示当前终端</span><br><span class="line">Ctrl+Shift+Z                    //最大化显示当前终端并使字体放大</span><br><span class="line">Ctrl+Shift+N or Ctrl+Tab        //移动到下一个终端</span><br><span class="line">Ctrl+Shift+P or Ctrl+Shift+Tab  //Crtl+Shift+Tab 移动到之前的一个终端</span><br></pre></td></tr></table></figure></p>
-<p>各个窗口间操作： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">F11                             //全屏开关</span><br><span class="line">Ctrl+Shift+T                    //打开一个新的标签</span><br><span class="line">Ctrl+PageDown                   //移动到下一个标签</span><br><span class="line">Ctrl+PageUp                     //移动到上一个标签</span><br><span class="line">Ctrl+Shift+PageDown             //将当前标签与其后一个标签交换位置</span><br><span class="line">Ctrl+Shift+PageUp               //将当前标签与其前一个标签交换位置</span><br><span class="line">Ctrl+Plus (+)                   //增大字体</span><br><span class="line">Ctrl+Minus (-)                  //减小字体</span><br><span class="line">Ctrl+Zero (0)                   //恢复字体到原始大小</span><br><span class="line">Ctrl+Shift+R                    //重置终端状态</span><br><span class="line">Ctrl+Shift+G                    //重置终端状态并clear屏幕</span><br><span class="line">Super+g                         //绑定所有的终端，以便向一个输入能够输入到所有的终端</span><br><span class="line">Super+Shift+G                   //解除绑定</span><br><span class="line">Super+t                         //绑定当前标签的所有终端，向一个终端输入的内容会自动输入到其他终端</span><br><span class="line">Super+Shift+T                   //解除绑定</span><br><span class="line">Ctrl+Shift+I                    //打开一个窗口，新窗口与原来的窗口使用同一个进程</span><br><span class="line">Super+i                         //打开一个新窗口，新窗口与原来的窗口使用不同的进程</span><br></pre></td></tr></table></figure></p>
-<h3 id="gnu-screen">GNU Screen</h3>
-<p>下载：<code>sudo apt install screen</code></p>
-<h4 id="gnu-screen-简介">GNU Screen 简介</h4>
-<p>screen 是一款由 GNU
-计划开发的用于命令行终端切换的自由软件。用户可以通过该软件同时连接多个本地或远程的命令行会话，并在其间自由切换。GNU
-Screen
-可以看作是窗口管理器的命令行界面版本。它提供了统一的管理多个会话的界面和相应的功能。<br />
-在 screen
-环境下，所有的会话都独立的运行，并拥有各自的编号、输入、输出和窗口缓存。用户可以通过快捷键在不同的窗口下切换，并可以自由的重定向各个窗口的输入和输出。</p>
-<h4 id="功能">功能</h4>
-<ul>
-<li>可以创建一个session（会话），实现不同终端之间的交互。<br />
-</li>
-<li>可以实现多人观看同一终端等功能。</li>
-<li>在工作中，如遇突发情况（例如断电，蓝屏等），终端断开，服务器端所有收到信号的前台任务将全部终止，各种工作环境将全部丢失。若在
-screen 里操作，终端意外关闭之后，下次登录到服务器上，进入 screen，之前在
-screen 上运行的任务还在继续运行。screen
-的功能可以大概理解为它将前台任务放入了后台进行，并且不受终端关闭或其它意外事故的影响。</li>
-</ul>
-<h3 id="tmuxterminal-multiplexer类似-gnu-screen">Tmux（terminal
-multiplexer,类似 GNU Screen）</h3>
-<p>下载：<code>sudo apt install tmux</code></p>
-<h4 id="功能-1">功能</h4>
-<ul>
-<li>允许在单个窗口中，同时访问多个会话。这对于同时运行多个命令行程序很有用。<br />
-</li>
-<li>可以让新窗口"接入"已经存在的会话。<br />
-</li>
-<li>允许每个会话有多个连接窗口，因此可以多人实时共享会话。<br />
-</li>
-<li>支持窗口任意的垂直和水平拆分。</li>
-</ul>
-<h2 id="参考文章">参考文章</h2>
-<p><a href="https://www.ruanyifeng.com/blog/2019/10/tmux.html">Tmux
-使用教程</a><br />
-<a
-href="https://www.homedt.net/40644.html">Linux中的screen命令的使用</a><br />
-<a
-href="https://cloud.tencent.com/developer/article/1844735">Linux终端命令神器--Screen命令详解。助力Linux使用和管理</a><br />
-<a
-href="https://zhongguo.eskere.club/%E5%A6%82%E4%BD%95%E4%BF%AE%E5%A4%8Dubuntu-linux%E4%B8%AD%E7%9A%84%E8%93%9D%E7%89%99%E8%BF%9E%E6%8E%A5%E9%97%AE%E9%A2%98/2021-05-12/?__cf_chl_tk=UCmaDe_SWYb41eIhI0dKuadHk0.rGbm7YcRyUkdjQMM-1660017919-0-gaNycGzNCH0">如何修复Ubuntu
-Linux中的蓝牙连接问题</a></p>
+<h2 id="测试-ros">测试 ROS</h2>
+<p>开启三个终端，分别运行： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">roscore</span><br><span class="line">rosrun turtlesim turtlesim_node		#运行后弹出图形化界面</span><br><span class="line">rosrun turtlesim turtle_teleop_key	#运行后可以通过方向键控制海龟的运动</span><br></pre></td></tr></table></figure> <img
+src="https://s2.loli.net/2022/07/31/vd9mzgxcJNfYUkr.png" /></p>
+<h2 id="创建工作空间及初始化">创建工作空间及初始化</h2>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#创建工作空间并初始化</span><br><span class="line">mkdir -p 自定义空间名称/src</span><br><span class="line">cd 自定义空间名称</span><br><span class="line">catkin_make</span><br><span class="line"></span><br><span class="line">#进入 src 创建 ros 包并添加依赖</span><br><span class="line">cd src</span><br><span class="line">catkin_create_pkg 自定义ROS包名 roscpp rospy std_msgs</span><br></pre></td></tr></table></figure>
+<h2 id="helloworld-的-cpython-实现">HelloWorld 的 C++/Python 实现</h2>
+<h3 id="c-实现">C++ 实现</h3>
+<p>1、创建 ROS 工作空间 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#创建工作空间 demo01 并初始化</span><br><span class="line">mkdir -p demo01/src</span><br><span class="line">cd demo01</span><br><span class="line">catkin_make</span><br><span class="line"></span><br><span class="line">#进入 src 创建 名为 helloworld 的 ros 包并添加依赖</span><br><span class="line">cd src</span><br><span class="line">catkin_create_pkg helloworld roscpp rospy std_msgs</span><br><span class="line"></span><br><span class="line">#进入创建的 ros 包</span><br><span class="line">cd helloworld</span><br><span class="line"></span><br><span class="line">#创建 helloworld_c.cpp</span><br><span class="line">gedit helloworld_c.cpp</span><br></pre></td></tr></table></figure> 2、编辑 cpp 文件：<br />
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &quot;ros/ros.h&quot;</span><br><span class="line"></span><br><span class="line">int main(int argc, char *argv[])</span><br><span class="line">&#123;</span><br><span class="line">    //执行 ros 节点初始化</span><br><span class="line">    ros::init(argc,argv,&quot;hello&quot;);</span><br><span class="line">    //创建 ros 节点句柄</span><br><span class="line">    ros::NodeHandle n;</span><br><span class="line">    //控制台输出 hello world</span><br><span class="line">    ROS_INFO(&quot;hello world!&quot;);</span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure> 3、编辑 helloworld 包下的 Cmakelist.txt 文件<br />
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">add_executable(任取节点名</span><br><span class="line">  src/helloworld_c.cpp</span><br><span class="line">)</span><br><span class="line">target_link_libraries(任取节点名</span><br><span class="line">  $&#123;catkin_LIBRARIES&#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure> <img
+src="https://s2.loli.net/2022/08/04/LYAtxeNwcy3KpEU.png" /> 4、编译
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#进入工作空间</span><br><span class="line">cd demo01</span><br><span class="line">#编译</span><br><span class="line">catkin_make</span><br></pre></td></tr></table></figure> 编译成功： <img
+src="https://s2.loli.net/2022/08/04/VsPtDkCfbmodKLi.png" /> 5、执行
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#在终端 1 执行</span><br><span class="line">roscore</span><br><span class="line"></span><br><span class="line">#在终端 2 执行</span><br><span class="line">#进入工作空间</span><br><span class="line">cd demo01</span><br><span class="line">#刷新环境变量</span><br><span class="line">source ./devel/setup.bash</span><br><span class="line">#rosrun 包名 节点名</span><br><span class="line">rosrun helloworld hellow_node</span><br></pre></td></tr></table></figure> <img
+src="https://s2.loli.net/2022/08/04/UrDkCiqh9u4vAGR.png" />
+<div class="note info"><p>如果没有执行<code>source ./devel/setup.bash</code>在当前终端刷新环境变量，则会报错，另开一个终端也要再执行一次。<br />
+<img src="https://s2.loli.net/2022/08/04/9zmVsfr7YwKQ3yg.png" />
+若嫌太麻烦，可以执行<code>echo "source ~/工作空间名/devel/setup.bash" &gt;&gt; ~/.bashrc</code>，之后就不用每次打开都执行一次。</p>
+</div></p>
+<h3 id="python-实现">Python 实现</h3>
+<p>1、创建 py 文件<br />
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#进入 helloworld 功能包</span><br><span class="line">cd demo01/src/helloworld</span><br><span class="line">#创建 scripts 文件夹</span><br><span class="line">mkdir scripts</span><br><span class="line">#进入 scripts 文件夹</span><br><span class="line">cd ./scripts</span><br><span class="line">#创建 py 文件</span><br><span class="line">gedit hw_py.py</span><br></pre></td></tr></table></figure> 2、编辑 py 文件<br />
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#! /usr/bin/env python</span><br><span class="line">#导入 rospy 包</span><br><span class="line">import rospy</span><br><span class="line">#编写主入口</span><br><span class="line">if __name__ == &quot;__main__&quot;:</span><br><span class="line">	#初始化 ros 节点</span><br><span class="line">    rospy.init_node(&quot;hello_py&quot;)</span><br><span class="line">	#输出日志</span><br><span class="line">    rospy.loginfo(&quot;hello world! by python&quot;)</span><br></pre></td></tr></table></figure> <img
+src="https://s2.loli.net/2022/08/04/Lf5hdrOG4waDBSF.png" /> 3、为 python
+文件添加可执行权限<br />
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">chmod +x hw_py.py</span><br></pre></td></tr></table></figure> <img
+src="https://s2.loli.net/2022/08/04/gXEufcCbhNdpjIT.png" /> 4、编辑
+helloworld 下的 CamkeList.txt 文件<br />
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">catkin_install_python(PROGRAMS scripts/hw_py.py</span><br><span class="line">  DESTINATION $&#123;CATKIN_PACKAGE_BIN_DESTINATION&#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure> <img
+src="https://s2.loli.net/2022/08/04/GqkamehDbtMy2Ac.png" />
+5、编译<br />
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#进入工作空间</span><br><span class="line">cd demo01</span><br><span class="line">#编译</span><br><span class="line">catkin_make</span><br></pre></td></tr></table></figure> 6、执行<br />
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#在终端 1 执行</span><br><span class="line">roscore</span><br><span class="line"></span><br><span class="line">#在终端 2 执行</span><br><span class="line">#进入工作空间</span><br><span class="line">cd demo01</span><br><span class="line">#刷新环境变量</span><br><span class="line">source ./devel/setup.bash</span><br><span class="line">#rosrun 包名 py 文件名</span><br><span class="line">rosrun helloworld hw_py.py</span><br></pre></td></tr></table></figure> <img
+src="https://s2.loli.net/2022/08/04/QgXBErxh6e4ZbtD.png" /></p>
+<h2 id="安装并使用-vscode">安装并使用 VScode</h2>
+<h3 id="下载安装包">下载安装包</h3>
+<p>下载地址：<a href="https://code.visualstudio.com/docs?start=true"
+class="uri">https://code.visualstudio.com/docs?start=true</a><br />
+历史版本下载：<a href="https://code.visualstudio.com/updates"
+class="uri">https://code.visualstudio.com/updates</a><br />
+<img src="https://s2.loli.net/2022/08/04/pEJ6UgYwBx928iR.png" /></p>
+<h3 id="安装">安装</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#在下载目录打开终端，执行</span><br><span class="line">sudo dpkg -i xxxx.deb</span><br></pre></td></tr></table></figure>
+<p><img src="https://s2.loli.net/2022/08/04/r2yRB4hIEwjNDkK.png" /></p>
+<h3 id="卸载">卸载</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo dpkg --purge  code</span><br></pre></td></tr></table></figure>
+<h3 id="添加插件">添加插件</h3>
+<p>在插件里搜索并下载 C/C++、CMake Tools、Python、ROS。<br />
+<img src="https://s2.loli.net/2022/08/05/Iuiypt8q5jFCL7Y.png" /></p>
+<h3 id="vscode-基本使用">vscode 基本使用</h3>
+<p>1、创建 ROS 工作空间并启动 vscode<br />
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#创建工作空间 demo02 并初始化</span><br><span class="line">mkdir -p demo02/src</span><br><span class="line">cd demo02</span><br><span class="line">catkin_make</span><br><span class="line"></span><br><span class="line">#启动 vscode</span><br><span class="line">code .</span><br></pre></td></tr></table></figure> 2、配置默认编译选项<br />
+快捷键：Ctrl + Shift + B，选择 catkin_make:build 的设置选项，进入
+.vscode/tasks.json 文件。<br />
+<img src="https://s2.loli.net/2022/08/05/bQv5RXesH6LxINd.png" /> <img
+src="https://s2.loli.net/2022/08/05/Cz9Tnpbdcq7oEIV.png" />
+将文件内容修改如下：<br />
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;version&quot;: &quot;2.0.0&quot;,</span><br><span class="line">    &quot;tasks&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;label&quot;: &quot;catkin_make:debug&quot;, //代表提示的描述性信息</span><br><span class="line">            &quot;type&quot;: &quot;shell&quot;,  //可以选择shell或者process,如果是shell代码是在shell里面运行一个命令，如果是process代表作为一个进程来运行</span><br><span class="line">            &quot;command&quot;: &quot;catkin_make&quot;,//这个是我们需要运行的命令</span><br><span class="line">            &quot;args&quot;: [],//如果需要在命令后面加一些后缀，可以写在这里，比如-DCATKIN_WHITELIST_PACKAGES=“pac1;pac2”</span><br><span class="line">            &quot;group&quot;: &#123;&quot;kind&quot;:&quot;build&quot;,&quot;isDefault&quot;:true&#125;,</span><br><span class="line">            &quot;presentation&quot;: &#123;</span><br><span class="line">                &quot;reveal&quot;: &quot;always&quot;//可选always或者silence，代表是否输出信息</span><br><span class="line">            &#125;,</span><br><span class="line">            &quot;problemMatcher&quot;: &quot;$msCompile&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure> <img
+src="https://s2.loli.net/2022/08/05/priIPRXJo7q9zmW.png" />
+之后使用快捷键 Ctrl + Shift + B 即默认使用 catkin_make:build
+进行编译。<br />
+3、创建 ROS 功能包<br />
+右键 src，选择 create catkin package，然后依次设置包名、添加依赖。<br />
+<img src="https://s2.loli.net/2022/08/05/dze24Qp1HjNfaSO.png" /> <img
+src="https://s2.loli.net/2022/08/05/DRPNVquGb2hgAJ8.png" /> 4、C++
+源文件<br />
+在<strong>功能包</strong>的 src 下创建 cpp 文件。<br />
+<img src="https://s2.loli.net/2022/08/05/E3jqZQgRPVwGKm2.png" /> 编写
+C++ 源文件： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &quot;ros/ros.h&quot;</span><br><span class="line"></span><br><span class="line">int main(int argc, char *argv[])</span><br><span class="line">&#123;</span><br><span class="line">    ros::init(argc,argv,&quot;hello&quot;);</span><br><span class="line">    ROS_INFO(&quot;hello&quot;);</span><br><span class="line">	</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure> <div class="note info"><p><i class="fa fa-circle" aria-hidden="true"></i>如果没有代码提示，则修改
+.vscode/c_cpp_properties.json 中 cppStandard 的值为 c++17。<br />
+<img src="https://s2.loli.net/2022/08/05/IcGZeUvTH4YARir.png" />
+<i class="fa fa-circle" aria-hidden="true"></i>当ROS_INFO
+终端输出有中文时，会出现乱码，解决办法为在函数开头加入下面的任意一句代码。<br />
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">setlocale(LC_CTYPE, &quot;zh_CN.utf8&quot;);</span><br><span class="line">setlocale(LC_ALL, &quot;&quot;);</span><br></pre></td></tr></table></figure></p>
+</div> 5、py 文件<br />
+在<strong>功能包</strong>下新建 scripts 文件夹，添加 py
+文件，并添加可执行权限。<br />
+<img src="https://s2.loli.net/2022/08/05/kS5TbaosRIGLQ3A.png" /></p>
+<p>编写 py 文件： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#! /usr/bin/env python</span><br><span class="line"></span><br><span class="line">import rospy</span><br><span class="line"></span><br><span class="line">if __name__ == &quot;__main__&quot;:</span><br><span class="line"></span><br><span class="line">    rospy.init_node(&quot;hello&quot;)</span><br><span class="line">    rospy.loginfo(&quot;hello vscode by python&quot;)</span><br></pre></td></tr></table></figure> 6、配置 CMakeLists.txt<br />
+C++ 配置:<br />
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">add_executable(节点名称</span><br><span class="line">  src/C++源文件名.cpp</span><br><span class="line">)</span><br><span class="line">target_link_libraries(节点名称</span><br><span class="line">  $&#123;catkin_LIBRARIES&#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure> Python 配置:<br />
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">catkin_install_python(PROGRAMS scripts/py文件名.py</span><br><span class="line">  DESTINATION $&#123;CATKIN_PACKAGE_BIN_DESTINATION&#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure> 7、编译执行<br />
+编译：Ctrl + Shift + B。<br />
+<img src="https://s2.loli.net/2022/08/05/lALT5QJvbVPjcs9.png" /> <img
+src="https://s2.loli.net/2022/08/05/aVphjCtLmxRdwDJ.png" /> 执行：可以在
+VScode 中添加终端，命令与之前一致。<br />
+<img src="https://s2.loli.net/2022/08/05/5tgroTYdFfynGlk.png" /> <img
+src="https://s2.loli.net/2022/08/05/1HxpgAyMPwYehu6.png" /> <img
+src="https://s2.loli.net/2022/08/05/pkGVR9fvoqTHiZU.png" /></p>
+<h2 id="参考">参考</h2>
+<p><a
+href="http://www.autolabor.com.cn/book/ROSTutorials/">【Autolabor初级教程】ROS机器人入门课程文档</a></p>
 ]]></content>
       <categories>
-        <category>Linux</category>
+        <category>学习笔记</category>
+        <category>ROS</category>
       </categories>
       <tags>
-        <tag>Linux</tag>
+        <tag>ROS</tag>
       </tags>
   </entry>
   <entry>
@@ -1853,7 +1982,7 @@ src="https://s2.loli.net/2022/08/14/3piwBjGfbULu9ag.png" /></p>
   </entry>
   <entry>
     <title>Hello World</title>
-    <url>/posts/20210811cl6yevhke0012ekf9683x779g/</url>
+    <url>/posts/20210811cl6ykg2e90014ecf9cplqbv50/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very
 first post. Check <a href="https://hexo.io/docs/">documentation</a> for
 more info. If you get any problems when using Hexo, you can find the
@@ -1879,6 +2008,122 @@ href="https://hexo.io/docs/generating.html">Generating</a></p>
 <p>More info: <a
 href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>使用 Jetson Nano 向 PX4 提供 t265 位置信息，实现室内定点飞行</title>
+    <url>/posts/20210907a1/</url>
+    <content><![CDATA[<div class="note "><p>本文作者：南京航空航天大学 科技中心 陈思祺<br />
+主要内容：详细阐述如何使用 Jetson Nano 向 PX4 提供 t265
+位置信息，从而实现室内定点飞行。</p>
+</div>
+<p><span id="more"></span></p>
+<p>使用的 Jetson Nano 镜像版本：4.6（2021-08-04 发布）</p>
+<p><a
+href="https://developer.nvidia.com/zh-cn/embedded/downloads">NVIDIA官方镜像下载链接</a></p>
+<p><img src="https://s2.loli.net/2022/07/19/d6PRHu7trEnLG2l.jpg" /></p>
+<p>下载好镜像，烧录进 TF
+卡，初次开机简单配置后进入系统，建议系统语言选择英语，正式开始本次教程。</p>
+<h2 id="更新软件列表更新软件">更新软件列表，更新软件</h2>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt-get update </span><br><span class="line">sudo apt-get upgrade </span><br></pre></td></tr></table></figure>
+<h2 id="安装-ros-melodic">安装 ROS Melodic</h2>
+<p>参考<a
+href="http://wiki.ros.org/melodic/Installation/Ubuntu">官网安装教程</a></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 设置sources.list</span></span><br><span class="line">sudo sh -c &#x27;echo &quot;deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main&quot; &gt; /etc/apt/sources.list.d/ros-latest.list&#x27;</span><br><span class="line"><span class="meta">#</span><span class="bash"> 设置密钥</span></span><br><span class="line">sudo apt install curl</span><br><span class="line">curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add -</span><br><span class="line"><span class="meta">#</span><span class="bash"> 确保 Debian 包索引是最新的</span></span><br><span class="line">sudo apt update</span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装桌面完整版（推荐）</span></span><br><span class="line">sudo apt install ros-melodic-desktop-full</span><br><span class="line"><span class="meta">#</span><span class="bash"> 设置环境</span></span><br><span class="line">echo &quot;source /opt/ros/melodic/setup.bash&quot; &gt;&gt; ~/.bashrc</span><br><span class="line">source ~/.bashrc</span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装 rosdep</span></span><br><span class="line">sudo apt install python-rosdep</span><br><span class="line"><span class="meta">#</span><span class="bash"> 初始化 rosdep</span></span><br><span class="line">sudo rosdep init</span><br><span class="line">rosdep update</span><br><span class="line"><span class="meta">#</span><span class="bash"> 试一下效果</span></span><br><span class="line">roscore</span><br></pre></td></tr></table></figure>
+<h2 id="安装realsense">安装realsense</h2>
+<p>参考<a
+href="https://github.com/IntelRealSense/librealsense/blob/master/doc/installation.md">官网安装教程</a></p>
+<p>安装过程中请拔下摄像头</p>
+<h3 id="安装realsense-sdk">安装Realsense SDK</h3>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 下载<span class="built_in">source</span></span> </span><br><span class="line"><span class="meta">#</span><span class="bash"> 可使用Proxy代理加速下载。详见：https://ghproxy.com/</span></span><br><span class="line">git clone https://github.com/IntelRealSense/librealsense</span><br><span class="line">cd librealsense</span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装依赖项</span> </span><br><span class="line">sudo apt-get install libudev-dev pkg-config libgtk-3-dev</span><br><span class="line">sudo apt-get install libusb-1.0-0-dev pkg-config</span><br><span class="line">sudo apt-get install libglfw3-dev</span><br><span class="line">sudo apt-get install libssl-dev</span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装位于 librealsense 源目录中的 Intel Realsense 权限脚本</span></span><br><span class="line">sudo cp config/99-realsense-libusb.rules /etc/udev/rules.d/</span><br><span class="line">sudo udevadm control --reload-rules &amp;&amp; udevadm trigger </span><br><span class="line"><span class="meta">#</span><span class="bash"> 编译</span></span><br><span class="line">mkdir build</span><br><span class="line">cd build</span><br><span class="line">cmake ../ -DBUILD_EXAMPLES=true</span><br><span class="line">make</span><br><span class="line">sudo make install</span><br><span class="line"><span class="meta">#</span><span class="bash"> 试一下效果</span></span><br><span class="line">realsense-viewer</span><br></pre></td></tr></table></figure>
+<h3 id="安装realsense-ros">安装realsense-ros</h3>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 下载<span class="built_in">source</span></span></span><br><span class="line">mkdir -p ~/catkin_ws/src</span><br><span class="line">cd ~/catkin_ws/src/</span><br><span class="line">git clone https://github.com/IntelRealSense/realsense-ros.git</span><br><span class="line">git clone https://github.com/pal-robotics/ddynamic_reconfigure</span><br><span class="line">cd realsense-ros/</span><br><span class="line">git checkout `git tag | sort -V | grep -P &quot;^\d+\.\d+\.\d+&quot; | tail -1`</span><br><span class="line"><span class="meta">#</span><span class="bash"> 更改cv_bridgeConfig.cmake中opencv4路径</span></span><br><span class="line">sudo gedit /opt/ros/melodic/share/cv_bridge/cmake/cv_bridgeConfig.cmake</span><br></pre></td></tr></table></figure>
+<p>如图</p>
+<p><img src="https://s2.loli.net/2022/07/19/QFk1VvcSTZz8xWU.png" /></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 编译</span></span><br><span class="line">cd ~/catkin_ws</span><br><span class="line">catkin_make</span><br><span class="line"><span class="meta">#</span><span class="bash"> 设置环境</span></span><br><span class="line">echo &quot;source ~/catkin_ws/devel/setup.bash&quot;&gt;&gt;~/.bashrc </span><br><span class="line">source ~/.bashrc</span><br><span class="line"><span class="meta">#</span><span class="bash">试一下效果</span></span><br><span class="line">roslaunch realsense2_camera rs_t265.launch</span><br></pre></td></tr></table></figure>
+<h2 id="px4配置">PX4配置</h2>
+<p>下载 <em>QGroundControl</em></p>
+<p><a
+href="https://github.com/mavlink/qgroundcontrol/releases/">GitHub链接</a></p>
+<p><a href="https://docs.qgroundcontrol.com/master/en/">使用说明</a></p>
+<ul>
+<li><p><code>MAV_1_CONFIG</code>= <code>TELEM 2</code></p></li>
+<li><p><code>MAV_1_MODE</code> = <code>Onboard</code></p></li>
+<li><p><code>SER_TEL2_BAUD</code> = <code>57600 8N1</code></p></li>
+<li><p><code>EKF2_AID_MASK</code> 勾选
+<code>vision position fusion</code>和<code>vision yaw fusion</code></p></li>
+<li><p><code>EKF2_HGT_MODE</code> 设置为 <code>Vision</code></p></li>
+<li><p><code>MAV_ODOM_LP</code>设置为<code>1</code></p></li>
+</ul>
+<h2 id="mavros-和vio">MAVROS 和VIO</h2>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> MAVROS</span></span><br><span class="line">sudo apt install python-catkin-tools</span><br><span class="line">sudo apt install ros-melodic-mavros ros-melodic-mavros-extras</span><br><span class="line">sudo apt-get install ros-indigo-mavros ros-indigo-mavros-extras ros‐indigo‐control‐toolbox</span><br><span class="line"><span class="meta">#</span><span class="bash"> VIO</span></span><br><span class="line">cd ~/catkin_ws/src</span><br><span class="line">git clone https://github.com/Auterion/VIO.git</span><br><span class="line">cd ..</span><br><span class="line">catkin_make</span><br></pre></td></tr></table></figure>
+<p>更改以下配置</p>
+<ol type="1">
+<li>T265 相对位置及朝向</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">gedit ~/catkin_ws/src/VIO/launch/bridge.launch</span><br></pre></td></tr></table></figure>
+<p>修改</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">&lt;node pkg=&quot;tf&quot; type=&quot;static_transform_publisher&quot; name=&quot;tf_baseLink_cameraPose&quot;args=&quot;0 0 0 0 1.5708 0 base_link camera_pose_frame 1000&quot;/&gt;</span><br></pre></td></tr></table></figure>
+<p><code>args</code>中</p>
+<ul>
+<li><p>开头三个参数为飞控中心指向 T265 中心的向量。例如 T265 在飞控前方
+10 cm，上方 4 cm, 则前三个参数为：<code>[0.1, 0, -0.04]</code></p></li>
+<li><p>中间三个参数为旋转角(偏航, 俯仰, 横滚)。默认 T265
+朝地，则参数为<code>[0, 1.5708, 0]</code>；T265
+照射飞机机头方向，则参数为 <code>[0 0 0]</code></p></li>
+</ul>
+<ol start="2" type="1">
+<li>如果 TTL 的速度异常</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo gedit /opt/ros/melodic/share/mavros/launch/px4_config.yaml</span><br></pre></td></tr></table></figure>
+<p>第 12 行改为</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">timesync_rate: 0.0</span><br></pre></td></tr></table></figure>
+<ol start="3" type="1">
+<li>如果使用 USB 连接</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo gedit /opt/ros/melodic/share/mavros/launch/px4.launch</span><br></pre></td></tr></table></figure>
+<p>修改第 5 行为</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">&lt;arg name=&quot;fcu_url&quot; default=&quot;/dev/ttyUSB0:57600&quot; /&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">gedit ~/catkin_ws/src/VIO/launch/bridge_mavros.launch</span><br></pre></td></tr></table></figure>
+<p>修改第 3 行为</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">&lt;arg name=&quot;fcu_url&quot; default=&quot;/dev/ttyUSB0:57600&quot; /&gt;</span><br></pre></td></tr></table></figure>
+<ol start="4" type="1">
+<li>放开串口权限</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 用你自己的用户名替代下面的&lt;username&gt;</span></span><br><span class="line">sudo usermod -a -G dialout &lt;username&gt;</span><br><span class="line"><span class="meta">#</span><span class="bash"> 修改后需重启生效</span></span><br><span class="line">reboot now</span><br></pre></td></tr></table></figure>
+<h2 id="起飞前检查">起飞前检查</h2>
+<p>详情请看<a
+href="https://docs.px4.io/master/en/computer_vision/visual_inertial_odometry.html#verify_estimate">官网说明</a></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 开启VIO</span></span><br><span class="line">roslaunch px4_realsense_bridge bridge_mavros.launch</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>连接好摄像头、USB、PX4，可暂不接电池，查看 MAVLink
+Inspector</p></li>
+<li><p>偏航机身，直到<code>ODOMETRY</code>消息的四元数非常接近单位四元数（w
+= 1，x = y = z = 0）</p></li>
+<li><p>向前移动无人机，x 坐标应增大</p></li>
+<li><p>向右移动无人机，y 坐标应增大</p></li>
+<li><p>向上移动无人机，z 坐标应减小</p></li>
+<li><p>遥控器切换到 Position Flight Mode，若切换成功，应闪绿灯</p></li>
+</ul>
+<p>然后可以接上电池，尝试定点飞行</p>
+<h2 id="参考文章">参考文章</h2>
+<p><a href="https://docs.px4.io/master/en/">PX4 User Guide</a></p>
+<p><a href="http://wiki.ros.org/">ROS Wiki</a></p>
+<p><a href="https://github.com/IntelRealSense/">Intel RealSense</a></p>
+<p><a
+href="https://lifuguan.github.io/d435i/ros/2019/05/28/realsense-melodic-installation/">ROS
+melodic kernel 4.18 安装 realsense D435i</a></p>
+<p><a
+href="https://zhuanlan.zhihu.com/p/364390798">通过MAVROS连接机载电脑（NANO/TX2/NX）与Pixhawk</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/367357019">Jetson
+Nano使用T265向PX4提供位置信息</a></p>
+<p><a href="https://ghproxy.com/">GitHub Proxy</a></p>
+]]></content>
+      <categories>
+        <category>PX4</category>
+      </categories>
+      <tags>
+        <tag>PX4</tag>
+      </tags>
   </entry>
   <entry>
     <title>在Hexo博客上进行创作</title>
@@ -2129,230 +2374,6 @@ missed; or followed by a non-tabulated empty line</h2>
       </categories>
       <tags>
         <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>ROS 学习记录2</title>
-    <url>/posts/20220731a1/</url>
-    <content><![CDATA[<div class="note "><p>记录 ROS 学习过程 Part2。<br />
-主要内容：ROS 测试、快速体验、开发环境搭建、架构认识。</p>
-</div>
-<span id="more"></span>
-<h2 id="测试-ros">测试 ROS</h2>
-<p>开启三个终端，分别运行： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">roscore</span><br><span class="line">rosrun turtlesim turtlesim_node		#运行后弹出图形化界面</span><br><span class="line">rosrun turtlesim turtle_teleop_key	#运行后可以通过方向键控制海龟的运动</span><br></pre></td></tr></table></figure> <img
-src="https://s2.loli.net/2022/07/31/vd9mzgxcJNfYUkr.png" /></p>
-<h2 id="创建工作空间及初始化">创建工作空间及初始化</h2>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#创建工作空间并初始化</span><br><span class="line">mkdir -p 自定义空间名称/src</span><br><span class="line">cd 自定义空间名称</span><br><span class="line">catkin_make</span><br><span class="line"></span><br><span class="line">#进入 src 创建 ros 包并添加依赖</span><br><span class="line">cd src</span><br><span class="line">catkin_create_pkg 自定义ROS包名 roscpp rospy std_msgs</span><br></pre></td></tr></table></figure>
-<h2 id="helloworld-的-cpython-实现">HelloWorld 的 C++/Python 实现</h2>
-<h3 id="c-实现">C++ 实现</h3>
-<p>1、创建 ROS 工作空间 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#创建工作空间 demo01 并初始化</span><br><span class="line">mkdir -p demo01/src</span><br><span class="line">cd demo01</span><br><span class="line">catkin_make</span><br><span class="line"></span><br><span class="line">#进入 src 创建 名为 helloworld 的 ros 包并添加依赖</span><br><span class="line">cd src</span><br><span class="line">catkin_create_pkg helloworld roscpp rospy std_msgs</span><br><span class="line"></span><br><span class="line">#进入创建的 ros 包</span><br><span class="line">cd helloworld</span><br><span class="line"></span><br><span class="line">#创建 helloworld_c.cpp</span><br><span class="line">gedit helloworld_c.cpp</span><br></pre></td></tr></table></figure> 2、编辑 cpp 文件：<br />
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &quot;ros/ros.h&quot;</span><br><span class="line"></span><br><span class="line">int main(int argc, char *argv[])</span><br><span class="line">&#123;</span><br><span class="line">    //执行 ros 节点初始化</span><br><span class="line">    ros::init(argc,argv,&quot;hello&quot;);</span><br><span class="line">    //创建 ros 节点句柄</span><br><span class="line">    ros::NodeHandle n;</span><br><span class="line">    //控制台输出 hello world</span><br><span class="line">    ROS_INFO(&quot;hello world!&quot;);</span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure> 3、编辑 helloworld 包下的 Cmakelist.txt 文件<br />
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">add_executable(任取节点名</span><br><span class="line">  src/helloworld_c.cpp</span><br><span class="line">)</span><br><span class="line">target_link_libraries(任取节点名</span><br><span class="line">  $&#123;catkin_LIBRARIES&#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure> <img
-src="https://s2.loli.net/2022/08/04/LYAtxeNwcy3KpEU.png" /> 4、编译
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#进入工作空间</span><br><span class="line">cd demo01</span><br><span class="line">#编译</span><br><span class="line">catkin_make</span><br></pre></td></tr></table></figure> 编译成功： <img
-src="https://s2.loli.net/2022/08/04/VsPtDkCfbmodKLi.png" /> 5、执行
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#在终端 1 执行</span><br><span class="line">roscore</span><br><span class="line"></span><br><span class="line">#在终端 2 执行</span><br><span class="line">#进入工作空间</span><br><span class="line">cd demo01</span><br><span class="line">#刷新环境变量</span><br><span class="line">source ./devel/setup.bash</span><br><span class="line">#rosrun 包名 节点名</span><br><span class="line">rosrun helloworld hellow_node</span><br></pre></td></tr></table></figure> <img
-src="https://s2.loli.net/2022/08/04/UrDkCiqh9u4vAGR.png" />
-<div class="note info"><p>如果没有执行<code>source ./devel/setup.bash</code>在当前终端刷新环境变量，则会报错，另开一个终端也要再执行一次。<br />
-<img src="https://s2.loli.net/2022/08/04/9zmVsfr7YwKQ3yg.png" />
-若嫌太麻烦，可以执行<code>echo "source ~/工作空间名/devel/setup.bash" &gt;&gt; ~/.bashrc</code>，之后就不用每次打开都执行一次。</p>
-</div></p>
-<h3 id="python-实现">Python 实现</h3>
-<p>1、创建 py 文件<br />
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#进入 helloworld 功能包</span><br><span class="line">cd demo01/src/helloworld</span><br><span class="line">#创建 scripts 文件夹</span><br><span class="line">mkdir scripts</span><br><span class="line">#进入 scripts 文件夹</span><br><span class="line">cd ./scripts</span><br><span class="line">#创建 py 文件</span><br><span class="line">gedit hw_py.py</span><br></pre></td></tr></table></figure> 2、编辑 py 文件<br />
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#! /usr/bin/env python</span><br><span class="line">#导入 rospy 包</span><br><span class="line">import rospy</span><br><span class="line">#编写主入口</span><br><span class="line">if __name__ == &quot;__main__&quot;:</span><br><span class="line">	#初始化 ros 节点</span><br><span class="line">    rospy.init_node(&quot;hello_py&quot;)</span><br><span class="line">	#输出日志</span><br><span class="line">    rospy.loginfo(&quot;hello world! by python&quot;)</span><br></pre></td></tr></table></figure> <img
-src="https://s2.loli.net/2022/08/04/Lf5hdrOG4waDBSF.png" /> 3、为 python
-文件添加可执行权限<br />
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">chmod +x hw_py.py</span><br></pre></td></tr></table></figure> <img
-src="https://s2.loli.net/2022/08/04/gXEufcCbhNdpjIT.png" /> 4、编辑
-helloworld 下的 CamkeList.txt 文件<br />
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">catkin_install_python(PROGRAMS scripts/hw_py.py</span><br><span class="line">  DESTINATION $&#123;CATKIN_PACKAGE_BIN_DESTINATION&#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure> <img
-src="https://s2.loli.net/2022/08/04/GqkamehDbtMy2Ac.png" />
-5、编译<br />
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#进入工作空间</span><br><span class="line">cd demo01</span><br><span class="line">#编译</span><br><span class="line">catkin_make</span><br></pre></td></tr></table></figure> 6、执行<br />
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#在终端 1 执行</span><br><span class="line">roscore</span><br><span class="line"></span><br><span class="line">#在终端 2 执行</span><br><span class="line">#进入工作空间</span><br><span class="line">cd demo01</span><br><span class="line">#刷新环境变量</span><br><span class="line">source ./devel/setup.bash</span><br><span class="line">#rosrun 包名 py 文件名</span><br><span class="line">rosrun helloworld hw_py.py</span><br></pre></td></tr></table></figure> <img
-src="https://s2.loli.net/2022/08/04/QgXBErxh6e4ZbtD.png" /></p>
-<h2 id="安装并使用-vscode">安装并使用 VScode</h2>
-<h3 id="下载安装包">下载安装包</h3>
-<p>下载地址：<a href="https://code.visualstudio.com/docs?start=true"
-class="uri">https://code.visualstudio.com/docs?start=true</a><br />
-历史版本下载：<a href="https://code.visualstudio.com/updates"
-class="uri">https://code.visualstudio.com/updates</a><br />
-<img src="https://s2.loli.net/2022/08/04/pEJ6UgYwBx928iR.png" /></p>
-<h3 id="安装">安装</h3>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#在下载目录打开终端，执行</span><br><span class="line">sudo dpkg -i xxxx.deb</span><br></pre></td></tr></table></figure>
-<p><img src="https://s2.loli.net/2022/08/04/r2yRB4hIEwjNDkK.png" /></p>
-<h3 id="卸载">卸载</h3>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo dpkg --purge  code</span><br></pre></td></tr></table></figure>
-<h3 id="添加插件">添加插件</h3>
-<p>在插件里搜索并下载 C/C++、CMake Tools、Python、ROS。<br />
-<img src="https://s2.loli.net/2022/08/05/Iuiypt8q5jFCL7Y.png" /></p>
-<h3 id="vscode-基本使用">vscode 基本使用</h3>
-<p>1、创建 ROS 工作空间并启动 vscode<br />
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#创建工作空间 demo02 并初始化</span><br><span class="line">mkdir -p demo02/src</span><br><span class="line">cd demo02</span><br><span class="line">catkin_make</span><br><span class="line"></span><br><span class="line">#启动 vscode</span><br><span class="line">code .</span><br></pre></td></tr></table></figure> 2、配置默认编译选项<br />
-快捷键：Ctrl + Shift + B，选择 catkin_make:build 的设置选项，进入
-.vscode/tasks.json 文件。<br />
-<img src="https://s2.loli.net/2022/08/05/bQv5RXesH6LxINd.png" /> <img
-src="https://s2.loli.net/2022/08/05/Cz9Tnpbdcq7oEIV.png" />
-将文件内容修改如下：<br />
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;version&quot;: &quot;2.0.0&quot;,</span><br><span class="line">    &quot;tasks&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;label&quot;: &quot;catkin_make:debug&quot;, //代表提示的描述性信息</span><br><span class="line">            &quot;type&quot;: &quot;shell&quot;,  //可以选择shell或者process,如果是shell代码是在shell里面运行一个命令，如果是process代表作为一个进程来运行</span><br><span class="line">            &quot;command&quot;: &quot;catkin_make&quot;,//这个是我们需要运行的命令</span><br><span class="line">            &quot;args&quot;: [],//如果需要在命令后面加一些后缀，可以写在这里，比如-DCATKIN_WHITELIST_PACKAGES=“pac1;pac2”</span><br><span class="line">            &quot;group&quot;: &#123;&quot;kind&quot;:&quot;build&quot;,&quot;isDefault&quot;:true&#125;,</span><br><span class="line">            &quot;presentation&quot;: &#123;</span><br><span class="line">                &quot;reveal&quot;: &quot;always&quot;//可选always或者silence，代表是否输出信息</span><br><span class="line">            &#125;,</span><br><span class="line">            &quot;problemMatcher&quot;: &quot;$msCompile&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure> <img
-src="https://s2.loli.net/2022/08/05/priIPRXJo7q9zmW.png" />
-之后使用快捷键 Ctrl + Shift + B 即默认使用 catkin_make:build
-进行编译。<br />
-3、创建 ROS 功能包<br />
-右键 src，选择 create catkin package，然后依次设置包名、添加依赖。<br />
-<img src="https://s2.loli.net/2022/08/05/dze24Qp1HjNfaSO.png" /> <img
-src="https://s2.loli.net/2022/08/05/DRPNVquGb2hgAJ8.png" /> 4、C++
-源文件<br />
-在<strong>功能包</strong>的 src 下创建 cpp 文件。<br />
-<img src="https://s2.loli.net/2022/08/05/E3jqZQgRPVwGKm2.png" /> 编写
-C++ 源文件： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &quot;ros/ros.h&quot;</span><br><span class="line"></span><br><span class="line">int main(int argc, char *argv[])</span><br><span class="line">&#123;</span><br><span class="line">    ros::init(argc,argv,&quot;hello&quot;);</span><br><span class="line">    ROS_INFO(&quot;hello&quot;);</span><br><span class="line">	</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure> <div class="note info"><p><i class="fa fa-circle" aria-hidden="true"></i>如果没有代码提示，则修改
-.vscode/c_cpp_properties.json 中 cppStandard 的值为 c++17。<br />
-<img src="https://s2.loli.net/2022/08/05/IcGZeUvTH4YARir.png" />
-<i class="fa fa-circle" aria-hidden="true"></i>当ROS_INFO
-终端输出有中文时，会出现乱码，解决办法为在函数开头加入下面的任意一句代码。<br />
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">setlocale(LC_CTYPE, &quot;zh_CN.utf8&quot;);</span><br><span class="line">setlocale(LC_ALL, &quot;&quot;);</span><br></pre></td></tr></table></figure></p>
-</div> 5、py 文件<br />
-在<strong>功能包</strong>下新建 scripts 文件夹，添加 py
-文件，并添加可执行权限。<br />
-<img src="https://s2.loli.net/2022/08/05/kS5TbaosRIGLQ3A.png" /></p>
-<p>编写 py 文件： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#! /usr/bin/env python</span><br><span class="line"></span><br><span class="line">import rospy</span><br><span class="line"></span><br><span class="line">if __name__ == &quot;__main__&quot;:</span><br><span class="line"></span><br><span class="line">    rospy.init_node(&quot;hello&quot;)</span><br><span class="line">    rospy.loginfo(&quot;hello vscode by python&quot;)</span><br></pre></td></tr></table></figure> 6、配置 CMakeLists.txt<br />
-C++ 配置:<br />
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">add_executable(节点名称</span><br><span class="line">  src/C++源文件名.cpp</span><br><span class="line">)</span><br><span class="line">target_link_libraries(节点名称</span><br><span class="line">  $&#123;catkin_LIBRARIES&#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure> Python 配置:<br />
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">catkin_install_python(PROGRAMS scripts/py文件名.py</span><br><span class="line">  DESTINATION $&#123;CATKIN_PACKAGE_BIN_DESTINATION&#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure> 7、编译执行<br />
-编译：Ctrl + Shift + B。<br />
-<img src="https://s2.loli.net/2022/08/05/lALT5QJvbVPjcs9.png" /> <img
-src="https://s2.loli.net/2022/08/05/aVphjCtLmxRdwDJ.png" /> 执行：可以在
-VScode 中添加终端，命令与之前一致。<br />
-<img src="https://s2.loli.net/2022/08/05/5tgroTYdFfynGlk.png" /> <img
-src="https://s2.loli.net/2022/08/05/1HxpgAyMPwYehu6.png" /> <img
-src="https://s2.loli.net/2022/08/05/pkGVR9fvoqTHiZU.png" /></p>
-<h2 id="参考">参考</h2>
-<p><a
-href="http://www.autolabor.com.cn/book/ROSTutorials/">【Autolabor初级教程】ROS机器人入门课程文档</a></p>
-]]></content>
-      <categories>
-        <category>学习笔记</category>
-        <category>ROS</category>
-      </categories>
-      <tags>
-        <tag>ROS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>使用 Jetson Nano 向 PX4 提供 t265 位置信息，实现室内定点飞行</title>
-    <url>/posts/20210907a1/</url>
-    <content><![CDATA[<div class="note "><p>本文作者：南京航空航天大学 科技中心 陈思祺<br />
-主要内容：详细阐述如何使用 Jetson Nano 向 PX4 提供 t265
-位置信息，从而实现室内定点飞行。</p>
-</div>
-<p><span id="more"></span></p>
-<p>使用的 Jetson Nano 镜像版本：4.6（2021-08-04 发布）</p>
-<p><a
-href="https://developer.nvidia.com/zh-cn/embedded/downloads">NVIDIA官方镜像下载链接</a></p>
-<p><img src="https://s2.loli.net/2022/07/19/d6PRHu7trEnLG2l.jpg" /></p>
-<p>下载好镜像，烧录进 TF
-卡，初次开机简单配置后进入系统，建议系统语言选择英语，正式开始本次教程。</p>
-<h2 id="更新软件列表更新软件">更新软件列表，更新软件</h2>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt-get update </span><br><span class="line">sudo apt-get upgrade </span><br></pre></td></tr></table></figure>
-<h2 id="安装-ros-melodic">安装 ROS Melodic</h2>
-<p>参考<a
-href="http://wiki.ros.org/melodic/Installation/Ubuntu">官网安装教程</a></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 设置sources.list</span></span><br><span class="line">sudo sh -c &#x27;echo &quot;deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main&quot; &gt; /etc/apt/sources.list.d/ros-latest.list&#x27;</span><br><span class="line"><span class="meta">#</span><span class="bash"> 设置密钥</span></span><br><span class="line">sudo apt install curl</span><br><span class="line">curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add -</span><br><span class="line"><span class="meta">#</span><span class="bash"> 确保 Debian 包索引是最新的</span></span><br><span class="line">sudo apt update</span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装桌面完整版（推荐）</span></span><br><span class="line">sudo apt install ros-melodic-desktop-full</span><br><span class="line"><span class="meta">#</span><span class="bash"> 设置环境</span></span><br><span class="line">echo &quot;source /opt/ros/melodic/setup.bash&quot; &gt;&gt; ~/.bashrc</span><br><span class="line">source ~/.bashrc</span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装 rosdep</span></span><br><span class="line">sudo apt install python-rosdep</span><br><span class="line"><span class="meta">#</span><span class="bash"> 初始化 rosdep</span></span><br><span class="line">sudo rosdep init</span><br><span class="line">rosdep update</span><br><span class="line"><span class="meta">#</span><span class="bash"> 试一下效果</span></span><br><span class="line">roscore</span><br></pre></td></tr></table></figure>
-<h2 id="安装realsense">安装realsense</h2>
-<p>参考<a
-href="https://github.com/IntelRealSense/librealsense/blob/master/doc/installation.md">官网安装教程</a></p>
-<p>安装过程中请拔下摄像头</p>
-<h3 id="安装realsense-sdk">安装Realsense SDK</h3>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 下载<span class="built_in">source</span></span> </span><br><span class="line"><span class="meta">#</span><span class="bash"> 可使用Proxy代理加速下载。详见：https://ghproxy.com/</span></span><br><span class="line">git clone https://github.com/IntelRealSense/librealsense</span><br><span class="line">cd librealsense</span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装依赖项</span> </span><br><span class="line">sudo apt-get install libudev-dev pkg-config libgtk-3-dev</span><br><span class="line">sudo apt-get install libusb-1.0-0-dev pkg-config</span><br><span class="line">sudo apt-get install libglfw3-dev</span><br><span class="line">sudo apt-get install libssl-dev</span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装位于 librealsense 源目录中的 Intel Realsense 权限脚本</span></span><br><span class="line">sudo cp config/99-realsense-libusb.rules /etc/udev/rules.d/</span><br><span class="line">sudo udevadm control --reload-rules &amp;&amp; udevadm trigger </span><br><span class="line"><span class="meta">#</span><span class="bash"> 编译</span></span><br><span class="line">mkdir build</span><br><span class="line">cd build</span><br><span class="line">cmake ../ -DBUILD_EXAMPLES=true</span><br><span class="line">make</span><br><span class="line">sudo make install</span><br><span class="line"><span class="meta">#</span><span class="bash"> 试一下效果</span></span><br><span class="line">realsense-viewer</span><br></pre></td></tr></table></figure>
-<h3 id="安装realsense-ros">安装realsense-ros</h3>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 下载<span class="built_in">source</span></span></span><br><span class="line">mkdir -p ~/catkin_ws/src</span><br><span class="line">cd ~/catkin_ws/src/</span><br><span class="line">git clone https://github.com/IntelRealSense/realsense-ros.git</span><br><span class="line">git clone https://github.com/pal-robotics/ddynamic_reconfigure</span><br><span class="line">cd realsense-ros/</span><br><span class="line">git checkout `git tag | sort -V | grep -P &quot;^\d+\.\d+\.\d+&quot; | tail -1`</span><br><span class="line"><span class="meta">#</span><span class="bash"> 更改cv_bridgeConfig.cmake中opencv4路径</span></span><br><span class="line">sudo gedit /opt/ros/melodic/share/cv_bridge/cmake/cv_bridgeConfig.cmake</span><br></pre></td></tr></table></figure>
-<p>如图</p>
-<p><img src="https://s2.loli.net/2022/07/19/QFk1VvcSTZz8xWU.png" /></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 编译</span></span><br><span class="line">cd ~/catkin_ws</span><br><span class="line">catkin_make</span><br><span class="line"><span class="meta">#</span><span class="bash"> 设置环境</span></span><br><span class="line">echo &quot;source ~/catkin_ws/devel/setup.bash&quot;&gt;&gt;~/.bashrc </span><br><span class="line">source ~/.bashrc</span><br><span class="line"><span class="meta">#</span><span class="bash">试一下效果</span></span><br><span class="line">roslaunch realsense2_camera rs_t265.launch</span><br></pre></td></tr></table></figure>
-<h2 id="px4配置">PX4配置</h2>
-<p>下载 <em>QGroundControl</em></p>
-<p><a
-href="https://github.com/mavlink/qgroundcontrol/releases/">GitHub链接</a></p>
-<p><a href="https://docs.qgroundcontrol.com/master/en/">使用说明</a></p>
-<ul>
-<li><p><code>MAV_1_CONFIG</code>= <code>TELEM 2</code></p></li>
-<li><p><code>MAV_1_MODE</code> = <code>Onboard</code></p></li>
-<li><p><code>SER_TEL2_BAUD</code> = <code>57600 8N1</code></p></li>
-<li><p><code>EKF2_AID_MASK</code> 勾选
-<code>vision position fusion</code>和<code>vision yaw fusion</code></p></li>
-<li><p><code>EKF2_HGT_MODE</code> 设置为 <code>Vision</code></p></li>
-<li><p><code>MAV_ODOM_LP</code>设置为<code>1</code></p></li>
-</ul>
-<h2 id="mavros-和vio">MAVROS 和VIO</h2>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> MAVROS</span></span><br><span class="line">sudo apt install python-catkin-tools</span><br><span class="line">sudo apt install ros-melodic-mavros ros-melodic-mavros-extras</span><br><span class="line">sudo apt-get install ros-indigo-mavros ros-indigo-mavros-extras ros‐indigo‐control‐toolbox</span><br><span class="line"><span class="meta">#</span><span class="bash"> VIO</span></span><br><span class="line">cd ~/catkin_ws/src</span><br><span class="line">git clone https://github.com/Auterion/VIO.git</span><br><span class="line">cd ..</span><br><span class="line">catkin_make</span><br></pre></td></tr></table></figure>
-<p>更改以下配置</p>
-<ol type="1">
-<li>T265 相对位置及朝向</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">gedit ~/catkin_ws/src/VIO/launch/bridge.launch</span><br></pre></td></tr></table></figure>
-<p>修改</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">&lt;node pkg=&quot;tf&quot; type=&quot;static_transform_publisher&quot; name=&quot;tf_baseLink_cameraPose&quot;args=&quot;0 0 0 0 1.5708 0 base_link camera_pose_frame 1000&quot;/&gt;</span><br></pre></td></tr></table></figure>
-<p><code>args</code>中</p>
-<ul>
-<li><p>开头三个参数为飞控中心指向 T265 中心的向量。例如 T265 在飞控前方
-10 cm，上方 4 cm, 则前三个参数为：<code>[0.1, 0, -0.04]</code></p></li>
-<li><p>中间三个参数为旋转角(偏航, 俯仰, 横滚)。默认 T265
-朝地，则参数为<code>[0, 1.5708, 0]</code>；T265
-照射飞机机头方向，则参数为 <code>[0 0 0]</code></p></li>
-</ul>
-<ol start="2" type="1">
-<li>如果 TTL 的速度异常</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo gedit /opt/ros/melodic/share/mavros/launch/px4_config.yaml</span><br></pre></td></tr></table></figure>
-<p>第 12 行改为</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">timesync_rate: 0.0</span><br></pre></td></tr></table></figure>
-<ol start="3" type="1">
-<li>如果使用 USB 连接</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo gedit /opt/ros/melodic/share/mavros/launch/px4.launch</span><br></pre></td></tr></table></figure>
-<p>修改第 5 行为</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">&lt;arg name=&quot;fcu_url&quot; default=&quot;/dev/ttyUSB0:57600&quot; /&gt;</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">gedit ~/catkin_ws/src/VIO/launch/bridge_mavros.launch</span><br></pre></td></tr></table></figure>
-<p>修改第 3 行为</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">&lt;arg name=&quot;fcu_url&quot; default=&quot;/dev/ttyUSB0:57600&quot; /&gt;</span><br></pre></td></tr></table></figure>
-<ol start="4" type="1">
-<li>放开串口权限</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 用你自己的用户名替代下面的&lt;username&gt;</span></span><br><span class="line">sudo usermod -a -G dialout &lt;username&gt;</span><br><span class="line"><span class="meta">#</span><span class="bash"> 修改后需重启生效</span></span><br><span class="line">reboot now</span><br></pre></td></tr></table></figure>
-<h2 id="起飞前检查">起飞前检查</h2>
-<p>详情请看<a
-href="https://docs.px4.io/master/en/computer_vision/visual_inertial_odometry.html#verify_estimate">官网说明</a></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 开启VIO</span></span><br><span class="line">roslaunch px4_realsense_bridge bridge_mavros.launch</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>连接好摄像头、USB、PX4，可暂不接电池，查看 MAVLink
-Inspector</p></li>
-<li><p>偏航机身，直到<code>ODOMETRY</code>消息的四元数非常接近单位四元数（w
-= 1，x = y = z = 0）</p></li>
-<li><p>向前移动无人机，x 坐标应增大</p></li>
-<li><p>向右移动无人机，y 坐标应增大</p></li>
-<li><p>向上移动无人机，z 坐标应减小</p></li>
-<li><p>遥控器切换到 Position Flight Mode，若切换成功，应闪绿灯</p></li>
-</ul>
-<p>然后可以接上电池，尝试定点飞行</p>
-<h2 id="参考文章">参考文章</h2>
-<p><a href="https://docs.px4.io/master/en/">PX4 User Guide</a></p>
-<p><a href="http://wiki.ros.org/">ROS Wiki</a></p>
-<p><a href="https://github.com/IntelRealSense/">Intel RealSense</a></p>
-<p><a
-href="https://lifuguan.github.io/d435i/ros/2019/05/28/realsense-melodic-installation/">ROS
-melodic kernel 4.18 安装 realsense D435i</a></p>
-<p><a
-href="https://zhuanlan.zhihu.com/p/364390798">通过MAVROS连接机载电脑（NANO/TX2/NX）与Pixhawk</a></p>
-<p><a href="https://zhuanlan.zhihu.com/p/367357019">Jetson
-Nano使用T265向PX4提供位置信息</a></p>
-<p><a href="https://ghproxy.com/">GitHub Proxy</a></p>
-]]></content>
-      <categories>
-        <category>PX4</category>
-      </categories>
-      <tags>
-        <tag>PX4飞控</tag>
       </tags>
   </entry>
   <entry>
