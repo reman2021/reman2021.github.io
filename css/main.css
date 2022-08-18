@@ -2261,7 +2261,7 @@ pre code {
   border-radius: 5px;
   line-height: 1.6em;
   word-break: break-all;
-  background: rgba(255,255,255,0.4);
+  background: inherit;
 }
 .my_post_copyright p {
   margin: 0;
@@ -2269,7 +2269,6 @@ pre code {
 .my_post_copyright span {
   display: inline-block;
   width: 5.2em;
-  color: #333;
   font-weight: bold;
 }
 .my_post_copyright .raw {
@@ -2287,8 +2286,8 @@ pre code {
 .my_post_copyright .fa-clipboard {
   color: #808080;
 }
-.my_post_copyright:hover .fa-clipboard {
-  color: #000;
+.my_post_copyright .fa-clipboard:hover {
+  color: #346c9c;
 }
 .my_post_copyright .post-url:hover {
   font-weight: normal;

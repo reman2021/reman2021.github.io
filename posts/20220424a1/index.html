@@ -1051,7 +1051,7 @@ FF，并把三个数值依次并列起来，以 # 开头就是颜色的十六进
   <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
   <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
 
-  <p><span>本文标题:</span>Hexo + NexT 配置优化指南</p>
+  <p><span>本文标题:</span>Hexo + NexT 配置优化指南<span class="copy-path" title="点击复制文章标题"><i class="fa fa-clipboard" data-clipboard-text="Hexo + NexT 配置优化指南" aria-label="复制成功！"></i></span></p>
   <p><span>文章作者:</span>reman</p>
   <p><span>发布时间:</span>2022年04月24日 - 16:17:13</p>
   <p><span>最后更新:</span>2022年08月18日 - 12:51:47</p>
@@ -1066,10 +1066,9 @@ FF，并把三个数值依次并列起来，以 # 开头就是颜色的十六进
       $(".fa-clipboard").click(function(){
         swal({   
           title: "",   
-          text: '复制成功',   
-          html: false,
+          text: "复制成功！", 
           timer: 500,   
-          showConfirmButton: false
+          showConfirmButton: false, 
         });
       });
     }));  

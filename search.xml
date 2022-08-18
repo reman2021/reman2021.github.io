@@ -1589,95 +1589,6 @@ class="footnote-back" role="doc-backlink">↩︎</a></p></li>
       </tags>
   </entry>
   <entry>
-    <title>Ubuntu 优化</title>
-    <url>/posts/20220801a1/</url>
-    <content><![CDATA[<div class="note "><p>Ubuntu 使用优化（20.04.1）。</p>
-</div>
-<span id="more"></span>
-<h2 id="模板-template">模板| Template</h2>
-<p>Ubuntu 20.04 鼠标右击没有新建文本文档选项。进入/home
-下的模板（Template）目录，使用<code>sudo gedit 新建文本文档.txt</code>创建一个空文本文档，保存退出后，鼠标右击即可添加新建文本文档，且创建的文档与自定义的文档名称一致。</p>
-<h2 id="解决-firefox-无法播放-bilibili-视频">解决 Firefox 无法播放
-bilibili 视频</h2>
-<p>在 Firefox 打开 bilibili 发现无法播放视频，显示没有 flash
-插件。<br />
-在终端输入<code>sudo apt install ubuntu-restricted-extras</code>安装相应解码器即可。<br />
-中间需要选择“确定”，按 Tab 即可选择。<br />
-<img src="https://s2.loli.net/2022/08/05/PmJx1ducGlgkTOh.png" />
-安装成功：<br />
-<img src="https://s2.loli.net/2022/08/05/J6G4AkMDqjTmdKC.png" />
-再次使用 Firefox 打开 bilibili 已经可以播放视频了。</p>
-<h2 id="蓝牙配置">蓝牙配置</h2>
-<p>检查蓝牙服务是否正在运行：<br />
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo systemctl status bluetooth.service</span><br></pre></td></tr></table></figure> 启用蓝牙服务：<br />
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo systemctl <span class="built_in">enable</span> bluetooth.service</span><br></pre></td></tr></table></figure> 使用 systemctl 重新启动该服务：<br />
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo systemctl start bluetooth.service</span><br></pre></td></tr></table></figure> 编辑配置文件：<br />
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo gedit /etc/bluetooth/main.conf</span><br></pre></td></tr></table></figure>
-<strong>自动启用</strong>：自动启用可确保在设备重启时启用蓝牙模块，并允许蓝牙适配器识别周围新连接的蓝牙设备。<br />
-<img src="https://s2.loli.net/2022/08/09/PmRaYzTNSlB1QtI.png" />
-<strong>启用重新连接尝试</strong>：配置后每当蓝牙设备和计算机断开连接时，它都会尝试重新连接。只需取消注释配置文件中的
-ReconnectAttempts = 7 行。<br />
-<img src="https://s2.loli.net/2022/08/09/xsTJODdfFGMn6uw.png" />
-<strong>启用快速连接</strong>：通过将 FastConnectable 的值设置为
-true，可以确保在重启或休眠时，蓝牙设备能够更快地连接到 PC。<br />
-<img src="https://s2.loli.net/2022/08/09/2RoOpZ4y9IgkneP.png" /></p>
-<h2 id="终端工具">终端工具</h2>
-<h3 id="terminator-终端模拟器">Terminator 终端模拟器</h3>
-<p>下载：<code>sudo apt install terminator</code></p>
-<h4 id="快捷键">快捷键</h4>
-<p>同一窗口内操作： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Alt+Up                          //移动到上面的终端</span><br><span class="line">Alt+Down                        //移动到下面的终端</span><br><span class="line">Alt+Left                        //移动到左边的终端</span><br><span class="line">Alt+Right                       //移动到右边的终端</span><br><span class="line">Ctrl+Shift+O                    //水平分割终端</span><br><span class="line">Ctrl+Shift+E                    //垂直分割终端</span><br><span class="line">Ctrl+Shift+Right                //在垂直分割的终端中将分割条向右移动</span><br><span class="line">Ctrl+Shift+Left                 //在垂直分割的终端中将分割条向左移动</span><br><span class="line">Ctrl+Shift+Up                   //在水平分割的终端中将分割条向上移动</span><br><span class="line">Ctrl+Shift+Down                 //在水平分割的终端中将分割条向下移动</span><br><span class="line">Ctrl+Shift+S                    //隐藏/显示滚动条</span><br><span class="line">Ctrl+Shift+F                    //搜索</span><br><span class="line">Ctrl+Shift+C                    //复制选中的内容到剪贴板</span><br><span class="line">Ctrl+Shift+V                    //粘贴剪贴板的内容到此处</span><br><span class="line">Ctrl+Shift+W                    //关闭当前终端</span><br><span class="line">Ctrl+Shift+Q                    //退出当前窗口，当前窗口的所有终端都将被关闭</span><br><span class="line">Ctrl+Shift+X                    //最大化显示当前终端</span><br><span class="line">Ctrl+Shift+Z                    //最大化显示当前终端并使字体放大</span><br><span class="line">Ctrl+Shift+N or Ctrl+Tab        //移动到下一个终端</span><br><span class="line">Ctrl+Shift+P or Ctrl+Shift+Tab  //Crtl+Shift+Tab 移动到之前的一个终端</span><br></pre></td></tr></table></figure></p>
-<p>各个窗口间操作： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">F11                             //全屏开关</span><br><span class="line">Ctrl+Shift+T                    //打开一个新的标签</span><br><span class="line">Ctrl+PageDown                   //移动到下一个标签</span><br><span class="line">Ctrl+PageUp                     //移动到上一个标签</span><br><span class="line">Ctrl+Shift+PageDown             //将当前标签与其后一个标签交换位置</span><br><span class="line">Ctrl+Shift+PageUp               //将当前标签与其前一个标签交换位置</span><br><span class="line">Ctrl+Plus (+)                   //增大字体</span><br><span class="line">Ctrl+Minus (-)                  //减小字体</span><br><span class="line">Ctrl+Zero (0)                   //恢复字体到原始大小</span><br><span class="line">Ctrl+Shift+R                    //重置终端状态</span><br><span class="line">Ctrl+Shift+G                    //重置终端状态并clear屏幕</span><br><span class="line">Super+g                         //绑定所有的终端，以便向一个输入能够输入到所有的终端</span><br><span class="line">Super+Shift+G                   //解除绑定</span><br><span class="line">Super+t                         //绑定当前标签的所有终端，向一个终端输入的内容会自动输入到其他终端</span><br><span class="line">Super+Shift+T                   //解除绑定</span><br><span class="line">Ctrl+Shift+I                    //打开一个窗口，新窗口与原来的窗口使用同一个进程</span><br><span class="line">Super+i                         //打开一个新窗口，新窗口与原来的窗口使用不同的进程</span><br></pre></td></tr></table></figure></p>
-<h3 id="gnu-screen">GNU Screen</h3>
-<p>下载：<code>sudo apt install screen</code></p>
-<h4 id="gnu-screen-简介">GNU Screen 简介</h4>
-<p>screen 是一款由 GNU
-计划开发的用于命令行终端切换的自由软件。用户可以通过该软件同时连接多个本地或远程的命令行会话，并在其间自由切换。GNU
-Screen
-可以看作是窗口管理器的命令行界面版本。它提供了统一的管理多个会话的界面和相应的功能。<br />
-在 screen
-环境下，所有的会话都独立的运行，并拥有各自的编号、输入、输出和窗口缓存。用户可以通过快捷键在不同的窗口下切换，并可以自由的重定向各个窗口的输入和输出。</p>
-<h4 id="功能">功能</h4>
-<ul>
-<li>可以创建一个session（会话），实现不同终端之间的交互。<br />
-</li>
-<li>可以实现多人观看同一终端等功能。</li>
-<li>在工作中，如遇突发情况（例如断电，蓝屏等），终端断开，服务器端所有收到信号的前台任务将全部终止，各种工作环境将全部丢失。若在
-screen 里操作，终端意外关闭之后，下次登录到服务器上，进入 screen，之前在
-screen 上运行的任务还在继续运行。screen
-的功能可以大概理解为它将前台任务放入了后台进行，并且不受终端关闭或其它意外事故的影响。</li>
-</ul>
-<h3 id="tmuxterminal-multiplexer类似-gnu-screen">Tmux（terminal
-multiplexer,类似 GNU Screen）</h3>
-<p>下载：<code>sudo apt install tmux</code></p>
-<h4 id="功能-1">功能</h4>
-<ul>
-<li>允许在单个窗口中，同时访问多个会话。这对于同时运行多个命令行程序很有用。<br />
-</li>
-<li>可以让新窗口"接入"已经存在的会话。<br />
-</li>
-<li>允许每个会话有多个连接窗口，因此可以多人实时共享会话。<br />
-</li>
-<li>支持窗口任意的垂直和水平拆分。</li>
-</ul>
-<h2 id="参考文章">参考文章</h2>
-<p><a href="https://www.ruanyifeng.com/blog/2019/10/tmux.html">Tmux
-使用教程</a><br />
-<a
-href="https://www.homedt.net/40644.html">Linux中的screen命令的使用</a><br />
-<a
-href="https://cloud.tencent.com/developer/article/1844735">Linux终端命令神器--Screen命令详解。助力Linux使用和管理</a><br />
-<a
-href="https://zhongguo.eskere.club/%E5%A6%82%E4%BD%95%E4%BF%AE%E5%A4%8Dubuntu-linux%E4%B8%AD%E7%9A%84%E8%93%9D%E7%89%99%E8%BF%9E%E6%8E%A5%E9%97%AE%E9%A2%98/2021-05-12/?__cf_chl_tk=UCmaDe_SWYb41eIhI0dKuadHk0.rGbm7YcRyUkdjQMM-1660017919-0-gaNycGzNCH0">如何修复Ubuntu
-Linux中的蓝牙连接问题</a></p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>ROS 学习记录1</title>
     <url>/posts/20220728a1/</url>
     <content><![CDATA[<div class="note "><p>记录 ROS 学习过程 Part1。<br />
@@ -1890,6 +1801,95 @@ href="http://www.autolabor.com.cn/book/ROSTutorials/">【Autolabor初级教程�
       </tags>
   </entry>
   <entry>
+    <title>Ubuntu 优化</title>
+    <url>/posts/20220801a1/</url>
+    <content><![CDATA[<div class="note "><p>Ubuntu 使用优化（20.04.1）。</p>
+</div>
+<span id="more"></span>
+<h2 id="模板-template">模板| Template</h2>
+<p>Ubuntu 20.04 鼠标右击没有新建文本文档选项。进入/home
+下的模板（Template）目录，使用<code>sudo gedit 新建文本文档.txt</code>创建一个空文本文档，保存退出后，鼠标右击即可添加新建文本文档，且创建的文档与自定义的文档名称一致。</p>
+<h2 id="解决-firefox-无法播放-bilibili-视频">解决 Firefox 无法播放
+bilibili 视频</h2>
+<p>在 Firefox 打开 bilibili 发现无法播放视频，显示没有 flash
+插件。<br />
+在终端输入<code>sudo apt install ubuntu-restricted-extras</code>安装相应解码器即可。<br />
+中间需要选择“确定”，按 Tab 即可选择。<br />
+<img src="https://s2.loli.net/2022/08/05/PmJx1ducGlgkTOh.png" />
+安装成功：<br />
+<img src="https://s2.loli.net/2022/08/05/J6G4AkMDqjTmdKC.png" />
+再次使用 Firefox 打开 bilibili 已经可以播放视频了。</p>
+<h2 id="蓝牙配置">蓝牙配置</h2>
+<p>检查蓝牙服务是否正在运行：<br />
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo systemctl status bluetooth.service</span><br></pre></td></tr></table></figure> 启用蓝牙服务：<br />
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo systemctl <span class="built_in">enable</span> bluetooth.service</span><br></pre></td></tr></table></figure> 使用 systemctl 重新启动该服务：<br />
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo systemctl start bluetooth.service</span><br></pre></td></tr></table></figure> 编辑配置文件：<br />
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo gedit /etc/bluetooth/main.conf</span><br></pre></td></tr></table></figure>
+<strong>自动启用</strong>：自动启用可确保在设备重启时启用蓝牙模块，并允许蓝牙适配器识别周围新连接的蓝牙设备。<br />
+<img src="https://s2.loli.net/2022/08/09/PmRaYzTNSlB1QtI.png" />
+<strong>启用重新连接尝试</strong>：配置后每当蓝牙设备和计算机断开连接时，它都会尝试重新连接。只需取消注释配置文件中的
+ReconnectAttempts = 7 行。<br />
+<img src="https://s2.loli.net/2022/08/09/xsTJODdfFGMn6uw.png" />
+<strong>启用快速连接</strong>：通过将 FastConnectable 的值设置为
+true，可以确保在重启或休眠时，蓝牙设备能够更快地连接到 PC。<br />
+<img src="https://s2.loli.net/2022/08/09/2RoOpZ4y9IgkneP.png" /></p>
+<h2 id="终端工具">终端工具</h2>
+<h3 id="terminator-终端模拟器">Terminator 终端模拟器</h3>
+<p>下载：<code>sudo apt install terminator</code></p>
+<h4 id="快捷键">快捷键</h4>
+<p>同一窗口内操作： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Alt+Up                          //移动到上面的终端</span><br><span class="line">Alt+Down                        //移动到下面的终端</span><br><span class="line">Alt+Left                        //移动到左边的终端</span><br><span class="line">Alt+Right                       //移动到右边的终端</span><br><span class="line">Ctrl+Shift+O                    //水平分割终端</span><br><span class="line">Ctrl+Shift+E                    //垂直分割终端</span><br><span class="line">Ctrl+Shift+Right                //在垂直分割的终端中将分割条向右移动</span><br><span class="line">Ctrl+Shift+Left                 //在垂直分割的终端中将分割条向左移动</span><br><span class="line">Ctrl+Shift+Up                   //在水平分割的终端中将分割条向上移动</span><br><span class="line">Ctrl+Shift+Down                 //在水平分割的终端中将分割条向下移动</span><br><span class="line">Ctrl+Shift+S                    //隐藏/显示滚动条</span><br><span class="line">Ctrl+Shift+F                    //搜索</span><br><span class="line">Ctrl+Shift+C                    //复制选中的内容到剪贴板</span><br><span class="line">Ctrl+Shift+V                    //粘贴剪贴板的内容到此处</span><br><span class="line">Ctrl+Shift+W                    //关闭当前终端</span><br><span class="line">Ctrl+Shift+Q                    //退出当前窗口，当前窗口的所有终端都将被关闭</span><br><span class="line">Ctrl+Shift+X                    //最大化显示当前终端</span><br><span class="line">Ctrl+Shift+Z                    //最大化显示当前终端并使字体放大</span><br><span class="line">Ctrl+Shift+N or Ctrl+Tab        //移动到下一个终端</span><br><span class="line">Ctrl+Shift+P or Ctrl+Shift+Tab  //Crtl+Shift+Tab 移动到之前的一个终端</span><br></pre></td></tr></table></figure></p>
+<p>各个窗口间操作： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">F11                             //全屏开关</span><br><span class="line">Ctrl+Shift+T                    //打开一个新的标签</span><br><span class="line">Ctrl+PageDown                   //移动到下一个标签</span><br><span class="line">Ctrl+PageUp                     //移动到上一个标签</span><br><span class="line">Ctrl+Shift+PageDown             //将当前标签与其后一个标签交换位置</span><br><span class="line">Ctrl+Shift+PageUp               //将当前标签与其前一个标签交换位置</span><br><span class="line">Ctrl+Plus (+)                   //增大字体</span><br><span class="line">Ctrl+Minus (-)                  //减小字体</span><br><span class="line">Ctrl+Zero (0)                   //恢复字体到原始大小</span><br><span class="line">Ctrl+Shift+R                    //重置终端状态</span><br><span class="line">Ctrl+Shift+G                    //重置终端状态并clear屏幕</span><br><span class="line">Super+g                         //绑定所有的终端，以便向一个输入能够输入到所有的终端</span><br><span class="line">Super+Shift+G                   //解除绑定</span><br><span class="line">Super+t                         //绑定当前标签的所有终端，向一个终端输入的内容会自动输入到其他终端</span><br><span class="line">Super+Shift+T                   //解除绑定</span><br><span class="line">Ctrl+Shift+I                    //打开一个窗口，新窗口与原来的窗口使用同一个进程</span><br><span class="line">Super+i                         //打开一个新窗口，新窗口与原来的窗口使用不同的进程</span><br></pre></td></tr></table></figure></p>
+<h3 id="gnu-screen">GNU Screen</h3>
+<p>下载：<code>sudo apt install screen</code></p>
+<h4 id="gnu-screen-简介">GNU Screen 简介</h4>
+<p>screen 是一款由 GNU
+计划开发的用于命令行终端切换的自由软件。用户可以通过该软件同时连接多个本地或远程的命令行会话，并在其间自由切换。GNU
+Screen
+可以看作是窗口管理器的命令行界面版本。它提供了统一的管理多个会话的界面和相应的功能。<br />
+在 screen
+环境下，所有的会话都独立的运行，并拥有各自的编号、输入、输出和窗口缓存。用户可以通过快捷键在不同的窗口下切换，并可以自由的重定向各个窗口的输入和输出。</p>
+<h4 id="功能">功能</h4>
+<ul>
+<li>可以创建一个session（会话），实现不同终端之间的交互。<br />
+</li>
+<li>可以实现多人观看同一终端等功能。</li>
+<li>在工作中，如遇突发情况（例如断电，蓝屏等），终端断开，服务器端所有收到信号的前台任务将全部终止，各种工作环境将全部丢失。若在
+screen 里操作，终端意外关闭之后，下次登录到服务器上，进入 screen，之前在
+screen 上运行的任务还在继续运行。screen
+的功能可以大概理解为它将前台任务放入了后台进行，并且不受终端关闭或其它意外事故的影响。</li>
+</ul>
+<h3 id="tmuxterminal-multiplexer类似-gnu-screen">Tmux（terminal
+multiplexer,类似 GNU Screen）</h3>
+<p>下载：<code>sudo apt install tmux</code></p>
+<h4 id="功能-1">功能</h4>
+<ul>
+<li>允许在单个窗口中，同时访问多个会话。这对于同时运行多个命令行程序很有用。<br />
+</li>
+<li>可以让新窗口"接入"已经存在的会话。<br />
+</li>
+<li>允许每个会话有多个连接窗口，因此可以多人实时共享会话。<br />
+</li>
+<li>支持窗口任意的垂直和水平拆分。</li>
+</ul>
+<h2 id="参考文章">参考文章</h2>
+<p><a href="https://www.ruanyifeng.com/blog/2019/10/tmux.html">Tmux
+使用教程</a><br />
+<a
+href="https://www.homedt.net/40644.html">Linux中的screen命令的使用</a><br />
+<a
+href="https://cloud.tencent.com/developer/article/1844735">Linux终端命令神器--Screen命令详解。助力Linux使用和管理</a><br />
+<a
+href="https://zhongguo.eskere.club/%E5%A6%82%E4%BD%95%E4%BF%AE%E5%A4%8Dubuntu-linux%E4%B8%AD%E7%9A%84%E8%93%9D%E7%89%99%E8%BF%9E%E6%8E%A5%E9%97%AE%E9%A2%98/2021-05-12/?__cf_chl_tk=UCmaDe_SWYb41eIhI0dKuadHk0.rGbm7YcRyUkdjQMM-1660017919-0-gaNycGzNCH0">如何修复Ubuntu
+Linux中的蓝牙连接问题</a></p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Windows 软件使用分享</title>
     <url>/posts/20220719a1/</url>
     <content><![CDATA[<div class="note "><p>分享个人使用的 Windows 软件。</p>
@@ -1982,7 +1982,7 @@ src="https://s2.loli.net/2022/08/14/3piwBjGfbULu9ag.png" /></p>
   </entry>
   <entry>
     <title>Hello World</title>
-    <url>/posts/20210811cl6ykg2e90014ecf9cplqbv50/</url>
+    <url>/posts/20210811cl6yo7lfx0014qgf96ls55olp/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very
 first post. Check <a href="https://hexo.io/docs/">documentation</a> for
 more info. If you get any problems when using Hexo, you can find the
@@ -2123,6 +2123,50 @@ Nano使用T265向PX4提供位置信息</a></p>
       </categories>
       <tags>
         <tag>PX4</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>博客创作出现报错解决</title>
+    <url>/posts/20220817a1/</url>
+    <content><![CDATA[<div class="note "><p>书写博客时出现以下报错的原因及解决方法：</p>
+<ul>
+<li>Template render error: (unknown path)<br />
+</li>
+<li>err: YAMLException: incomplete explicit mapping pair; a key node is
+missed; or followed by a non-tabulated empty line</li>
+</ul>
+</div>
+<span id="more"></span>
+<h2 id="报错-template-render-error-unknown-path">报错 Template render
+error: (unknown path)</h2>
+<p>今天书写博客时，出现了报错 Template render error: (unknown path)：
+<img src="https://s2.loli.net/2022/08/17/x97uDhPUQBqX2w8.png" /></p>
+<h3 id="原因">原因</h3>
+<p>经过查找，发现是因为使用 note 标签没有正确结束，即出现了 unexpected
+end，故报错。<br />
+另外可能的原因：出现了<code>&#123;&#123;&#125;&#125;</code> <code>&#123;% %&#125;</code>
+<code>&#123;#</code>等等 hexo 无法转义的字符。</p>
+<h3 id="解决方法">解决方法</h3>
+<ul>
+<li>使用 note 标签时注意要正确结束： <figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&#123;% note %&#125;</span><br><span class="line">content</span><br><span class="line">&#123;% endnote %&#125;	#一定要有 endnote</span><br></pre></td></tr></table></figure></li>
+<li>避免使用 hexo 无法转义的字符串。</li>
+</ul>
+<h2
+id="报错-err-yamlexception-incomplete-explicit-mapping-pair-a-key-node-is-missed-or-followed-by-a-non-tabulated-empty-line">报错
+err: YAMLException: incomplete explicit mapping pair; a key node is
+missed; or followed by a non-tabulated empty line</h2>
+<p><img src="https://s2.loli.net/2022/08/17/QmST9Utvn8CPlhM.png" /></p>
+<h3 id="原因-1">原因</h3>
+<p>文章的 title 有非法字符，如英文冒号“:”。</p>
+<h3 id="解决">解决</h3>
+<p>修改文章名或将英文冒号“:”改为中文冒号“：”。</p>
+]]></content>
+      <categories>
+        <category>维护日志</category>
+        <category>创作</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -2330,50 +2374,6 @@ href="https://zcw-blog.top/posts/20210819a1/#more">Markdown语法详解</a></p>
       <tags>
         <tag>Hexo</tag>
         <tag>Markdown</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>博客创作出现报错解决</title>
-    <url>/posts/20220817a1/</url>
-    <content><![CDATA[<div class="note "><p>书写博客时出现以下报错的原因及解决方法：</p>
-<ul>
-<li>Template render error: (unknown path)<br />
-</li>
-<li>err: YAMLException: incomplete explicit mapping pair; a key node is
-missed; or followed by a non-tabulated empty line</li>
-</ul>
-</div>
-<span id="more"></span>
-<h2 id="报错-template-render-error-unknown-path">报错 Template render
-error: (unknown path)</h2>
-<p>今天书写博客时，出现了报错 Template render error: (unknown path)：
-<img src="https://s2.loli.net/2022/08/17/x97uDhPUQBqX2w8.png" /></p>
-<h3 id="原因">原因</h3>
-<p>经过查找，发现是因为使用 note 标签没有正确结束，即出现了 unexpected
-end，故报错。<br />
-另外可能的原因：出现了<code>&#123;&#123;&#125;&#125;</code> <code>&#123;% %&#125;</code>
-<code>&#123;#</code>等等 hexo 无法转义的字符。</p>
-<h3 id="解决方法">解决方法</h3>
-<ul>
-<li>使用 note 标签时注意要正确结束： <figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&#123;% note %&#125;</span><br><span class="line">content</span><br><span class="line">&#123;% endnote %&#125;	#一定要有 endnote</span><br></pre></td></tr></table></figure></li>
-<li>避免使用 hexo 无法转义的字符串。</li>
-</ul>
-<h2
-id="报错-err-yamlexception-incomplete-explicit-mapping-pair-a-key-node-is-missed-or-followed-by-a-non-tabulated-empty-line">报错
-err: YAMLException: incomplete explicit mapping pair; a key node is
-missed; or followed by a non-tabulated empty line</h2>
-<p><img src="https://s2.loli.net/2022/08/17/QmST9Utvn8CPlhM.png" /></p>
-<h3 id="原因-1">原因</h3>
-<p>文章的 title 有非法字符，如英文冒号“:”。</p>
-<h3 id="解决">解决</h3>
-<p>修改文章名或将英文冒号“:”改为中文冒号“：”。</p>
-]]></content>
-      <categories>
-        <category>维护日志</category>
-        <category>创作</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>

@@ -832,7 +832,7 @@ Bar, Foo；而标签则没有顺序和层次。<br>
   <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
   <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
 
-  <p><span>本文标题:</span>在Hexo博客上进行创作</p>
+  <p><span>本文标题:</span>在Hexo博客上进行创作<span class="copy-path" title="点击复制文章标题"><i class="fa fa-clipboard" data-clipboard-text="在Hexo博客上进行创作" aria-label="复制成功！"></i></span></p>
   <p><span>文章作者:</span>reman</p>
   <p><span>发布时间:</span>2021年08月17日 - 23:54:10</p>
   <p><span>最后更新:</span>2022年08月18日 - 12:51:02</p>
@@ -847,10 +847,9 @@ Bar, Foo；而标签则没有顺序和层次。<br>
       $(".fa-clipboard").click(function(){
         swal({   
           title: "",   
-          text: '复制成功',   
-          html: false,
+          text: "复制成功！", 
           timer: 500,   
-          showConfirmButton: false
+          showConfirmButton: false, 
         });
       });
     }));  
