@@ -166,6 +166,158 @@ HTTP 和 HTTPS 代理为 127.0.0.1:7890，填写 Socks 主机为
       </tags>
   </entry>
   <entry>
+    <title>Hexo &amp; Next 标签使用说明</title>
+    <url>/posts/20220816a1/</url>
+    <content><![CDATA[<div class="note "><p>本文为在 Hexo &amp; Next
+使用标签的说明，使用标签可在文章中快速插入特定内容，使文章更加美观易读。<br />
+本文内容主要搬运至 <a href="https://hexo.io/zh-cn/docs">Hexo
+文档</a>的标签插件使用样例。</p>
+</div>
+<span id="more"></span>
+<h2 id="hexo-标签插件">Hexo 标签插件</h2>
+<h3 id="引用块-blockquote">引用块 blockquote</h3>
+<p>在文章中插入引言，可包含作者、来源和标题。<br />
+使用方式： <figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&#123;% blockquote [author[, source]] [link] [source_link_title] %&#125;</span><br><span class="line">content</span><br><span class="line">&#123;% endblockquote %&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="普通的-blockquote">普通的 blockquote</h4>
+<p>没有提供参数，则只输出普通的 blockquote： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% blockquote %&#125;</span><br><span class="line">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque hendrerit lacus ut purus iaculis feugiat. Sed nec tempor elit, quis aliquam neque. Curabitur sed diam eget dolor fermentum semper at eu lorem.</span><br><span class="line">&#123;% endblockquote %&#125;</span><br></pre></td></tr></table></figure>
+<blockquote><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
+hendrerit lacus ut purus iaculis feugiat. Sed nec tempor elit, quis
+aliquam neque. Curabitur sed diam eget dolor fermentum semper at eu
+lorem.</p>
+</blockquote></p>
+<h4 id="引用书上的句子">引用书上的句子</h4>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&#123;% blockquote David Levithan, Wide Awake %&#125;</span><br><span class="line">Do not just seek happiness for yourself. Seek happiness for all. Through kindness. Through mercy.</span><br><span class="line">&#123;% endblockquote %&#125;</span><br></pre></td></tr></table></figure>
+<blockquote><p>Do not just seek happiness for yourself. Seek happiness for all.
+Through kindness. Through mercy.</p>
+<footer><strong>David Levithan</strong><cite>Wide Awake</cite></footer></blockquote>
+<h4 id="引用-twitter">引用 Twitter</h4>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% blockquote @DevDocs https://twitter.com/devdocs/status/356095192085962752 %&#125;</span><br><span class="line">NEW: DevDocs now comes with syntax highlighting. http://devdocs.io</span><br><span class="line">&#123;% endblockquote %&#125;</span><br></pre></td></tr></table></figure>
+<blockquote><p>NEW: DevDocs now comes with syntax highlighting.
+http://devdocs.io</p>
+<footer><strong>@DevDocs</strong><cite><a href="https://twitter.com/devdocs/status/356095192085962752">twitter.com/devdocs/status/356095192085962752</a></cite></footer></blockquote>
+<h4 id="引用网络上的文章">引用网络上的文章</h4>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&#123;% blockquote Seth Godin http://sethgodin.typepad.com/seths_blog/2009/07/welcome-to-island-marketing.html Welcome to Island Marketing %&#125;</span><br><span class="line">Every interaction is both precious and an opportunity to delight.</span><br><span class="line">&#123;% endblockquote %&#125;</span><br></pre></td></tr></table></figure>
+<blockquote><p>Every interaction is both precious and an opportunity to delight.</p>
+<footer><strong>Seth Godin</strong><cite><a href="http://sethgodin.typepad.com/seths_blog/2009/07/welcome-to-island-marketing.html">Welcome to Island Marketing</a></cite></footer></blockquote>
+<h4 id="markdown-的引用块">Markdown 的引用块</h4>
+<p>详见<a
+href="https://zcw-blog.top/posts/20210819a1/">Markdown语法详解及使用技巧——引用块</a>。</p>
+<h3 id="代码块-codeblock">代码块 codeblock</h3>
+<p>在文章中插入代码。<br />
+使用方式： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% codeblock [title] [lang:language] [url] [link text] [additional options] %&#125;</span><br><span class="line">code snippet</span><br><span class="line">&#123;% endcodeblock %&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="普通的代码块">普通的代码块</h4>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&#123;% codeblock %&#125;</span><br><span class="line">alert(&#x27;Hello World!&#x27;);</span><br><span class="line">&#123;% endcodeblock %&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">alert(&#x27;Hello World!&#x27;);</span><br></pre></td></tr></table></figure>
+<h4 id="指定语言">指定语言</h4>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&#123;% codeblock lang:objc %&#125;</span><br><span class="line">[rectangle setX: 10 y: 10 width: 20 height: 20];</span><br><span class="line">&#123;% endcodeblock %&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">[rectangle setX: <span class="number">10</span> y: <span class="number">10</span> width: <span class="number">20</span> height: <span class="number">20</span>];</span><br></pre></td></tr></table></figure>
+<h4 id="附加说明">附加说明</h4>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% codeblock Array.map %&#125;</span><br><span class="line">array.map(callback[, thisArg])</span><br><span class="line">&#123;% endcodeblock %&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><figcaption><span>Array.map</span></figcaption><table><tr><td class="code"><pre><span class="line">array.map(callback[, thisArg])</span><br></pre></td></tr></table></figure>
+<h4 id="附加说明和网址">附加说明和网址</h4>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% codeblock _.compact http://underscorejs.org/#compact Underscore.js %&#125;</span><br><span class="line">_.compact([0, 1, false, 2, &#x27;&#x27;, 3]);</span><br><span class="line">=&gt; [1, 2, 3]</span><br><span class="line">&#123;% endcodeblock %&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><figcaption><span>_.compact</span><a href="http://underscorejs.org/#compact">Underscore.js</a></figcaption><table><tr><td class="code"><pre><span class="line">_.compact([0, 1, false, 2, &#x27;&#x27;, 3]);</span><br><span class="line">=&gt; [1, 2, 3]</span><br></pre></td></tr></table></figure>
+<h4 id="markdown-的围栏代码块">Markdown 的围栏代码块</h4>
+<p>详见<a
+href="https://zcw-blog.top/posts/20210819a1/">Markdown语法详解及使用技巧——围栏代码块</a>。</p>
+<h3 id="插入代码文件">插入代码文件</h3>
+<p>插入 source/downloads/code 文件夹内的代码文件。路径
+source/downloads/code 不是固定的，取决于你在配置文件中 code_dir
+的配置。<br />
+使用方式： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% include_code [title] [lang:language] [from:line] [to:line] path/to/file %&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="youtube">Youtube</h3>
+<p>在文章中插入 Youtube 视频。<br />
+使用方式： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% youtube video_id [type] [cookie] %&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="mathjax">MathJax</h3>
+<p>插入利用 MathJax 显示的数学公式，需要安装 hexo-renderer-mathjax
+并更换 Pandoc 渲染器。<br />
+详见<a href="https://zcw-blog.top/posts/20220424a1/">Hexo + NexT
+配置优化指南——渲染 mathjax</a>。</p>
+<h2 id="next-内建标签的使用">Next 内建标签的使用</h2>
+<h3 id="文本居中引用">文本居中引用</h3>
+调用方法： <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- HTML方式: 直接在 Markdown 文件中编写 HTML 来调用 --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 其中 class=&quot;blockquote-center&quot; 是必须的 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">blockquote</span> <span class="attr">class</span>=<span class="string">&quot;blockquote-center&quot;</span>&gt;</span>blah blah blah<span class="tag">&lt;/<span class="name">blockquote</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 标签 方式，要求版本在0.4.5或以上 --&gt;</span></span><br><span class="line">&#123;% centerquote %&#125;blah blah blah&#123;% endcenterquote %&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 标签别名 --&gt;</span></span><br><span class="line">&#123;% cq %&#125; blah blah blah &#123;% endcq %&#125;</span><br></pre></td></tr></table></figure> 示例： <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">blockquote</span> <span class="attr">class</span>=<span class="string">&quot;blockquote-center&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>人的一切痛苦 本质上是对自己无能的愤怒<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>**王小波**<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">blockquote</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote class="blockquote-center">
+<p>
+人的一切痛苦 本质上是对自己无能的愤怒
+</p>
+<p>
+<strong>王小波</strong>
+</p>
+</blockquote>
+<h3 id="note-标签">Note 标签</h3>
+<p>调用方法： <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- HTML方式: 直接在 Markdown 文件中编写 HTML 来调用 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;note class_name&quot;</span>&gt;</span>blah blah blah<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 标签 方式 --&gt;</span></span><br><span class="line">&#123;% note class_name %&#125;</span><br><span class="line">blah blah blah</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure> 示例：<br />
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% note %&#125;</span><br><span class="line">#### Header</span><br><span class="line">(without define class style)</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure> <div class="note "><h4 id="header">Header</h4>
+<p>content</p>
+</div></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% note default %&#125;</span><br><span class="line">#### Default Header</span><br><span class="line">Default content</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
+<div class="note default"><h4 id="default-header">Default Header</h4>
+<p>Default content</p>
+</div>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% note primary %&#125;</span><br><span class="line">#### Primary Header</span><br><span class="line">Primary content</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
+<div class="note primary"><h4 id="primary-header">Primary Header</h4>
+<p>Primary content</p>
+</div>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% note info %&#125;</span><br><span class="line">#### Info Header</span><br><span class="line">Info content</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
+<div class="note info"><h4 id="info-header">Info Header</h4>
+<p>Info content</p>
+</div>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% note success %&#125;</span><br><span class="line">#### Success Header</span><br><span class="line">Success content</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
+<div class="note success"><h4 id="success-header">Success Header</h4>
+<p>Success content</p>
+</div>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% note warning %&#125;</span><br><span class="line">#### Warning Header</span><br><span class="line">Warning content</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
+<div class="note warning"><h4 id="warning-header">Warning Header</h4>
+<p>Warning content</p>
+</div>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% note danger %&#125;</span><br><span class="line">#### Danger Header</span><br><span class="line">Danger content</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
+<div class="note danger"><h4 id="danger-header">Danger Header</h4>
+<p>Danger content</p>
+</div>
+<p>可用<code>no-icon</code>取消图标： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% note info no-icon %&#125;</span><br><span class="line">#### No icon note</span><br><span class="line">content</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure> <div class="note info no-icon"><h4 id="no-icon-note">No icon note</h4>
+<p>content</p>
+</div></p>
+<p>标签内容可折叠： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% note primary This is a summary %&#125;</span><br><span class="line">#### Details and summary</span><br><span class="line">Note with summary: `note primary This is a summary`</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure> <details class="note primary"><summary><p>This is a summary</p>
+</summary>
+<h4 id="details-and-summary">Details and summary</h4>
+<p>Note with summary: <code>note primary This is a summary</code></p>
+
+</details></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% note info no-icon This is a summary %&#125;</span><br><span class="line">#### Details and summary (No icon)</span><br><span class="line">Note with summary: `note info no-icon This is a summary`</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
+<details class="note info no-icon"><summary><p>This is a summary</p>
+</summary>
+<h4 id="details-and-summary-no-icon">Details and summary (No icon)</h4>
+<p>Note with summary:
+<code>note info no-icon This is a summary</code></p>
+
+</details>
+<h3 id="label-标签">Label 标签</h3>
+<p>调用方法：<br />
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&#123;% label [class_name] @blah blah blah %&#125;</span><br></pre></td></tr></table></figure> <code>class_name</code>取值同 Note 标签。 示例：<br />
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">我坐在床前，望着窗外，&#123;% label @回忆满天 %&#125;。生命是&#123;% label primary @华丽错觉 %&#125;，时间是贼偷走一切。  </span><br><span class="line">七岁的那一年，抓住那只&#123;% label success @蝉 %&#125;，以为能抓住夏天。十七岁的那年，吻过他的脸，就以为和他能&#123;% label info @永远 %&#125;。   </span><br><span class="line">有没有那么一种永远，&#123;% label warning @永远不改变 %&#125;，拥抱过的美丽，都再也不破碎。   </span><br><span class="line">让险峻岁月不能，在脸上撒野，让&#123;% label danger @生离和死别都遥远 %&#125;，有谁能听见。   </span><br></pre></td></tr></table></figure>
+我坐在床前，望着窗外，<mark class="label ">回忆满天</mark>。生命是<mark class="label primary">华丽错觉</mark>，时间是贼偷走一切。<br />
+七岁的那一年，抓住那只<mark class="label success">蝉</mark>，以为能抓住夏天。十七岁的那年，吻过他的脸，就以为和他能<mark class="label info">永远</mark>。<br />
+有没有那么一种永远，<mark class="label warning">永远不改变</mark>，拥抱过的美丽，都再也不破碎。<br />
+让险峻岁月不能，在脸上撒野，让<mark class="label danger">生离和死别都遥远</mark>，有谁能听见。</p>
+<h3 id="tab-标签">Tab 标签</h3>
+<p>调用方法：<br />
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&#123;% tabs [Unique name], [index] %&#125;</span><br><span class="line"><span class="comment">&lt;!-- tab [Tab caption]@[icon] --&gt;</span></span><br><span class="line">Any content (support inline tags too).</span><br><span class="line"><span class="comment">&lt;!-- endtab --&gt;</span></span><br><span class="line">&#123;% endtabs %&#125;</span><br></pre></td></tr></table></figure> <div class="note info"><p><code>Unique name</code>为每个标签页组唯一的名称<br />
+<code>index</code>为初始激活的标签页<br />
+<code>Tab caption</code>为标签页名称，不指定时为所属标签页组名称加索引<br />
+<code>icon</code>为 Font awesome 图标</p>
+</div> 示例：<br />
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&#123;% tabs 选项卡, 3 %&#125;</span><br><span class="line"><span class="comment">&lt;!-- tab --&gt;</span></span><br><span class="line">这是选项卡 1</span><br><span class="line"><span class="comment">&lt;!-- endtab --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- tab --&gt;</span></span><br><span class="line">这是选项卡 2</span><br><span class="line"><span class="comment">&lt;!-- endtab --&gt;</span></span><br><span class="line">&#123;% endtabs %&#125;</span><br></pre></td></tr></table></figure> <div class="tabs" id="选项卡"><ul class="nav-tabs"><li class="tab"><a href="#选项卡-1">选项卡 1</a></li><li class="tab"><a href="#选项卡-2">选项卡 2</a></li></ul><div class="tab-content"><div class="tab-pane" id="选项卡-1"><p>这是选项卡 1</p></div><div class="tab-pane" id="选项卡-2"><p>这是选项卡 2</p></div></div></div> <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% tabs 选项卡 2 %&#125;</span><br><span class="line">&lt;!-- tab 自定义名称1 --&gt;</span><br><span class="line">这是选项卡 1</span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line">&lt;!-- tab 自定义名称2 --&gt;</span><br><span class="line">这是选项卡 2</span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line">&#123;% endtabs %&#125;</span><br></pre></td></tr></table></figure> <div class="tabs" id="选项卡-2"><ul class="nav-tabs"><li class="tab active"><a href="#选项卡-2-1">自定义名称1</a></li><li class="tab"><a href="#选项卡-2-2">自定义名称2</a></li></ul><div class="tab-content"><div class="tab-pane active" id="选项卡-2-1"><p>这是选项卡 1</p></div><div class="tab-pane" id="选项卡-2-2"><p>这是选项卡 2</p></div></div></div>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% tabs 选项卡 2 %&#125;</span><br><span class="line">&lt;!-- tab 自定义名称1@text-width --&gt;</span><br><span class="line">这是选项卡 1</span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line">&lt;!-- tab 自定义名称2@amazon --&gt;</span><br><span class="line">这是选项卡 2</span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line">&#123;% endtabs %&#125;</span><br></pre></td></tr></table></figure> <div class="tabs" id="选项卡-2"><ul class="nav-tabs"><li class="tab active"><a href="#选项卡-2-1"><i class="fa fa-text-width"></i>自定义名称1</a></li><li class="tab"><a href="#选项卡-2-2"><i class="fa fa-amazon"></i>自定义名称2</a></li></ul><div class="tab-content"><div class="tab-pane active" id="选项卡-2-1"><p>这是选项卡 1</p></div><div class="tab-pane" id="选项卡-2-2"><p>这是选项卡 2</p></div></div></div></p>
+]]></content>
+      <categories>
+        <category>维护日志</category>
+        <category>创作</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>NexT</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo + NexT 配置优化指南</title>
     <url>/posts/20220424a1/</url>
     <content><![CDATA[<div class="note warning"><p>超长文警告！</p>
@@ -631,158 +783,6 @@ class="footnote-back" role="doc-backlink">↩︎</a></p></li>
       <tags>
         <tag>搭建博客</tag>
         <tag>NexT</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo &amp; Next 标签使用说明</title>
-    <url>/posts/20220816a1/</url>
-    <content><![CDATA[<div class="note "><p>本文为在 Hexo &amp; Next
-使用标签的说明，使用标签可在文章中快速插入特定内容，使文章更加美观易读。<br />
-本文内容主要搬运至 <a href="https://hexo.io/zh-cn/docs">Hexo
-文档</a>的标签插件使用样例。</p>
-</div>
-<span id="more"></span>
-<h2 id="hexo-标签插件">Hexo 标签插件</h2>
-<h3 id="引用块-blockquote">引用块 blockquote</h3>
-<p>在文章中插入引言，可包含作者、来源和标题。<br />
-使用方式： <figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&#123;% blockquote [author[, source]] [link] [source_link_title] %&#125;</span><br><span class="line">content</span><br><span class="line">&#123;% endblockquote %&#125;</span><br></pre></td></tr></table></figure></p>
-<h4 id="普通的-blockquote">普通的 blockquote</h4>
-<p>没有提供参数，则只输出普通的 blockquote： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% blockquote %&#125;</span><br><span class="line">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque hendrerit lacus ut purus iaculis feugiat. Sed nec tempor elit, quis aliquam neque. Curabitur sed diam eget dolor fermentum semper at eu lorem.</span><br><span class="line">&#123;% endblockquote %&#125;</span><br></pre></td></tr></table></figure>
-<blockquote><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
-hendrerit lacus ut purus iaculis feugiat. Sed nec tempor elit, quis
-aliquam neque. Curabitur sed diam eget dolor fermentum semper at eu
-lorem.</p>
-</blockquote></p>
-<h4 id="引用书上的句子">引用书上的句子</h4>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&#123;% blockquote David Levithan, Wide Awake %&#125;</span><br><span class="line">Do not just seek happiness for yourself. Seek happiness for all. Through kindness. Through mercy.</span><br><span class="line">&#123;% endblockquote %&#125;</span><br></pre></td></tr></table></figure>
-<blockquote><p>Do not just seek happiness for yourself. Seek happiness for all.
-Through kindness. Through mercy.</p>
-<footer><strong>David Levithan</strong><cite>Wide Awake</cite></footer></blockquote>
-<h4 id="引用-twitter">引用 Twitter</h4>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% blockquote @DevDocs https://twitter.com/devdocs/status/356095192085962752 %&#125;</span><br><span class="line">NEW: DevDocs now comes with syntax highlighting. http://devdocs.io</span><br><span class="line">&#123;% endblockquote %&#125;</span><br></pre></td></tr></table></figure>
-<blockquote><p>NEW: DevDocs now comes with syntax highlighting.
-http://devdocs.io</p>
-<footer><strong>@DevDocs</strong><cite><a href="https://twitter.com/devdocs/status/356095192085962752">twitter.com/devdocs/status/356095192085962752</a></cite></footer></blockquote>
-<h4 id="引用网络上的文章">引用网络上的文章</h4>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&#123;% blockquote Seth Godin http://sethgodin.typepad.com/seths_blog/2009/07/welcome-to-island-marketing.html Welcome to Island Marketing %&#125;</span><br><span class="line">Every interaction is both precious and an opportunity to delight.</span><br><span class="line">&#123;% endblockquote %&#125;</span><br></pre></td></tr></table></figure>
-<blockquote><p>Every interaction is both precious and an opportunity to delight.</p>
-<footer><strong>Seth Godin</strong><cite><a href="http://sethgodin.typepad.com/seths_blog/2009/07/welcome-to-island-marketing.html">Welcome to Island Marketing</a></cite></footer></blockquote>
-<h4 id="markdown-的引用块">Markdown 的引用块</h4>
-<p>详见<a
-href="https://zcw-blog.top/posts/20210819a1/">Markdown语法详解及使用技巧——引用块</a>。</p>
-<h3 id="代码块-codeblock">代码块 codeblock</h3>
-<p>在文章中插入代码。<br />
-使用方式： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% codeblock [title] [lang:language] [url] [link text] [additional options] %&#125;</span><br><span class="line">code snippet</span><br><span class="line">&#123;% endcodeblock %&#125;</span><br></pre></td></tr></table></figure></p>
-<h4 id="普通的代码块">普通的代码块</h4>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&#123;% codeblock %&#125;</span><br><span class="line">alert(&#x27;Hello World!&#x27;);</span><br><span class="line">&#123;% endcodeblock %&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">alert(&#x27;Hello World!&#x27;);</span><br></pre></td></tr></table></figure>
-<h4 id="指定语言">指定语言</h4>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&#123;% codeblock lang:objc %&#125;</span><br><span class="line">[rectangle setX: 10 y: 10 width: 20 height: 20];</span><br><span class="line">&#123;% endcodeblock %&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">[rectangle setX: <span class="number">10</span> y: <span class="number">10</span> width: <span class="number">20</span> height: <span class="number">20</span>];</span><br></pre></td></tr></table></figure>
-<h4 id="附加说明">附加说明</h4>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% codeblock Array.map %&#125;</span><br><span class="line">array.map(callback[, thisArg])</span><br><span class="line">&#123;% endcodeblock %&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><figcaption><span>Array.map</span></figcaption><table><tr><td class="code"><pre><span class="line">array.map(callback[, thisArg])</span><br></pre></td></tr></table></figure>
-<h4 id="附加说明和网址">附加说明和网址</h4>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% codeblock _.compact http://underscorejs.org/#compact Underscore.js %&#125;</span><br><span class="line">_.compact([0, 1, false, 2, &#x27;&#x27;, 3]);</span><br><span class="line">=&gt; [1, 2, 3]</span><br><span class="line">&#123;% endcodeblock %&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><figcaption><span>_.compact</span><a href="http://underscorejs.org/#compact">Underscore.js</a></figcaption><table><tr><td class="code"><pre><span class="line">_.compact([0, 1, false, 2, &#x27;&#x27;, 3]);</span><br><span class="line">=&gt; [1, 2, 3]</span><br></pre></td></tr></table></figure>
-<h4 id="markdown-的围栏代码块">Markdown 的围栏代码块</h4>
-<p>详见<a
-href="https://zcw-blog.top/posts/20210819a1/">Markdown语法详解及使用技巧——围栏代码块</a>。</p>
-<h3 id="插入代码文件">插入代码文件</h3>
-<p>插入 source/downloads/code 文件夹内的代码文件。路径
-source/downloads/code 不是固定的，取决于你在配置文件中 code_dir
-的配置。<br />
-使用方式： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% include_code [title] [lang:language] [from:line] [to:line] path/to/file %&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="youtube">Youtube</h3>
-<p>在文章中插入 Youtube 视频。<br />
-使用方式： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% youtube video_id [type] [cookie] %&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="mathjax">MathJax</h3>
-<p>插入利用 MathJax 显示的数学公式，需要安装 hexo-renderer-mathjax
-并更换 Pandoc 渲染器。<br />
-详见<a href="https://zcw-blog.top/posts/20220424a1/">Hexo + NexT
-配置优化指南——渲染 mathjax</a>。</p>
-<h2 id="next-内建标签的使用">Next 内建标签的使用</h2>
-<h3 id="文本居中引用">文本居中引用</h3>
-调用方法： <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- HTML方式: 直接在 Markdown 文件中编写 HTML 来调用 --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 其中 class=&quot;blockquote-center&quot; 是必须的 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">blockquote</span> <span class="attr">class</span>=<span class="string">&quot;blockquote-center&quot;</span>&gt;</span>blah blah blah<span class="tag">&lt;/<span class="name">blockquote</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 标签 方式，要求版本在0.4.5或以上 --&gt;</span></span><br><span class="line">&#123;% centerquote %&#125;blah blah blah&#123;% endcenterquote %&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 标签别名 --&gt;</span></span><br><span class="line">&#123;% cq %&#125; blah blah blah &#123;% endcq %&#125;</span><br></pre></td></tr></table></figure> 示例： <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">blockquote</span> <span class="attr">class</span>=<span class="string">&quot;blockquote-center&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>人的一切痛苦 本质上是对自己无能的愤怒<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>**王小波**<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">blockquote</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<blockquote class="blockquote-center">
-<p>
-人的一切痛苦 本质上是对自己无能的愤怒
-</p>
-<p>
-<strong>王小波</strong>
-</p>
-</blockquote>
-<h3 id="note-标签">Note 标签</h3>
-<p>调用方法： <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- HTML方式: 直接在 Markdown 文件中编写 HTML 来调用 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;note class_name&quot;</span>&gt;</span>blah blah blah<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 标签 方式 --&gt;</span></span><br><span class="line">&#123;% note class_name %&#125;</span><br><span class="line">blah blah blah</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure> 示例：<br />
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% note %&#125;</span><br><span class="line">#### Header</span><br><span class="line">(without define class style)</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure> <div class="note "><h4 id="header">Header</h4>
-<p>content</p>
-</div></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% note default %&#125;</span><br><span class="line">#### Default Header</span><br><span class="line">Default content</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
-<div class="note default"><h4 id="default-header">Default Header</h4>
-<p>Default content</p>
-</div>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% note primary %&#125;</span><br><span class="line">#### Primary Header</span><br><span class="line">Primary content</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
-<div class="note primary"><h4 id="primary-header">Primary Header</h4>
-<p>Primary content</p>
-</div>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% note info %&#125;</span><br><span class="line">#### Info Header</span><br><span class="line">Info content</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
-<div class="note info"><h4 id="info-header">Info Header</h4>
-<p>Info content</p>
-</div>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% note success %&#125;</span><br><span class="line">#### Success Header</span><br><span class="line">Success content</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
-<div class="note success"><h4 id="success-header">Success Header</h4>
-<p>Success content</p>
-</div>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% note warning %&#125;</span><br><span class="line">#### Warning Header</span><br><span class="line">Warning content</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
-<div class="note warning"><h4 id="warning-header">Warning Header</h4>
-<p>Warning content</p>
-</div>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% note danger %&#125;</span><br><span class="line">#### Danger Header</span><br><span class="line">Danger content</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
-<div class="note danger"><h4 id="danger-header">Danger Header</h4>
-<p>Danger content</p>
-</div>
-<p>可用<code>no-icon</code>取消图标： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% note info no-icon %&#125;</span><br><span class="line">#### No icon note</span><br><span class="line">content</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure> <div class="note info no-icon"><h4 id="no-icon-note">No icon note</h4>
-<p>content</p>
-</div></p>
-<p>标签内容可折叠： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% note primary This is a summary %&#125;</span><br><span class="line">#### Details and summary</span><br><span class="line">Note with summary: `note primary This is a summary`</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure> <details class="note primary"><summary><p>This is a summary</p>
-</summary>
-<h4 id="details-and-summary">Details and summary</h4>
-<p>Note with summary: <code>note primary This is a summary</code></p>
-
-</details></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% note info no-icon This is a summary %&#125;</span><br><span class="line">#### Details and summary (No icon)</span><br><span class="line">Note with summary: `note info no-icon This is a summary`</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
-<details class="note info no-icon"><summary><p>This is a summary</p>
-</summary>
-<h4 id="details-and-summary-no-icon">Details and summary (No icon)</h4>
-<p>Note with summary:
-<code>note info no-icon This is a summary</code></p>
-
-</details>
-<h3 id="label-标签">Label 标签</h3>
-<p>调用方法：<br />
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&#123;% label [class_name] @blah blah blah %&#125;</span><br></pre></td></tr></table></figure> <code>class_name</code>取值同 Note 标签。 示例：<br />
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">我坐在床前，望着窗外，&#123;% label @回忆满天 %&#125;。生命是&#123;% label primary @华丽错觉 %&#125;，时间是贼偷走一切。  </span><br><span class="line">七岁的那一年，抓住那只&#123;% label success @蝉 %&#125;，以为能抓住夏天。十七岁的那年，吻过他的脸，就以为和他能&#123;% label info @永远 %&#125;。   </span><br><span class="line">有没有那么一种永远，&#123;% label warning @永远不改变 %&#125;，拥抱过的美丽，都再也不破碎。   </span><br><span class="line">让险峻岁月不能，在脸上撒野，让&#123;% label danger @生离和死别都遥远 %&#125;，有谁能听见。   </span><br></pre></td></tr></table></figure>
-我坐在床前，望着窗外，<mark class="label ">回忆满天</mark>。生命是<mark class="label primary">华丽错觉</mark>，时间是贼偷走一切。<br />
-七岁的那一年，抓住那只<mark class="label success">蝉</mark>，以为能抓住夏天。十七岁的那年，吻过他的脸，就以为和他能<mark class="label info">永远</mark>。<br />
-有没有那么一种永远，<mark class="label warning">永远不改变</mark>，拥抱过的美丽，都再也不破碎。<br />
-让险峻岁月不能，在脸上撒野，让<mark class="label danger">生离和死别都遥远</mark>，有谁能听见。</p>
-<h3 id="tab-标签">Tab 标签</h3>
-<p>调用方法：<br />
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&#123;% tabs [Unique name], [index] %&#125;</span><br><span class="line"><span class="comment">&lt;!-- tab [Tab caption]@[icon] --&gt;</span></span><br><span class="line">Any content (support inline tags too).</span><br><span class="line"><span class="comment">&lt;!-- endtab --&gt;</span></span><br><span class="line">&#123;% endtabs %&#125;</span><br></pre></td></tr></table></figure> <div class="note info"><p><code>Unique name</code>为每个标签页组唯一的名称<br />
-<code>index</code>为初始激活的标签页<br />
-<code>Tab caption</code>为标签页名称，不指定时为所属标签页组名称加索引<br />
-<code>icon</code>为 Font awesome 图标</p>
-</div> 示例：<br />
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&#123;% tabs 选项卡, 3 %&#125;</span><br><span class="line"><span class="comment">&lt;!-- tab --&gt;</span></span><br><span class="line">这是选项卡 1</span><br><span class="line"><span class="comment">&lt;!-- endtab --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- tab --&gt;</span></span><br><span class="line">这是选项卡 2</span><br><span class="line"><span class="comment">&lt;!-- endtab --&gt;</span></span><br><span class="line">&#123;% endtabs %&#125;</span><br></pre></td></tr></table></figure> <div class="tabs" id="选项卡"><ul class="nav-tabs"><li class="tab"><a href="#选项卡-1">选项卡 1</a></li><li class="tab"><a href="#选项卡-2">选项卡 2</a></li></ul><div class="tab-content"><div class="tab-pane" id="选项卡-1"><p>这是选项卡 1</p></div><div class="tab-pane" id="选项卡-2"><p>这是选项卡 2</p></div></div></div> <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% tabs 选项卡 2 %&#125;</span><br><span class="line">&lt;!-- tab 自定义名称1 --&gt;</span><br><span class="line">这是选项卡 1</span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line">&lt;!-- tab 自定义名称2 --&gt;</span><br><span class="line">这是选项卡 2</span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line">&#123;% endtabs %&#125;</span><br></pre></td></tr></table></figure> <div class="tabs" id="选项卡-2"><ul class="nav-tabs"><li class="tab active"><a href="#选项卡-2-1">自定义名称1</a></li><li class="tab"><a href="#选项卡-2-2">自定义名称2</a></li></ul><div class="tab-content"><div class="tab-pane active" id="选项卡-2-1"><p>这是选项卡 1</p></div><div class="tab-pane" id="选项卡-2-2"><p>这是选项卡 2</p></div></div></div>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% tabs 选项卡 2 %&#125;</span><br><span class="line">&lt;!-- tab 自定义名称1@text-width --&gt;</span><br><span class="line">这是选项卡 1</span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line">&lt;!-- tab 自定义名称2@amazon --&gt;</span><br><span class="line">这是选项卡 2</span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line">&#123;% endtabs %&#125;</span><br></pre></td></tr></table></figure> <div class="tabs" id="选项卡-2"><ul class="nav-tabs"><li class="tab active"><a href="#选项卡-2-1"><i class="fa fa-text-width"></i>自定义名称1</a></li><li class="tab"><a href="#选项卡-2-2"><i class="fa fa-amazon"></i>自定义名称2</a></li></ul><div class="tab-content"><div class="tab-pane active" id="选项卡-2-1"><p>这是选项卡 1</p></div><div class="tab-pane" id="选项卡-2-2"><p>这是选项卡 2</p></div></div></div></p>
-]]></content>
-      <categories>
-        <category>维护日志</category>
-        <category>创作</category>
-      </categories>
-      <tags>
-        <tag>NexT</tag>
-        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -1892,6 +1892,35 @@ Linux中的蓝牙连接问题</a></p>
       </tags>
   </entry>
   <entry>
+    <title>Hello World</title>
+    <url>/posts/20210811cl70nf3wc0013t8f9135fcq3k/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very
+first post. Check <a href="https://hexo.io/docs/">documentation</a> for
+more info. If you get any problems when using Hexo, you can find the
+answer in <a
+href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or
+you can ask me on <a
+href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<p><span id="more"></span></p>
+<h2 id="quick-start">Quick Start</h2>
+<h3 id="create-a-new-post">Create a new post</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a
+href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="run-server">Run server</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="generate-static-files">Generate static files</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a
+href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a
+href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
     <title>Windows 软件使用分享</title>
     <url>/posts/20220719a1/</url>
     <content><![CDATA[<div class="note "><p>分享个人使用的 Windows 软件。</p>
@@ -1981,35 +2010,6 @@ src="https://s2.loli.net/2022/08/14/3piwBjGfbULu9ag.png" /></p>
       <tags>
         <tag>Windows</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/posts/20210811cl6z7eqx80014fgf9ac3k0owd/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very
-first post. Check <a href="https://hexo.io/docs/">documentation</a> for
-more info. If you get any problems when using Hexo, you can find the
-answer in <a
-href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or
-you can ask me on <a
-href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<p><span id="more"></span></p>
-<h2 id="quick-start">Quick Start</h2>
-<h3 id="create-a-new-post">Create a new post</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a
-href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="run-server">Run server</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="generate-static-files">Generate static files</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a
-href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a
-href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
   </entry>
   <entry>
     <title>使用 Jetson Nano 向 PX4 提供 t265 位置信息，实现室内定点飞行</title>
@@ -2379,38 +2379,6 @@ missed; or followed by a non-tabulated empty line</h2>
       </tags>
   </entry>
   <entry>
-    <title>积化和差、和差化积公式</title>
-    <url>/posts/20211001a1/</url>
-    <content><![CDATA[<div class="note "><p>本文主要用于测试 mathjax 渲染功能。<br />
-关于如何添加 Hexo 博客的 mathjax 渲染功能，可见<a
-href="https://zcw-blog.top/posts/20220424a1/#%E6%B8%B2%E6%9F%93-mathjax">Hexo
-+ NexT 配置优化指南——渲染 mathjax</a>。</p>
-</div>
-<p><span id="more"></span></p>
-<h2 id="和差化积">和差化积</h2>
-<p><span class="math display">\[
-\sin x+\sin y=2 \sin \frac{x+y}{2} \cos \frac{x-y}{2}
-\]</span> <span class="math display">\[
-\sin x-\sin y=2 \cos \frac{x+y}{2} \sin \frac{x-y}{2}
-\]</span> <span class="math display">\[
-\cos x+\cos y=2 \cos \frac{x+y}{2} \cos \frac{x-y}{2}
-\]</span> <span class="math display">\[
-\cos x-\cos y=-2 \sin \frac{x+y}{2} \sin \frac{x-y}{2}
-\]</span></p>
-<h2 id="积化和差">积化和差</h2>
-<p><span class="math display">\[
-\sin x \sin y=-\frac{1}{2}[\cos (x+y)-\cos (x-y)]
-\]</span> <span class="math display">\[
-\cos x \cos y=\frac{1}{2}[\cos (x+y)+\cos (x-y)]
-\]</span> <span class="math display">\[
-\sin x \cos y=\frac{1}{2}[\sin (x+y)+\sin (x-y)]
-\]</span></p>
-<p>辅助记忆口诀：</p>
-<p>正加正，正在前，余加余，余并肩</p>
-<p>正减正，余在前，余减余，负正弦</p>
-]]></content>
-  </entry>
-  <entry>
     <title>搭建个人博客</title>
     <url>/posts/20210813a1/</url>
     <content><![CDATA[<div class="note "><p>本文旨在记录本博客的搭建过程，同时希望能对别人有所帮助。</p>
@@ -2771,5 +2739,37 @@ href="https://zcw-blog.top/posts/20220424a1/">Hexo+NexT配置优化指南</a></p
       <tags>
         <tag>搭建博客</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>积化和差、和差化积公式</title>
+    <url>/posts/20211001a1/</url>
+    <content><![CDATA[<div class="note "><p>本文主要用于测试 mathjax 渲染功能。<br />
+关于如何添加 Hexo 博客的 mathjax 渲染功能，可见<a
+href="https://zcw-blog.top/posts/20220424a1/#%E6%B8%B2%E6%9F%93-mathjax">Hexo
++ NexT 配置优化指南——渲染 mathjax</a>。</p>
+</div>
+<p><span id="more"></span></p>
+<h2 id="和差化积">和差化积</h2>
+<p><span class="math display">\[
+\sin x+\sin y=2 \sin \frac{x+y}{2} \cos \frac{x-y}{2}
+\]</span> <span class="math display">\[
+\sin x-\sin y=2 \cos \frac{x+y}{2} \sin \frac{x-y}{2}
+\]</span> <span class="math display">\[
+\cos x+\cos y=2 \cos \frac{x+y}{2} \cos \frac{x-y}{2}
+\]</span> <span class="math display">\[
+\cos x-\cos y=-2 \sin \frac{x+y}{2} \sin \frac{x-y}{2}
+\]</span></p>
+<h2 id="积化和差">积化和差</h2>
+<p><span class="math display">\[
+\sin x \sin y=-\frac{1}{2}[\cos (x+y)-\cos (x-y)]
+\]</span> <span class="math display">\[
+\cos x \cos y=\frac{1}{2}[\cos (x+y)+\cos (x-y)]
+\]</span> <span class="math display">\[
+\sin x \cos y=\frac{1}{2}[\sin (x+y)+\sin (x-y)]
+\]</span></p>
+<p>辅助记忆口诀：</p>
+<p>正加正，正在前，余加余，余并肩</p>
+<p>正减正，余在前，余减余，负正弦</p>
+]]></content>
   </entry>
 </search>
