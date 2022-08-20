@@ -1192,14 +1192,14 @@ great!</h4>
 <li><p>Update the title to match the name of your website.</p></li>
 </ol>
 <h5 id="图片">图片</h5>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1.  Open the file containing the Linux mascot.</span><br><span class="line">2.  Marvel at its beauty.</span><br><span class="line"></span><br><span class="line">    ![](https://cdn.jsdelivr.net/gh/reman2021/ImageHosting@main/zcw-blog-picture/linux.png)</span><br><span class="line"></span><br><span class="line">3.  Close the file.</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1.  Open the file containing the Linux mascot.</span><br><span class="line">2.  Marvel at its beauty.</span><br><span class="line"></span><br><span class="line">    ![](https://fastly.jsdelivr.net/gh/reman2021/ImageHosting@main/zcw-blog-picture/linux.png)</span><br><span class="line"></span><br><span class="line">3.  Close the file.</span><br></pre></td></tr></table></figure>
 <p>渲染效果如下：</p>
 <ol type="1">
 <li>Open the file containing the Linux mascot.</li>
 <li>Marvel at its beauty.</li>
 </ol>
 <p><img
-src="https://cdn.jsdelivr.net/gh/reman2021/ImageHosting@main/zcw-blog-picture/linux.png" /></p>
+src="https://fastly.jsdelivr.net/gh/reman2021/ImageHosting@main/zcw-blog-picture/linux.png" /></p>
 <ol start="3" type="1">
 <li>Close the file.</li>
 </ol>
@@ -1803,6 +1803,97 @@ href="http://www.autolabor.com.cn/book/ROSTutorials/">【Autolabor初级教程�
       </tags>
   </entry>
   <entry>
+    <title>Windows 软件使用分享</title>
+    <url>/posts/20220719a1/</url>
+    <content><![CDATA[<div class="note "><p>分享个人使用的 Windows 软件。</p>
+</div>
+<span id="more"></span>
+<h2 id="福昕高级pdf编辑器">福昕高级PDF编辑器</h2>
+<p>PDF 是 Portable Document Format 的简称，意为“可携带文档格式”，是由
+Adobe 公司开发的一种通用的文档格式，具有通用性好、保真性强等优点。<br />
+但是由于 PDF
+本身的特点，选择一款稳定、快速的软件用以阅读编辑显得尤为重要。<br />
+目前较为推荐的有国内福昕和 Adobe 公司的软件，分别是福昕高级PDF编辑器和
+Adobe Acrobat Reader DC。如果只有阅读需求，Microsoft Edge 的 PDF
+阅读体验也是可以的。
+在尝试过两个之后，个人还是更喜欢福昕高级PDF编辑器。<br />
+<img src="https://s2.loli.net/2022/07/19/5vtSUKqVi3ENRxd.png" /><br />
+<img src="https://s2.loli.net/2022/07/19/9abxiS2NT17k5rw.png" /><br />
+这里附上 9.7.1
+版本的安装文件和来自<strong>胡萝卜周</strong>的补丁：<br />
+链接：https://pan.baidu.com/s/12zbUdP_Bsz65t1omdXKdLA<br />
+提取码：w899</p>
+<h2 id="知云文献翻译">知云文献翻译</h2>
+<p>外文论文文献翻译利器。<br />
+官网下载：<a href="https://www.zhiyunwenxian.cn/"
+class="uri">https://www.zhiyunwenxian.cn/</a><br />
+<img src="https://s2.loli.net/2022/07/19/tF3whGmuzoIsZWk.png" /></p>
+<h2 id="ev录屏">EV录屏</h2>
+<p>官网下载：<a href="https://www.ieway.cn/evcapture.html"
+class="uri">https://www.ieway.cn/evcapture.html</a><br />
+<img src="https://s2.loli.net/2022/07/19/JDzuTnXlq2oMS36.png" /><br />
+<img src="https://s2.loli.net/2022/07/19/oXYdGM9cJaKu4VI.png" /></p>
+<h2 id="mathpix-snipping-tool">Mathpix Snipping Tool</h2>
+<p>识别公式并生成相应代码，非常好用。（每个月只能免费使用10次）<br />
+官网下载：<a href="https://mathpix.com/"
+class="uri">https://mathpix.com/</a><br />
+<img src="https://s2.loli.net/2022/07/19/Z5IELwFAXuW1kiv.png" /><br />
+<img src="https://s2.loli.net/2022/07/19/CAnMGTyzx1DlBjX.png" /></p>
+<h2 id="snipaste">Snipaste</h2>
+<p>个人最常用的截图工具，小巧好用。<br />
+官网下载：<a href="https://www.snipaste.com/"
+class="uri">https://www.snipaste.com/</a><br />
+<img src="https://s2.loli.net/2022/07/19/CqKFAOUXkczMsV8.png" /><br />
+它还可以将截图贴在屏幕上，并支持放大缩小。<br />
+<img src="https://s2.loli.net/2022/07/19/tzD4pxUdQ2ZT837.png" /><br />
+<img src="https://s2.loli.net/2022/07/19/uKkegcS5hFosLwE.png" /><br />
+<img src="https://s2.loli.net/2022/07/19/ypBJm5TxzfriGwD.png" /></p>
+<h2 id="bandizip">Bandizip</h2>
+<p>压缩解压缩软件，没有 WinRAR 烦人的广告。<br />
+官网下载：<a href="https://www.bandisoft.com/bandizip/"
+class="uri">https://www.bandisoft.com/bandizip/</a><br />
+<img src="https://s2.loli.net/2022/07/19/P1mKs5MZorLd2AS.png" /><br />
+<img src="https://s2.loli.net/2022/07/19/oADFHTQzOPmbBIx.png" /></p>
+<h2 id="wox-everything">Wox + Everything</h2>
+<p>高效办公好助手。（用惯的话）<br />
+具体参考：<a
+href="https://blog.csdn.net/qq_29860591/article/details/107873980">Wox+Everything结合使用</a><br />
+<img src="https://s2.loli.net/2022/07/19/xf4bI1aCoFkvGlK.png" /><img
+src="https://s2.loli.net/2022/07/19/rdIiUW7hN1b5RXL.png" /> <img
+src="https://s2.loli.net/2022/07/31/EVkcWijDqBdgNRv.png" /></p>
+<h2 id="向日葵远程控制">向日葵远程控制</h2>
+<p>可用手机平板远程控制电脑，进行文件传输，免费版功能基本满足所需。<br />
+官网下载：<a href="https://sunlogin.oray.com/"
+class="uri">https://sunlogin.oray.com/</a><br />
+<img src="https://s2.loli.net/2022/07/19/vXCISpwyTstoLMq.png" /><br />
+<img src="https://s2.loli.net/2022/07/19/EXLG9bSNlIOutdy.png" /></p>
+<h2 id="picpick">PicPick</h2>
+<p>小工具箱。<br />
+官网下载：<a href="https://picpick.app/zh/"
+class="uri">https://picpick.app/zh/</a><br />
+<img src="https://s2.loli.net/2022/07/20/TB3eCAybEJk2tqN.png" /><br />
+<img src="https://s2.loli.net/2022/07/20/Jx8YPnZA96VhQau.png" /></p>
+<h2 id="linux-reader">Linux Reader</h2>
+<p>适用于双系统，可在 Windows 下访问 Linux 的文件。<br />
+官网下载：<a href="https://www.diskinternals.com/download/"
+class="uri">https://www.diskinternals.com/download/</a><br />
+<img src="https://s2.loli.net/2022/07/31/Bs79aMTrGgF4kYI.png" /><br />
+<img src="https://s2.loli.net/2022/07/31/XfsjBr39zb7JHNl.png" /></p>
+<h2 id="motrix">Motrix</h2>
+<p>简洁美观的磁力下载器，同样适用于 Linux、macOS。<br />
+官网下载：<a href="https://motrix.app/"
+class="uri">https://motrix.app/</a><br />
+<img src="https://s2.loli.net/2022/08/14/PrD7vIfhcjkJl4q.png" /> <img
+src="https://s2.loli.net/2022/08/14/3piwBjGfbULu9ag.png" /></p>
+]]></content>
+      <categories>
+        <category>Windows</category>
+      </categories>
+      <tags>
+        <tag>Windows</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Ubuntu 优化</title>
     <url>/posts/20220801a1/</url>
     <content><![CDATA[<div class="note "><p>Ubuntu 使用优化（20.04.1）。</p>
@@ -1893,7 +1984,7 @@ Linux中的蓝牙连接问题</a></p>
   </entry>
   <entry>
     <title>Hello World</title>
-    <url>/posts/20210811cl70nf3wc0013t8f9135fcq3k/</url>
+    <url>/posts/20210811cl718f4iq0015icf915oa5ff9/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very
 first post. Check <a href="https://hexo.io/docs/">documentation</a> for
 more info. If you get any problems when using Hexo, you can find the
@@ -1919,97 +2010,6 @@ href="https://hexo.io/docs/generating.html">Generating</a></p>
 <p>More info: <a
 href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
-  </entry>
-  <entry>
-    <title>Windows 软件使用分享</title>
-    <url>/posts/20220719a1/</url>
-    <content><![CDATA[<div class="note "><p>分享个人使用的 Windows 软件。</p>
-</div>
-<span id="more"></span>
-<h2 id="福昕高级pdf编辑器">福昕高级PDF编辑器</h2>
-<p>PDF 是 Portable Document Format 的简称，意为“可携带文档格式”，是由
-Adobe 公司开发的一种通用的文档格式，具有通用性好、保真性强等优点。<br />
-但是由于 PDF
-本身的特点，选择一款稳定、快速的软件用以阅读编辑显得尤为重要。<br />
-目前较为推荐的有国内福昕和 Adobe 公司的软件，分别是福昕高级PDF编辑器和
-Adobe Acrobat Reader DC。如果只有阅读需求，Microsoft Edge 的 PDF
-阅读体验也是可以的。
-在尝试过两个之后，个人还是更喜欢福昕高级PDF编辑器。<br />
-<img src="https://s2.loli.net/2022/07/19/5vtSUKqVi3ENRxd.png" /><br />
-<img src="https://s2.loli.net/2022/07/19/9abxiS2NT17k5rw.png" /><br />
-这里附上 9.7.1
-版本的安装文件和来自<strong>胡萝卜周</strong>的补丁：<br />
-链接：https://pan.baidu.com/s/12zbUdP_Bsz65t1omdXKdLA<br />
-提取码：w899</p>
-<h2 id="知云文献翻译">知云文献翻译</h2>
-<p>外文论文文献翻译利器。<br />
-官网下载：<a href="https://www.zhiyunwenxian.cn/"
-class="uri">https://www.zhiyunwenxian.cn/</a><br />
-<img src="https://s2.loli.net/2022/07/19/tF3whGmuzoIsZWk.png" /></p>
-<h2 id="ev录屏">EV录屏</h2>
-<p>官网下载：<a href="https://www.ieway.cn/evcapture.html"
-class="uri">https://www.ieway.cn/evcapture.html</a><br />
-<img src="https://s2.loli.net/2022/07/19/JDzuTnXlq2oMS36.png" /><br />
-<img src="https://s2.loli.net/2022/07/19/oXYdGM9cJaKu4VI.png" /></p>
-<h2 id="mathpix-snipping-tool">Mathpix Snipping Tool</h2>
-<p>识别公式并生成相应代码，非常好用。（每个月只能免费使用10次）<br />
-官网下载：<a href="https://mathpix.com/"
-class="uri">https://mathpix.com/</a><br />
-<img src="https://s2.loli.net/2022/07/19/Z5IELwFAXuW1kiv.png" /><br />
-<img src="https://s2.loli.net/2022/07/19/CAnMGTyzx1DlBjX.png" /></p>
-<h2 id="snipaste">Snipaste</h2>
-<p>个人最常用的截图工具，小巧好用。<br />
-官网下载：<a href="https://www.snipaste.com/"
-class="uri">https://www.snipaste.com/</a><br />
-<img src="https://s2.loli.net/2022/07/19/CqKFAOUXkczMsV8.png" /><br />
-它还可以将截图贴在屏幕上，并支持放大缩小。<br />
-<img src="https://s2.loli.net/2022/07/19/tzD4pxUdQ2ZT837.png" /><br />
-<img src="https://s2.loli.net/2022/07/19/uKkegcS5hFosLwE.png" /><br />
-<img src="https://s2.loli.net/2022/07/19/ypBJm5TxzfriGwD.png" /></p>
-<h2 id="bandizip">Bandizip</h2>
-<p>压缩解压缩软件，没有 WinRAR 烦人的广告。<br />
-官网下载：<a href="https://www.bandisoft.com/bandizip/"
-class="uri">https://www.bandisoft.com/bandizip/</a><br />
-<img src="https://s2.loli.net/2022/07/19/P1mKs5MZorLd2AS.png" /><br />
-<img src="https://s2.loli.net/2022/07/19/oADFHTQzOPmbBIx.png" /></p>
-<h2 id="wox-everything">Wox + Everything</h2>
-<p>高效办公好助手。（用惯的话）<br />
-具体参考：<a
-href="https://blog.csdn.net/qq_29860591/article/details/107873980">Wox+Everything结合使用</a><br />
-<img src="https://s2.loli.net/2022/07/19/xf4bI1aCoFkvGlK.png" /><img
-src="https://s2.loli.net/2022/07/19/rdIiUW7hN1b5RXL.png" /> <img
-src="https://s2.loli.net/2022/07/31/EVkcWijDqBdgNRv.png" /></p>
-<h2 id="向日葵远程控制">向日葵远程控制</h2>
-<p>可用手机平板远程控制电脑，进行文件传输，免费版功能基本满足所需。<br />
-官网下载：<a href="https://sunlogin.oray.com/"
-class="uri">https://sunlogin.oray.com/</a><br />
-<img src="https://s2.loli.net/2022/07/19/vXCISpwyTstoLMq.png" /><br />
-<img src="https://s2.loli.net/2022/07/19/EXLG9bSNlIOutdy.png" /></p>
-<h2 id="picpick">PicPick</h2>
-<p>小工具箱。<br />
-官网下载：<a href="https://picpick.app/zh/"
-class="uri">https://picpick.app/zh/</a><br />
-<img src="https://s2.loli.net/2022/07/20/TB3eCAybEJk2tqN.png" /><br />
-<img src="https://s2.loli.net/2022/07/20/Jx8YPnZA96VhQau.png" /></p>
-<h2 id="linux-reader">Linux Reader</h2>
-<p>适用于双系统，可在 Windows 下访问 Linux 的文件。<br />
-官网下载：<a href="https://www.diskinternals.com/download/"
-class="uri">https://www.diskinternals.com/download/</a><br />
-<img src="https://s2.loli.net/2022/07/31/Bs79aMTrGgF4kYI.png" /><br />
-<img src="https://s2.loli.net/2022/07/31/XfsjBr39zb7JHNl.png" /></p>
-<h2 id="motrix">Motrix</h2>
-<p>简洁美观的磁力下载器，同样适用于 Linux、macOS。<br />
-官网下载：<a href="https://motrix.app/"
-class="uri">https://motrix.app/</a><br />
-<img src="https://s2.loli.net/2022/08/14/PrD7vIfhcjkJl4q.png" /> <img
-src="https://s2.loli.net/2022/08/14/3piwBjGfbULu9ag.png" /></p>
-]]></content>
-      <categories>
-        <category>Windows</category>
-      </categories>
-      <tags>
-        <tag>Windows</tag>
-      </tags>
   </entry>
   <entry>
     <title>使用 Jetson Nano 向 PX4 提供 t265 位置信息，实现室内定点飞行</title>
