@@ -590,54 +590,6 @@ class="footnote-back" role="doc-backlink">↩︎</a></p></li>
       </tags>
   </entry>
   <entry>
-    <title>Clash for Linux</title>
-    <url>/posts/20220726a1/</url>
-    <content><![CDATA[<div class="note "><p>配置 Clash for Linux，并设置开机自启动。<br />
-Linux 系统版本：Ubuntu 20.04.1</p>
-</div>
-<span id="more"></span>
-<h2 id="下载解压-clash-linux-amd64">下载解压 clash-linux-amd64</h2>
-<p>从 <a href="https://github.com/Dreamacro/clash/releases">GitHub</a>
-上下载任意版本的 clash-linux-amd64-vx.x.x.gz。<br />
-在下载目录打开终端，输入如下命令：<br />
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">gunzip clash-linux-amd64-vx.x.x.gz	#文件解压</span><br><span class="line">mv clash-linux-amd64-vx.x.x clash	#文件改名</span><br></pre></td></tr></table></figure> 我在 /home/username 目录下创建了 clash
-文件夹，将解压后的文件移动到里面：<br />
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mkdir Clash			#创建名为 clash 的文件夹  </span><br><span class="line">mv clash /home/username/clash	#将解压改名后的 clash 文件移入 clash 文件夹  </span><br></pre></td></tr></table></figure></p>
-<h2 id="配置-clash">配置 clash</h2>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">chmod +x clash		#首先授权可执行权限  </span><br><span class="line">./clash -d .		#初始化执行 clash  </span><br></pre></td></tr></table></figure>
-<p>在初始化执行 clash 后会默认在当前目录下生成配置文件
-config.yaml和全球IP地址库 Country.mmdb。<br />
-<img src="https://pic.imgdb.cn/item/6300822516f2c2beb1b73d40.png" />
-从代理商那获得配置文件 config.yaml，替换默认生成的配置文件。<br />
-再次初始化执行 clash：<code>./clash -d .</code>。<br />
-出现如下初始化显示：<br />
-<img src="https://pic.imgdb.cn/item/6300823d16f2c2beb1b748f5.png" />
-接下来进行系统网络代理设置，打开系统设置-网络-网络代理，选择手动，填写
-HTTP 和 HTTPS 代理为 127.0.0.1:7890，填写 Socks 主机为
-127.0.0.1:7891，即可启用系统代理。<br />
-<img src="https://pic.imgdb.cn/item/6300825816f2c2beb1b753ff.png" />
-浏览器访问 <a href="https://google.cn/">Google</a> 验证网络。</p>
-<h2 id="设置开机自启动">设置开机自启动</h2>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo touch /etc/systemd/system/clash.service	#创建 service 文件  </span><br><span class="line">vi /etc/systemd/system/clash.service 	#编辑 service 文件  </span><br></pre></td></tr></table></figure>
-<p>输入如下文本（记得修改 ExecStart 为自己的路径）：<br />
-<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line">[Unit] </span><br><span class="line">Description=clash daemon  </span><br><span class="line">[Service] </span><br><span class="line">Type=simple </span><br><span class="line">User=root </span><br><span class="line">ExecStart=/home/username/clash/clash -d /home/username/clash/ </span><br><span class="line">Restart=<span class="keyword">on</span>-failure  </span><br><span class="line">[Install] </span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure> 使用的 vim 命令参考：<br />
-<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line">i    在当前光标的前面插入字符</span><br><span class="line">A    在一行的结尾处添加文本</span><br><span class="line"><span class="keyword">x</span>    删除当前光标所在处的字符</span><br><span class="line">dw   删除一个单词(从光标处到空格)</span><br><span class="line"><span class="keyword">u</span>    撤销上一步的操作。</span><br><span class="line">:q   若文件没有修改，直接退出</span><br><span class="line">:q!  文件已经被修改，放弃修改退出</span><br><span class="line">:<span class="keyword">wq</span>  文件已经被修改，保存修改并退出</span><br></pre></td></tr></table></figure> 编辑后查看文件内容如下图：<br />
-<img src="https://pic.imgdb.cn/item/6300826f16f2c2beb1b75c16.png" />
-接着依次执行下面四个命令：<br />
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo systemctl daemon-reload </span><br><span class="line">sudo systemctl enable clash </span><br><span class="line">sudo systemctl start clash </span><br><span class="line">sudo systemctl status clash</span><br></pre></td></tr></table></figure> 成功后出现如下内容：<br />
-<img src="https://pic.imgdb.cn/item/6300828116f2c2beb1b763ca.png" /></p>
-<h2 id="参考文章">参考文章</h2>
-<p><a href="https://zhuanlan.zhihu.com/p/430035973">配置 clash for linux
-，适用于ubuntu 20.04（更新于2021.11.6）</a></p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hexo &amp; Next 标签使用说明</title>
     <url>/posts/20220816a1/</url>
     <content><![CDATA[<div class="note "><p>本文为在 Hexo &amp; Next
@@ -787,6 +739,54 @@ source/downloads/code 不是固定的，取决于你在配置文件中 code_dir
       <tags>
         <tag>NexT</tag>
         <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Clash for Linux</title>
+    <url>/posts/20220726a1/</url>
+    <content><![CDATA[<div class="note "><p>配置 Clash for Linux，并设置开机自启动。<br />
+Linux 系统版本：Ubuntu 20.04.1</p>
+</div>
+<span id="more"></span>
+<h2 id="下载解压-clash-linux-amd64">下载解压 clash-linux-amd64</h2>
+<p>从 <a href="https://github.com/Dreamacro/clash/releases">GitHub</a>
+上下载任意版本的 clash-linux-amd64-vx.x.x.gz。<br />
+在下载目录打开终端，输入如下命令：<br />
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">gunzip clash-linux-amd64-vx.x.x.gz	#文件解压</span><br><span class="line">mv clash-linux-amd64-vx.x.x clash	#文件改名</span><br></pre></td></tr></table></figure> 我在 /home/username 目录下创建了 clash
+文件夹，将解压后的文件移动到里面：<br />
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mkdir Clash			#创建名为 clash 的文件夹  </span><br><span class="line">mv clash /home/username/clash	#将解压改名后的 clash 文件移入 clash 文件夹  </span><br></pre></td></tr></table></figure></p>
+<h2 id="配置-clash">配置 clash</h2>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">chmod +x clash		#首先授权可执行权限  </span><br><span class="line">./clash -d .		#初始化执行 clash  </span><br></pre></td></tr></table></figure>
+<p>在初始化执行 clash 后会默认在当前目录下生成配置文件
+config.yaml和全球IP地址库 Country.mmdb。<br />
+<img src="https://pic.imgdb.cn/item/6300822516f2c2beb1b73d40.png" />
+从代理商那获得配置文件 config.yaml，替换默认生成的配置文件。<br />
+再次初始化执行 clash：<code>./clash -d .</code>。<br />
+出现如下初始化显示：<br />
+<img src="https://pic.imgdb.cn/item/6300823d16f2c2beb1b748f5.png" />
+接下来进行系统网络代理设置，打开系统设置-网络-网络代理，选择手动，填写
+HTTP 和 HTTPS 代理为 127.0.0.1:7890，填写 Socks 主机为
+127.0.0.1:7891，即可启用系统代理。<br />
+<img src="https://pic.imgdb.cn/item/6300825816f2c2beb1b753ff.png" />
+浏览器访问 <a href="https://google.cn/">Google</a> 验证网络。</p>
+<h2 id="设置开机自启动">设置开机自启动</h2>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo touch /etc/systemd/system/clash.service	#创建 service 文件  </span><br><span class="line">vi /etc/systemd/system/clash.service 	#编辑 service 文件  </span><br></pre></td></tr></table></figure>
+<p>输入如下文本（记得修改 ExecStart 为自己的路径）：<br />
+<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line">[Unit] </span><br><span class="line">Description=clash daemon  </span><br><span class="line">[Service] </span><br><span class="line">Type=simple </span><br><span class="line">User=root </span><br><span class="line">ExecStart=/home/username/clash/clash -d /home/username/clash/ </span><br><span class="line">Restart=<span class="keyword">on</span>-failure  </span><br><span class="line">[Install] </span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure> 使用的 vim 命令参考：<br />
+<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line">i    在当前光标的前面插入字符</span><br><span class="line">A    在一行的结尾处添加文本</span><br><span class="line"><span class="keyword">x</span>    删除当前光标所在处的字符</span><br><span class="line">dw   删除一个单词(从光标处到空格)</span><br><span class="line"><span class="keyword">u</span>    撤销上一步的操作。</span><br><span class="line">:q   若文件没有修改，直接退出</span><br><span class="line">:q!  文件已经被修改，放弃修改退出</span><br><span class="line">:<span class="keyword">wq</span>  文件已经被修改，保存修改并退出</span><br></pre></td></tr></table></figure> 编辑后查看文件内容如下图：<br />
+<img src="https://pic.imgdb.cn/item/6300826f16f2c2beb1b75c16.png" />
+接着依次执行下面四个命令：<br />
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo systemctl daemon-reload </span><br><span class="line">sudo systemctl enable clash </span><br><span class="line">sudo systemctl start clash </span><br><span class="line">sudo systemctl status clash</span><br></pre></td></tr></table></figure> 成功后出现如下内容：<br />
+<img src="https://pic.imgdb.cn/item/6300828116f2c2beb1b763ca.png" /></p>
+<h2 id="参考文章">参考文章</h2>
+<p><a href="https://zhuanlan.zhihu.com/p/430035973">配置 clash for linux
+，适用于ubuntu 20.04（更新于2021.11.6）</a></p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
@@ -1807,6 +1807,126 @@ href="http://www.autolabor.com.cn/book/ROSTutorials/">【Autolabor初级教程�
       </tags>
   </entry>
   <entry>
+    <title>Windows 软件使用分享</title>
+    <url>/posts/20220719a1/</url>
+    <content><![CDATA[<div class="note "><p>分享个人使用的 Windows 软件。</p>
+</div>
+<span id="more"></span>
+<h2 id="福昕高级pdf编辑器">福昕高级PDF编辑器</h2>
+<p>PDF 是 Portable Document Format 的简称，意为“可携带文档格式”，是由
+Adobe 公司开发的一种通用的文档格式，具有通用性好、保真性强等优点。<br />
+但是由于 PDF
+本身的特点，选择一款稳定、快速的软件用以阅读编辑显得尤为重要。<br />
+目前较为推荐的有国内福昕和 Adobe 公司的软件，分别是福昕高级PDF编辑器和
+Adobe Acrobat Reader DC。如果只有阅读需求，Microsoft Edge 的 PDF
+阅读体验也是可以的。
+在尝试过两个之后，个人还是更喜欢福昕高级PDF编辑器。<br />
+<img src="https://s2.loli.net/2022/07/19/5vtSUKqVi3ENRxd.png" /><br />
+<img src="https://s2.loli.net/2022/07/19/9abxiS2NT17k5rw.png" /><br />
+这里附上 9.7.1
+版本的安装文件和来自<strong>胡萝卜周</strong>的补丁：<br />
+链接：https://pan.baidu.com/s/12zbUdP_Bsz65t1omdXKdLA<br />
+提取码：w899</p>
+<h2 id="知云文献翻译">知云文献翻译</h2>
+<p>外文论文文献翻译利器。<br />
+官网下载：<a href="https://www.zhiyunwenxian.cn/"
+class="uri">https://www.zhiyunwenxian.cn/</a><br />
+<img src="https://s2.loli.net/2022/07/19/tF3whGmuzoIsZWk.png" /></p>
+<h2 id="ev录屏">EV录屏</h2>
+<p>官网下载：<a href="https://www.ieway.cn/evcapture.html"
+class="uri">https://www.ieway.cn/evcapture.html</a><br />
+<img src="https://s2.loli.net/2022/07/19/JDzuTnXlq2oMS36.png" /><br />
+<img src="https://s2.loli.net/2022/07/19/oXYdGM9cJaKu4VI.png" /></p>
+<h2 id="mathpix-snipping-tool">Mathpix Snipping Tool</h2>
+<p>识别公式并生成相应代码，非常好用。（每个月只能免费使用10次）<br />
+官网下载：<a href="https://mathpix.com/"
+class="uri">https://mathpix.com/</a><br />
+<img src="https://s2.loli.net/2022/07/19/Z5IELwFAXuW1kiv.png" /><br />
+<img src="https://s2.loli.net/2022/07/19/CAnMGTyzx1DlBjX.png" /></p>
+<h2 id="snipaste">Snipaste</h2>
+<p>个人最常用的截图工具，小巧好用。<br />
+官网下载：<a href="https://www.snipaste.com/"
+class="uri">https://www.snipaste.com/</a><br />
+<img src="https://s2.loli.net/2022/07/19/CqKFAOUXkczMsV8.png" /><br />
+它还可以将截图贴在屏幕上，并支持放大缩小。<br />
+<img src="https://s2.loli.net/2022/07/19/tzD4pxUdQ2ZT837.png" /><br />
+<img src="https://s2.loli.net/2022/07/19/uKkegcS5hFosLwE.png" /><br />
+<img src="https://s2.loli.net/2022/07/19/ypBJm5TxzfriGwD.png" /></p>
+<h2 id="bandizip">Bandizip</h2>
+<p>压缩解压缩软件，没有 WinRAR 烦人的广告。<br />
+官网下载：<a href="https://www.bandisoft.com/bandizip/"
+class="uri">https://www.bandisoft.com/bandizip/</a><br />
+<img src="https://s2.loli.net/2022/07/19/P1mKs5MZorLd2AS.png" /><br />
+<img src="https://s2.loli.net/2022/07/19/oADFHTQzOPmbBIx.png" /></p>
+<h2 id="wox-everything">Wox + Everything</h2>
+<p>高效办公好助手。（用惯的话）<br />
+具体参考：<a
+href="https://blog.csdn.net/qq_29860591/article/details/107873980">Wox+Everything结合使用</a><br />
+<img src="https://s2.loli.net/2022/07/19/xf4bI1aCoFkvGlK.png" /><img
+src="https://s2.loli.net/2022/07/19/rdIiUW7hN1b5RXL.png" /> <img
+src="https://s2.loli.net/2022/07/31/EVkcWijDqBdgNRv.png" /></p>
+<h2 id="向日葵远程控制">向日葵远程控制</h2>
+<p>可用手机平板远程控制电脑，进行文件传输，免费版功能基本满足所需。<br />
+官网下载：<a href="https://sunlogin.oray.com/"
+class="uri">https://sunlogin.oray.com/</a><br />
+<img src="https://s2.loli.net/2022/07/19/vXCISpwyTstoLMq.png" /><br />
+<img src="https://s2.loli.net/2022/07/19/EXLG9bSNlIOutdy.png" /></p>
+<h2 id="picpick">PicPick</h2>
+<p>小工具箱。<br />
+官网下载：<a href="https://picpick.app/zh/"
+class="uri">https://picpick.app/zh/</a><br />
+<img src="https://s2.loli.net/2022/07/20/TB3eCAybEJk2tqN.png" /><br />
+<img src="https://s2.loli.net/2022/07/20/Jx8YPnZA96VhQau.png" /></p>
+<h2 id="linux-reader">Linux Reader</h2>
+<p>适用于双系统，可在 Windows 下访问 Linux 的文件。<br />
+官网下载：<a href="https://www.diskinternals.com/download/"
+class="uri">https://www.diskinternals.com/download/</a><br />
+<img src="https://s2.loli.net/2022/07/31/Bs79aMTrGgF4kYI.png" /><br />
+<img src="https://s2.loli.net/2022/07/31/XfsjBr39zb7JHNl.png" /></p>
+<h2 id="motrix">Motrix</h2>
+<p>简洁美观的磁力下载器，同样适用于 Linux、macOS。<br />
+官网下载：<a href="https://motrix.app/"
+class="uri">https://motrix.app/</a><br />
+<img src="https://s2.loli.net/2022/08/14/PrD7vIfhcjkJl4q.png" /> <img
+src="https://s2.loli.net/2022/08/14/3piwBjGfbULu9ag.png" /></p>
+]]></content>
+      <categories>
+        <category>Windows</category>
+      </categories>
+      <tags>
+        <tag>Windows</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/posts/20210811cl799dzaj0013zsf9cz3xhw7s/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very
+first post. Check <a href="https://hexo.io/docs/">documentation</a> for
+more info. If you get any problems when using Hexo, you can find the
+answer in <a
+href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or
+you can ask me on <a
+href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<p><span id="more"></span></p>
+<h2 id="quick-start">Quick Start</h2>
+<h3 id="create-a-new-post">Create a new post</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a
+href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="run-server">Run server</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="generate-static-files">Generate static files</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a
+href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a
+href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
     <title>Ubuntu 优化</title>
     <url>/posts/20220801a1/</url>
     <content><![CDATA[<div class="note "><p>Ubuntu 使用优化（20.04.1）。</p>
@@ -1896,123 +2016,119 @@ Linux中的蓝牙连接问题</a></p>
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/posts/20210811cl7999puw000tb0f91xrb4grt/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very
-first post. Check <a href="https://hexo.io/docs/">documentation</a> for
-more info. If you get any problems when using Hexo, you can find the
-answer in <a
-href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or
-you can ask me on <a
-href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<p><span id="more"></span></p>
-<h2 id="quick-start">Quick Start</h2>
-<h3 id="create-a-new-post">Create a new post</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a
-href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="run-server">Run server</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="generate-static-files">Generate static files</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a
-href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a
-href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>Windows 软件使用分享</title>
-    <url>/posts/20220719a1/</url>
-    <content><![CDATA[<div class="note "><p>分享个人使用的 Windows 软件。</p>
+    <title>使用 Jetson Nano 向 PX4 提供 t265 位置信息，实现室内定点飞行</title>
+    <url>/posts/20210907a1/</url>
+    <content><![CDATA[<div class="note "><p>本文作者：南京航空航天大学 科技中心 陈思祺<br />
+主要内容：详细阐述如何使用 Jetson Nano 向 PX4 提供 t265
+位置信息，从而实现室内定点飞行。</p>
 </div>
-<span id="more"></span>
-<h2 id="福昕高级pdf编辑器">福昕高级PDF编辑器</h2>
-<p>PDF 是 Portable Document Format 的简称，意为“可携带文档格式”，是由
-Adobe 公司开发的一种通用的文档格式，具有通用性好、保真性强等优点。<br />
-但是由于 PDF
-本身的特点，选择一款稳定、快速的软件用以阅读编辑显得尤为重要。<br />
-目前较为推荐的有国内福昕和 Adobe 公司的软件，分别是福昕高级PDF编辑器和
-Adobe Acrobat Reader DC。如果只有阅读需求，Microsoft Edge 的 PDF
-阅读体验也是可以的。
-在尝试过两个之后，个人还是更喜欢福昕高级PDF编辑器。<br />
-<img src="https://s2.loli.net/2022/07/19/5vtSUKqVi3ENRxd.png" /><br />
-<img src="https://s2.loli.net/2022/07/19/9abxiS2NT17k5rw.png" /><br />
-这里附上 9.7.1
-版本的安装文件和来自<strong>胡萝卜周</strong>的补丁：<br />
-链接：https://pan.baidu.com/s/12zbUdP_Bsz65t1omdXKdLA<br />
-提取码：w899</p>
-<h2 id="知云文献翻译">知云文献翻译</h2>
-<p>外文论文文献翻译利器。<br />
-官网下载：<a href="https://www.zhiyunwenxian.cn/"
-class="uri">https://www.zhiyunwenxian.cn/</a><br />
-<img src="https://s2.loli.net/2022/07/19/tF3whGmuzoIsZWk.png" /></p>
-<h2 id="ev录屏">EV录屏</h2>
-<p>官网下载：<a href="https://www.ieway.cn/evcapture.html"
-class="uri">https://www.ieway.cn/evcapture.html</a><br />
-<img src="https://s2.loli.net/2022/07/19/JDzuTnXlq2oMS36.png" /><br />
-<img src="https://s2.loli.net/2022/07/19/oXYdGM9cJaKu4VI.png" /></p>
-<h2 id="mathpix-snipping-tool">Mathpix Snipping Tool</h2>
-<p>识别公式并生成相应代码，非常好用。（每个月只能免费使用10次）<br />
-官网下载：<a href="https://mathpix.com/"
-class="uri">https://mathpix.com/</a><br />
-<img src="https://s2.loli.net/2022/07/19/Z5IELwFAXuW1kiv.png" /><br />
-<img src="https://s2.loli.net/2022/07/19/CAnMGTyzx1DlBjX.png" /></p>
-<h2 id="snipaste">Snipaste</h2>
-<p>个人最常用的截图工具，小巧好用。<br />
-官网下载：<a href="https://www.snipaste.com/"
-class="uri">https://www.snipaste.com/</a><br />
-<img src="https://s2.loli.net/2022/07/19/CqKFAOUXkczMsV8.png" /><br />
-它还可以将截图贴在屏幕上，并支持放大缩小。<br />
-<img src="https://s2.loli.net/2022/07/19/tzD4pxUdQ2ZT837.png" /><br />
-<img src="https://s2.loli.net/2022/07/19/uKkegcS5hFosLwE.png" /><br />
-<img src="https://s2.loli.net/2022/07/19/ypBJm5TxzfriGwD.png" /></p>
-<h2 id="bandizip">Bandizip</h2>
-<p>压缩解压缩软件，没有 WinRAR 烦人的广告。<br />
-官网下载：<a href="https://www.bandisoft.com/bandizip/"
-class="uri">https://www.bandisoft.com/bandizip/</a><br />
-<img src="https://s2.loli.net/2022/07/19/P1mKs5MZorLd2AS.png" /><br />
-<img src="https://s2.loli.net/2022/07/19/oADFHTQzOPmbBIx.png" /></p>
-<h2 id="wox-everything">Wox + Everything</h2>
-<p>高效办公好助手。（用惯的话）<br />
-具体参考：<a
-href="https://blog.csdn.net/qq_29860591/article/details/107873980">Wox+Everything结合使用</a><br />
-<img src="https://s2.loli.net/2022/07/19/xf4bI1aCoFkvGlK.png" /><img
-src="https://s2.loli.net/2022/07/19/rdIiUW7hN1b5RXL.png" /> <img
-src="https://s2.loli.net/2022/07/31/EVkcWijDqBdgNRv.png" /></p>
-<h2 id="向日葵远程控制">向日葵远程控制</h2>
-<p>可用手机平板远程控制电脑，进行文件传输，免费版功能基本满足所需。<br />
-官网下载：<a href="https://sunlogin.oray.com/"
-class="uri">https://sunlogin.oray.com/</a><br />
-<img src="https://s2.loli.net/2022/07/19/vXCISpwyTstoLMq.png" /><br />
-<img src="https://s2.loli.net/2022/07/19/EXLG9bSNlIOutdy.png" /></p>
-<h2 id="picpick">PicPick</h2>
-<p>小工具箱。<br />
-官网下载：<a href="https://picpick.app/zh/"
-class="uri">https://picpick.app/zh/</a><br />
-<img src="https://s2.loli.net/2022/07/20/TB3eCAybEJk2tqN.png" /><br />
-<img src="https://s2.loli.net/2022/07/20/Jx8YPnZA96VhQau.png" /></p>
-<h2 id="linux-reader">Linux Reader</h2>
-<p>适用于双系统，可在 Windows 下访问 Linux 的文件。<br />
-官网下载：<a href="https://www.diskinternals.com/download/"
-class="uri">https://www.diskinternals.com/download/</a><br />
-<img src="https://s2.loli.net/2022/07/31/Bs79aMTrGgF4kYI.png" /><br />
-<img src="https://s2.loli.net/2022/07/31/XfsjBr39zb7JHNl.png" /></p>
-<h2 id="motrix">Motrix</h2>
-<p>简洁美观的磁力下载器，同样适用于 Linux、macOS。<br />
-官网下载：<a href="https://motrix.app/"
-class="uri">https://motrix.app/</a><br />
-<img src="https://s2.loli.net/2022/08/14/PrD7vIfhcjkJl4q.png" /> <img
-src="https://s2.loli.net/2022/08/14/3piwBjGfbULu9ag.png" /></p>
+<p><span id="more"></span></p>
+<p>使用的 Jetson Nano 镜像版本：4.6（2021-08-04 发布）</p>
+<p><a
+href="https://developer.nvidia.com/zh-cn/embedded/downloads">NVIDIA官方镜像下载链接</a></p>
+<p><img src="https://s2.loli.net/2022/07/19/d6PRHu7trEnLG2l.jpg" /></p>
+<p>下载好镜像，烧录进 TF
+卡，初次开机简单配置后进入系统，建议系统语言选择英语，正式开始本次教程。</p>
+<h2 id="更新软件列表更新软件">更新软件列表，更新软件</h2>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt-get update </span><br><span class="line">sudo apt-get upgrade </span><br></pre></td></tr></table></figure>
+<h2 id="安装-ros-melodic">安装 ROS Melodic</h2>
+<p>参考<a
+href="http://wiki.ros.org/melodic/Installation/Ubuntu">官网安装教程</a></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 设置sources.list</span></span><br><span class="line">sudo sh -c &#x27;echo &quot;deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main&quot; &gt; /etc/apt/sources.list.d/ros-latest.list&#x27;</span><br><span class="line"><span class="meta">#</span><span class="bash"> 设置密钥</span></span><br><span class="line">sudo apt install curl</span><br><span class="line">curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add -</span><br><span class="line"><span class="meta">#</span><span class="bash"> 确保 Debian 包索引是最新的</span></span><br><span class="line">sudo apt update</span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装桌面完整版（推荐）</span></span><br><span class="line">sudo apt install ros-melodic-desktop-full</span><br><span class="line"><span class="meta">#</span><span class="bash"> 设置环境</span></span><br><span class="line">echo &quot;source /opt/ros/melodic/setup.bash&quot; &gt;&gt; ~/.bashrc</span><br><span class="line">source ~/.bashrc</span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装 rosdep</span></span><br><span class="line">sudo apt install python-rosdep</span><br><span class="line"><span class="meta">#</span><span class="bash"> 初始化 rosdep</span></span><br><span class="line">sudo rosdep init</span><br><span class="line">rosdep update</span><br><span class="line"><span class="meta">#</span><span class="bash"> 试一下效果</span></span><br><span class="line">roscore</span><br></pre></td></tr></table></figure>
+<h2 id="安装realsense">安装realsense</h2>
+<p>参考<a
+href="https://github.com/IntelRealSense/librealsense/blob/master/doc/installation.md">官网安装教程</a></p>
+<p>安装过程中请拔下摄像头</p>
+<h3 id="安装realsense-sdk">安装Realsense SDK</h3>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 下载<span class="built_in">source</span></span> </span><br><span class="line"><span class="meta">#</span><span class="bash"> 可使用Proxy代理加速下载。详见：https://ghproxy.com/</span></span><br><span class="line">git clone https://github.com/IntelRealSense/librealsense</span><br><span class="line">cd librealsense</span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装依赖项</span> </span><br><span class="line">sudo apt-get install libudev-dev pkg-config libgtk-3-dev</span><br><span class="line">sudo apt-get install libusb-1.0-0-dev pkg-config</span><br><span class="line">sudo apt-get install libglfw3-dev</span><br><span class="line">sudo apt-get install libssl-dev</span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装位于 librealsense 源目录中的 Intel Realsense 权限脚本</span></span><br><span class="line">sudo cp config/99-realsense-libusb.rules /etc/udev/rules.d/</span><br><span class="line">sudo udevadm control --reload-rules &amp;&amp; udevadm trigger </span><br><span class="line"><span class="meta">#</span><span class="bash"> 编译</span></span><br><span class="line">mkdir build</span><br><span class="line">cd build</span><br><span class="line">cmake ../ -DBUILD_EXAMPLES=true</span><br><span class="line">make</span><br><span class="line">sudo make install</span><br><span class="line"><span class="meta">#</span><span class="bash"> 试一下效果</span></span><br><span class="line">realsense-viewer</span><br></pre></td></tr></table></figure>
+<h3 id="安装realsense-ros">安装realsense-ros</h3>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 下载<span class="built_in">source</span></span></span><br><span class="line">mkdir -p ~/catkin_ws/src</span><br><span class="line">cd ~/catkin_ws/src/</span><br><span class="line">git clone https://github.com/IntelRealSense/realsense-ros.git</span><br><span class="line">git clone https://github.com/pal-robotics/ddynamic_reconfigure</span><br><span class="line">cd realsense-ros/</span><br><span class="line">git checkout `git tag | sort -V | grep -P &quot;^\d+\.\d+\.\d+&quot; | tail -1`</span><br><span class="line"><span class="meta">#</span><span class="bash"> 更改cv_bridgeConfig.cmake中opencv4路径</span></span><br><span class="line">sudo gedit /opt/ros/melodic/share/cv_bridge/cmake/cv_bridgeConfig.cmake</span><br></pre></td></tr></table></figure>
+<p>如图</p>
+<p><img src="https://s2.loli.net/2022/07/19/QFk1VvcSTZz8xWU.png" /></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 编译</span></span><br><span class="line">cd ~/catkin_ws</span><br><span class="line">catkin_make</span><br><span class="line"><span class="meta">#</span><span class="bash"> 设置环境</span></span><br><span class="line">echo &quot;source ~/catkin_ws/devel/setup.bash&quot;&gt;&gt;~/.bashrc </span><br><span class="line">source ~/.bashrc</span><br><span class="line"><span class="meta">#</span><span class="bash">试一下效果</span></span><br><span class="line">roslaunch realsense2_camera rs_t265.launch</span><br></pre></td></tr></table></figure>
+<h2 id="px4配置">PX4配置</h2>
+<p>下载 <em>QGroundControl</em></p>
+<p><a
+href="https://github.com/mavlink/qgroundcontrol/releases/">GitHub链接</a></p>
+<p><a href="https://docs.qgroundcontrol.com/master/en/">使用说明</a></p>
+<ul>
+<li><p><code>MAV_1_CONFIG</code>= <code>TELEM 2</code></p></li>
+<li><p><code>MAV_1_MODE</code> = <code>Onboard</code></p></li>
+<li><p><code>SER_TEL2_BAUD</code> = <code>57600 8N1</code></p></li>
+<li><p><code>EKF2_AID_MASK</code> 勾选
+<code>vision position fusion</code>和<code>vision yaw fusion</code></p></li>
+<li><p><code>EKF2_HGT_MODE</code> 设置为 <code>Vision</code></p></li>
+<li><p><code>MAV_ODOM_LP</code>设置为<code>1</code></p></li>
+</ul>
+<h2 id="mavros-和vio">MAVROS 和VIO</h2>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> MAVROS</span></span><br><span class="line">sudo apt install python-catkin-tools</span><br><span class="line">sudo apt install ros-melodic-mavros ros-melodic-mavros-extras</span><br><span class="line">sudo apt-get install ros-indigo-mavros ros-indigo-mavros-extras ros‐indigo‐control‐toolbox</span><br><span class="line"><span class="meta">#</span><span class="bash"> VIO</span></span><br><span class="line">cd ~/catkin_ws/src</span><br><span class="line">git clone https://github.com/Auterion/VIO.git</span><br><span class="line">cd ..</span><br><span class="line">catkin_make</span><br></pre></td></tr></table></figure>
+<p>更改以下配置</p>
+<ol type="1">
+<li>T265 相对位置及朝向</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">gedit ~/catkin_ws/src/VIO/launch/bridge.launch</span><br></pre></td></tr></table></figure>
+<p>修改</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">&lt;node pkg=&quot;tf&quot; type=&quot;static_transform_publisher&quot; name=&quot;tf_baseLink_cameraPose&quot;args=&quot;0 0 0 0 1.5708 0 base_link camera_pose_frame 1000&quot;/&gt;</span><br></pre></td></tr></table></figure>
+<p><code>args</code>中</p>
+<ul>
+<li><p>开头三个参数为飞控中心指向 T265 中心的向量。例如 T265 在飞控前方
+10 cm，上方 4 cm, 则前三个参数为：<code>[0.1, 0, -0.04]</code></p></li>
+<li><p>中间三个参数为旋转角(偏航, 俯仰, 横滚)。默认 T265
+朝地，则参数为<code>[0, 1.5708, 0]</code>；T265
+照射飞机机头方向，则参数为 <code>[0 0 0]</code></p></li>
+</ul>
+<ol start="2" type="1">
+<li>如果 TTL 的速度异常</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo gedit /opt/ros/melodic/share/mavros/launch/px4_config.yaml</span><br></pre></td></tr></table></figure>
+<p>第 12 行改为</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">timesync_rate: 0.0</span><br></pre></td></tr></table></figure>
+<ol start="3" type="1">
+<li>如果使用 USB 连接</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo gedit /opt/ros/melodic/share/mavros/launch/px4.launch</span><br></pre></td></tr></table></figure>
+<p>修改第 5 行为</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">&lt;arg name=&quot;fcu_url&quot; default=&quot;/dev/ttyUSB0:57600&quot; /&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">gedit ~/catkin_ws/src/VIO/launch/bridge_mavros.launch</span><br></pre></td></tr></table></figure>
+<p>修改第 3 行为</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">&lt;arg name=&quot;fcu_url&quot; default=&quot;/dev/ttyUSB0:57600&quot; /&gt;</span><br></pre></td></tr></table></figure>
+<ol start="4" type="1">
+<li>放开串口权限</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 用你自己的用户名替代下面的&lt;username&gt;</span></span><br><span class="line">sudo usermod -a -G dialout &lt;username&gt;</span><br><span class="line"><span class="meta">#</span><span class="bash"> 修改后需重启生效</span></span><br><span class="line">reboot now</span><br></pre></td></tr></table></figure>
+<h2 id="起飞前检查">起飞前检查</h2>
+<p>详情请看<a
+href="https://docs.px4.io/master/en/computer_vision/visual_inertial_odometry.html#verify_estimate">官网说明</a></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 开启VIO</span></span><br><span class="line">roslaunch px4_realsense_bridge bridge_mavros.launch</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>连接好摄像头、USB、PX4，可暂不接电池，查看 MAVLink
+Inspector</p></li>
+<li><p>偏航机身，直到<code>ODOMETRY</code>消息的四元数非常接近单位四元数（w
+= 1，x = y = z = 0）</p></li>
+<li><p>向前移动无人机，x 坐标应增大</p></li>
+<li><p>向右移动无人机，y 坐标应增大</p></li>
+<li><p>向上移动无人机，z 坐标应减小</p></li>
+<li><p>遥控器切换到 Position Flight Mode，若切换成功，应闪绿灯</p></li>
+</ul>
+<p>然后可以接上电池，尝试定点飞行</p>
+<h2 id="参考文章">参考文章</h2>
+<p><a href="https://docs.px4.io/master/en/">PX4 User Guide</a></p>
+<p><a href="http://wiki.ros.org/">ROS Wiki</a></p>
+<p><a href="https://github.com/IntelRealSense/">Intel RealSense</a></p>
+<p><a
+href="https://lifuguan.github.io/d435i/ros/2019/05/28/realsense-melodic-installation/">ROS
+melodic kernel 4.18 安装 realsense D435i</a></p>
+<p><a
+href="https://zhuanlan.zhihu.com/p/364390798">通过MAVROS连接机载电脑（NANO/TX2/NX）与Pixhawk</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/367357019">Jetson
+Nano使用T265向PX4提供位置信息</a></p>
+<p><a href="https://ghproxy.com/">GitHub Proxy</a></p>
 ]]></content>
       <categories>
-        <category>Windows</category>
+        <category>PX4</category>
       </categories>
       <tags>
-        <tag>Windows</tag>
+        <tag>PX4</tag>
       </tags>
   </entry>
   <entry>
@@ -2223,122 +2339,6 @@ href="https://zcw-blog.top/posts/20210819a1/#more">Markdown语法详解</a></p>
       </tags>
   </entry>
   <entry>
-    <title>使用 Jetson Nano 向 PX4 提供 t265 位置信息，实现室内定点飞行</title>
-    <url>/posts/20210907a1/</url>
-    <content><![CDATA[<div class="note "><p>本文作者：南京航空航天大学 科技中心 陈思祺<br />
-主要内容：详细阐述如何使用 Jetson Nano 向 PX4 提供 t265
-位置信息，从而实现室内定点飞行。</p>
-</div>
-<p><span id="more"></span></p>
-<p>使用的 Jetson Nano 镜像版本：4.6（2021-08-04 发布）</p>
-<p><a
-href="https://developer.nvidia.com/zh-cn/embedded/downloads">NVIDIA官方镜像下载链接</a></p>
-<p><img src="https://s2.loli.net/2022/07/19/d6PRHu7trEnLG2l.jpg" /></p>
-<p>下载好镜像，烧录进 TF
-卡，初次开机简单配置后进入系统，建议系统语言选择英语，正式开始本次教程。</p>
-<h2 id="更新软件列表更新软件">更新软件列表，更新软件</h2>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt-get update </span><br><span class="line">sudo apt-get upgrade </span><br></pre></td></tr></table></figure>
-<h2 id="安装-ros-melodic">安装 ROS Melodic</h2>
-<p>参考<a
-href="http://wiki.ros.org/melodic/Installation/Ubuntu">官网安装教程</a></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 设置sources.list</span></span><br><span class="line">sudo sh -c &#x27;echo &quot;deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main&quot; &gt; /etc/apt/sources.list.d/ros-latest.list&#x27;</span><br><span class="line"><span class="meta">#</span><span class="bash"> 设置密钥</span></span><br><span class="line">sudo apt install curl</span><br><span class="line">curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add -</span><br><span class="line"><span class="meta">#</span><span class="bash"> 确保 Debian 包索引是最新的</span></span><br><span class="line">sudo apt update</span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装桌面完整版（推荐）</span></span><br><span class="line">sudo apt install ros-melodic-desktop-full</span><br><span class="line"><span class="meta">#</span><span class="bash"> 设置环境</span></span><br><span class="line">echo &quot;source /opt/ros/melodic/setup.bash&quot; &gt;&gt; ~/.bashrc</span><br><span class="line">source ~/.bashrc</span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装 rosdep</span></span><br><span class="line">sudo apt install python-rosdep</span><br><span class="line"><span class="meta">#</span><span class="bash"> 初始化 rosdep</span></span><br><span class="line">sudo rosdep init</span><br><span class="line">rosdep update</span><br><span class="line"><span class="meta">#</span><span class="bash"> 试一下效果</span></span><br><span class="line">roscore</span><br></pre></td></tr></table></figure>
-<h2 id="安装realsense">安装realsense</h2>
-<p>参考<a
-href="https://github.com/IntelRealSense/librealsense/blob/master/doc/installation.md">官网安装教程</a></p>
-<p>安装过程中请拔下摄像头</p>
-<h3 id="安装realsense-sdk">安装Realsense SDK</h3>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 下载<span class="built_in">source</span></span> </span><br><span class="line"><span class="meta">#</span><span class="bash"> 可使用Proxy代理加速下载。详见：https://ghproxy.com/</span></span><br><span class="line">git clone https://github.com/IntelRealSense/librealsense</span><br><span class="line">cd librealsense</span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装依赖项</span> </span><br><span class="line">sudo apt-get install libudev-dev pkg-config libgtk-3-dev</span><br><span class="line">sudo apt-get install libusb-1.0-0-dev pkg-config</span><br><span class="line">sudo apt-get install libglfw3-dev</span><br><span class="line">sudo apt-get install libssl-dev</span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装位于 librealsense 源目录中的 Intel Realsense 权限脚本</span></span><br><span class="line">sudo cp config/99-realsense-libusb.rules /etc/udev/rules.d/</span><br><span class="line">sudo udevadm control --reload-rules &amp;&amp; udevadm trigger </span><br><span class="line"><span class="meta">#</span><span class="bash"> 编译</span></span><br><span class="line">mkdir build</span><br><span class="line">cd build</span><br><span class="line">cmake ../ -DBUILD_EXAMPLES=true</span><br><span class="line">make</span><br><span class="line">sudo make install</span><br><span class="line"><span class="meta">#</span><span class="bash"> 试一下效果</span></span><br><span class="line">realsense-viewer</span><br></pre></td></tr></table></figure>
-<h3 id="安装realsense-ros">安装realsense-ros</h3>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 下载<span class="built_in">source</span></span></span><br><span class="line">mkdir -p ~/catkin_ws/src</span><br><span class="line">cd ~/catkin_ws/src/</span><br><span class="line">git clone https://github.com/IntelRealSense/realsense-ros.git</span><br><span class="line">git clone https://github.com/pal-robotics/ddynamic_reconfigure</span><br><span class="line">cd realsense-ros/</span><br><span class="line">git checkout `git tag | sort -V | grep -P &quot;^\d+\.\d+\.\d+&quot; | tail -1`</span><br><span class="line"><span class="meta">#</span><span class="bash"> 更改cv_bridgeConfig.cmake中opencv4路径</span></span><br><span class="line">sudo gedit /opt/ros/melodic/share/cv_bridge/cmake/cv_bridgeConfig.cmake</span><br></pre></td></tr></table></figure>
-<p>如图</p>
-<p><img src="https://s2.loli.net/2022/07/19/QFk1VvcSTZz8xWU.png" /></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 编译</span></span><br><span class="line">cd ~/catkin_ws</span><br><span class="line">catkin_make</span><br><span class="line"><span class="meta">#</span><span class="bash"> 设置环境</span></span><br><span class="line">echo &quot;source ~/catkin_ws/devel/setup.bash&quot;&gt;&gt;~/.bashrc </span><br><span class="line">source ~/.bashrc</span><br><span class="line"><span class="meta">#</span><span class="bash">试一下效果</span></span><br><span class="line">roslaunch realsense2_camera rs_t265.launch</span><br></pre></td></tr></table></figure>
-<h2 id="px4配置">PX4配置</h2>
-<p>下载 <em>QGroundControl</em></p>
-<p><a
-href="https://github.com/mavlink/qgroundcontrol/releases/">GitHub链接</a></p>
-<p><a href="https://docs.qgroundcontrol.com/master/en/">使用说明</a></p>
-<ul>
-<li><p><code>MAV_1_CONFIG</code>= <code>TELEM 2</code></p></li>
-<li><p><code>MAV_1_MODE</code> = <code>Onboard</code></p></li>
-<li><p><code>SER_TEL2_BAUD</code> = <code>57600 8N1</code></p></li>
-<li><p><code>EKF2_AID_MASK</code> 勾选
-<code>vision position fusion</code>和<code>vision yaw fusion</code></p></li>
-<li><p><code>EKF2_HGT_MODE</code> 设置为 <code>Vision</code></p></li>
-<li><p><code>MAV_ODOM_LP</code>设置为<code>1</code></p></li>
-</ul>
-<h2 id="mavros-和vio">MAVROS 和VIO</h2>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> MAVROS</span></span><br><span class="line">sudo apt install python-catkin-tools</span><br><span class="line">sudo apt install ros-melodic-mavros ros-melodic-mavros-extras</span><br><span class="line">sudo apt-get install ros-indigo-mavros ros-indigo-mavros-extras ros‐indigo‐control‐toolbox</span><br><span class="line"><span class="meta">#</span><span class="bash"> VIO</span></span><br><span class="line">cd ~/catkin_ws/src</span><br><span class="line">git clone https://github.com/Auterion/VIO.git</span><br><span class="line">cd ..</span><br><span class="line">catkin_make</span><br></pre></td></tr></table></figure>
-<p>更改以下配置</p>
-<ol type="1">
-<li>T265 相对位置及朝向</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">gedit ~/catkin_ws/src/VIO/launch/bridge.launch</span><br></pre></td></tr></table></figure>
-<p>修改</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">&lt;node pkg=&quot;tf&quot; type=&quot;static_transform_publisher&quot; name=&quot;tf_baseLink_cameraPose&quot;args=&quot;0 0 0 0 1.5708 0 base_link camera_pose_frame 1000&quot;/&gt;</span><br></pre></td></tr></table></figure>
-<p><code>args</code>中</p>
-<ul>
-<li><p>开头三个参数为飞控中心指向 T265 中心的向量。例如 T265 在飞控前方
-10 cm，上方 4 cm, 则前三个参数为：<code>[0.1, 0, -0.04]</code></p></li>
-<li><p>中间三个参数为旋转角(偏航, 俯仰, 横滚)。默认 T265
-朝地，则参数为<code>[0, 1.5708, 0]</code>；T265
-照射飞机机头方向，则参数为 <code>[0 0 0]</code></p></li>
-</ul>
-<ol start="2" type="1">
-<li>如果 TTL 的速度异常</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo gedit /opt/ros/melodic/share/mavros/launch/px4_config.yaml</span><br></pre></td></tr></table></figure>
-<p>第 12 行改为</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">timesync_rate: 0.0</span><br></pre></td></tr></table></figure>
-<ol start="3" type="1">
-<li>如果使用 USB 连接</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo gedit /opt/ros/melodic/share/mavros/launch/px4.launch</span><br></pre></td></tr></table></figure>
-<p>修改第 5 行为</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">&lt;arg name=&quot;fcu_url&quot; default=&quot;/dev/ttyUSB0:57600&quot; /&gt;</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">gedit ~/catkin_ws/src/VIO/launch/bridge_mavros.launch</span><br></pre></td></tr></table></figure>
-<p>修改第 3 行为</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">&lt;arg name=&quot;fcu_url&quot; default=&quot;/dev/ttyUSB0:57600&quot; /&gt;</span><br></pre></td></tr></table></figure>
-<ol start="4" type="1">
-<li>放开串口权限</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 用你自己的用户名替代下面的&lt;username&gt;</span></span><br><span class="line">sudo usermod -a -G dialout &lt;username&gt;</span><br><span class="line"><span class="meta">#</span><span class="bash"> 修改后需重启生效</span></span><br><span class="line">reboot now</span><br></pre></td></tr></table></figure>
-<h2 id="起飞前检查">起飞前检查</h2>
-<p>详情请看<a
-href="https://docs.px4.io/master/en/computer_vision/visual_inertial_odometry.html#verify_estimate">官网说明</a></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 开启VIO</span></span><br><span class="line">roslaunch px4_realsense_bridge bridge_mavros.launch</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>连接好摄像头、USB、PX4，可暂不接电池，查看 MAVLink
-Inspector</p></li>
-<li><p>偏航机身，直到<code>ODOMETRY</code>消息的四元数非常接近单位四元数（w
-= 1，x = y = z = 0）</p></li>
-<li><p>向前移动无人机，x 坐标应增大</p></li>
-<li><p>向右移动无人机，y 坐标应增大</p></li>
-<li><p>向上移动无人机，z 坐标应减小</p></li>
-<li><p>遥控器切换到 Position Flight Mode，若切换成功，应闪绿灯</p></li>
-</ul>
-<p>然后可以接上电池，尝试定点飞行</p>
-<h2 id="参考文章">参考文章</h2>
-<p><a href="https://docs.px4.io/master/en/">PX4 User Guide</a></p>
-<p><a href="http://wiki.ros.org/">ROS Wiki</a></p>
-<p><a href="https://github.com/IntelRealSense/">Intel RealSense</a></p>
-<p><a
-href="https://lifuguan.github.io/d435i/ros/2019/05/28/realsense-melodic-installation/">ROS
-melodic kernel 4.18 安装 realsense D435i</a></p>
-<p><a
-href="https://zhuanlan.zhihu.com/p/364390798">通过MAVROS连接机载电脑（NANO/TX2/NX）与Pixhawk</a></p>
-<p><a href="https://zhuanlan.zhihu.com/p/367357019">Jetson
-Nano使用T265向PX4提供位置信息</a></p>
-<p><a href="https://ghproxy.com/">GitHub Proxy</a></p>
-]]></content>
-      <categories>
-        <category>PX4</category>
-      </categories>
-      <tags>
-        <tag>PX4</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>博客创作出现报错解决</title>
     <url>/posts/20220817a1/</url>
     <content><![CDATA[<div class="note "><p>书写博客时出现以下报错的原因及解决方法：</p>
@@ -2380,6 +2380,98 @@ missed; or followed by a non-tabulated empty line</h2>
       </categories>
       <tags>
         <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>积化和差、和差化积公式</title>
+    <url>/posts/20211001a1/</url>
+    <content><![CDATA[<div class="note "><p>本文主要用于测试 mathjax 渲染功能。<br />
+关于如何添加 Hexo 博客的 mathjax 渲染功能，可见<a
+href="https://zcw-blog.top/posts/20220424a1/#%E6%B8%B2%E6%9F%93-mathjax">Hexo
++ NexT 配置优化指南——渲染 mathjax</a>。</p>
+</div>
+<p><span id="more"></span></p>
+<h2 id="和差化积">和差化积</h2>
+<p><span class="math display">\[
+\sin x+\sin y=2 \sin \frac{x+y}{2} \cos \frac{x-y}{2}
+\]</span> <span class="math display">\[
+\sin x-\sin y=2 \cos \frac{x+y}{2} \sin \frac{x-y}{2}
+\]</span> <span class="math display">\[
+\cos x+\cos y=2 \cos \frac{x+y}{2} \cos \frac{x-y}{2}
+\]</span> <span class="math display">\[
+\cos x-\cos y=-2 \sin \frac{x+y}{2} \sin \frac{x-y}{2}
+\]</span></p>
+<h2 id="积化和差">积化和差</h2>
+<p><span class="math display">\[
+\sin x \sin y=-\frac{1}{2}[\cos (x+y)-\cos (x-y)]
+\]</span> <span class="math display">\[
+\cos x \cos y=\frac{1}{2}[\cos (x+y)+\cos (x-y)]
+\]</span> <span class="math display">\[
+\sin x \cos y=\frac{1}{2}[\sin (x+y)+\sin (x-y)]
+\]</span></p>
+<p>辅助记忆口诀：</p>
+<p>正加正，正在前，余加余，余并肩</p>
+<p>正减正，余在前，余减余，负正弦</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>观赛|世锦赛1/8</title>
+    <url>/posts/20220825cl799dzc0002xzsf9ft88a1k8/</url>
+    <content><![CDATA[<div class="note "><p>今日是2022羽毛球世锦赛1/8赛程，在优酷看了几场直播，都有些挑战心理承受能力了。</p>
+</div>
+<span id="more"></span>
+<h2 id="女单">女单</h2>
+<h3 id="陈雨菲-vs-李美妙">陈雨菲 VS 李美妙</h3>
+<p><img src="https://pic.imgdb.cn/item/6307a1e516f2c2beb1771c97.png" />
+由于优酷无信号，等到比赛结束后才知道比赛情况，中间虽有点小起伏，但是雨菲大帝还是拿到了胜利！下一场的对手是战胜了因达农的加拿大华裔选手李文珊。</p>
+<h3 id="何冰娇-vs-马林">何冰娇 VS 马林</h3>
+<p><img src="https://pic.imgdb.cn/item/6307a20116f2c2beb177272a.png" />
+马林是里约奥运金牌得主、三届世锦赛冠军，此前七次交手记录，娇娇六负一胜，赛前便已经可以料想肯定是一番苦战。<br />
+娇娇率先拿下一局，而马林则是在第二局打出了气势，扳平比分。<br />
+在决胜局的争夺中，分差虽有变化，但是娇娇一直保持领先，最后更是连得 3
+分拿到赛点，还是 20-16 的大优局面！（激动得差点喊出来）<br />
+没想到接下来竟然连丢 6 分，被马林逆转！！！连丢 4
+个赛点，实在是可惜。o(≧口≦)o<br />
+娇娇的心态可能确实需要磨砺提高，手握 4
+个赛点的情况下心态反而把持不住，送出了好几个失误，反观马林心态也是真好啊。</p>
+<h2 id="男单">男单</h2>
+<h3 id="赵俊鹏-vs-李梓嘉">赵俊鹏 VS 李梓嘉</h3>
+<p><img src="https://pic.imgdb.cn/item/6307a21216f2c2beb1772ea3.png" />
+下午迟了一些打开直播，第一局已经结束，赵俊鹏以 21-19
+险胜，还是有一点出乎意料的。<br />
+接下来李梓嘉则以一记重杀 21-11
+拿下了第二局，由于重心都放在隔壁的比赛上，第二局也没有这么认真看。（不过李梓嘉的重杀可太快了，称得上暴力美学
+(☆▽☆)）<br />
+到了第三局决胜局，双方的争夺非常激烈，也体现在极为胶着的比分上，但在
+15-15
+后，不知是否是心态上起伏的影响，李梓嘉的进攻并没有取得很好的效果，而赵俊鹏抓住机会，以和第一局一样结束了李梓嘉本次的世锦赛之旅。<br />
+不管李梓嘉如何，赵俊鹏的进步真的肉眼可见，相较于之前我看的印尼<del>大师赛</del>公开赛，控球、球路组织还有心态各方面给人感觉都稳健了不少。</p>
+<h3 id="石宇奇-vs-金廷">石宇奇 VS 金廷</h3>
+<p><img src="https://pic.imgdb.cn/item/6307a22e16f2c2beb17738c0.png" />
+真是可惜！！！<br />
+一天两场，我的小心脏受不住啊。 ┭┮﹏┭┮<br />
+进直播晚了一些，第一局眼见要丢。不过第二局马上调整，以极佳状态拿下，让我不禁连拍好几下桌子！<br />
+决胜局也是精彩非常，不得不说石头的球商挺高，球风也挺好看，而且对手还是速度快变化多的金廷。在
+20-17
+拿到赛点时，加上赵俊鹏那边也传来捷报，我兴奋得快站起来了。但是赛场上总是充满戏剧性，石头接下来连丢
+5 分，基本上都是主动失误，令人深深惋惜。<br />
+石头从上次颇有争议的退赛之后，久疏赛场近一年，而且前两场的对手感觉也没有给他很大的比赛压力，不免有些担心。但是之前对金廷六战全胜，总体还是充满信心的。现在只有惋惜两字作结。</p>
+<h3 id="昆拉武特-vs-西本拳太">昆拉武特 VS 西本拳太</h3>
+<p>昆拉武特真的少年老成！<br />
+那打法在当前新生代中算是比较少吧。昨天和奈良冈功大两局打了
+69min，属实罕见，把我看困了都。
+打西本拳太也基本没什么悬念，2:0拿下。<br />
+不知明天对战骆建佑会是怎样的一场比赛，毕竟完全是两样打法，骆建佑的进攻可以用疯狂来形容，但也是真的帅。年轻人谁不想杀杀杀呢，奈何我杀球质量太差，唉。</p>
+<h2 id="一些话">一些话</h2>
+<p>自从东京奥运会后，国羽男单一直无人抗大旗，石宇奇这次复出也被寄予了许多期望（可惜龙哥没有参加）。石宇奇也是一直扛着伤病在打球，这次状态也算不错，只是最后可惜了一些。但是这也让我看到了更多中国选手的拼搏，李诗沛、翁泓阳、赵俊鹏...都搏得过不错的成绩。赛场上，乾坤皆未定。<br />
+今天娇娇和石头两场真的真的让我无比惋惜，越到关键时刻越要沉得住稳得下，这对我的生活也颇有启发。<br />
+我也想起之前尤伯杯雨菲对战安洗莹那一场，很庆幸当时看了这场比赛的直播，它带给我的是无与伦比的震撼：当两位选手都已经精疲力竭时，比赛已成为意志的比拼。体育的精神，是拼搏的精神。胜利，不仅是技战术的胜利，也是强大意志的胜利。</p>
+]]></content>
+      <categories>
+        <category>羽毛球</category>
+      </categories>
+      <tags>
+        <tag>羽毛球</tag>
       </tags>
   </entry>
   <entry>
@@ -2742,97 +2834,6 @@ href="https://zcw-blog.top/posts/20220424a1/">Hexo+NexT配置优化指南</a></p
       </categories>
       <tags>
         <tag>搭建博客</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>积化和差、和差化积公式</title>
-    <url>/posts/20211001a1/</url>
-    <content><![CDATA[<div class="note "><p>本文主要用于测试 mathjax 渲染功能。<br />
-关于如何添加 Hexo 博客的 mathjax 渲染功能，可见<a
-href="https://zcw-blog.top/posts/20220424a1/#%E6%B8%B2%E6%9F%93-mathjax">Hexo
-+ NexT 配置优化指南——渲染 mathjax</a>。</p>
-</div>
-<p><span id="more"></span></p>
-<h2 id="和差化积">和差化积</h2>
-<p><span class="math display">\[
-\sin x+\sin y=2 \sin \frac{x+y}{2} \cos \frac{x-y}{2}
-\]</span> <span class="math display">\[
-\sin x-\sin y=2 \cos \frac{x+y}{2} \sin \frac{x-y}{2}
-\]</span> <span class="math display">\[
-\cos x+\cos y=2 \cos \frac{x+y}{2} \cos \frac{x-y}{2}
-\]</span> <span class="math display">\[
-\cos x-\cos y=-2 \sin \frac{x+y}{2} \sin \frac{x-y}{2}
-\]</span></p>
-<h2 id="积化和差">积化和差</h2>
-<p><span class="math display">\[
-\sin x \sin y=-\frac{1}{2}[\cos (x+y)-\cos (x-y)]
-\]</span> <span class="math display">\[
-\cos x \cos y=\frac{1}{2}[\cos (x+y)+\cos (x-y)]
-\]</span> <span class="math display">\[
-\sin x \cos y=\frac{1}{2}[\sin (x+y)+\sin (x-y)]
-\]</span></p>
-<p>辅助记忆口诀：</p>
-<p>正加正，正在前，余加余，余并肩</p>
-<p>正减正，余在前，余减余，负正弦</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>观赛|世锦赛1/8</title>
-    <url>/posts/20220825cl7999pwd002lb0f9cyl96q5d/</url>
-    <content><![CDATA[<div class="note "><p>今日是2022羽毛球世锦赛1/8赛程，在优酷看了几场直播，都有些挑战心理承受能力了。</p>
-</div>
-<h2 id="女单">女单</h2>
-<h3 id="陈雨菲-vs-李美妙">陈雨菲 VS 李美妙</h3>
-<p><img src="https://pic.imgdb.cn/item/6307a1e516f2c2beb1771c97.png" />
-由于优酷无信号，等到比赛结束后才知道比赛情况，中间虽有点小起伏，但是雨菲大帝还是拿到了胜利！下一场的对手是战胜了因达农的加拿大华裔选手李文珊。</p>
-<h3 id="何冰娇-vs-马林">何冰娇 VS 马林</h3>
-<p><img src="https://pic.imgdb.cn/item/6307a20116f2c2beb177272a.png" />
-马林是里约奥运金牌得主、三届世锦赛冠军，此前七次交手记录，娇娇六负一胜，赛前便已经可以料想肯定是一番苦战。<br />
-娇娇率先拿下一局，而马林则是在第二局打出了气势，扳平比分。<br />
-在决胜局的争夺中，分差虽有变化，但是娇娇一直保持领先，最后更是连得 3
-分拿到赛点，还是 20-16 的大优局面！（激动得差点喊出来）<br />
-没想到接下来竟然连丢 6 分，被马林逆转！！！连丢 4
-个赛点，实在是可惜。o(≧口≦)o<br />
-娇娇的心态可能确实需要磨砺提高，手握 4
-个赛点的情况下心态反而把持不住，送出了好几个失误，反观马林心态也是真好啊。</p>
-<h2 id="男单">男单</h2>
-<h3 id="赵俊鹏-vs-李梓嘉">赵俊鹏 VS 李梓嘉</h3>
-<p><img src="https://pic.imgdb.cn/item/6307a21216f2c2beb1772ea3.png" />
-下午迟了一些打开直播，第一局已经结束，赵俊鹏以 21-19
-险胜，还是有一点出乎意料的。<br />
-接下来李梓嘉则以一记重杀 21-11
-拿下了第二局，由于重心都放在隔壁的比赛上，第二局也没有这么认真看。（不过李梓嘉的重杀可太快了，称得上暴力美学
-(☆▽☆)）<br />
-到了第三局决胜局，双方的争夺非常激烈，也体现在极为胶着的比分上，但在
-15-15
-后，不知是否是心态上起伏的影响，李梓嘉的进攻并没有取得很好的效果，而赵俊鹏抓住机会，以和第一局一样结束了李梓嘉本次的世锦赛之旅。<br />
-不管李梓嘉如何，赵俊鹏的进步真的肉眼可见，相较于之前我看的印尼<del>大师赛</del>公开赛，控球、球路组织还有心态各方面给人感觉都稳健了不少。</p>
-<h3 id="石宇奇-vs-金廷">石宇奇 VS 金廷</h3>
-<p><img src="https://pic.imgdb.cn/item/6307a22e16f2c2beb17738c0.png" />
-真是可惜！！！<br />
-一天两场，我的小心脏受不住啊。 ┭┮﹏┭┮<br />
-进直播晚了一些，第一局眼见要丢。不过第二局马上调整，以极佳状态拿下，让我不禁连拍好几下桌子！<br />
-决胜局也是精彩非常，不得不说石头的球商挺高，球风也挺好看，而且对手还是速度快变化多的金廷。在
-20-17
-拿到赛点时，加上赵俊鹏那边也传来捷报，我兴奋得快站起来了。但是赛场上总是充满戏剧性，石头接下来连丢
-5 分，基本上都是主动失误，令人深深惋惜。<br />
-石头从上次颇有争议的退赛之后，久疏赛场近一年，而且前两场的对手感觉也没有给他很大的比赛压力，不免有些担心。但是之前对金廷六战全胜，总体还是充满信心的。现在只有惋惜两字作结。</p>
-<h3 id="昆拉武特-vs-西本拳太">昆拉武特 VS 西本拳太</h3>
-<p>昆拉武特真的少年老成！<br />
-那打法在当前新生代中算是比较少吧。昨天和奈良冈功大两局打了
-69min，属实罕见，把我看困了都。
-打西本拳太也基本没什么悬念，2:0拿下。<br />
-不知明天对战骆建佑会是怎样的一场比赛，毕竟完全是两样打法，骆建佑的进攻可以用疯狂来形容，但也是真的帅。年轻人谁不想杀杀杀呢，奈何我杀球质量太差，唉。</p>
-<h2 id="一些话">一些话</h2>
-<p>自从东京奥运会后，国羽男单一直无人抗大旗，石宇奇这次复出也被寄予了许多期望（可惜龙哥没有参加）。石宇奇也是一直扛着伤病在打球，这次状态也算不错，只是最后可惜了一些。但是这也让我看到了更多中国选手的拼搏，李诗沛、翁泓阳、赵俊鹏...都搏得过不错的成绩。赛场上，乾坤皆未定。<br />
-今天娇娇和石头两场真的真的让我无比惋惜，越到关键时刻越要沉得住稳得下，这对我的生活也颇有启发。<br />
-我也想起之前尤伯杯雨菲对战安洗莹那一场，很庆幸当时看了这场比赛的直播，它带给我的是无与伦比的震撼：当两位选手都已经精疲力竭时，比赛已成为意志的比拼。体育的精神，是拼搏的精神。胜利，不仅是技战术的胜利，也是强大意志的胜利。</p>
-]]></content>
-      <categories>
-        <category>羽毛球</category>
-      </categories>
-      <tags>
-        <tag>羽毛球</tag>
       </tags>
   </entry>
 </search>
