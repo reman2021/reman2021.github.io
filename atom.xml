@@ -6,7 +6,7 @@
   <link href="https://zcw-blog.top/atom.xml" rel="self"/>
   
   <link href="https://zcw-blog.top/"/>
-  <updated>2022-08-27T02:00:01.444Z</updated>
+  <updated>2022-09-04T02:30:11.300Z</updated>
   <id>https://zcw-blog.top/</id>
   
   <author>
@@ -17,9 +17,38 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>DELL G3 安装 Ubuntu 遇到的问题</title>
+    <link href="https://zcw-blog.top/posts/20220904a1/"/>
+    <id>https://zcw-blog.top/posts/20220904a1/</id>
+    <published>2022-09-04T02:00:29.000Z</published>
+    <updated>2022-09-04T02:30:11.300Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;div class=&quot;note &quot;&gt;&lt;p&gt;关于去年在我的 Dell G3 笔记本上安装 Ubuntu
+系统时遇到的问题，由于之后不时有人问我，而我却忘记改了什么，今天偶然进入
+UEFI 才突然想起来当时遇到的是 SATA</summary>
+        
+      
+    
+    
+    
+    <category term="Linux" scheme="https://zcw-blog.top/categories/Linux/"/>
+    
+    
+    <category term="Linux" scheme="https://zcw-blog.top/tags/Linux/"/>
+    
+    <category term="Ubuntu" scheme="https://zcw-blog.top/tags/Ubuntu/"/>
+    
+  </entry>
+  
+  <entry>
     <title>观赛|世锦赛1/8</title>
-    <link href="https://zcw-blog.top/posts/20220825cl7kjen5s002w64f9eb9wbfhl/"/>
-    <id>https://zcw-blog.top/posts/20220825cl7kjen5s002w64f9eb9wbfhl/</id>
+    <link href="https://zcw-blog.top/posts/20220825cl7mq0kx6002znkf97pl5brc4/"/>
+    <id>https://zcw-blog.top/posts/20220825cl7mq0kx6002znkf97pl5brc4/</id>
     <published>2022-08-25T14:12:38.000Z</published>
     <updated>2022-08-27T02:00:01.444Z</updated>
     
@@ -85,9 +114,9 @@ missed; or followed by a non-tabulated empty line&lt;/li&gt;
     <category term="创作" scheme="https://zcw-blog.top/categories/%E7%BB%B4%E6%8A%A4%E6%97%A5%E5%BF%97/%E5%88%9B%E4%BD%9C/"/>
     
     
-    <category term="Hexo" scheme="https://zcw-blog.top/tags/Hexo/"/>
-    
     <category term="NexT" scheme="https://zcw-blog.top/tags/NexT/"/>
+    
+    <category term="Hexo" scheme="https://zcw-blog.top/tags/Hexo/"/>
     
   </entry>
   
@@ -135,7 +164,7 @@ missed; or followed by a non-tabulated empty line&lt;/li&gt;
     <link href="https://zcw-blog.top/posts/20220801a1/"/>
     <id>https://zcw-blog.top/posts/20220801a1/</id>
     <published>2022-08-01T01:04:45.000Z</published>
-    <updated>2022-08-18T04:49:38.830Z</updated>
+    <updated>2022-09-04T02:30:14.086Z</updated>
     
     
     <summary type="html">&lt;div class=&quot;note &quot;&gt;&lt;p&gt;Ubuntu 使用优化（20.04.1）。&lt;/p&gt;
@@ -147,6 +176,8 @@ missed; or followed by a non-tabulated empty line&lt;/li&gt;
     
     
     <category term="Linux" scheme="https://zcw-blog.top/tags/Linux/"/>
+    
+    <category term="Ubuntu" scheme="https://zcw-blog.top/tags/Ubuntu/"/>
     
   </entry>
   
@@ -255,9 +286,9 @@ Linux 系统版本：Ubuntu 20.04.1&lt;/p&gt;
     <category term="维护日志" scheme="https://zcw-blog.top/categories/%E7%BB%B4%E6%8A%A4%E6%97%A5%E5%BF%97/"/>
     
     
-    <category term="NexT" scheme="https://zcw-blog.top/tags/NexT/"/>
-    
     <category term="搭建博客" scheme="https://zcw-blog.top/tags/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"/>
+    
+    <category term="NexT" scheme="https://zcw-blog.top/tags/NexT/"/>
     
   </entry>
   
@@ -378,8 +409,8 @@ John Gruber 于 2004
   
   <entry>
     <title>Hello World</title>
-    <link href="https://zcw-blog.top/posts/20210811cl7kjen3n001664f92ac0avxh/"/>
-    <id>https://zcw-blog.top/posts/20210811cl7kjen3n001664f92ac0avxh/</id>
+    <link href="https://zcw-blog.top/posts/20210811cl7mq0kvy0019nkf9fsv08nzo/"/>
+    <id>https://zcw-blog.top/posts/20210811cl7mq0kvy0019nkf9fsv08nzo/</id>
     <published>2021-08-11T07:20:47.512Z</published>
     <updated>2021-08-13T05:25:59.383Z</updated>
     
