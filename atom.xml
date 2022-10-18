@@ -6,7 +6,7 @@
   <link href="https://zcw-blog.top/atom.xml" rel="self"/>
   
   <link href="https://zcw-blog.top/"/>
-  <updated>2022-09-04T02:30:11.300Z</updated>
+  <updated>2022-10-18T01:32:18.534Z</updated>
   <id>https://zcw-blog.top/</id>
   
   <author>
@@ -21,18 +21,13 @@
     <link href="https://zcw-blog.top/posts/20220904a1/"/>
     <id>https://zcw-blog.top/posts/20220904a1/</id>
     <published>2022-09-04T02:00:29.000Z</published>
-    <updated>2022-09-04T02:30:11.300Z</updated>
+    <updated>2022-10-18T01:32:18.534Z</updated>
     
     
-      
-      
-        
-        
     <summary type="html">&lt;div class=&quot;note &quot;&gt;&lt;p&gt;关于去年在我的 Dell G3 笔记本上安装 Ubuntu
 系统时遇到的问题，由于之后不时有人问我，而我却忘记改了什么，今天偶然进入
-UEFI 才突然想起来当时遇到的是 SATA</summary>
-        
-      
+UEFI 才突然想起来当时遇到的是 SATA 模式的问题，在此记录一下。&lt;/p&gt;
+&lt;/div&gt;</summary>
     
     
     
@@ -47,8 +42,8 @@ UEFI 才突然想起来当时遇到的是 SATA</summary>
   
   <entry>
     <title>观赛|世锦赛1/8</title>
-    <link href="https://zcw-blog.top/posts/20220825cl9di5t3f002be8f9hople6c2/"/>
-    <id>https://zcw-blog.top/posts/20220825cl9di5t3f002be8f9hople6c2/</id>
+    <link href="https://zcw-blog.top/posts/20220825cl9dj6hgs002q2cf92vb4f21k/"/>
+    <id>https://zcw-blog.top/posts/20220825cl9dj6hgs002q2cf92vb4f21k/</id>
     <published>2022-08-25T14:12:38.000Z</published>
     <updated>2022-08-27T02:00:01.444Z</updated>
     
@@ -409,8 +404,8 @@ John Gruber 于 2004
   
   <entry>
     <title>Hello World</title>
-    <link href="https://zcw-blog.top/posts/20210811cl9di5t3b001se8f991ug2zcz/"/>
-    <id>https://zcw-blog.top/posts/20210811cl9di5t3b001se8f991ug2zcz/</id>
+    <link href="https://zcw-blog.top/posts/20210811cl9dj6hff00122cf92ze0ht06/"/>
+    <id>https://zcw-blog.top/posts/20210811cl9dj6hff00122cf92ze0ht06/</id>
     <published>2021-08-11T07:20:47.512Z</published>
     <updated>2021-08-13T05:25:59.383Z</updated>
     
