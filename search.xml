@@ -118,29 +118,51 @@ href="https://chziq.com/posts/3655275721/">CNAME记录指向vercel影响了CAA�
       </tags>
   </entry>
   <entry>
-    <title>DokuWiki 学习使用记录</title>
-    <url>/posts/20221102a1/</url>
-    <content><![CDATA[<div class="note "><p>本文为学习使用 DokuWiki
-的过程记录包括基本使用、插件体验及所遇问题的解决。</p>
+    <title>Clash for Linux</title>
+    <url>/posts/20220726a1/</url>
+    <content><![CDATA[<div class="note "><p>配置 Clash for Linux，并设置开机自启动。<br />
+Linux 系统版本：Ubuntu 20.04.1</p>
 </div>
 <span id="more"></span>
-<h2 id="安装">安装</h2>
-<p>下载地址：<a href="https://www.dokuwiki.org/zh:install"
-class="uri">https://www.dokuwiki.org/zh:install</a>。推荐下载官方建议的
-Stable 版本。<br />
-解压后打开目录下的 run.cmd，填写相关信息后安装完毕，将目录下的
-install.php 文件删除。</p>
-<p>更多安装相关详见官方文档：<a
-href="https://www.dokuwiki.org/zh:install">DokuWiki安装指南</a></p>
-<h2 id="添加命名空间和页面">添加命名空间和页面</h2>
+<h2 id="下载解压-clash-linux-amd64">下载解压 clash-linux-amd64</h2>
+<p>从 <a href="https://github.com/Dreamacro/clash/releases">GitHub</a>
+上下载任意版本的 clash-linux-amd64-vx.x.x.gz。<br />
+在下载目录打开终端，输入如下命令：<br />
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">gunzip clash-linux-amd64-vx.x.x.gz	#文件解压</span><br><span class="line">mv clash-linux-amd64-vx.x.x clash	#文件改名</span><br></pre></td></tr></table></figure> 我在 /home/username 目录下创建了 clash
+文件夹，将解压后的文件移动到里面：<br />
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mkdir Clash			#创建名为 clash 的文件夹  </span><br><span class="line">mv clash /home/username/clash	#将解压改名后的 clash 文件移入 clash 文件夹  </span><br></pre></td></tr></table></figure></p>
+<h2 id="配置-clash">配置 clash</h2>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">chmod +x clash		#首先授权可执行权限  </span><br><span class="line">./clash -d .		#初始化执行 clash  </span><br></pre></td></tr></table></figure>
+<p>在初始化执行 clash 后会默认在当前目录下生成配置文件
+config.yaml和全球IP地址库 Country.mmdb。<br />
+<img src="https://pic.imgdb.cn/item/6300822516f2c2beb1b73d40.png" />
+从代理商那获得配置文件 config.yaml，替换默认生成的配置文件。<br />
+再次初始化执行 clash：<code>./clash -d .</code>。<br />
+出现如下初始化显示：<br />
+<img src="https://pic.imgdb.cn/item/6300823d16f2c2beb1b748f5.png" />
+接下来进行系统网络代理设置，打开系统设置-网络-网络代理，选择手动，填写
+HTTP 和 HTTPS 代理为 127.0.0.1:7890，填写 Socks 主机为
+127.0.0.1:7891，即可启用系统代理。<br />
+<img src="https://pic.imgdb.cn/item/6300825816f2c2beb1b753ff.png" />
+浏览器访问 <a href="https://google.cn/">Google</a> 验证网络。</p>
+<h2 id="设置开机自启动">设置开机自启动</h2>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo touch /etc/systemd/system/clash.service	#创建 service 文件  </span><br><span class="line">vi /etc/systemd/system/clash.service 	#编辑 service 文件  </span><br></pre></td></tr></table></figure>
+<p>输入如下文本（记得修改 ExecStart 为自己的路径）：<br />
+<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line">[Unit] </span><br><span class="line">Description=clash daemon  </span><br><span class="line">[Service] </span><br><span class="line">Type=simple </span><br><span class="line">User=root </span><br><span class="line">ExecStart=/home/username/clash/clash -d /home/username/clash/ </span><br><span class="line">Restart=<span class="keyword">on</span>-failure  </span><br><span class="line">[Install] </span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure> 使用的 vim 命令参考：<br />
+<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line">i    在当前光标的前面插入字符</span><br><span class="line">A    在一行的结尾处添加文本</span><br><span class="line"><span class="keyword">x</span>    删除当前光标所在处的字符</span><br><span class="line">dw   删除一个单词(从光标处到空格)</span><br><span class="line"><span class="keyword">u</span>    撤销上一步的操作。</span><br><span class="line">:q   若文件没有修改，直接退出</span><br><span class="line">:q!  文件已经被修改，放弃修改退出</span><br><span class="line">:<span class="keyword">wq</span>  文件已经被修改，保存修改并退出</span><br></pre></td></tr></table></figure> 编辑后查看文件内容如下图：<br />
+<img src="https://pic.imgdb.cn/item/6300826f16f2c2beb1b75c16.png" />
+接着依次执行下面四个命令：<br />
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo systemctl daemon-reload </span><br><span class="line">sudo systemctl enable clash </span><br><span class="line">sudo systemctl start clash </span><br><span class="line">sudo systemctl status clash</span><br></pre></td></tr></table></figure> 成功后出现如下内容：<br />
+<img src="https://pic.imgdb.cn/item/6300828116f2c2beb1b763ca.png" /></p>
+<h2 id="参考文章">参考文章</h2>
+<p><a href="https://zhuanlan.zhihu.com/p/430035973">配置 clash for linux
+，适用于ubuntu 20.04（更新于2021.11.6）</a></p>
 ]]></content>
       <categories>
-        <category>学习笔记</category>
-        <category>DokuWiki</category>
-        <category>记录归纳</category>
+        <category>Linux</category>
       </categories>
       <tags>
-        <tag>DokuWiki</tag>
+        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
@@ -191,203 +213,29 @@ SATA 模式导致的 Windows 蓝屏错误</a></p>
       </tags>
   </entry>
   <entry>
-    <title>Clash for Linux</title>
-    <url>/posts/20220726a1/</url>
-    <content><![CDATA[<div class="note "><p>配置 Clash for Linux，并设置开机自启动。<br />
-Linux 系统版本：Ubuntu 20.04.1</p>
+    <title>DokuWiki 学习使用记录</title>
+    <url>/posts/20221102a1/</url>
+    <content><![CDATA[<div class="note "><p>本文为学习使用 DokuWiki
+的过程记录包括基本使用、插件体验及所遇问题的解决。</p>
 </div>
 <span id="more"></span>
-<h2 id="下载解压-clash-linux-amd64">下载解压 clash-linux-amd64</h2>
-<p>从 <a href="https://github.com/Dreamacro/clash/releases">GitHub</a>
-上下载任意版本的 clash-linux-amd64-vx.x.x.gz。<br />
-在下载目录打开终端，输入如下命令：<br />
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">gunzip clash-linux-amd64-vx.x.x.gz	#文件解压</span><br><span class="line">mv clash-linux-amd64-vx.x.x clash	#文件改名</span><br></pre></td></tr></table></figure> 我在 /home/username 目录下创建了 clash
-文件夹，将解压后的文件移动到里面：<br />
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mkdir Clash			#创建名为 clash 的文件夹  </span><br><span class="line">mv clash /home/username/clash	#将解压改名后的 clash 文件移入 clash 文件夹  </span><br></pre></td></tr></table></figure></p>
-<h2 id="配置-clash">配置 clash</h2>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">chmod +x clash		#首先授权可执行权限  </span><br><span class="line">./clash -d .		#初始化执行 clash  </span><br></pre></td></tr></table></figure>
-<p>在初始化执行 clash 后会默认在当前目录下生成配置文件
-config.yaml和全球IP地址库 Country.mmdb。<br />
-<img src="https://pic.imgdb.cn/item/6300822516f2c2beb1b73d40.png" />
-从代理商那获得配置文件 config.yaml，替换默认生成的配置文件。<br />
-再次初始化执行 clash：<code>./clash -d .</code>。<br />
-出现如下初始化显示：<br />
-<img src="https://pic.imgdb.cn/item/6300823d16f2c2beb1b748f5.png" />
-接下来进行系统网络代理设置，打开系统设置-网络-网络代理，选择手动，填写
-HTTP 和 HTTPS 代理为 127.0.0.1:7890，填写 Socks 主机为
-127.0.0.1:7891，即可启用系统代理。<br />
-<img src="https://pic.imgdb.cn/item/6300825816f2c2beb1b753ff.png" />
-浏览器访问 <a href="https://google.cn/">Google</a> 验证网络。</p>
-<h2 id="设置开机自启动">设置开机自启动</h2>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo touch /etc/systemd/system/clash.service	#创建 service 文件  </span><br><span class="line">vi /etc/systemd/system/clash.service 	#编辑 service 文件  </span><br></pre></td></tr></table></figure>
-<p>输入如下文本（记得修改 ExecStart 为自己的路径）：<br />
-<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line">[Unit] </span><br><span class="line">Description=clash daemon  </span><br><span class="line">[Service] </span><br><span class="line">Type=simple </span><br><span class="line">User=root </span><br><span class="line">ExecStart=/home/username/clash/clash -d /home/username/clash/ </span><br><span class="line">Restart=<span class="keyword">on</span>-failure  </span><br><span class="line">[Install] </span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure> 使用的 vim 命令参考：<br />
-<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line">i    在当前光标的前面插入字符</span><br><span class="line">A    在一行的结尾处添加文本</span><br><span class="line"><span class="keyword">x</span>    删除当前光标所在处的字符</span><br><span class="line">dw   删除一个单词(从光标处到空格)</span><br><span class="line"><span class="keyword">u</span>    撤销上一步的操作。</span><br><span class="line">:q   若文件没有修改，直接退出</span><br><span class="line">:q!  文件已经被修改，放弃修改退出</span><br><span class="line">:<span class="keyword">wq</span>  文件已经被修改，保存修改并退出</span><br></pre></td></tr></table></figure> 编辑后查看文件内容如下图：<br />
-<img src="https://pic.imgdb.cn/item/6300826f16f2c2beb1b75c16.png" />
-接着依次执行下面四个命令：<br />
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo systemctl daemon-reload </span><br><span class="line">sudo systemctl enable clash </span><br><span class="line">sudo systemctl start clash </span><br><span class="line">sudo systemctl status clash</span><br></pre></td></tr></table></figure> 成功后出现如下内容：<br />
-<img src="https://pic.imgdb.cn/item/6300828116f2c2beb1b763ca.png" /></p>
-<h2 id="参考文章">参考文章</h2>
-<p><a href="https://zhuanlan.zhihu.com/p/430035973">配置 clash for linux
-，适用于ubuntu 20.04（更新于2021.11.6）</a></p>
+<h2 id="安装">安装</h2>
+<p>下载地址：<a href="https://www.dokuwiki.org/zh:install"
+class="uri">https://www.dokuwiki.org/zh:install</a>。推荐下载官方建议的
+Stable 版本。<br />
+解压后打开目录下的 run.cmd，填写相关信息后安装完毕，将目录下的
+install.php 文件删除。</p>
+<p>更多安装相关详见官方文档：<a
+href="https://www.dokuwiki.org/zh:install">DokuWiki安装指南</a></p>
+<h2 id="添加命名空间和页面">添加命名空间和页面</h2>
 ]]></content>
       <categories>
-        <category>Linux</category>
+        <category>学习笔记</category>
+        <category>DokuWiki</category>
+        <category>记录归纳</category>
       </categories>
       <tags>
-        <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo &amp; Next 标签使用说明</title>
-    <url>/posts/20220816a1/</url>
-    <content><![CDATA[<div class="note "><p>本文为在 Hexo &amp; Next
-使用标签的说明，使用标签可在文章中快速插入特定内容，使文章更加美观易读。<br />
-本文内容主要搬运至 <a href="https://hexo.io/zh-cn/docs">Hexo
-文档</a>的标签插件使用样例。</p>
-</div>
-<span id="more"></span>
-<h2 id="hexo-标签插件">Hexo 标签插件</h2>
-<h3 id="引用块-blockquote">引用块 blockquote</h3>
-<p>在文章中插入引言，可包含作者、来源和标题。<br />
-使用方式： <figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&#123;% blockquote [author[, source]] [link] [source_link_title] %&#125;</span><br><span class="line">content</span><br><span class="line">&#123;% endblockquote %&#125;</span><br></pre></td></tr></table></figure></p>
-<h4 id="普通的-blockquote">普通的 blockquote</h4>
-<p>没有提供参数，则只输出普通的 blockquote： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% blockquote %&#125;</span><br><span class="line">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque hendrerit lacus ut purus iaculis feugiat. Sed nec tempor elit, quis aliquam neque. Curabitur sed diam eget dolor fermentum semper at eu lorem.</span><br><span class="line">&#123;% endblockquote %&#125;</span><br></pre></td></tr></table></figure>
-<blockquote><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
-hendrerit lacus ut purus iaculis feugiat. Sed nec tempor elit, quis
-aliquam neque. Curabitur sed diam eget dolor fermentum semper at eu
-lorem.</p>
-</blockquote></p>
-<h4 id="引用书上的句子">引用书上的句子</h4>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&#123;% blockquote David Levithan, Wide Awake %&#125;</span><br><span class="line">Do not just seek happiness for yourself. Seek happiness for all. Through kindness. Through mercy.</span><br><span class="line">&#123;% endblockquote %&#125;</span><br></pre></td></tr></table></figure>
-<blockquote><p>Do not just seek happiness for yourself. Seek happiness for all.
-Through kindness. Through mercy.</p>
-<footer><strong>David Levithan</strong><cite>Wide Awake</cite></footer></blockquote>
-<h4 id="引用-twitter">引用 Twitter</h4>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% blockquote @DevDocs https://twitter.com/devdocs/status/356095192085962752 %&#125;</span><br><span class="line">NEW: DevDocs now comes with syntax highlighting. http://devdocs.io</span><br><span class="line">&#123;% endblockquote %&#125;</span><br></pre></td></tr></table></figure>
-<blockquote><p>NEW: DevDocs now comes with syntax highlighting.
-http://devdocs.io</p>
-<footer><strong>@DevDocs</strong><cite><a href="https://twitter.com/devdocs/status/356095192085962752">twitter.com/devdocs/status/356095192085962752</a></cite></footer></blockquote>
-<h4 id="引用网络上的文章">引用网络上的文章</h4>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&#123;% blockquote Seth Godin http://sethgodin.typepad.com/seths_blog/2009/07/welcome-to-island-marketing.html Welcome to Island Marketing %&#125;</span><br><span class="line">Every interaction is both precious and an opportunity to delight.</span><br><span class="line">&#123;% endblockquote %&#125;</span><br></pre></td></tr></table></figure>
-<blockquote><p>Every interaction is both precious and an opportunity to delight.</p>
-<footer><strong>Seth Godin</strong><cite><a href="http://sethgodin.typepad.com/seths_blog/2009/07/welcome-to-island-marketing.html">Welcome to Island Marketing</a></cite></footer></blockquote>
-<h4 id="markdown-的引用块">Markdown 的引用块</h4>
-<p>详见 <a href="https://zcw-blog.top/posts/20210819a1/">Markdown
-语法详解及使用技巧——引用块</a>。</p>
-<h3 id="代码块-codeblock">代码块 codeblock</h3>
-<p>在文章中插入代码。<br />
-使用方式： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% codeblock [title] [lang:language] [url] [link text] [additional options] %&#125;</span><br><span class="line">code snippet</span><br><span class="line">&#123;% endcodeblock %&#125;</span><br></pre></td></tr></table></figure></p>
-<h4 id="普通的代码块">普通的代码块</h4>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&#123;% codeblock %&#125;</span><br><span class="line">alert(&#x27;Hello World!&#x27;);</span><br><span class="line">&#123;% endcodeblock %&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">alert(&#x27;Hello World!&#x27;);</span><br></pre></td></tr></table></figure>
-<h4 id="指定语言">指定语言</h4>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&#123;% codeblock lang:objc %&#125;</span><br><span class="line">[rectangle setX: 10 y: 10 width: 20 height: 20];</span><br><span class="line">&#123;% endcodeblock %&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">[rectangle setX: <span class="number">10</span> y: <span class="number">10</span> width: <span class="number">20</span> height: <span class="number">20</span>];</span><br></pre></td></tr></table></figure>
-<h4 id="附加说明">附加说明</h4>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% codeblock Array.map %&#125;</span><br><span class="line">array.map(callback[, thisArg])</span><br><span class="line">&#123;% endcodeblock %&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><figcaption><span>Array.map</span></figcaption><table><tr><td class="code"><pre><span class="line">array.map(callback[, thisArg])</span><br></pre></td></tr></table></figure>
-<h4 id="附加说明和网址">附加说明和网址</h4>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% codeblock _.compact http://underscorejs.org/#compact Underscore.js %&#125;</span><br><span class="line">_.compact([0, 1, false, 2, &#x27;&#x27;, 3]);</span><br><span class="line">=&gt; [1, 2, 3]</span><br><span class="line">&#123;% endcodeblock %&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><figcaption><span>_.compact</span><a href="http://underscorejs.org/#compact">Underscore.js</a></figcaption><table><tr><td class="code"><pre><span class="line">_.compact([0, 1, false, 2, &#x27;&#x27;, 3]);</span><br><span class="line">=&gt; [1, 2, 3]</span><br></pre></td></tr></table></figure>
-<h4 id="markdown-的围栏代码块">Markdown 的围栏代码块</h4>
-<p>详见 <a href="https://zcw-blog.top/posts/20210819a1/">Markdown
-语法详解及使用技巧——围栏代码块</a>。</p>
-<h3 id="插入代码文件">插入代码文件</h3>
-<p>插入 source/downloads/code 文件夹内的代码文件。路径
-source/downloads/code 不是固定的，取决于你在配置文件中 code_dir
-的配置。<br />
-使用方式： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% include_code [title] [lang:language] [from:line] [to:line] path/to/file %&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="youtube">Youtube</h3>
-<p>在文章中插入 Youtube 视频。<br />
-使用方式： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% youtube video_id [type] [cookie] %&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="mathjax">MathJax</h3>
-<p>插入利用 MathJax 显示的数学公式，需要安装 hexo-renderer-mathjax
-并更换 Pandoc 渲染器。<br />
-详见 <a href="https://zcw-blog.top/posts/20220424a1/">Hexo + NexT
-配置优化指南——渲染 mathjax</a>。</p>
-<h2 id="next-内建标签的使用">Next 内建标签的使用</h2>
-<h3 id="文本居中引用">文本居中引用</h3>
-调用方法： <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- HTML方式: 直接在 Markdown 文件中编写 HTML 来调用 --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 其中 class=&quot;blockquote-center&quot; 是必须的 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">blockquote</span> <span class="attr">class</span>=<span class="string">&quot;blockquote-center&quot;</span>&gt;</span>blah blah blah<span class="tag">&lt;/<span class="name">blockquote</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 标签 方式，要求版本在0.4.5或以上 --&gt;</span></span><br><span class="line">&#123;% centerquote %&#125;blah blah blah&#123;% endcenterquote %&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 标签别名 --&gt;</span></span><br><span class="line">&#123;% cq %&#125; blah blah blah &#123;% endcq %&#125;</span><br></pre></td></tr></table></figure> 示例： <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">blockquote</span> <span class="attr">class</span>=<span class="string">&quot;blockquote-center&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>人的一切痛苦 本质上是对自己无能的愤怒<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>**王小波**<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">blockquote</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<blockquote class="blockquote-center">
-<p>
-人的一切痛苦 本质上是对自己无能的愤怒
-</p>
-<p>
-<strong>王小波</strong>
-</p>
-</blockquote>
-<h3 id="note-标签">Note 标签</h3>
-<p>调用方法： <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- HTML方式: 直接在 Markdown 文件中编写 HTML 来调用 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;note class_name&quot;</span>&gt;</span>blah blah blah<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 标签 方式 --&gt;</span></span><br><span class="line">&#123;% note class_name %&#125;</span><br><span class="line">blah blah blah</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure> 示例：<br />
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% note %&#125;</span><br><span class="line">#### Header</span><br><span class="line">(without define class style)</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure> <div class="note "><h4 id="header">Header</h4>
-<p>content</p>
-</div></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% note default %&#125;</span><br><span class="line">#### Default Header</span><br><span class="line">Default content</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
-<div class="note default"><h4 id="default-header">Default Header</h4>
-<p>Default content</p>
-</div>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% note primary %&#125;</span><br><span class="line">#### Primary Header</span><br><span class="line">Primary content</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
-<div class="note primary"><h4 id="primary-header">Primary Header</h4>
-<p>Primary content</p>
-</div>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% note info %&#125;</span><br><span class="line">#### Info Header</span><br><span class="line">Info content</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
-<div class="note info"><h4 id="info-header">Info Header</h4>
-<p>Info content</p>
-</div>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% note success %&#125;</span><br><span class="line">#### Success Header</span><br><span class="line">Success content</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
-<div class="note success"><h4 id="success-header">Success Header</h4>
-<p>Success content</p>
-</div>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% note warning %&#125;</span><br><span class="line">#### Warning Header</span><br><span class="line">Warning content</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
-<div class="note warning"><h4 id="warning-header">Warning Header</h4>
-<p>Warning content</p>
-</div>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% note danger %&#125;</span><br><span class="line">#### Danger Header</span><br><span class="line">Danger content</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
-<div class="note danger"><h4 id="danger-header">Danger Header</h4>
-<p>Danger content</p>
-</div>
-<p>可用<code>no-icon</code>取消图标： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% note info no-icon %&#125;</span><br><span class="line">#### No icon note</span><br><span class="line">content</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure> <div class="note info no-icon"><h4 id="no-icon-note">No icon note</h4>
-<p>content</p>
-</div></p>
-<p>标签内容可折叠： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% note primary This is a summary %&#125;</span><br><span class="line">#### Details and summary</span><br><span class="line">Note with summary: `note primary This is a summary`</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure> <details class="note primary"><summary><p>This is a summary</p>
-</summary>
-<h4 id="details-and-summary">Details and summary</h4>
-<p>Note with summary: <code>note primary This is a summary</code></p>
-
-</details></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% note info no-icon This is a summary %&#125;</span><br><span class="line">#### Details and summary (No icon)</span><br><span class="line">Note with summary: `note info no-icon This is a summary`</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
-<details class="note info no-icon"><summary><p>This is a summary</p>
-</summary>
-<h4 id="details-and-summary-no-icon">Details and summary (No icon)</h4>
-<p>Note with summary:
-<code>note info no-icon This is a summary</code></p>
-
-</details>
-<h3 id="label-标签">Label 标签</h3>
-<p>调用方法：<br />
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&#123;% label [class_name] @blah blah blah %&#125;</span><br></pre></td></tr></table></figure> <code>class_name</code>取值同 Note 标签。 示例：<br />
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">我坐在床前，望着窗外，&#123;% label @回忆满天 %&#125;。生命是&#123;% label primary @华丽错觉 %&#125;，时间是贼偷走一切。  </span><br><span class="line">七岁的那一年，抓住那只&#123;% label success @蝉 %&#125;，以为能抓住夏天。十七岁的那年，吻过他的脸，就以为和他能&#123;% label info @永远 %&#125;。   </span><br><span class="line">有没有那么一种永远，&#123;% label warning @永远不改变 %&#125;，拥抱过的美丽，都再也不破碎。   </span><br><span class="line">让险峻岁月不能，在脸上撒野，让&#123;% label danger @生离和死别都遥远 %&#125;，有谁能听见。   </span><br></pre></td></tr></table></figure>
-我坐在床前，望着窗外，<mark class="label ">回忆满天</mark>。生命是<mark class="label primary">华丽错觉</mark>，时间是贼偷走一切。<br />
-七岁的那一年，抓住那只<mark class="label success">蝉</mark>，以为能抓住夏天。十七岁的那年，吻过他的脸，就以为和他能<mark class="label info">永远</mark>。<br />
-有没有那么一种永远，<mark class="label warning">永远不改变</mark>，拥抱过的美丽，都再也不破碎。<br />
-让险峻岁月不能，在脸上撒野，让<mark class="label danger">生离和死别都遥远</mark>，有谁能听见。</p>
-<h3 id="tab-标签">Tab 标签</h3>
-<p>调用方法：<br />
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&#123;% tabs [Unique name], [index] %&#125;</span><br><span class="line"><span class="comment">&lt;!-- tab [Tab caption]@[icon] --&gt;</span></span><br><span class="line">Any content (support inline tags too).</span><br><span class="line"><span class="comment">&lt;!-- endtab --&gt;</span></span><br><span class="line">&#123;% endtabs %&#125;</span><br></pre></td></tr></table></figure> <div class="note info"><p><code>Unique name</code>为每个标签页组唯一的名称<br />
-<code>index</code>为初始激活的标签页<br />
-<code>Tab caption</code>为标签页名称，不指定时为所属标签页组名称加索引<br />
-<code>icon</code>为 Font awesome 图标</p>
-</div> 示例：<br />
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&#123;% tabs 选项卡, 3 %&#125;</span><br><span class="line"><span class="comment">&lt;!-- tab --&gt;</span></span><br><span class="line">这是选项卡 1</span><br><span class="line"><span class="comment">&lt;!-- endtab --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- tab --&gt;</span></span><br><span class="line">这是选项卡 2</span><br><span class="line"><span class="comment">&lt;!-- endtab --&gt;</span></span><br><span class="line">&#123;% endtabs %&#125;</span><br></pre></td></tr></table></figure> <div class="tabs" id="选项卡"><ul class="nav-tabs"><li class="tab"><a href="#选项卡-1">选项卡 1</a></li><li class="tab"><a href="#选项卡-2">选项卡 2</a></li></ul><div class="tab-content"><div class="tab-pane" id="选项卡-1"><p>这是选项卡 1</p></div><div class="tab-pane" id="选项卡-2"><p>这是选项卡 2</p></div></div></div> <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% tabs 选项卡 2 %&#125;</span><br><span class="line">&lt;!-- tab 自定义名称1 --&gt;</span><br><span class="line">这是选项卡 1</span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line">&lt;!-- tab 自定义名称2 --&gt;</span><br><span class="line">这是选项卡 2</span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line">&#123;% endtabs %&#125;</span><br></pre></td></tr></table></figure> <div class="tabs" id="选项卡-2"><ul class="nav-tabs"><li class="tab active"><a href="#选项卡-2-1">自定义名称1</a></li><li class="tab"><a href="#选项卡-2-2">自定义名称2</a></li></ul><div class="tab-content"><div class="tab-pane active" id="选项卡-2-1"><p>这是选项卡 1</p></div><div class="tab-pane" id="选项卡-2-2"><p>这是选项卡 2</p></div></div></div>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% tabs 选项卡 2 %&#125;</span><br><span class="line">&lt;!-- tab 自定义名称1@text-width --&gt;</span><br><span class="line">这是选项卡 1</span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line">&lt;!-- tab 自定义名称2@amazon --&gt;</span><br><span class="line">这是选项卡 2</span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line">&#123;% endtabs %&#125;</span><br></pre></td></tr></table></figure> <div class="tabs" id="选项卡-2"><ul class="nav-tabs"><li class="tab active"><a href="#选项卡-2-1"><i class="fa fa-text-width"></i>自定义名称1</a></li><li class="tab"><a href="#选项卡-2-2"><i class="fa fa-amazon"></i>自定义名称2</a></li></ul><div class="tab-content"><div class="tab-pane active" id="选项卡-2-1"><p>这是选项卡 1</p></div><div class="tab-pane" id="选项卡-2-2"><p>这是选项卡 2</p></div></div></div></p>
-]]></content>
-      <categories>
-        <category>维护日志</category>
-        <category>创作</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-        <tag>NexT</tag>
+        <tag>DokuWiki</tag>
       </tags>
   </entry>
   <entry>
@@ -860,6 +708,158 @@ class="footnote-back" role="doc-backlink">↩︎</a></p></li>
       <tags>
         <tag>搭建博客</tag>
         <tag>NexT</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo &amp; Next 标签使用说明</title>
+    <url>/posts/20220816a1/</url>
+    <content><![CDATA[<div class="note "><p>本文为在 Hexo &amp; Next
+使用标签的说明，使用标签可在文章中快速插入特定内容，使文章更加美观易读。<br />
+本文内容主要搬运至 <a href="https://hexo.io/zh-cn/docs">Hexo
+文档</a>的标签插件使用样例。</p>
+</div>
+<span id="more"></span>
+<h2 id="hexo-标签插件">Hexo 标签插件</h2>
+<h3 id="引用块-blockquote">引用块 blockquote</h3>
+<p>在文章中插入引言，可包含作者、来源和标题。<br />
+使用方式： <figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&#123;% blockquote [author[, source]] [link] [source_link_title] %&#125;</span><br><span class="line">content</span><br><span class="line">&#123;% endblockquote %&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="普通的-blockquote">普通的 blockquote</h4>
+<p>没有提供参数，则只输出普通的 blockquote： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% blockquote %&#125;</span><br><span class="line">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque hendrerit lacus ut purus iaculis feugiat. Sed nec tempor elit, quis aliquam neque. Curabitur sed diam eget dolor fermentum semper at eu lorem.</span><br><span class="line">&#123;% endblockquote %&#125;</span><br></pre></td></tr></table></figure>
+<blockquote><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
+hendrerit lacus ut purus iaculis feugiat. Sed nec tempor elit, quis
+aliquam neque. Curabitur sed diam eget dolor fermentum semper at eu
+lorem.</p>
+</blockquote></p>
+<h4 id="引用书上的句子">引用书上的句子</h4>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&#123;% blockquote David Levithan, Wide Awake %&#125;</span><br><span class="line">Do not just seek happiness for yourself. Seek happiness for all. Through kindness. Through mercy.</span><br><span class="line">&#123;% endblockquote %&#125;</span><br></pre></td></tr></table></figure>
+<blockquote><p>Do not just seek happiness for yourself. Seek happiness for all.
+Through kindness. Through mercy.</p>
+<footer><strong>David Levithan</strong><cite>Wide Awake</cite></footer></blockquote>
+<h4 id="引用-twitter">引用 Twitter</h4>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% blockquote @DevDocs https://twitter.com/devdocs/status/356095192085962752 %&#125;</span><br><span class="line">NEW: DevDocs now comes with syntax highlighting. http://devdocs.io</span><br><span class="line">&#123;% endblockquote %&#125;</span><br></pre></td></tr></table></figure>
+<blockquote><p>NEW: DevDocs now comes with syntax highlighting.
+http://devdocs.io</p>
+<footer><strong>@DevDocs</strong><cite><a href="https://twitter.com/devdocs/status/356095192085962752">twitter.com/devdocs/status/356095192085962752</a></cite></footer></blockquote>
+<h4 id="引用网络上的文章">引用网络上的文章</h4>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&#123;% blockquote Seth Godin http://sethgodin.typepad.com/seths_blog/2009/07/welcome-to-island-marketing.html Welcome to Island Marketing %&#125;</span><br><span class="line">Every interaction is both precious and an opportunity to delight.</span><br><span class="line">&#123;% endblockquote %&#125;</span><br></pre></td></tr></table></figure>
+<blockquote><p>Every interaction is both precious and an opportunity to delight.</p>
+<footer><strong>Seth Godin</strong><cite><a href="http://sethgodin.typepad.com/seths_blog/2009/07/welcome-to-island-marketing.html">Welcome to Island Marketing</a></cite></footer></blockquote>
+<h4 id="markdown-的引用块">Markdown 的引用块</h4>
+<p>详见 <a href="https://zcw-blog.top/posts/20210819a1/">Markdown
+语法详解及使用技巧——引用块</a>。</p>
+<h3 id="代码块-codeblock">代码块 codeblock</h3>
+<p>在文章中插入代码。<br />
+使用方式： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% codeblock [title] [lang:language] [url] [link text] [additional options] %&#125;</span><br><span class="line">code snippet</span><br><span class="line">&#123;% endcodeblock %&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="普通的代码块">普通的代码块</h4>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&#123;% codeblock %&#125;</span><br><span class="line">alert(&#x27;Hello World!&#x27;);</span><br><span class="line">&#123;% endcodeblock %&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">alert(&#x27;Hello World!&#x27;);</span><br></pre></td></tr></table></figure>
+<h4 id="指定语言">指定语言</h4>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&#123;% codeblock lang:objc %&#125;</span><br><span class="line">[rectangle setX: 10 y: 10 width: 20 height: 20];</span><br><span class="line">&#123;% endcodeblock %&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">[rectangle setX: <span class="number">10</span> y: <span class="number">10</span> width: <span class="number">20</span> height: <span class="number">20</span>];</span><br></pre></td></tr></table></figure>
+<h4 id="附加说明">附加说明</h4>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% codeblock Array.map %&#125;</span><br><span class="line">array.map(callback[, thisArg])</span><br><span class="line">&#123;% endcodeblock %&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><figcaption><span>Array.map</span></figcaption><table><tr><td class="code"><pre><span class="line">array.map(callback[, thisArg])</span><br></pre></td></tr></table></figure>
+<h4 id="附加说明和网址">附加说明和网址</h4>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% codeblock _.compact http://underscorejs.org/#compact Underscore.js %&#125;</span><br><span class="line">_.compact([0, 1, false, 2, &#x27;&#x27;, 3]);</span><br><span class="line">=&gt; [1, 2, 3]</span><br><span class="line">&#123;% endcodeblock %&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><figcaption><span>_.compact</span><a href="http://underscorejs.org/#compact">Underscore.js</a></figcaption><table><tr><td class="code"><pre><span class="line">_.compact([0, 1, false, 2, &#x27;&#x27;, 3]);</span><br><span class="line">=&gt; [1, 2, 3]</span><br></pre></td></tr></table></figure>
+<h4 id="markdown-的围栏代码块">Markdown 的围栏代码块</h4>
+<p>详见 <a href="https://zcw-blog.top/posts/20210819a1/">Markdown
+语法详解及使用技巧——围栏代码块</a>。</p>
+<h3 id="插入代码文件">插入代码文件</h3>
+<p>插入 source/downloads/code 文件夹内的代码文件。路径
+source/downloads/code 不是固定的，取决于你在配置文件中 code_dir
+的配置。<br />
+使用方式： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% include_code [title] [lang:language] [from:line] [to:line] path/to/file %&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="youtube">Youtube</h3>
+<p>在文章中插入 Youtube 视频。<br />
+使用方式： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% youtube video_id [type] [cookie] %&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="mathjax">MathJax</h3>
+<p>插入利用 MathJax 显示的数学公式，需要安装 hexo-renderer-mathjax
+并更换 Pandoc 渲染器。<br />
+详见 <a href="https://zcw-blog.top/posts/20220424a1/">Hexo + NexT
+配置优化指南——渲染 mathjax</a>。</p>
+<h2 id="next-内建标签的使用">Next 内建标签的使用</h2>
+<h3 id="文本居中引用">文本居中引用</h3>
+调用方法： <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- HTML方式: 直接在 Markdown 文件中编写 HTML 来调用 --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 其中 class=&quot;blockquote-center&quot; 是必须的 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">blockquote</span> <span class="attr">class</span>=<span class="string">&quot;blockquote-center&quot;</span>&gt;</span>blah blah blah<span class="tag">&lt;/<span class="name">blockquote</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 标签 方式，要求版本在0.4.5或以上 --&gt;</span></span><br><span class="line">&#123;% centerquote %&#125;blah blah blah&#123;% endcenterquote %&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 标签别名 --&gt;</span></span><br><span class="line">&#123;% cq %&#125; blah blah blah &#123;% endcq %&#125;</span><br></pre></td></tr></table></figure> 示例： <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">blockquote</span> <span class="attr">class</span>=<span class="string">&quot;blockquote-center&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>人的一切痛苦 本质上是对自己无能的愤怒<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>**王小波**<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">blockquote</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote class="blockquote-center">
+<p>
+人的一切痛苦 本质上是对自己无能的愤怒
+</p>
+<p>
+<strong>王小波</strong>
+</p>
+</blockquote>
+<h3 id="note-标签">Note 标签</h3>
+<p>调用方法： <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- HTML方式: 直接在 Markdown 文件中编写 HTML 来调用 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;note class_name&quot;</span>&gt;</span>blah blah blah<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 标签 方式 --&gt;</span></span><br><span class="line">&#123;% note class_name %&#125;</span><br><span class="line">blah blah blah</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure> 示例：<br />
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% note %&#125;</span><br><span class="line">#### Header</span><br><span class="line">(without define class style)</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure> <div class="note "><h4 id="header">Header</h4>
+<p>content</p>
+</div></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% note default %&#125;</span><br><span class="line">#### Default Header</span><br><span class="line">Default content</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
+<div class="note default"><h4 id="default-header">Default Header</h4>
+<p>Default content</p>
+</div>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% note primary %&#125;</span><br><span class="line">#### Primary Header</span><br><span class="line">Primary content</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
+<div class="note primary"><h4 id="primary-header">Primary Header</h4>
+<p>Primary content</p>
+</div>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% note info %&#125;</span><br><span class="line">#### Info Header</span><br><span class="line">Info content</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
+<div class="note info"><h4 id="info-header">Info Header</h4>
+<p>Info content</p>
+</div>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% note success %&#125;</span><br><span class="line">#### Success Header</span><br><span class="line">Success content</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
+<div class="note success"><h4 id="success-header">Success Header</h4>
+<p>Success content</p>
+</div>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% note warning %&#125;</span><br><span class="line">#### Warning Header</span><br><span class="line">Warning content</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
+<div class="note warning"><h4 id="warning-header">Warning Header</h4>
+<p>Warning content</p>
+</div>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% note danger %&#125;</span><br><span class="line">#### Danger Header</span><br><span class="line">Danger content</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
+<div class="note danger"><h4 id="danger-header">Danger Header</h4>
+<p>Danger content</p>
+</div>
+<p>可用<code>no-icon</code>取消图标： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% note info no-icon %&#125;</span><br><span class="line">#### No icon note</span><br><span class="line">content</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure> <div class="note info no-icon"><h4 id="no-icon-note">No icon note</h4>
+<p>content</p>
+</div></p>
+<p>标签内容可折叠： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% note primary This is a summary %&#125;</span><br><span class="line">#### Details and summary</span><br><span class="line">Note with summary: `note primary This is a summary`</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure> <details class="note primary"><summary><p>This is a summary</p>
+</summary>
+<h4 id="details-and-summary">Details and summary</h4>
+<p>Note with summary: <code>note primary This is a summary</code></p>
+
+</details></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% note info no-icon This is a summary %&#125;</span><br><span class="line">#### Details and summary (No icon)</span><br><span class="line">Note with summary: `note info no-icon This is a summary`</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
+<details class="note info no-icon"><summary><p>This is a summary</p>
+</summary>
+<h4 id="details-and-summary-no-icon">Details and summary (No icon)</h4>
+<p>Note with summary:
+<code>note info no-icon This is a summary</code></p>
+
+</details>
+<h3 id="label-标签">Label 标签</h3>
+<p>调用方法：<br />
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&#123;% label [class_name] @blah blah blah %&#125;</span><br></pre></td></tr></table></figure> <code>class_name</code>取值同 Note 标签。 示例：<br />
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">我坐在床前，望着窗外，&#123;% label @回忆满天 %&#125;。生命是&#123;% label primary @华丽错觉 %&#125;，时间是贼偷走一切。  </span><br><span class="line">七岁的那一年，抓住那只&#123;% label success @蝉 %&#125;，以为能抓住夏天。十七岁的那年，吻过他的脸，就以为和他能&#123;% label info @永远 %&#125;。   </span><br><span class="line">有没有那么一种永远，&#123;% label warning @永远不改变 %&#125;，拥抱过的美丽，都再也不破碎。   </span><br><span class="line">让险峻岁月不能，在脸上撒野，让&#123;% label danger @生离和死别都遥远 %&#125;，有谁能听见。   </span><br></pre></td></tr></table></figure>
+我坐在床前，望着窗外，<mark class="label ">回忆满天</mark>。生命是<mark class="label primary">华丽错觉</mark>，时间是贼偷走一切。<br />
+七岁的那一年，抓住那只<mark class="label success">蝉</mark>，以为能抓住夏天。十七岁的那年，吻过他的脸，就以为和他能<mark class="label info">永远</mark>。<br />
+有没有那么一种永远，<mark class="label warning">永远不改变</mark>，拥抱过的美丽，都再也不破碎。<br />
+让险峻岁月不能，在脸上撒野，让<mark class="label danger">生离和死别都遥远</mark>，有谁能听见。</p>
+<h3 id="tab-标签">Tab 标签</h3>
+<p>调用方法：<br />
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&#123;% tabs [Unique name], [index] %&#125;</span><br><span class="line"><span class="comment">&lt;!-- tab [Tab caption]@[icon] --&gt;</span></span><br><span class="line">Any content (support inline tags too).</span><br><span class="line"><span class="comment">&lt;!-- endtab --&gt;</span></span><br><span class="line">&#123;% endtabs %&#125;</span><br></pre></td></tr></table></figure> <div class="note info"><p><code>Unique name</code>为每个标签页组唯一的名称<br />
+<code>index</code>为初始激活的标签页<br />
+<code>Tab caption</code>为标签页名称，不指定时为所属标签页组名称加索引<br />
+<code>icon</code>为 Font awesome 图标</p>
+</div> 示例：<br />
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&#123;% tabs 选项卡, 3 %&#125;</span><br><span class="line"><span class="comment">&lt;!-- tab --&gt;</span></span><br><span class="line">这是选项卡 1</span><br><span class="line"><span class="comment">&lt;!-- endtab --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- tab --&gt;</span></span><br><span class="line">这是选项卡 2</span><br><span class="line"><span class="comment">&lt;!-- endtab --&gt;</span></span><br><span class="line">&#123;% endtabs %&#125;</span><br></pre></td></tr></table></figure> <div class="tabs" id="选项卡"><ul class="nav-tabs"><li class="tab"><a href="#选项卡-1">选项卡 1</a></li><li class="tab"><a href="#选项卡-2">选项卡 2</a></li></ul><div class="tab-content"><div class="tab-pane" id="选项卡-1"><p>这是选项卡 1</p></div><div class="tab-pane" id="选项卡-2"><p>这是选项卡 2</p></div></div></div> <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% tabs 选项卡 2 %&#125;</span><br><span class="line">&lt;!-- tab 自定义名称1 --&gt;</span><br><span class="line">这是选项卡 1</span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line">&lt;!-- tab 自定义名称2 --&gt;</span><br><span class="line">这是选项卡 2</span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line">&#123;% endtabs %&#125;</span><br></pre></td></tr></table></figure> <div class="tabs" id="选项卡-2"><ul class="nav-tabs"><li class="tab active"><a href="#选项卡-2-1">自定义名称1</a></li><li class="tab"><a href="#选项卡-2-2">自定义名称2</a></li></ul><div class="tab-content"><div class="tab-pane active" id="选项卡-2-1"><p>这是选项卡 1</p></div><div class="tab-pane" id="选项卡-2-2"><p>这是选项卡 2</p></div></div></div>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% tabs 选项卡 2 %&#125;</span><br><span class="line">&lt;!-- tab 自定义名称1@text-width --&gt;</span><br><span class="line">这是选项卡 1</span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line">&lt;!-- tab 自定义名称2@amazon --&gt;</span><br><span class="line">这是选项卡 2</span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line">&#123;% endtabs %&#125;</span><br></pre></td></tr></table></figure> <div class="tabs" id="选项卡-2"><ul class="nav-tabs"><li class="tab active"><a href="#选项卡-2-1"><i class="fa fa-text-width"></i>自定义名称1</a></li><li class="tab"><a href="#选项卡-2-2"><i class="fa fa-amazon"></i>自定义名称2</a></li></ul><div class="tab-content"><div class="tab-pane active" id="选项卡-2-1"><p>这是选项卡 1</p></div><div class="tab-pane" id="选项卡-2-2"><p>这是选项卡 2</p></div></div></div></p>
+]]></content>
+      <categories>
+        <category>维护日志</category>
+        <category>创作</category>
+      </categories>
+      <tags>
+        <tag>NexT</tag>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -1668,6 +1668,110 @@ class="footnote-back" role="doc-backlink">↩︎</a></p></li>
       </tags>
   </entry>
   <entry>
+    <title>ROS 学习记录1</title>
+    <url>/posts/20220728a1/</url>
+    <content><![CDATA[<div class="note "><p>记录 ROS 学习过程 Part1。<br />
+主要内容：ROS 安装。</p>
+</div>
+<span id="more"></span>
+<h2 id="学习参考课程">学习参考课程</h2>
+<p><a
+href="https://www.bilibili.com/video/BV1zt411G7Vn?spm_id_from=333.788.top_right_bar_window_custom_collection.content.click&amp;vd_source=2986b70c538b1a31836b82311d90b18a">【古月居】古月·ROS入门21讲
+| 一学就会的ROS机器人入门教程</a><br />
+<strong>强烈推荐</strong>：<a
+href="https://www.bilibili.com/video/BV1Ci4y1L7ZZ?spm_id_from=333.1007.top_right_bar_window_custom_collection.content.click&amp;vd_source=2986b70c538b1a31836b82311d90b18a">【Autolabor初级教程】ROS机器人入门</a></p>
+<h2 id="ros-安装">ROS 安装</h2>
+<p>Linux 系统版本：Ubuntu 20.04.1，ROS 版本为 ROS1 的终极版本:
+noetic，支持 Python3。<br />
+<img src="https://s2.loli.net/2022/07/28/3H8dPUoR26BNWmi.png" /></p>
+<h3 id="配置ubuntu的软件和更新">配置ubuntu的软件和更新</h3>
+<p>打开“软件和更新”对话框，确保勾选了"restricted"， "universe"， 和
+"multiverse"。</p>
+<h3 id="设置安装源">设置安装源</h3>
+<p>官方安装源：<br />
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo sh -c &#x27;echo &quot;deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main&quot; &gt; /etc/apt/sources.list.d/ros-latest.list&#x27;</span><br></pre></td></tr></table></figure> 国内清华镜像：<br />
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo sh -c &#x27;. /etc/lsb-release &amp;&amp; echo &quot;deb http://mirrors.tuna.tsinghua.edu.cn/ros/ubuntu/ `lsb_release -cs` main&quot; &gt; /etc/apt/sources.list.d/ros-latest.list&#x27;</span><br></pre></td></tr></table></figure> 国内中科大镜像： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo sh -c &#x27;. /etc/lsb-release &amp;&amp; echo &quot;deb http://mirrors.ustc.edu.cn/ros/ubuntu/ `lsb_release -cs` main&quot; &gt; /etc/apt/sources.list.d/ros-latest.list&#x27;</span><br></pre></td></tr></table></figure></p>
+<h3 id="设置-key">设置 key</h3>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt-key adv --keyserver &#x27;hkp://keyserver.ubuntu.com:80&#x27; --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654</span><br></pre></td></tr></table></figure>
+<h3 id="安装">安装</h3>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt update		#更新 apt</span><br><span class="line">sudo apt install ros-noetic-desktop-full	#安装 Desktop-Full</span><br></pre></td></tr></table></figure>
+<h4
+id="出现n-忽略ros-latest.listsudo于目录etcaptsources.list.d鉴于它的文件扩展名无效">出现“N:
+忽略‘ros-latest.listsudo’(于目录‘/etc/apt/sources.list.d/’)，鉴于它的文件扩展名无效”</h4>
+<p>解决方法： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo rm -f /etc/apt/sources.list.d/ros-latest.listsudo</span><br></pre></td></tr></table></figure></p>
+<h4 id="终端配置代理">终端配置代理</h4>
+<p>我在系统中设置了代理，于是直接使用官方源，结果不管怎么 update
+和install 都因为连接超时卡在了
+96%。于是我直接访问对应网址，轻松连上，便考虑是否是终端未代理的问题。<br />
+搜了一下，确实如此：SS/Clash 等一般是 web
+代理，终端无法使用，需要单独配置代理。<br />
+方法如下： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo gedit ~/.bashrc		#编辑 .bashrc 文件</span><br></pre></td></tr></table></figure> 在最后加上： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">alias proxy-on=&#x27;export http_proxy=127.0.0.1:7890;export https_proxy=$http_proxy&#x27;</span><br><span class="line">alias proxy-off=&#x27;unset http_proxy;unset https_proxy&#x27; </span><br></pre></td></tr></table></figure> <img
+src="https://s2.loli.net/2022/07/28/ybUAM4NdRt9mSwr.png" />
+保存退出后执行下面命令使文件生效：<br />
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">source ~/.bashrc</span><br></pre></td></tr></table></figure>
+现在使用命令<code>proxy-on</code>和<code>proxy-off</code>便可开关代理。</p>
+<div class="note info"><p>该命令只在当前终端生效，重新打开终端需要重新执行 proxy-on。</p>
+</div>
+<p>使用<code>curl -L www.google.com</code>可以检查代理是否开启，从下图可看出，我们本次请求网站页面成功返回了谷歌起始页的
+HTML 代码。<br />
+也可以使用<code>curl cip.cc</code>查看 IP 来检查。<br />
+<img src="https://s2.loli.net/2022/07/29/67KpCwHzgj1aRXd.png" /></p>
+<div class="note info"><p>访问 google.com 时会自动将地址重定向到
+google.com.hk，故执行<code>curl www.google.com</code>会出现 302 Moved
+提示。</p>
+</div>
+<h4 id="apt-配置代理">apt 配置代理</h4>
+<p>终端配置代理后，还是卡在了 96%。<br />
+查找发现 export 中 http_proxy 和 https_proxy 方式只是修改终端中的 http
+与 https 的代理方式，而 apt install 有自己独立的配置文件，配置终端代理后
+apt 也是直接连接。 所以要进行 apt 代理配置：<br />
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo touch /etc/apt/apt.conf.d/proxy.conf	#创建新的配置文件 proxy.conf</span><br></pre></td></tr></table></figure> 在 proxy.conf 文件里添加：<br />
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Acquire &#123;</span><br><span class="line">  HTTP::proxy &quot;http://127.0.0.1:7890&quot;;</span><br><span class="line">  HTTPS::proxy &quot;http://127.0.0.1:7890&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure> 记得将 7890 改为自己的端口。<br />
+<img src="https://s2.loli.net/2022/07/29/uqUaGJQL5BgXK84.png" />
+保存关闭后重新 apt install，顺利下载安装完成。<br />
+<img src="https://s2.loli.net/2022/07/29/JqWxSpHofRUFuVZ.png" /></p>
+<h3 id="配置环境变量">配置环境变量</h3>
+<p>配置环境变量，方便在任意终端中使用 ROS。<br />
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">echo &quot;source /opt/ros/noetic/setup.bash&quot; &gt;&gt; ~/.bashrc</span><br><span class="line">source ~/.bashrc</span><br></pre></td></tr></table></figure> 至此便可运行<code>roscore</code>进行测试。</p>
+<h3 id="安装构建依赖">安装构建依赖</h3>
+<p>noetic
+最初发布时，和其他历史版本稍有差异的是:没有安装构建依赖这一步骤。随着
+noetic 不断完善，官方补齐了这一操作。<br />
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">安装构建依赖的相关工具</span></span><br><span class="line">sudo apt install python3-rosdep python3-rosinstall python3-rosinstall-generator python3-wstool build-essential</span><br><span class="line">sudo apt install python3-rosdep</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">初始化 rosdep</span></span><br><span class="line">sudo rosdep init</span><br><span class="line">rosdep update</span><br></pre></td></tr></table></figure></p>
+<h4 id="rosdep-init-时出现-website-may-be-down">rosdep init 时出现
+Website may be down</h4>
+<p><a
+href="https://ping.chinaz.com/raw.githubusercontent.com">点此</a>找到
+raw.githubusercontent.com 对应 IP。<br />
+接下来修改 hosts 文件：<br />
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo gedit /etc/hosts</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">添加如下内容</span></span><br><span class="line">185.199.108.133 raw.githubusercontent.com</span><br></pre></td></tr></table></figure> <img
+src="https://s2.loli.net/2022/07/29/Yfa87V1inDFlBtq.png" />
+重新执行<code>rosdep init</code>即可。<br />
+执行成功：<br />
+<img src="https://s2.loli.net/2022/07/29/GtfWnew8HdsuMXP.png" /> <img
+src="https://s2.loli.net/2022/07/29/jgaKLenRwI6oxPd.png" /></p>
+<h2 id="参考文章">参考文章</h2>
+<p><a href="http://wiki.ros.org/noetic/Installation/Ubuntu">Ubuntu
+install of ROS Noetic</a><br />
+<a
+href="http://www.autolabor.com.cn/book/ROSTutorials/">【Autolabor初级教程】ROS机器人入门课程文档</a><br />
+<a
+href="https://www.serverlab.ca/tutorials/linux/administration-linux/how-to-set-the-proxy-for-apt-for-ubuntu-18-04/">How
+to Set the Proxy for APT on Ubuntu 18.04</a><br />
+<a
+href="https://juejin.cn/post/7070003235934715940">Terminal（终端）使用代理进行连接</a><br />
+<a
+href="https://blog.csdn.net/tjy199610_10/article/details/120621676">最详细的ros安装（包含所有相关依赖文件）</a></p>
+]]></content>
+      <categories>
+        <category>学习笔记</category>
+        <category>ROS</category>
+      </categories>
+      <tags>
+        <tag>ROS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>ROS 学习记录2</title>
     <url>/posts/20220731a1/</url>
     <content><![CDATA[<div class="note "><p>记录 ROS 学习过程 Part2。<br />
@@ -1776,107 +1880,93 @@ href="http://www.autolabor.com.cn/book/ROSTutorials/">【Autolabor初级教程�
       </tags>
   </entry>
   <entry>
-    <title>ROS 学习记录1</title>
-    <url>/posts/20220728a1/</url>
-    <content><![CDATA[<div class="note "><p>记录 ROS 学习过程 Part1。<br />
-主要内容：ROS 安装。</p>
+    <title>Ubuntu 优化</title>
+    <url>/posts/20220801a1/</url>
+    <content><![CDATA[<div class="note "><p>Ubuntu 使用优化（20.04.1）。</p>
 </div>
 <span id="more"></span>
-<h2 id="学习参考课程">学习参考课程</h2>
-<p><a
-href="https://www.bilibili.com/video/BV1zt411G7Vn?spm_id_from=333.788.top_right_bar_window_custom_collection.content.click&amp;vd_source=2986b70c538b1a31836b82311d90b18a">【古月居】古月·ROS入门21讲
-| 一学就会的ROS机器人入门教程</a><br />
-<strong>强烈推荐</strong>：<a
-href="https://www.bilibili.com/video/BV1Ci4y1L7ZZ?spm_id_from=333.1007.top_right_bar_window_custom_collection.content.click&amp;vd_source=2986b70c538b1a31836b82311d90b18a">【Autolabor初级教程】ROS机器人入门</a></p>
-<h2 id="ros-安装">ROS 安装</h2>
-<p>Linux 系统版本：Ubuntu 20.04.1，ROS 版本为 ROS1 的终极版本:
-noetic，支持 Python3。<br />
-<img src="https://s2.loli.net/2022/07/28/3H8dPUoR26BNWmi.png" /></p>
-<h3 id="配置ubuntu的软件和更新">配置ubuntu的软件和更新</h3>
-<p>打开“软件和更新”对话框，确保勾选了"restricted"， "universe"， 和
-"multiverse"。</p>
-<h3 id="设置安装源">设置安装源</h3>
-<p>官方安装源：<br />
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo sh -c &#x27;echo &quot;deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main&quot; &gt; /etc/apt/sources.list.d/ros-latest.list&#x27;</span><br></pre></td></tr></table></figure> 国内清华镜像：<br />
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo sh -c &#x27;. /etc/lsb-release &amp;&amp; echo &quot;deb http://mirrors.tuna.tsinghua.edu.cn/ros/ubuntu/ `lsb_release -cs` main&quot; &gt; /etc/apt/sources.list.d/ros-latest.list&#x27;</span><br></pre></td></tr></table></figure> 国内中科大镜像： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo sh -c &#x27;. /etc/lsb-release &amp;&amp; echo &quot;deb http://mirrors.ustc.edu.cn/ros/ubuntu/ `lsb_release -cs` main&quot; &gt; /etc/apt/sources.list.d/ros-latest.list&#x27;</span><br></pre></td></tr></table></figure></p>
-<h3 id="设置-key">设置 key</h3>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt-key adv --keyserver &#x27;hkp://keyserver.ubuntu.com:80&#x27; --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654</span><br></pre></td></tr></table></figure>
-<h3 id="安装">安装</h3>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt update		#更新 apt</span><br><span class="line">sudo apt install ros-noetic-desktop-full	#安装 Desktop-Full</span><br></pre></td></tr></table></figure>
-<h4
-id="出现n-忽略ros-latest.listsudo于目录etcaptsources.list.d鉴于它的文件扩展名无效">出现“N:
-忽略‘ros-latest.listsudo’(于目录‘/etc/apt/sources.list.d/’)，鉴于它的文件扩展名无效”</h4>
-<p>解决方法： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo rm -f /etc/apt/sources.list.d/ros-latest.listsudo</span><br></pre></td></tr></table></figure></p>
-<h4 id="终端配置代理">终端配置代理</h4>
-<p>我在系统中设置了代理，于是直接使用官方源，结果不管怎么 update
-和install 都因为连接超时卡在了
-96%。于是我直接访问对应网址，轻松连上，便考虑是否是终端未代理的问题。<br />
-搜了一下，确实如此：SS/Clash 等一般是 web
-代理，终端无法使用，需要单独配置代理。<br />
-方法如下： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo gedit ~/.bashrc		#编辑 .bashrc 文件</span><br></pre></td></tr></table></figure> 在最后加上： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">alias proxy-on=&#x27;export http_proxy=127.0.0.1:7890;export https_proxy=$http_proxy&#x27;</span><br><span class="line">alias proxy-off=&#x27;unset http_proxy;unset https_proxy&#x27; </span><br></pre></td></tr></table></figure> <img
-src="https://s2.loli.net/2022/07/28/ybUAM4NdRt9mSwr.png" />
-保存退出后执行下面命令使文件生效：<br />
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">source ~/.bashrc</span><br></pre></td></tr></table></figure>
-现在使用命令<code>proxy-on</code>和<code>proxy-off</code>便可开关代理。</p>
-<div class="note info"><p>该命令只在当前终端生效，重新打开终端需要重新执行 proxy-on。</p>
-</div>
-<p>使用<code>curl -L www.google.com</code>可以检查代理是否开启，从下图可看出，我们本次请求网站页面成功返回了谷歌起始页的
-HTML 代码。<br />
-也可以使用<code>curl cip.cc</code>查看 IP 来检查。<br />
-<img src="https://s2.loli.net/2022/07/29/67KpCwHzgj1aRXd.png" /></p>
-<div class="note info"><p>访问 google.com 时会自动将地址重定向到
-google.com.hk，故执行<code>curl www.google.com</code>会出现 302 Moved
-提示。</p>
-</div>
-<h4 id="apt-配置代理">apt 配置代理</h4>
-<p>终端配置代理后，还是卡在了 96%。<br />
-查找发现 export 中 http_proxy 和 https_proxy 方式只是修改终端中的 http
-与 https 的代理方式，而 apt install 有自己独立的配置文件，配置终端代理后
-apt 也是直接连接。 所以要进行 apt 代理配置：<br />
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo touch /etc/apt/apt.conf.d/proxy.conf	#创建新的配置文件 proxy.conf</span><br></pre></td></tr></table></figure> 在 proxy.conf 文件里添加：<br />
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Acquire &#123;</span><br><span class="line">  HTTP::proxy &quot;http://127.0.0.1:7890&quot;;</span><br><span class="line">  HTTPS::proxy &quot;http://127.0.0.1:7890&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure> 记得将 7890 改为自己的端口。<br />
-<img src="https://s2.loli.net/2022/07/29/uqUaGJQL5BgXK84.png" />
-保存关闭后重新 apt install，顺利下载安装完成。<br />
-<img src="https://s2.loli.net/2022/07/29/JqWxSpHofRUFuVZ.png" /></p>
-<h3 id="配置环境变量">配置环境变量</h3>
-<p>配置环境变量，方便在任意终端中使用 ROS。<br />
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">echo &quot;source /opt/ros/noetic/setup.bash&quot; &gt;&gt; ~/.bashrc</span><br><span class="line">source ~/.bashrc</span><br></pre></td></tr></table></figure> 至此便可运行<code>roscore</code>进行测试。</p>
-<h3 id="安装构建依赖">安装构建依赖</h3>
-<p>noetic
-最初发布时，和其他历史版本稍有差异的是:没有安装构建依赖这一步骤。随着
-noetic 不断完善，官方补齐了这一操作。<br />
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">安装构建依赖的相关工具</span></span><br><span class="line">sudo apt install python3-rosdep python3-rosinstall python3-rosinstall-generator python3-wstool build-essential</span><br><span class="line">sudo apt install python3-rosdep</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">初始化 rosdep</span></span><br><span class="line">sudo rosdep init</span><br><span class="line">rosdep update</span><br></pre></td></tr></table></figure></p>
-<h4 id="rosdep-init-时出现-website-may-be-down">rosdep init 时出现
-Website may be down</h4>
-<p><a
-href="https://ping.chinaz.com/raw.githubusercontent.com">点此</a>找到
-raw.githubusercontent.com 对应 IP。<br />
-接下来修改 hosts 文件：<br />
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo gedit /etc/hosts</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">添加如下内容</span></span><br><span class="line">185.199.108.133 raw.githubusercontent.com</span><br></pre></td></tr></table></figure> <img
-src="https://s2.loli.net/2022/07/29/Yfa87V1inDFlBtq.png" />
-重新执行<code>rosdep init</code>即可。<br />
-执行成功：<br />
-<img src="https://s2.loli.net/2022/07/29/GtfWnew8HdsuMXP.png" /> <img
-src="https://s2.loli.net/2022/07/29/jgaKLenRwI6oxPd.png" /></p>
+<h2 id="模板-template">模板| Template</h2>
+<p>Ubuntu 20.04 鼠标右击没有新建文本文档选项。进入/home
+下的模板（Template）目录，使用<code>sudo gedit 新建文本文档.txt</code>创建一个空文本文档，保存退出后，鼠标右击即可添加新建文本文档，且创建的文档与自定义的文档名称一致。</p>
+<h2 id="解决-firefox-无法播放-bilibili-视频">解决 Firefox 无法播放
+bilibili 视频</h2>
+<p>在 Firefox 打开 bilibili 发现无法播放视频，显示没有 flash
+插件。<br />
+在终端输入<code>sudo apt install ubuntu-restricted-extras</code>安装相应解码器即可。<br />
+中间需要选择“确定”，按 Tab 即可选择。<br />
+<img src="https://s2.loli.net/2022/08/05/PmJx1ducGlgkTOh.png" />
+安装成功：<br />
+<img src="https://s2.loli.net/2022/08/05/J6G4AkMDqjTmdKC.png" />
+再次使用 Firefox 打开 bilibili 已经可以播放视频了。</p>
+<h2 id="蓝牙配置">蓝牙配置</h2>
+<p>检查蓝牙服务是否正在运行：<br />
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo systemctl status bluetooth.service</span><br></pre></td></tr></table></figure> 启用蓝牙服务：<br />
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo systemctl <span class="built_in">enable</span> bluetooth.service</span><br></pre></td></tr></table></figure> 使用 systemctl 重新启动该服务：<br />
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo systemctl start bluetooth.service</span><br></pre></td></tr></table></figure> 编辑配置文件：<br />
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo gedit /etc/bluetooth/main.conf</span><br></pre></td></tr></table></figure>
+<strong>自动启用</strong>：自动启用可确保在设备重启时启用蓝牙模块，并允许蓝牙适配器识别周围新连接的蓝牙设备。<br />
+<img src="https://s2.loli.net/2022/08/09/PmRaYzTNSlB1QtI.png" />
+<strong>启用重新连接尝试</strong>：配置后每当蓝牙设备和计算机断开连接时，它都会尝试重新连接。只需取消注释配置文件中的
+ReconnectAttempts = 7 行。<br />
+<img src="https://s2.loli.net/2022/08/09/xsTJODdfFGMn6uw.png" />
+<strong>启用快速连接</strong>：通过将 FastConnectable 的值设置为
+true，可以确保在重启或休眠时，蓝牙设备能够更快地连接到 PC。<br />
+<img src="https://s2.loli.net/2022/08/09/2RoOpZ4y9IgkneP.png" /></p>
+<h2 id="终端工具">终端工具</h2>
+<h3 id="terminator-终端模拟器">Terminator 终端模拟器</h3>
+<p>下载：<code>sudo apt install terminator</code></p>
+<h4 id="快捷键">快捷键</h4>
+<p>同一窗口内操作： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Alt+Up                          //移动到上面的终端</span><br><span class="line">Alt+Down                        //移动到下面的终端</span><br><span class="line">Alt+Left                        //移动到左边的终端</span><br><span class="line">Alt+Right                       //移动到右边的终端</span><br><span class="line">Ctrl+Shift+O                    //水平分割终端</span><br><span class="line">Ctrl+Shift+E                    //垂直分割终端</span><br><span class="line">Ctrl+Shift+Right                //在垂直分割的终端中将分割条向右移动</span><br><span class="line">Ctrl+Shift+Left                 //在垂直分割的终端中将分割条向左移动</span><br><span class="line">Ctrl+Shift+Up                   //在水平分割的终端中将分割条向上移动</span><br><span class="line">Ctrl+Shift+Down                 //在水平分割的终端中将分割条向下移动</span><br><span class="line">Ctrl+Shift+S                    //隐藏/显示滚动条</span><br><span class="line">Ctrl+Shift+F                    //搜索</span><br><span class="line">Ctrl+Shift+C                    //复制选中的内容到剪贴板</span><br><span class="line">Ctrl+Shift+V                    //粘贴剪贴板的内容到此处</span><br><span class="line">Ctrl+Shift+W                    //关闭当前终端</span><br><span class="line">Ctrl+Shift+Q                    //退出当前窗口，当前窗口的所有终端都将被关闭</span><br><span class="line">Ctrl+Shift+X                    //最大化显示当前终端</span><br><span class="line">Ctrl+Shift+Z                    //最大化显示当前终端并使字体放大</span><br><span class="line">Ctrl+Shift+N or Ctrl+Tab        //移动到下一个终端</span><br><span class="line">Ctrl+Shift+P or Ctrl+Shift+Tab  //Crtl+Shift+Tab 移动到之前的一个终端</span><br></pre></td></tr></table></figure></p>
+<p>各个窗口间操作： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">F11                             //全屏开关</span><br><span class="line">Ctrl+Shift+T                    //打开一个新的标签</span><br><span class="line">Ctrl+PageDown                   //移动到下一个标签</span><br><span class="line">Ctrl+PageUp                     //移动到上一个标签</span><br><span class="line">Ctrl+Shift+PageDown             //将当前标签与其后一个标签交换位置</span><br><span class="line">Ctrl+Shift+PageUp               //将当前标签与其前一个标签交换位置</span><br><span class="line">Ctrl+Plus (+)                   //增大字体</span><br><span class="line">Ctrl+Minus (-)                  //减小字体</span><br><span class="line">Ctrl+Zero (0)                   //恢复字体到原始大小</span><br><span class="line">Ctrl+Shift+R                    //重置终端状态</span><br><span class="line">Ctrl+Shift+G                    //重置终端状态并clear屏幕</span><br><span class="line">Super+g                         //绑定所有的终端，以便向一个输入能够输入到所有的终端</span><br><span class="line">Super+Shift+G                   //解除绑定</span><br><span class="line">Super+t                         //绑定当前标签的所有终端，向一个终端输入的内容会自动输入到其他终端</span><br><span class="line">Super+Shift+T                   //解除绑定</span><br><span class="line">Ctrl+Shift+I                    //打开一个窗口，新窗口与原来的窗口使用同一个进程</span><br><span class="line">Super+i                         //打开一个新窗口，新窗口与原来的窗口使用不同的进程</span><br></pre></td></tr></table></figure></p>
+<h3 id="gnu-screen">GNU Screen</h3>
+<p>下载：<code>sudo apt install screen</code></p>
+<h4 id="gnu-screen-简介">GNU Screen 简介</h4>
+<p>screen 是一款由 GNU
+计划开发的用于命令行终端切换的自由软件。用户可以通过该软件同时连接多个本地或远程的命令行会话，并在其间自由切换。GNU
+Screen
+可以看作是窗口管理器的命令行界面版本。它提供了统一的管理多个会话的界面和相应的功能。<br />
+在 screen
+环境下，所有的会话都独立的运行，并拥有各自的编号、输入、输出和窗口缓存。用户可以通过快捷键在不同的窗口下切换，并可以自由的重定向各个窗口的输入和输出。</p>
+<h4 id="功能">功能</h4>
+<ul>
+<li>可以创建一个session（会话），实现不同终端之间的交互。<br />
+</li>
+<li>可以实现多人观看同一终端等功能。</li>
+<li>在工作中，如遇突发情况（例如断电，蓝屏等），终端断开，服务器端所有收到信号的前台任务将全部终止，各种工作环境将全部丢失。若在
+screen 里操作，终端意外关闭之后，下次登录到服务器上，进入 screen，之前在
+screen 上运行的任务还在继续运行。screen
+的功能可以大概理解为它将前台任务放入了后台进行，并且不受终端关闭或其它意外事故的影响。</li>
+</ul>
+<h3 id="tmuxterminal-multiplexer类似-gnu-screen">Tmux（terminal
+multiplexer,类似 GNU Screen）</h3>
+<p>下载：<code>sudo apt install tmux</code></p>
+<h4 id="功能-1">功能</h4>
+<ul>
+<li>允许在单个窗口中，同时访问多个会话。这对于同时运行多个命令行程序很有用。<br />
+</li>
+<li>可以让新窗口"接入"已经存在的会话。<br />
+</li>
+<li>允许每个会话有多个连接窗口，因此可以多人实时共享会话。<br />
+</li>
+<li>支持窗口任意的垂直和水平拆分。</li>
+</ul>
 <h2 id="参考文章">参考文章</h2>
-<p><a href="http://wiki.ros.org/noetic/Installation/Ubuntu">Ubuntu
-install of ROS Noetic</a><br />
+<p><a href="https://www.ruanyifeng.com/blog/2019/10/tmux.html">Tmux
+使用教程</a><br />
 <a
-href="http://www.autolabor.com.cn/book/ROSTutorials/">【Autolabor初级教程】ROS机器人入门课程文档</a><br />
+href="https://www.homedt.net/40644.html">Linux中的screen命令的使用</a><br />
 <a
-href="https://www.serverlab.ca/tutorials/linux/administration-linux/how-to-set-the-proxy-for-apt-for-ubuntu-18-04/">How
-to Set the Proxy for APT on Ubuntu 18.04</a><br />
+href="https://cloud.tencent.com/developer/article/1844735">Linux终端命令神器--Screen命令详解。助力Linux使用和管理</a><br />
 <a
-href="https://juejin.cn/post/7070003235934715940">Terminal（终端）使用代理进行连接</a><br />
-<a
-href="https://blog.csdn.net/tjy199610_10/article/details/120621676">最详细的ros安装（包含所有相关依赖文件）</a></p>
+href="https://zhongguo.eskere.club/%E5%A6%82%E4%BD%95%E4%BF%AE%E5%A4%8Dubuntu-linux%E4%B8%AD%E7%9A%84%E8%93%9D%E7%89%99%E8%BF%9E%E6%8E%A5%E9%97%AE%E9%A2%98/2021-05-12/?__cf_chl_tk=UCmaDe_SWYb41eIhI0dKuadHk0.rGbm7YcRyUkdjQMM-1660017919-0-gaNycGzNCH0">如何修复Ubuntu
+Linux中的蓝牙连接问题</a></p>
 ]]></content>
       <categories>
-        <category>学习笔记</category>
-        <category>ROS</category>
+        <category>Linux</category>
       </categories>
       <tags>
-        <tag>ROS</tag>
+        <tag>Linux</tag>
+        <tag>Ubuntu</tag>
       </tags>
   </entry>
   <entry>
@@ -2002,94 +2092,33 @@ class="uri">https://www.diskinternals.com/download/</a><br />
       </tags>
   </entry>
   <entry>
-    <title>Ubuntu 优化</title>
-    <url>/posts/20220801a1/</url>
-    <content><![CDATA[<div class="note "><p>Ubuntu 使用优化（20.04.1）。</p>
-</div>
-<span id="more"></span>
-<h2 id="模板-template">模板| Template</h2>
-<p>Ubuntu 20.04 鼠标右击没有新建文本文档选项。进入/home
-下的模板（Template）目录，使用<code>sudo gedit 新建文本文档.txt</code>创建一个空文本文档，保存退出后，鼠标右击即可添加新建文本文档，且创建的文档与自定义的文档名称一致。</p>
-<h2 id="解决-firefox-无法播放-bilibili-视频">解决 Firefox 无法播放
-bilibili 视频</h2>
-<p>在 Firefox 打开 bilibili 发现无法播放视频，显示没有 flash
-插件。<br />
-在终端输入<code>sudo apt install ubuntu-restricted-extras</code>安装相应解码器即可。<br />
-中间需要选择“确定”，按 Tab 即可选择。<br />
-<img src="https://s2.loli.net/2022/08/05/PmJx1ducGlgkTOh.png" />
-安装成功：<br />
-<img src="https://s2.loli.net/2022/08/05/J6G4AkMDqjTmdKC.png" />
-再次使用 Firefox 打开 bilibili 已经可以播放视频了。</p>
-<h2 id="蓝牙配置">蓝牙配置</h2>
-<p>检查蓝牙服务是否正在运行：<br />
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo systemctl status bluetooth.service</span><br></pre></td></tr></table></figure> 启用蓝牙服务：<br />
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo systemctl <span class="built_in">enable</span> bluetooth.service</span><br></pre></td></tr></table></figure> 使用 systemctl 重新启动该服务：<br />
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo systemctl start bluetooth.service</span><br></pre></td></tr></table></figure> 编辑配置文件：<br />
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo gedit /etc/bluetooth/main.conf</span><br></pre></td></tr></table></figure>
-<strong>自动启用</strong>：自动启用可确保在设备重启时启用蓝牙模块，并允许蓝牙适配器识别周围新连接的蓝牙设备。<br />
-<img src="https://s2.loli.net/2022/08/09/PmRaYzTNSlB1QtI.png" />
-<strong>启用重新连接尝试</strong>：配置后每当蓝牙设备和计算机断开连接时，它都会尝试重新连接。只需取消注释配置文件中的
-ReconnectAttempts = 7 行。<br />
-<img src="https://s2.loli.net/2022/08/09/xsTJODdfFGMn6uw.png" />
-<strong>启用快速连接</strong>：通过将 FastConnectable 的值设置为
-true，可以确保在重启或休眠时，蓝牙设备能够更快地连接到 PC。<br />
-<img src="https://s2.loli.net/2022/08/09/2RoOpZ4y9IgkneP.png" /></p>
-<h2 id="终端工具">终端工具</h2>
-<h3 id="terminator-终端模拟器">Terminator 终端模拟器</h3>
-<p>下载：<code>sudo apt install terminator</code></p>
-<h4 id="快捷键">快捷键</h4>
-<p>同一窗口内操作： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Alt+Up                          //移动到上面的终端</span><br><span class="line">Alt+Down                        //移动到下面的终端</span><br><span class="line">Alt+Left                        //移动到左边的终端</span><br><span class="line">Alt+Right                       //移动到右边的终端</span><br><span class="line">Ctrl+Shift+O                    //水平分割终端</span><br><span class="line">Ctrl+Shift+E                    //垂直分割终端</span><br><span class="line">Ctrl+Shift+Right                //在垂直分割的终端中将分割条向右移动</span><br><span class="line">Ctrl+Shift+Left                 //在垂直分割的终端中将分割条向左移动</span><br><span class="line">Ctrl+Shift+Up                   //在水平分割的终端中将分割条向上移动</span><br><span class="line">Ctrl+Shift+Down                 //在水平分割的终端中将分割条向下移动</span><br><span class="line">Ctrl+Shift+S                    //隐藏/显示滚动条</span><br><span class="line">Ctrl+Shift+F                    //搜索</span><br><span class="line">Ctrl+Shift+C                    //复制选中的内容到剪贴板</span><br><span class="line">Ctrl+Shift+V                    //粘贴剪贴板的内容到此处</span><br><span class="line">Ctrl+Shift+W                    //关闭当前终端</span><br><span class="line">Ctrl+Shift+Q                    //退出当前窗口，当前窗口的所有终端都将被关闭</span><br><span class="line">Ctrl+Shift+X                    //最大化显示当前终端</span><br><span class="line">Ctrl+Shift+Z                    //最大化显示当前终端并使字体放大</span><br><span class="line">Ctrl+Shift+N or Ctrl+Tab        //移动到下一个终端</span><br><span class="line">Ctrl+Shift+P or Ctrl+Shift+Tab  //Crtl+Shift+Tab 移动到之前的一个终端</span><br></pre></td></tr></table></figure></p>
-<p>各个窗口间操作： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">F11                             //全屏开关</span><br><span class="line">Ctrl+Shift+T                    //打开一个新的标签</span><br><span class="line">Ctrl+PageDown                   //移动到下一个标签</span><br><span class="line">Ctrl+PageUp                     //移动到上一个标签</span><br><span class="line">Ctrl+Shift+PageDown             //将当前标签与其后一个标签交换位置</span><br><span class="line">Ctrl+Shift+PageUp               //将当前标签与其前一个标签交换位置</span><br><span class="line">Ctrl+Plus (+)                   //增大字体</span><br><span class="line">Ctrl+Minus (-)                  //减小字体</span><br><span class="line">Ctrl+Zero (0)                   //恢复字体到原始大小</span><br><span class="line">Ctrl+Shift+R                    //重置终端状态</span><br><span class="line">Ctrl+Shift+G                    //重置终端状态并clear屏幕</span><br><span class="line">Super+g                         //绑定所有的终端，以便向一个输入能够输入到所有的终端</span><br><span class="line">Super+Shift+G                   //解除绑定</span><br><span class="line">Super+t                         //绑定当前标签的所有终端，向一个终端输入的内容会自动输入到其他终端</span><br><span class="line">Super+Shift+T                   //解除绑定</span><br><span class="line">Ctrl+Shift+I                    //打开一个窗口，新窗口与原来的窗口使用同一个进程</span><br><span class="line">Super+i                         //打开一个新窗口，新窗口与原来的窗口使用不同的进程</span><br></pre></td></tr></table></figure></p>
-<h3 id="gnu-screen">GNU Screen</h3>
-<p>下载：<code>sudo apt install screen</code></p>
-<h4 id="gnu-screen-简介">GNU Screen 简介</h4>
-<p>screen 是一款由 GNU
-计划开发的用于命令行终端切换的自由软件。用户可以通过该软件同时连接多个本地或远程的命令行会话，并在其间自由切换。GNU
-Screen
-可以看作是窗口管理器的命令行界面版本。它提供了统一的管理多个会话的界面和相应的功能。<br />
-在 screen
-环境下，所有的会话都独立的运行，并拥有各自的编号、输入、输出和窗口缓存。用户可以通过快捷键在不同的窗口下切换，并可以自由的重定向各个窗口的输入和输出。</p>
-<h4 id="功能">功能</h4>
-<ul>
-<li>可以创建一个session（会话），实现不同终端之间的交互。<br />
-</li>
-<li>可以实现多人观看同一终端等功能。</li>
-<li>在工作中，如遇突发情况（例如断电，蓝屏等），终端断开，服务器端所有收到信号的前台任务将全部终止，各种工作环境将全部丢失。若在
-screen 里操作，终端意外关闭之后，下次登录到服务器上，进入 screen，之前在
-screen 上运行的任务还在继续运行。screen
-的功能可以大概理解为它将前台任务放入了后台进行，并且不受终端关闭或其它意外事故的影响。</li>
-</ul>
-<h3 id="tmuxterminal-multiplexer类似-gnu-screen">Tmux（terminal
-multiplexer,类似 GNU Screen）</h3>
-<p>下载：<code>sudo apt install tmux</code></p>
-<h4 id="功能-1">功能</h4>
-<ul>
-<li>允许在单个窗口中，同时访问多个会话。这对于同时运行多个命令行程序很有用。<br />
-</li>
-<li>可以让新窗口"接入"已经存在的会话。<br />
-</li>
-<li>允许每个会话有多个连接窗口，因此可以多人实时共享会话。<br />
-</li>
-<li>支持窗口任意的垂直和水平拆分。</li>
-</ul>
-<h2 id="参考文章">参考文章</h2>
-<p><a href="https://www.ruanyifeng.com/blog/2019/10/tmux.html">Tmux
-使用教程</a><br />
-<a
-href="https://www.homedt.net/40644.html">Linux中的screen命令的使用</a><br />
-<a
-href="https://cloud.tencent.com/developer/article/1844735">Linux终端命令神器--Screen命令详解。助力Linux使用和管理</a><br />
-<a
-href="https://zhongguo.eskere.club/%E5%A6%82%E4%BD%95%E4%BF%AE%E5%A4%8Dubuntu-linux%E4%B8%AD%E7%9A%84%E8%93%9D%E7%89%99%E8%BF%9E%E6%8E%A5%E9%97%AE%E9%A2%98/2021-05-12/?__cf_chl_tk=UCmaDe_SWYb41eIhI0dKuadHk0.rGbm7YcRyUkdjQMM-1660017919-0-gaNycGzNCH0">如何修复Ubuntu
-Linux中的蓝牙连接问题</a></p>
+    <title>Hello World</title>
+    <url>/posts/20210811cldwp18050017nkf9e863avrt/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very
+first post. Check <a href="https://hexo.io/docs/">documentation</a> for
+more info. If you get any problems when using Hexo, you can find the
+answer in <a
+href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or
+you can ask me on <a
+href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<p><span id="more"></span></p>
+<h2 id="quick-start">Quick Start</h2>
+<h3 id="create-a-new-post">Create a new post</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a
+href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="run-server">Run server</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="generate-static-files">Generate static files</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a
+href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a
+href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>Ubuntu</tag>
-      </tags>
   </entry>
   <entry>
     <title>使用 Jetson Nano 向 PX4 提供 t265 位置信息，实现室内定点飞行</title>
@@ -2206,35 +2235,6 @@ Nano使用T265向PX4提供位置信息</a></p>
       <tags>
         <tag>PX4</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/posts/20210811cldfdzt1o001d60f98gr84rd6/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very
-first post. Check <a href="https://hexo.io/docs/">documentation</a> for
-more info. If you get any problems when using Hexo, you can find the
-answer in <a
-href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or
-you can ask me on <a
-href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<p><span id="more"></span></p>
-<h2 id="quick-start">Quick Start</h2>
-<h3 id="create-a-new-post">Create a new post</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a
-href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="run-server">Run server</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="generate-static-files">Generate static files</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a
-href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a
-href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
   </entry>
   <entry>
     <title>在Hexo博客上进行创作</title>
@@ -2850,8 +2850,40 @@ href="https://zcw-blog.top/posts/20220424a1/">Hexo+NexT配置优化指南</a></p
       </tags>
   </entry>
   <entry>
+    <title>积化和差、和差化积公式</title>
+    <url>/posts/20211001a1/</url>
+    <content><![CDATA[<div class="note "><p>本文主要用于测试 mathjax 渲染功能。<br />
+关于如何添加 Hexo 博客的 mathjax 渲染功能，可见<a
+href="https://zcw-blog.top/posts/20220424a1/#%E6%B8%B2%E6%9F%93-mathjax">Hexo
++ NexT 配置优化指南——渲染 mathjax</a>。</p>
+</div>
+<p><span id="more"></span></p>
+<h2 id="和差化积">和差化积</h2>
+<p><span class="math display">\[
+\sin x+\sin y=2 \sin \frac{x+y}{2} \cos \frac{x-y}{2}
+\]</span> <span class="math display">\[
+\sin x-\sin y=2 \cos \frac{x+y}{2} \sin \frac{x-y}{2}
+\]</span> <span class="math display">\[
+\cos x+\cos y=2 \cos \frac{x+y}{2} \cos \frac{x-y}{2}
+\]</span> <span class="math display">\[
+\cos x-\cos y=-2 \sin \frac{x+y}{2} \sin \frac{x-y}{2}
+\]</span></p>
+<h2 id="积化和差">积化和差</h2>
+<p><span class="math display">\[
+\sin x \sin y=-\frac{1}{2}[\cos (x+y)-\cos (x-y)]
+\]</span> <span class="math display">\[
+\cos x \cos y=\frac{1}{2}[\cos (x+y)+\cos (x-y)]
+\]</span> <span class="math display">\[
+\sin x \cos y=\frac{1}{2}[\sin (x+y)+\sin (x-y)]
+\]</span></p>
+<p>辅助记忆口诀：</p>
+<p>正加正，正在前，余加余，余并肩</p>
+<p>正减正，余在前，余减余，负正弦</p>
+]]></content>
+  </entry>
+  <entry>
     <title>观赛|世锦赛1/8</title>
-    <url>/posts/20220825cldfdzt2u003460f90bync0x0/</url>
+    <url>/posts/20220825cldwp181d0037nkf9azk12c4t/</url>
     <content><![CDATA[<div class="note "><p>今日是2022羽毛球世锦赛1/8赛程，在优酷看了几场直播，都有些挑战心理承受能力了。</p>
 </div>
 <span id="more"></span>
@@ -2910,37 +2942,5 @@ href="https://zcw-blog.top/posts/20220424a1/">Hexo+NexT配置优化指南</a></p
       <tags>
         <tag>羽毛球</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>积化和差、和差化积公式</title>
-    <url>/posts/20211001a1/</url>
-    <content><![CDATA[<div class="note "><p>本文主要用于测试 mathjax 渲染功能。<br />
-关于如何添加 Hexo 博客的 mathjax 渲染功能，可见<a
-href="https://zcw-blog.top/posts/20220424a1/#%E6%B8%B2%E6%9F%93-mathjax">Hexo
-+ NexT 配置优化指南——渲染 mathjax</a>。</p>
-</div>
-<p><span id="more"></span></p>
-<h2 id="和差化积">和差化积</h2>
-<p><span class="math display">\[
-\sin x+\sin y=2 \sin \frac{x+y}{2} \cos \frac{x-y}{2}
-\]</span> <span class="math display">\[
-\sin x-\sin y=2 \cos \frac{x+y}{2} \sin \frac{x-y}{2}
-\]</span> <span class="math display">\[
-\cos x+\cos y=2 \cos \frac{x+y}{2} \cos \frac{x-y}{2}
-\]</span> <span class="math display">\[
-\cos x-\cos y=-2 \sin \frac{x+y}{2} \sin \frac{x-y}{2}
-\]</span></p>
-<h2 id="积化和差">积化和差</h2>
-<p><span class="math display">\[
-\sin x \sin y=-\frac{1}{2}[\cos (x+y)-\cos (x-y)]
-\]</span> <span class="math display">\[
-\cos x \cos y=\frac{1}{2}[\cos (x+y)+\cos (x-y)]
-\]</span> <span class="math display">\[
-\sin x \cos y=\frac{1}{2}[\sin (x+y)+\sin (x-y)]
-\]</span></p>
-<p>辅助记忆口诀：</p>
-<p>正加正，正在前，余加余，余并肩</p>
-<p>正减正，余在前，余减余，负正弦</p>
-]]></content>
   </entry>
 </search>
