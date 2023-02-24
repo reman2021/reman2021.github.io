@@ -118,53 +118,6 @@ href="https://chziq.com/posts/3655275721/">CNAME记录指向vercel影响了CAA�
       </tags>
   </entry>
   <entry>
-    <title>DELL G3 安装 Ubuntu 遇到的问题</title>
-    <url>/posts/20220904a1/</url>
-    <content><![CDATA[<div class="note "><p>关于去年在我的 Dell G3 笔记本上安装 Ubuntu
-系统时遇到的问题，由于之后不时有人问我，而我却忘记改了什么，今天偶然进入
-UEFI 才突然想起来当时遇到的是 SATA 模式的问题，在此记录一下。</p>
-</div>
-<span id="more"></span>
-<h2 id="问题原因">问题原因</h2>
-<p>Dell 笔记本默认的 SATA 硬盘模式是 Raid on,而 Ubuntu 系统需要的是
-AHCI，因此导致 Ubuntu 系统无法安装。</p>
-<h2 id="解决方法">解决方法</h2>
-<p>解决方法自然是将 SATA Operation 更改为 ACHI，但是看很多人更改完后
-Windows 系统蓝屏无法进入，继续检索发现可以在 Windows
-安全模式下更改，在此简记一下：</p>
-<ul>
-<li>Win + R，输入 <code>msconfig</code><br />
-</li>
-<li>选择“引导”并勾选“安全引导”项(或在 CMD 输入
-<code>bcdedit/set safeboot</code>)<br />
-</li>
-<li>确定后重新启动<br />
-</li>
-<li>重启时不断连续按 F2 进入 BIOS，将 SATA Operation 改为 AHCI<br />
-</li>
-<li>Apply，Exit<br />
-</li>
-<li>系统进入安全模式<br />
-</li>
-<li>取消勾选“安全引导”项(或在 CMD 输入
-<code>bcdedit/deletevalue safeboot</code>)<br />
-</li>
-<li>重启</li>
-</ul>
-<h2 id="参考文章">参考文章</h2>
-<p><a
-href="https://www.dell.com/support/kbdoc/zh-cn/000138544/%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E4%BF%AE%E5%A4%8D%E7%94%B1%E6%9B%B4%E6%94%B9-sata-%E6%A8%A1%E5%BC%8F%E5%AF%BC%E8%87%B4%E7%9A%84-windows-%E8%93%9D%E5%B1%8F%E9%94%99%E8%AF%AF">如何快速修复由更改
-SATA 模式导致的 Windows 蓝屏错误</a></p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>Ubuntu</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Clash for Linux</title>
     <url>/posts/20220726a1/</url>
     <content><![CDATA[<div class="note "><p>配置 Clash for Linux，并设置开机自启动。<br />
@@ -210,6 +163,53 @@ HTTP 和 HTTPS 代理为 127.0.0.1:7890，填写 Socks 主机为
       </categories>
       <tags>
         <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>DELL G3 安装 Ubuntu 遇到的问题</title>
+    <url>/posts/20220904a1/</url>
+    <content><![CDATA[<div class="note "><p>关于去年在我的 Dell G3 笔记本上安装 Ubuntu
+系统时遇到的问题，由于之后不时有人问我，而我却忘记改了什么，今天偶然进入
+UEFI 才突然想起来当时遇到的是 SATA 模式的问题，在此记录一下。</p>
+</div>
+<span id="more"></span>
+<h2 id="问题原因">问题原因</h2>
+<p>Dell 笔记本默认的 SATA 硬盘模式是 Raid on,而 Ubuntu 系统需要的是
+AHCI，因此导致 Ubuntu 系统无法安装。</p>
+<h2 id="解决方法">解决方法</h2>
+<p>解决方法自然是将 SATA Operation 更改为 ACHI，但是看很多人更改完后
+Windows 系统蓝屏无法进入，继续检索发现可以在 Windows
+安全模式下更改，在此简记一下：</p>
+<ul>
+<li>Win + R，输入 <code>msconfig</code><br />
+</li>
+<li>选择“引导”并勾选“安全引导”项(或在 CMD 输入
+<code>bcdedit/set safeboot</code>)<br />
+</li>
+<li>确定后重新启动<br />
+</li>
+<li>重启时不断连续按 F2 进入 BIOS，将 SATA Operation 改为 AHCI<br />
+</li>
+<li>Apply，Exit<br />
+</li>
+<li>系统进入安全模式<br />
+</li>
+<li>取消勾选“安全引导”项(或在 CMD 输入
+<code>bcdedit/deletevalue safeboot</code>)<br />
+</li>
+<li>重启</li>
+</ul>
+<h2 id="参考文章">参考文章</h2>
+<p><a
+href="https://www.dell.com/support/kbdoc/zh-cn/000138544/%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E4%BF%AE%E5%A4%8D%E7%94%B1%E6%9B%B4%E6%94%B9-sata-%E6%A8%A1%E5%BC%8F%E5%AF%BC%E8%87%B4%E7%9A%84-windows-%E8%93%9D%E5%B1%8F%E9%94%99%E8%AF%AF">如何快速修复由更改
+SATA 模式导致的 Windows 蓝屏错误</a></p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Ubuntu</tag>
       </tags>
   </entry>
   <entry>
@@ -1880,6 +1880,132 @@ href="http://www.autolabor.com.cn/book/ROSTutorials/">【Autolabor初级教程�
       </tags>
   </entry>
   <entry>
+    <title>SWITCH 网络问题解决</title>
+    <url>/posts/20230128a1/</url>
+    <content><![CDATA[<div class="note "><p>解决 switch 无法连接手机热点和代理设置问题。</p>
+</div>
+<span id="more"></span>
+<h2 id="switch-连接手机热点">switch 连接手机热点</h2>
+<p>由于试遍了网上的设置方法仍无法连接手机热点（错误代码
+2110-2101），故改换思路，使用笨方法：<br />
+使用电脑连接手机热点后开启网络共享。</p>
+<h2 id="switch-网络代理">switch 网络代理</h2>
+<p>通过电脑 clash 实现：</p>
+<ul>
+<li>电脑与 switch 连接同一网络<br />
+</li>
+<li>开启 clash 代理<br />
+</li>
+<li>开启 clash 首页 Allow LAN 按钮<br />
+</li>
+<li>光标停留在 Allow LAN 按钮上查看主机 IP<br />
+</li>
+<li>更改 switch 所连接网络的设定，开启代理伺服器<br />
+</li>
+<li>伺服器填写主机 IP，通讯埠对应填写 clash 首页 Port（端口）<br />
+</li>
+<li>储存连接即可，通过连接测试便可看到switch的全球 IP
+位址已经变为代理位置</li>
+</ul>
+]]></content>
+      <categories>
+        <category>游戏</category>
+        <category>switch</category>
+      </categories>
+      <tags>
+        <tag>switch</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Windows 软件使用分享</title>
+    <url>/posts/20220719a1/</url>
+    <content><![CDATA[<div class="note "><p>分享个人使用的 Windows 软件。</p>
+</div>
+<span id="more"></span>
+<h2 id="福昕高级pdf编辑器">福昕高级PDF编辑器</h2>
+<p>PDF 是 Portable Document Format 的简称，意为“可携带文档格式”，是由
+Adobe 公司开发的一种通用的文档格式，具有通用性好、保真性强等优点。<br />
+但是由于 PDF
+本身的特点，选择一款稳定、快速的软件用以阅读编辑显得尤为重要。<br />
+目前较为推荐的有国内福昕和 Adobe 公司的软件，分别是福昕高级PDF编辑器和
+Adobe Acrobat Reader DC。如果只有阅读需求，Microsoft Edge 的 PDF
+阅读体验也是可以的。
+在尝试过两个之后，个人还是更喜欢福昕高级PDF编辑器。<br />
+<img src="https://s2.loli.net/2022/07/19/5vtSUKqVi3ENRxd.png" /><br />
+<img src="https://s2.loli.net/2022/07/19/9abxiS2NT17k5rw.png" /><br />
+这里附上 9.7.1
+版本的安装文件和来自<strong>胡萝卜周</strong>的补丁：<br />
+链接：https://pan.baidu.com/s/12zbUdP_Bsz65t1omdXKdLA<br />
+提取码：w899</p>
+<h2 id="知云文献翻译">知云文献翻译</h2>
+<p>外文论文文献翻译利器。<br />
+官网下载：<a href="https://www.zhiyunwenxian.cn/"
+class="uri">https://www.zhiyunwenxian.cn/</a><br />
+<img src="https://s2.loli.net/2022/07/19/tF3whGmuzoIsZWk.png" /></p>
+<h2 id="ev录屏">EV录屏</h2>
+<p>官网下载：<a href="https://www.ieway.cn/evcapture.html"
+class="uri">https://www.ieway.cn/evcapture.html</a><br />
+<img src="https://s2.loli.net/2022/07/19/JDzuTnXlq2oMS36.png" /><br />
+<img src="https://s2.loli.net/2022/07/19/oXYdGM9cJaKu4VI.png" /></p>
+<h2 id="mathpix-snipping-tool">Mathpix Snipping Tool</h2>
+<p>识别公式并生成相应代码，非常好用。（每个月只能免费使用10次）<br />
+官网下载：<a href="https://mathpix.com/"
+class="uri">https://mathpix.com/</a><br />
+<img src="https://s2.loli.net/2022/07/19/Z5IELwFAXuW1kiv.png" /><br />
+<img src="https://s2.loli.net/2022/07/19/CAnMGTyzx1DlBjX.png" /></p>
+<h2 id="snipaste">Snipaste</h2>
+<p>个人最常用的截图工具，小巧好用。<br />
+官网下载：<a href="https://www.snipaste.com/"
+class="uri">https://www.snipaste.com/</a><br />
+<img src="https://s2.loli.net/2022/07/19/CqKFAOUXkczMsV8.png" /><br />
+它还可以将截图贴在屏幕上，并支持放大缩小。<br />
+<img src="https://s2.loli.net/2022/07/19/tzD4pxUdQ2ZT837.png" /><br />
+<img src="https://s2.loli.net/2022/07/19/uKkegcS5hFosLwE.png" /><br />
+<img src="https://s2.loli.net/2022/07/19/ypBJm5TxzfriGwD.png" /></p>
+<h2 id="bandizip">Bandizip</h2>
+<p>压缩解压缩软件，没有 WinRAR 烦人的广告。<br />
+官网下载：<a href="https://www.bandisoft.com/bandizip/"
+class="uri">https://www.bandisoft.com/bandizip/</a><br />
+<img src="https://s2.loli.net/2022/07/19/P1mKs5MZorLd2AS.png" /><br />
+<img src="https://s2.loli.net/2022/07/19/oADFHTQzOPmbBIx.png" /></p>
+<h2 id="wox-everything">Wox + Everything</h2>
+<p>高效办公好助手。（用惯的话）<br />
+具体参考：<a
+href="https://blog.csdn.net/qq_29860591/article/details/107873980">Wox+Everything结合使用</a><br />
+<img src="https://s2.loli.net/2022/07/19/xf4bI1aCoFkvGlK.png" /><img
+src="https://s2.loli.net/2022/07/19/rdIiUW7hN1b5RXL.png" /> <img
+src="https://s2.loli.net/2022/07/31/EVkcWijDqBdgNRv.png" /></p>
+<h2 id="向日葵远程控制">向日葵远程控制</h2>
+<p>可用手机平板远程控制电脑，进行文件传输，免费版功能基本满足所需。<br />
+官网下载：<a href="https://sunlogin.oray.com/"
+class="uri">https://sunlogin.oray.com/</a><br />
+<img src="https://s2.loli.net/2022/07/19/vXCISpwyTstoLMq.png" /><br />
+<img src="https://s2.loli.net/2022/07/19/EXLG9bSNlIOutdy.png" /></p>
+<h2 id="picpick">PicPick</h2>
+<p>小工具箱。<br />
+官网下载：<a href="https://picpick.app/zh/"
+class="uri">https://picpick.app/zh/</a><br />
+<img src="https://s2.loli.net/2022/07/20/TB3eCAybEJk2tqN.png" /><br />
+<img src="https://s2.loli.net/2022/07/20/Jx8YPnZA96VhQau.png" /></p>
+<h2 id="linux-reader">Linux Reader</h2>
+<p>适用于双系统，可在 Windows 下访问 Linux 的文件。<br />
+官网下载：<a href="https://www.diskinternals.com/download/"
+class="uri">https://www.diskinternals.com/download/</a><br />
+<img src="https://s2.loli.net/2022/07/31/Bs79aMTrGgF4kYI.png" /><br />
+<img src="https://s2.loli.net/2022/07/31/XfsjBr39zb7JHNl.png" /></p>
+<h2 id="toastfish">ToastFish</h2>
+<p>轻巧的电脑桌面背单词工具，适合学习工作游戏之余增加词汇量，实现碎片化背单词。<br />
+官网下载：<a href="https://lab.magiconch.com/toast-fish/"
+class="uri">https://lab.magiconch.com/toast-fish/</a></p>
+]]></content>
+      <categories>
+        <category>Windows</category>
+      </categories>
+      <tags>
+        <tag>Windows</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Ubuntu 优化</title>
     <url>/posts/20220801a1/</url>
     <content><![CDATA[<div class="note "><p>Ubuntu 使用优化（20.04.1）。</p>
@@ -1970,45 +2096,8 @@ Linux中的蓝牙连接问题</a></p>
       </tags>
   </entry>
   <entry>
-    <title>SWITCH 网络问题解决</title>
-    <url>/posts/20230128a1/</url>
-    <content><![CDATA[<div class="note "><p>解决 switch 无法连接手机热点和代理设置问题。</p>
-</div>
-<span id="more"></span>
-<h2 id="switch-连接手机热点">switch 连接手机热点</h2>
-<p>由于试遍了网上的设置方法仍无法连接手机热点（错误代码
-2110-2101），故改换思路，使用笨方法：<br />
-使用电脑连接手机热点后开启网络共享。</p>
-<h2 id="switch-网络代理">switch 网络代理</h2>
-<p>通过电脑 clash 实现：</p>
-<ul>
-<li>电脑与 switch 连接同一网络<br />
-</li>
-<li>开启 clash 代理<br />
-</li>
-<li>开启 clash 首页 Allow LAN 按钮<br />
-</li>
-<li>光标停留在 Allow LAN 按钮上查看主机 IP<br />
-</li>
-<li>更改 switch 所连接网络的设定，开启代理伺服器<br />
-</li>
-<li>伺服器填写主机 IP，通讯埠对应填写 clash 首页 Port（端口）<br />
-</li>
-<li>储存连接即可，通过连接测试便可看到switch的全球 IP
-位址已经变为代理位置</li>
-</ul>
-]]></content>
-      <categories>
-        <category>游戏</category>
-        <category>switch</category>
-      </categories>
-      <tags>
-        <tag>switch</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hello World</title>
-    <url>/posts/20210811cldwsbalt0018ucf9bmx50yep/</url>
+    <url>/posts/20210811cleinmjgk0016hwf9g2ur37cu/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very
 first post. Check <a href="https://hexo.io/docs/">documentation</a> for
 more info. If you get any problems when using Hexo, you can find the
@@ -2034,91 +2123,6 @@ href="https://hexo.io/docs/generating.html">Generating</a></p>
 <p>More info: <a
 href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
-  </entry>
-  <entry>
-    <title>Windows 软件使用分享</title>
-    <url>/posts/20220719a1/</url>
-    <content><![CDATA[<div class="note "><p>分享个人使用的 Windows 软件。</p>
-</div>
-<span id="more"></span>
-<h2 id="福昕高级pdf编辑器">福昕高级PDF编辑器</h2>
-<p>PDF 是 Portable Document Format 的简称，意为“可携带文档格式”，是由
-Adobe 公司开发的一种通用的文档格式，具有通用性好、保真性强等优点。<br />
-但是由于 PDF
-本身的特点，选择一款稳定、快速的软件用以阅读编辑显得尤为重要。<br />
-目前较为推荐的有国内福昕和 Adobe 公司的软件，分别是福昕高级PDF编辑器和
-Adobe Acrobat Reader DC。如果只有阅读需求，Microsoft Edge 的 PDF
-阅读体验也是可以的。
-在尝试过两个之后，个人还是更喜欢福昕高级PDF编辑器。<br />
-<img src="https://s2.loli.net/2022/07/19/5vtSUKqVi3ENRxd.png" /><br />
-<img src="https://s2.loli.net/2022/07/19/9abxiS2NT17k5rw.png" /><br />
-这里附上 9.7.1
-版本的安装文件和来自<strong>胡萝卜周</strong>的补丁：<br />
-链接：https://pan.baidu.com/s/12zbUdP_Bsz65t1omdXKdLA<br />
-提取码：w899</p>
-<h2 id="知云文献翻译">知云文献翻译</h2>
-<p>外文论文文献翻译利器。<br />
-官网下载：<a href="https://www.zhiyunwenxian.cn/"
-class="uri">https://www.zhiyunwenxian.cn/</a><br />
-<img src="https://s2.loli.net/2022/07/19/tF3whGmuzoIsZWk.png" /></p>
-<h2 id="ev录屏">EV录屏</h2>
-<p>官网下载：<a href="https://www.ieway.cn/evcapture.html"
-class="uri">https://www.ieway.cn/evcapture.html</a><br />
-<img src="https://s2.loli.net/2022/07/19/JDzuTnXlq2oMS36.png" /><br />
-<img src="https://s2.loli.net/2022/07/19/oXYdGM9cJaKu4VI.png" /></p>
-<h2 id="mathpix-snipping-tool">Mathpix Snipping Tool</h2>
-<p>识别公式并生成相应代码，非常好用。（每个月只能免费使用10次）<br />
-官网下载：<a href="https://mathpix.com/"
-class="uri">https://mathpix.com/</a><br />
-<img src="https://s2.loli.net/2022/07/19/Z5IELwFAXuW1kiv.png" /><br />
-<img src="https://s2.loli.net/2022/07/19/CAnMGTyzx1DlBjX.png" /></p>
-<h2 id="snipaste">Snipaste</h2>
-<p>个人最常用的截图工具，小巧好用。<br />
-官网下载：<a href="https://www.snipaste.com/"
-class="uri">https://www.snipaste.com/</a><br />
-<img src="https://s2.loli.net/2022/07/19/CqKFAOUXkczMsV8.png" /><br />
-它还可以将截图贴在屏幕上，并支持放大缩小。<br />
-<img src="https://s2.loli.net/2022/07/19/tzD4pxUdQ2ZT837.png" /><br />
-<img src="https://s2.loli.net/2022/07/19/uKkegcS5hFosLwE.png" /><br />
-<img src="https://s2.loli.net/2022/07/19/ypBJm5TxzfriGwD.png" /></p>
-<h2 id="bandizip">Bandizip</h2>
-<p>压缩解压缩软件，没有 WinRAR 烦人的广告。<br />
-官网下载：<a href="https://www.bandisoft.com/bandizip/"
-class="uri">https://www.bandisoft.com/bandizip/</a><br />
-<img src="https://s2.loli.net/2022/07/19/P1mKs5MZorLd2AS.png" /><br />
-<img src="https://s2.loli.net/2022/07/19/oADFHTQzOPmbBIx.png" /></p>
-<h2 id="wox-everything">Wox + Everything</h2>
-<p>高效办公好助手。（用惯的话）<br />
-具体参考：<a
-href="https://blog.csdn.net/qq_29860591/article/details/107873980">Wox+Everything结合使用</a><br />
-<img src="https://s2.loli.net/2022/07/19/xf4bI1aCoFkvGlK.png" /><img
-src="https://s2.loli.net/2022/07/19/rdIiUW7hN1b5RXL.png" /> <img
-src="https://s2.loli.net/2022/07/31/EVkcWijDqBdgNRv.png" /></p>
-<h2 id="向日葵远程控制">向日葵远程控制</h2>
-<p>可用手机平板远程控制电脑，进行文件传输，免费版功能基本满足所需。<br />
-官网下载：<a href="https://sunlogin.oray.com/"
-class="uri">https://sunlogin.oray.com/</a><br />
-<img src="https://s2.loli.net/2022/07/19/vXCISpwyTstoLMq.png" /><br />
-<img src="https://s2.loli.net/2022/07/19/EXLG9bSNlIOutdy.png" /></p>
-<h2 id="picpick">PicPick</h2>
-<p>小工具箱。<br />
-官网下载：<a href="https://picpick.app/zh/"
-class="uri">https://picpick.app/zh/</a><br />
-<img src="https://s2.loli.net/2022/07/20/TB3eCAybEJk2tqN.png" /><br />
-<img src="https://s2.loli.net/2022/07/20/Jx8YPnZA96VhQau.png" /></p>
-<h2 id="linux-reader">Linux Reader</h2>
-<p>适用于双系统，可在 Windows 下访问 Linux 的文件。<br />
-官网下载：<a href="https://www.diskinternals.com/download/"
-class="uri">https://www.diskinternals.com/download/</a><br />
-<img src="https://s2.loli.net/2022/07/31/Bs79aMTrGgF4kYI.png" /><br />
-<img src="https://s2.loli.net/2022/07/31/XfsjBr39zb7JHNl.png" /></p>
-]]></content>
-      <categories>
-        <category>Windows</category>
-      </categories>
-      <tags>
-        <tag>Windows</tag>
-      </tags>
   </entry>
   <entry>
     <title>使用 Jetson Nano 向 PX4 提供 t265 位置信息，实现室内定点飞行</title>
@@ -2883,7 +2887,7 @@ href="https://zcw-blog.top/posts/20220424a1/">Hexo+NexT配置优化指南</a></p
   </entry>
   <entry>
     <title>观赛|世锦赛1/8</title>
-    <url>/posts/20220825cldwsban20037ucf95rif1bnu/</url>
+    <url>/posts/20220825cleinmji90031hwf9ajcu608z/</url>
     <content><![CDATA[<div class="note "><p>今日是2022羽毛球世锦赛1/8赛程，在优酷看了几场直播，都有些挑战心理承受能力了。</p>
 </div>
 <span id="more"></span>
